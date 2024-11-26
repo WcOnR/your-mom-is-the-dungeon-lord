@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://r5xxbsm8oy84"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_tn0g8"]
+
+[resource]
+script = ExtResource("1_tn0g8")
+health = 10
+max_health = 10
+damage = 1
+color = Color(1, 0, 0, 1)

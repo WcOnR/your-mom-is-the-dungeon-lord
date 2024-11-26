@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://1gowrjdv5xvj"]
+
+[ext_resource type="Script" path="res://ui/health_ui.gd" id="1_os06w"]
+[ext_resource type="PackedScene" uid="uid://bknffommb3er4" path="res://ui/health_comp_ui.tscn" id="2_5773c"]
+
+[node name="HealthUi" type="PanelContainer"]
+custom_minimum_size = Vector2(150, 0)
+offset_right = 128.0
+offset_bottom = 23.0
+mouse_filter = 1
+script = ExtResource("1_os06w")
+
+[node name="HBoxContainer_left" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer_left"]
+layout_mode = 2
+text = "Health:"
+
+[node name="HBoxContainer_right" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="HealthLabel" parent="HBoxContainer_right" instance=ExtResource("2_5773c")]
+layout_mode = 2
+horizontal_alignment = 2

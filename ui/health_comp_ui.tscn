@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bknffommb3er4"]
+
+[ext_resource type="Script" path="res://ui/health_comp_ui.gd" id="1_qitsd"]
+
+[node name="HealthLabel" type="Label"]
+custom_minimum_size = Vector2(150, 0)
+offset_right = 150.0
+offset_bottom = 23.0
+mouse_filter = 1
+text = "%d/%d"
+script = ExtResource("1_qitsd")

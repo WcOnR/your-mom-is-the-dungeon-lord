@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://dl27d14vu5tdv"]
+
+[ext_resource type="Script" path="res://game_objects/world.gd" id="1_56t8x"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="2_5dryb"]
+[ext_resource type="Script" path="res://game_systems/action_list.gd" id="3_f7d6w"]
+[ext_resource type="PackedScene" uid="uid://cfol48c4emuyb" path="res://ui/hud.tscn" id="6_neynh"]
+[ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field.tscn" id="6_vodr4"]
+[ext_resource type="PackedScene" uid="uid://ci26slyckun7b" path="res://game_objects/player/player.tscn" id="7_0vfua"]
+[ext_resource type="Resource" uid="uid://bd27barncwqpa" path="res://game_objects/gems/gem_set.tres" id="7_2hrr1"]
+[ext_resource type="PackedScene" uid="uid://b6s25t3xxttat" path="res://game_objects/enemies/line_holder.tscn" id="8_8i71o"]
+
+[sub_resource type="Resource" id="Resource_2mlb8"]
+script = ExtResource("3_f7d6w")
+actions = Array[ExtResource("2_5dryb")]([])
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_56t8x")
+actions = SubResource("Resource_2mlb8")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.693841, 0.544613, 0.406277, 1)
+polygon = PackedVector2Array(0, 0, 592, 0, 592, 720, 0, 720)
+
+[node name="Field" parent="." instance=ExtResource("6_vodr4")]
+position = Vector2(40, 40)
+gem_set = ExtResource("7_2hrr1")
+player = NodePath("../Player")
+line_holder = NodePath("../LineHolder")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("6_neynh")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+player = NodePath("../../Player")
+
+[node name="Player" parent="." instance=ExtResource("7_0vfua")]
+
+[node name="LineHolder" parent="." instance=ExtResource("8_8i71o")]
+position = Vector2(764, 384)
