@@ -7,3 +7,5 @@
 script = ExtResource("1_uktum")
 
 [node name="HealthComp" parent="." instance=ExtResource("2_561jy")]
+health = 10
+max_health = 10

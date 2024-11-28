@@ -2,7 +2,7 @@ class_name HUD extends Control
 
 @export var player : NodePath 
 
-@onready var health_ui : HealthUI = $Panel/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/HealthUi
+@onready var health_ui : HealthUI = $Panel/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/HealthUi
 
 var _player : Player = null
 var _health_comp : HealthComp = null

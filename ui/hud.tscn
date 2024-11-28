@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfol48c4emuyb"]
+[gd_scene load_steps=6 format=3 uid="uid://cfol48c4emuyb"]
 
 [ext_resource type="Script" path="res://ui/hud.gd" id="1_08ihg"]
 [ext_resource type="PackedScene" uid="uid://1gowrjdv5xvj" path="res://ui/health_ui.tscn" id="1_upqgx"]
+[ext_resource type="Texture2D" uid="uid://gkbl8opd23yh" path="res://game_objects/gems/sword.tres" id="2_tfb1t"]
+[ext_resource type="Texture2D" uid="uid://dkipe5pt23mdi" path="res://game_objects/gems/sword_pessed.tres" id="3_0lkgi"]
+[ext_resource type="Texture2D" uid="uid://btxjakvb26lmx" path="res://game_objects/gems/sword_hover.tres" id="4_yj42k"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -10,7 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 script = ExtResource("1_08ihg")
 
 [node name="Panel" type="MarginContainer" parent="."]
@@ -29,7 +31,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(612, 0)
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
@@ -43,8 +45,30 @@ alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="MoveLabel" type="Label" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "5
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="EndRoundBtn" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("2_tfb1t")
+texture_pressed = ExtResource("3_0lkgi")
+texture_hover = ExtResource("4_yj42k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
 alignment = 2
 
-[node name="HealthUi" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_upqgx")]
+[node name="HealthUi" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_upqgx")]
 layout_mode = 2
-mouse_filter = 1
+size_flags_vertical = 4

@@ -2,18 +2,24 @@ class_name LineHolder extends Node2D
 
 @export var battle : BattlePreset
 
+signal all_enemy_all_dead
+
 @onready var lines : Array[BattleLine] = [$Line, $Line2, $Line3, $Line4]
-var selected_line : int = 0
+var selected_line : int = -1
+
 
 func _ready() -> void:
+	GameInputManagerSystem.on_click_end.connect(_on_click_action)
+
+
+func spawn_enemies() -> void:
 	var enemy_data := [battle.line1, battle.line2, battle.line3, battle.line4]
 	var i := 0
 	while i < lines.size():
 		lines[i].set_enemies(enemy_data[i])
 		lines[i].enemy_dead.connect(_on_enemy_dead)
 		i += 1
-	lines[0].select(true)
-	GameInputManagerSystem.on_click_end.connect(_on_click_action)
+	_select_next_line()
 
 
 func apply_damage(damage : int) -> void:
@@ -22,11 +28,21 @@ func apply_damage(damage : int) -> void:
 		enemies[0].health_comp.apply_damage(damage)
 
 
+func get_active_lines_count() -> int:
+	var i := 0
+	for l in lines:
+		if not l.enemies.is_empty():
+			i += 1
+	return i
+
+
 func _select_next_line() -> void:
 	lines[selected_line].select(false)
+	var old_selected_line := selected_line
+	selected_line = -1
 	var i := 1
 	while i < lines.size():
-		var tmp := (selected_line + i) % lines.size()
+		var tmp := (old_selected_line + i) % lines.size()
 		if not lines[tmp].enemies.is_empty():
 			_selct_line(lines[tmp])
 			break
@@ -64,5 +80,5 @@ func _on_enemy_dead() -> void:
 	var enemies := lines[selected_line].enemies
 	if enemies.is_empty():
 		_select_next_line()
-	else:
-		pass
+		if selected_line == -1:
+			all_enemy_all_dead.emit()

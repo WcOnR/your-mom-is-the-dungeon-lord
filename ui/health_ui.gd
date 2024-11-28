@@ -1,7 +1,7 @@
-class_name HealthUI extends PanelContainer
+class_name HealthUI extends Container
 
 
-@onready var health_label : HealthCompUI = $HBoxContainer_right/HealthLabel
+@onready var health_label : HealthCompUI = $HealthLabel
 
 
 func set_health_comp(health_comp : HealthComp) -> void:

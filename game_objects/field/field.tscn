@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://cd0bt5xyril8k"]
 
-[ext_resource type="Script" path="res://game_objects/field.gd" id="1_8qhw5"]
+[ext_resource type="Script" path="res://game_objects/field/field.gd" id="1_8qhw5"]
 [ext_resource type="Texture2D" uid="uid://dx8nwi3odrhb5" path="res://cell.png" id="1_evlms"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqm0f"]

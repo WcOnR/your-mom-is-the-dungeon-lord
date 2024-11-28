@@ -6,28 +6,28 @@
 
 [sub_resource type="Resource" id="Resource_6bgx8"]
 script = ExtResource("1_nfypd")
-health = 10
-max_health = 10
+health = 3
+max_health = 3
 damage = 1
 color = Color(1, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_tqsjb"]
 script = ExtResource("1_nfypd")
-health = 20
-max_health = 20
+health = 5
+max_health = 5
 damage = 1
 color = Color(0, 1, 0.0833333, 1)
 
 [sub_resource type="Resource" id="Resource_tum7m"]
 script = ExtResource("1_nfypd")
-health = 30
-max_health = 30
+health = 8
+max_health = 8
 damage = 1
 color = Color(0, 0.0666666, 1, 1)
 
 [resource]
 script = ExtResource("2_i8u5x")
-line1 = Array[ExtResource("1_nfypd")]([ExtResource("2_b41js"), ExtResource("2_b41js")])
+line1 = Array[ExtResource("1_nfypd")]([ExtResource("2_b41js")])
 line2 = Array[ExtResource("1_nfypd")]([SubResource("Resource_6bgx8"), SubResource("Resource_tqsjb"), SubResource("Resource_tum7m")])
-line3 = Array[ExtResource("1_nfypd")]([ExtResource("2_b41js"), ExtResource("2_b41js"), ExtResource("2_b41js")])
+line3 = Array[ExtResource("1_nfypd")]([ExtResource("2_b41js")])
 line4 = Array[ExtResource("1_nfypd")]([ExtResource("2_b41js"), ExtResource("2_b41js")])
