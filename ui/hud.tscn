@@ -72,3 +72,5 @@ alignment = 2
 [node name="HealthUi" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_upqgx")]
 layout_mode = 2
 size_flags_vertical = 4
+
+[connection signal="pressed" from="Panel/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer2/EndRoundBtn" to="." method="_on_end_round_btn_pressed"]

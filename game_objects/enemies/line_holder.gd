@@ -1,14 +1,17 @@
 class_name LineHolder extends Node2D
 
+@export var player : NodePath 
 @export var battle : BattlePreset
 
 signal all_enemy_all_dead
 
 @onready var lines : Array[BattleLine] = [$Line, $Line2, $Line3, $Line4]
 var selected_line : int = -1
+var _player : Player = null
 
 
 func _ready() -> void:
+	_player = get_node(player) as Player
 	GameInputManagerSystem.on_click_end.connect(_on_click_action)
 
 
@@ -19,6 +22,7 @@ func spawn_enemies() -> void:
 		lines[i].set_enemies(enemy_data[i])
 		lines[i].enemy_dead.connect(_on_enemy_dead)
 		i += 1
+	_plan_next_enemy_attack()
 	_select_next_line()
 
 
@@ -82,3 +86,18 @@ func _on_enemy_dead() -> void:
 		_select_next_line()
 		if selected_line == -1:
 			all_enemy_all_dead.emit()
+	else:
+		enemies[0].plan_next_attack()
+
+
+func enemy_attack() -> void:
+	for l in lines:
+		if not l.enemies.is_empty():
+			l.enemies[0].attack(_player)
+	await get_tree().process_frame
+
+
+func _plan_next_enemy_attack() -> void:
+	for l in lines:
+		if not l.enemies.is_empty():
+			l.enemies[0].plan_next_attack()

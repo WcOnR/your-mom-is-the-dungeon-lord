@@ -24,14 +24,17 @@ line_holder = NodePath("../LineHolder")
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("6_neynh")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
+game_mode = NodePath("../../GameMode")
 player = NodePath("../../Player")
 
 [node name="Player" parent="." instance=ExtResource("7_0vfua")]
 
 [node name="LineHolder" parent="." instance=ExtResource("8_8i71o")]
 position = Vector2(764, 384)
+player = NodePath("../Player")
 
 [node name="GameMode" type="Node" parent="."]
 script = ExtResource("6_xjlon")
 line_holder = NodePath("../LineHolder")
 player = NodePath("../Player")
+field = NodePath("../Field")

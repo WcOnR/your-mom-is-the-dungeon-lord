@@ -12,8 +12,11 @@ var cell_size : Vector2 = Vector2.ZERO
 var grid : Grid = null
 var _player : Player = null
 var _line_holder : LineHolder = null
+var _enabled : bool = false
 
 const INVALID_ID := Vector2i(-1, -1)
+
+signal gem_collapsed
 
 
 func _ready() -> void:
@@ -67,10 +70,14 @@ func block_cell(cell_id : Vector2i, block : Gem) -> void:
 			_check_field()
 
 
+func enable_input(_enable_input : bool) -> void:
+	_enabled = _enable_input
+
+
 func _on_click_action(data : ClickData) -> void:
 	var old_cell_id := _get_cell_id(data.start_position)
 	var cell_id := _get_cell_id(data.end_position)
-	if cell_id != old_cell_id or not _is_valid_cell_id(cell_id):
+	if not _enabled or cell_id != old_cell_id or not _is_valid_cell_id(cell_id):
 		return
 	var to_remove : Array[Gem] = _get_all_near_gems(grid.get_gem(cell_id))
 	if to_remove.size() >= min_gem:
@@ -79,6 +86,7 @@ func _on_click_action(data : ClickData) -> void:
 			_delete_gem(gem)
 		if gem_type.actions:
 			gem_type.actions.run_event(ActionList.ON_ACTION, [to_remove.size(), _player, _line_holder])
+		gem_collapsed.emit()
 
 
 func _get_all_near_gems(gem : Gem) -> Array[Gem]:
