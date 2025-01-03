@@ -15,9 +15,10 @@ func initialize(data : EnemyData) -> void:
 	$Icon.self_modulate = data.color
 
 
-func plan_next_attack() -> void:
+func plan_next_attack(line : BattleLine) -> void:
 	next_action = enemy_data.actions.pick_random() as Action
-	next_action.run(ON_PLAN)
+	next_action.run(ON_PLAN, [enemy_data.damage, line])
+
 
 func attack(player : Player):
 	next_action.run(ON_ACTION, [enemy_data.damage, player])

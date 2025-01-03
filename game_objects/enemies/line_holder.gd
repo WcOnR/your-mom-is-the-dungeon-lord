@@ -87,7 +87,7 @@ func _on_enemy_dead() -> void:
 		if selected_line == -1:
 			all_enemy_all_dead.emit()
 	else:
-		enemies[0].plan_next_attack()
+		enemies[0].plan_next_attack(lines[selected_line])
 
 
 func enemy_attack() -> void:
@@ -100,4 +100,4 @@ func enemy_attack() -> void:
 func _plan_next_enemy_attack() -> void:
 	for l in lines:
 		if not l.enemies.is_empty():
-			l.enemies[0].plan_next_attack()
+			l.enemies[0].plan_next_attack(l)

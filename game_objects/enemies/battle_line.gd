@@ -49,3 +49,7 @@ func _update_health_label() -> void:
 	health_ui.visible = true
 	health_ui.health_comp = enemies[0].get_node("HealthComp") as HealthComp
 	health_ui.sync_comp()
+
+
+func set_action(value : int, img : Texture2D) -> void:
+	health_ui.set_action(value, img)

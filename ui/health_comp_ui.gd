@@ -2,11 +2,11 @@ class_name HealthCompUI extends Container
 
 @export var health_comp : HealthComp
 
-@onready var health_label : Label = $Container/HealthProgressBar/HealthLabel
-@onready var health_progress : ProgressBar = $Container/HealthProgressBar
+@onready var health_label : Label = $Container2/MarginContainer/Container/HealthProgressBar/HealthLabel
+@onready var health_progress : ProgressBar = $Container2/MarginContainer/Container/HealthProgressBar
 
-@onready var shield_img : TextureRect = $MarginContainer/ShieldImg
-@onready var shield_label : Label = $MarginContainer/ShieldImg/ShieldLabel
+@onready var shields : ActionUI = $Container2/MarginContainer/shields
+@onready var action_ui : ActionUI = $Container2/MarginContainer2/ActionUi
 
 const HEALTH_FORMAT := "%d/%d"
 
@@ -23,6 +23,11 @@ func sync_comp() -> void:
 	health_comp.shield_changed.connect(_on_shield_changed)
 
 
+func set_action(value : int, img : Texture2D) -> void:
+	action_ui.set_value(value)
+	action_ui.set_img(img)
+
+
 func _on_health_changed() -> void:
 	health_label.text = HEALTH_FORMAT % [health_comp.health, health_comp.max_health]
 	health_progress.max_value = health_comp.max_health
@@ -30,5 +35,4 @@ func _on_health_changed() -> void:
 
 
 func _on_shield_changed() -> void:
-	shield_img.visible = health_comp.shield > 0
-	shield_label.text = str(health_comp.shield)
+	shields.set_value(health_comp.shield)

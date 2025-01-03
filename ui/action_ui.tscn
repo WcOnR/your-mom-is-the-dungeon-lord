@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://xikuimul3exk"]
+
+[ext_resource type="Script" path="res://ui/action_ui.gd" id="1_m2h8n"]
+[ext_resource type="Texture2D" uid="uid://gkbl8opd23yh" path="res://game_objects/gems/sword.tres" id="1_qdvma"]
+
+[node name="ActionUi" type="MarginContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_m2h8n")
+
+[node name="ActionImg" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_qdvma")
+expand_mode = 1
+
+[node name="ActionLabel" type="Label" parent="ActionImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
