@@ -14,6 +14,7 @@ var turns_left : int = 0
 const EXTRA_TURNS : int = 2
 
 signal turn_changed
+signal game_ends(bool)
 
 
 func _ready() -> void:
@@ -30,12 +31,14 @@ func start_game() -> void:
 	_line_holder.all_enemy_all_dead.connect(_on_win)
 	_health_comp.death.connect(_on_lose)
 	_field.gem_collapsed.connect(_next_turn)
+	GameInputManager.enabled = true
 	_start_round()
 
 
 func _end_game() -> void:
 	_line_holder.all_enemy_all_dead.disconnect(_on_win)
 	_health_comp.death.disconnect(_on_lose)
+	GameInputManager.enabled = false
 
 
 func _start_round() -> void:
@@ -64,8 +67,9 @@ func finish_round() -> void:
 func _on_win() -> void:
 	print("you win")
 	_end_game()
-
+	game_ends.emit(true)
 
 func _on_lose() -> void:
 	print("you lose")
 	_end_game()
+	game_ends.emit(false)

@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="BattlePreset" load_steps=9 format=3 uid="uid://deswhayq4p0xv"]
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=10 format=3 uid="uid://deswhayq4p0xv"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_nfypd"]
 [ext_resource type="Resource" uid="uid://r5xxbsm8oy84" path="res://game_objects/enemies/presets/base_enemy.tres" id="2_b41js"]
 [ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="2_i8u5x"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="3_je1dy"]
 [ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="4_ojjdq"]
+[ext_resource type="Resource" uid="uid://o10377evkcr4" path="res://game_objects/enemies/combat_actions/mix_field_action.tres" id="5_igk8a"]
 
 [sub_resource type="Resource" id="Resource_6bgx8"]
 script = ExtResource("1_nfypd")
@@ -17,7 +18,7 @@ color = Color(1, 0, 0, 1)
 script = ExtResource("1_nfypd")
 max_health = 5
 damage = 3
-actions = Array[ExtResource("3_je1dy")]([ExtResource("4_ojjdq")])
+actions = Array[ExtResource("3_je1dy")]([ExtResource("5_igk8a")])
 color = Color(0, 1, 0.0833333, 1)
 
 [sub_resource type="Resource" id="Resource_tum7m"]
@@ -32,4 +33,3 @@ script = ExtResource("2_i8u5x")
 line1 = Array[ExtResource("1_nfypd")]([ExtResource("2_b41js")])
 line2 = Array[ExtResource("1_nfypd")]([SubResource("Resource_6bgx8"), SubResource("Resource_tqsjb"), SubResource("Resource_tum7m")])
 line3 = Array[ExtResource("1_nfypd")]([ExtResource("2_b41js")])
-line4 = Array[ExtResource("1_nfypd")]([ExtResource("2_b41js"), ExtResource("2_b41js")])

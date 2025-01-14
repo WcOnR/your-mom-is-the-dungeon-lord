@@ -15,6 +15,3 @@ position = Vector2(120, 0)
 
 [node name="Line3" parent="." instance=ExtResource("1_5g3ba")]
 position = Vector2(240, 0)
-
-[node name="Line4" parent="." instance=ExtResource("1_5g3ba")]
-position = Vector2(360, 0)

@@ -5,7 +5,7 @@ class_name LineHolder extends Node2D
 
 signal all_enemy_all_dead
 
-@onready var lines : Array[BattleLine] = [$Line, $Line2, $Line3, $Line4]
+@onready var lines : Array[BattleLine] = [$Line, $Line2, $Line3]
 var selected_line : int = -1
 var _player : Player = null
 
@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func spawn_enemies() -> void:
-	var enemy_data := [battle.line1, battle.line2, battle.line3, battle.line4]
+	var enemy_data := [battle.line1, battle.line2, battle.line3]
 	var i := 0
 	while i < lines.size():
 		lines[i].set_enemies(enemy_data[i])

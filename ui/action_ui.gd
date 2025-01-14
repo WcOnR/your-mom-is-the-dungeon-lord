@@ -5,6 +5,7 @@ class_name ActionUI extends MarginContainer
 @onready var img : TextureRect = $ActionImg
 @onready var value_label : Label = $ActionImg/ActionLabel
 
+var show_img_with_zero : bool = false
 
 func _ready() -> void:
 	set_img(default_texture)
@@ -16,5 +17,6 @@ func set_img(_texture : Texture2D) -> void:
 
 
 func set_value(value : float) -> void:
-	visible = value > 0
+	visible = value == 0 and show_img_with_zero or value > 0
+	value_label.visible = value > 0
 	value_label.text = str(value)

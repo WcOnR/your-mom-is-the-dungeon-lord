@@ -51,5 +51,5 @@ func _update_health_label() -> void:
 	health_ui.sync_comp()
 
 
-func set_action(value : int, img : Texture2D) -> void:
-	health_ui.set_action(value, img)
+func set_action(value : int, img : Texture2D, force : bool = false) -> void:
+	health_ui.set_action(value, img, force)

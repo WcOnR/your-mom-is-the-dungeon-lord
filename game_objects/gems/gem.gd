@@ -22,6 +22,13 @@ func initialize(cell_id : Vector2i, field : Field, gem_type : GemType) -> void:
 	try_block()
 
 
+func reset_cell_id(cell_id : Vector2i) -> void:
+	_cell_id = cell_id
+	_target_cell = Field.INVALID_ID
+	_blocked_id = Field.INVALID_ID
+	try_block()
+
+
 func try_to_fall():
 	if _state == State.FALL:
 		return

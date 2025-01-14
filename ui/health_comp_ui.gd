@@ -23,7 +23,8 @@ func sync_comp() -> void:
 	health_comp.shield_changed.connect(_on_shield_changed)
 
 
-func set_action(value : int, img : Texture2D) -> void:
+func set_action(value : int, img : Texture2D, force : bool = false) -> void:
+	action_ui.show_img_with_zero = force
 	action_ui.set_value(value)
 	action_ui.set_img(img)
 

@@ -74,6 +74,14 @@ func enable_input(_enable_input : bool) -> void:
 	_enabled = _enable_input
 
 
+func reshuffle() -> void:
+	grid.reshuffle()
+	for x in size.x:
+		for y in size.y:
+			var cell_id := Vector2i(x, y)
+			grid.get_gem(cell_id).position = get_cell_position(cell_id)
+
+
 func _on_click_action(data : ClickData) -> void:
 	var old_cell_id := _get_cell_id(data.start_position)
 	var cell_id := _get_cell_id(data.end_position)
