@@ -38,8 +38,7 @@ func _create_gem(cell_id : Vector2i) -> void:
 	var gem := gem_scene.instantiate() as Gem
 	add_child(gem)
 	var offset := cell_size.y * cell_id.x / size.x 
-	gem.position = get_cell_position(cell_id) - Vector2(0, offset)
-	gem.initialize(cell_id, self, gem_set.gem_types.pick_random())
+	gem.initialize(cell_id, Vector2(0, -offset), self, gem_set.gem_types.pick_random())
 	gem.try_to_fall()
 
 
@@ -75,11 +74,10 @@ func enable_input(_enable_input : bool) -> void:
 
 
 func reshuffle() -> void:
+	if not grid.is_idle():
+		await grid.grid_idle
 	grid.reshuffle()
-	for x in size.x:
-		for y in size.y:
-			var cell_id := Vector2i(x, y)
-			grid.get_gem(cell_id).position = get_cell_position(cell_id)
+	await grid.grid_idle
 
 
 func _on_click_action(data : ClickData) -> void:

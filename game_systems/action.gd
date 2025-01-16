@@ -5,7 +5,7 @@ class_name Action extends Resource
 
 var script_object = null
 
-func run(event_name : StringName, extra_args : Array[Variant] = []) -> bool:
+func run(event_name : StringName, extra_args : Array[Variant] = []) -> void:
 	if not script_object:
 		script_object = behavior.new()
 	if event_name in script_object:
@@ -14,5 +14,4 @@ func run(event_name : StringName, extra_args : Array[Variant] = []) -> bool:
 		if not extra_args.is_empty():
 			full_args = args.duplicate()
 			full_args.append_array(extra_args)
-		return callable.call(full_args)
-	return false
+		await callable.call(full_args)

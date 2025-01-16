@@ -21,4 +21,4 @@ func plan_next_attack(line : BattleLine) -> void:
 
 
 func attack(player : Player):
-	next_action.run(ON_ACTION, [enemy_data, player])
+	await next_action.run(ON_ACTION, [enemy_data, player])

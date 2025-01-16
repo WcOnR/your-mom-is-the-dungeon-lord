@@ -93,7 +93,7 @@ func _on_enemy_dead() -> void:
 func enemy_attack() -> void:
 	for l in lines:
 		if not l.enemies.is_empty():
-			l.enemies[0].attack(_player)
+			await l.enemies[0].attack(_player)
 	await get_tree().process_frame
 
 

@@ -59,6 +59,9 @@ func _next_turn() -> void:
 
 
 func finish_round() -> void:
+	if not _field.grid.is_idle():
+		await _field.grid.grid_idle
+	_field.enable_input(false)
 	await _line_holder.enemy_attack()
 	_health_comp._drop_shield()
 	_start_round()
