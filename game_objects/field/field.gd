@@ -6,15 +6,13 @@ class_name Field extends Node2D
 @export var line_holder : NodePath
 
 @onready var tile_map : TileMapLayer = $TileMapLayer
-@onready var gem_scene : PackedScene = preload("res://game_objects/gems/gem.tscn")
-var size : Vector2i = Vector2i.ZERO
-var cell_size : Vector2 = Vector2.ZERO
+
 var grid : Grid = null
 var _player : Player = null
 var _line_holder : LineHolder = null
 var _enabled : bool = false
+var _spawners : Array[GemSpawner] = []
 
-const INVALID_ID := Vector2i(-1, -1)
 
 signal gem_collapsed
 
@@ -22,70 +20,66 @@ signal gem_collapsed
 func _ready() -> void:
 	_player = get_node(player) as Player
 	_line_holder = get_node(line_holder)
-	_grab_tile_map_data()
-	_check_field()
-	_start_update_fall()
+	_init_grid_with_tile_map()
+	_start_spawners()
 	GameInputManagerSystem.on_click_end.connect(_on_click_action)
-
-
-func _check_field() -> void:
-	for x in size.x:
-		if not _is_it_blocked(Vector2i(x, 0)):
-			_create_gem(Vector2i(x, -1))
-
-
-func _create_gem(cell_id : Vector2i) -> void:
-	var gem := gem_scene.instantiate() as Gem
-	add_child(gem)
-	var offset := cell_size.y * cell_id.x / size.x 
-	gem.initialize(cell_id, Vector2(0, -offset), self, gem_set.gem_types.pick_random())
-	gem.try_to_fall()
-
-
-func _delete_gem(gem : Gem) -> void:
-	remove_child(gem)
-	block_cell(gem.get_static_cell_id(), null)
-	gem.queue_free()
 
 
 func get_next_cell(cell_id : Vector2i) -> Vector2i:
 	var next_id := cell_id
 	next_id.y += 1
-	if next_id.y >= size.y or _is_it_blocked(next_id):
-		return INVALID_ID
+	if next_id.y >= grid.get_size().y:
+		return Grid.INVALID_ID
 	return next_id
-
-
-func _is_it_blocked(cell_id : Vector2i) -> bool:
-	if cell_id.x < 0 or cell_id.y < 0:
-		return false
-	return grid.get_gem(cell_id) != null
-
-
-func block_cell(cell_id : Vector2i, block : Gem) -> void:
-	if cell_id.x >= 0 and cell_id.y >= 0:
-		grid.set_gem(block, cell_id)
-		if block == null:
-			_check_field()
 
 
 func enable_input(_enable_input : bool) -> void:
 	_enabled = _enable_input
 
 
-func reshuffle() -> void:
-	if not grid.is_idle():
-		await grid.grid_idle
-	grid.reshuffle()
-	await grid.grid_idle
+func is_valid_cell_id(cell_id : Vector2i) -> bool:
+	return grid.is_valid_cell_id(cell_id)
+
+
+func _process(_delta: float) -> void:
+	if grid.is_spawn_allowed():
+		_spawn_gems()
+
+
+func _start_spawners() -> void:
+	for spawner in _spawners:
+		await get_tree().create_timer(0.05).timeout
+		spawner.set_enabled(true)
+
+
+func _spawn_gems() -> void:
+	for spawner in _spawners:
+		spawner.try_spawn_gem()
+
+
+func _delete_gem(gem : Gem) -> void:
+	gem.destroy()
+
+
+func _init_grid_with_tile_map() -> void:
+	var size : Vector2i = Vector2i.ZERO
+	while tile_map.get_cell_source_id(Vector2i(size.x, 0)) != -1:
+		var spawner := GemSpawner.new()
+		spawner.initialize(Vector2i(size.x, 0), self)
+		_spawners.append(spawner)						# TODO mark real spawn points
+		size.x += 1
+	while tile_map.get_cell_source_id(Vector2i(0, size.y)) != -1:
+		size.y += 1
+	grid = Grid.new()
+	grid.initialize(size, Vector2(tile_map.tile_set.tile_size))
 
 
 func _on_click_action(data : ClickData) -> void:
-	var old_cell_id := _get_cell_id(data.start_position)
-	var cell_id := _get_cell_id(data.end_position)
-	if not _enabled or cell_id != old_cell_id or not _is_valid_cell_id(cell_id):
+	var old_cell_id := grid.get_cell_id(data.start_position - global_position)
+	var cell_id := grid.get_cell_id(data.end_position - global_position)
+	if not _enabled or cell_id != old_cell_id or not is_valid_cell_id(cell_id):
 		return
-	var to_remove : Array[Gem] = _get_all_near_gems(grid.get_gem(cell_id))
+	var to_remove : Array[Gem] = _get_all_near_gems(cell_id)
 	if to_remove.size() >= min_gem:
 		var gem_type := to_remove[0]._gem_type
 		for gem in to_remove:
@@ -95,74 +89,30 @@ func _on_click_action(data : ClickData) -> void:
 		gem_collapsed.emit()
 
 
-func _get_all_near_gems(gem : Gem) -> Array[Gem]:
+func _get_all_near_gems(cell_id : Vector2i) -> Array[Gem]:
+	var map := grid.get_map()
+	var gem := map.get(cell_id) as Gem
 	if gem == null:
 		return []
+	var gem_type := gem.get_gem_type()
 	var result : Array[Gem] = [gem]
 	var i : int = 0
 	while i < result.size():
-		var index : Vector2i = result[i].get_static_cell_id()
-		var n : = _get_cell_neighbors(index)
+		var n : = _get_cell_neighbors(map, grid.get_cell_id(result[i].position))
 		for _c in n:
-			if not (_c in result) and _c.get_gem_type() == result[0].get_gem_type():
+			if not (_c in result) and _c.get_gem_type() == gem_type:
 				result.append(_c)
 		i += 1
 	return result
 
 
-func _start_update_fall() -> void:
-	var timer := Timer.new()
-	timer.timeout.connect(_update_fall)
-	timer.wait_time = 0.1
-	timer.one_shot = false
-	timer.autostart = true
-	add_child(timer)
-
-
-func _update_fall() -> void:
-	for x in size.x:
-		var is_fall := false
-		for y in size.y:
-			var gem := grid.get_gem(Vector2i(x, size.y-1-y))
-			if gem == null:
-				is_fall = true
-			elif is_fall:
-				gem.try_to_fall()
-
-
-func _grab_tile_map_data() -> void:
-	while tile_map.get_cell_source_id(Vector2i(size.x, 0)) != -1:
-		size.x += 1
-	while tile_map.get_cell_source_id(Vector2i(0, size.y)) != -1:
-		size.y += 1
-	cell_size = Vector2(tile_map.tile_set.tile_size)
-	grid = Grid.new()
-	grid.initialize(size)
-
-
-func _get_cell_id(pos : Vector2) -> Vector2i:
-	pos = pos - global_position
-	var real_size := cell_size * Vector2(size)
-	if pos.x < 0.0 or pos.y < 0.0 or pos.x > real_size.x or pos.y > real_size.y:
-		return INVALID_ID
-	return Vector2i(int(pos.x / cell_size.x), int(pos.y / cell_size.y))
-
-
-func get_cell_position(cell_id : Vector2i) -> Vector2:
-	return Vector2(cell_id) * cell_size
-
-
-func _is_valid_cell_id(cell_id : Vector2i) -> bool:
-	return cell_id.x >= 0 and cell_id.x < size.x and cell_id.y >=0 and cell_id.y < size.y
-
-
-func _get_cell_neighbors(id : Vector2i) -> Array[Gem]:
+func _get_cell_neighbors(map : Dictionary, id : Vector2i) -> Array[Gem]:
 	var result :Array[Gem] = []
-	var map : Array[Vector2i] = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)]
-	for m in map:
-		var tmp := id + m
-		if _is_valid_cell_id(tmp):
-			var gem := grid.get_gem(tmp)
+	var nswe : Array[Vector2i] = [Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(0, -1)]
+	for dir in nswe:
+		var tmp := id + dir
+		if is_valid_cell_id(tmp):
+			var gem := map.get(tmp) as Gem #grid.get_occupied_gem(tmp)
 			if gem != null:
 				result.append(gem)
 	return result

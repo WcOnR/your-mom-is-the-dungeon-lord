@@ -11,4 +11,4 @@ func on_plan(args : Array[Variant]) -> void:
 func on_action(args : Array[Variant]) -> void:
 	var player : Player = args[1] as Player
 	var game_mode := player.get_tree().get_first_node_in_group("GameMode") as BattleGameMode
-	await game_mode._field.reshuffle()
+	await game_mode._field.grid.reshuffle()
