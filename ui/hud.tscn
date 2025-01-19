@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfol48c4emuyb"]
+[gd_scene load_steps=7 format=3 uid="uid://cfol48c4emuyb"]
 
 [ext_resource type="Script" path="res://ui/hud.gd" id="1_08ihg"]
 [ext_resource type="PackedScene" uid="uid://1gowrjdv5xvj" path="res://ui/health_ui.tscn" id="1_upqgx"]
-[ext_resource type="Texture2D" uid="uid://gkbl8opd23yh" path="res://game_objects/gems/sword.tres" id="2_tfb1t"]
-[ext_resource type="Texture2D" uid="uid://dkipe5pt23mdi" path="res://game_objects/gems/sword_pessed.tres" id="3_0lkgi"]
-[ext_resource type="Texture2D" uid="uid://btxjakvb26lmx" path="res://game_objects/gems/sword_hover.tres" id="4_yj42k"]
+[ext_resource type="Texture2D" uid="uid://b7r16ea1a2olb" path="res://ui/end_turn_n.tres" id="2_jsbf7"]
+[ext_resource type="Texture2D" uid="uid://bf2tk05e5ilnh" path="res://ui/end_turn_p.tres" id="3_5vpsd"]
+[ext_resource type="Texture2D" uid="uid://bxhpm62puqc5x" path="res://ui/end_turn_h.tres" id="4_tacje"]
+[ext_resource type="Texture2D" uid="uid://b7004064b4sb1" path="res://ui/end_turn_d.tres" id="5_yo3br"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -60,9 +61,10 @@ layout_mode = 2
 
 [node name="EndRoundBtn" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer2"]
 layout_mode = 2
-texture_normal = ExtResource("2_tfb1t")
-texture_pressed = ExtResource("3_0lkgi")
-texture_hover = ExtResource("4_yj42k")
+texture_normal = ExtResource("2_jsbf7")
+texture_pressed = ExtResource("3_5vpsd")
+texture_hover = ExtResource("4_tacje")
+texture_disabled = ExtResource("5_yo3br")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
