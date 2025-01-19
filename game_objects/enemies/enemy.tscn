@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cngk0jbsbhyq4"]
+[gd_scene load_steps=5 format=3 uid="uid://cngk0jbsbhyq4"]
 
 [ext_resource type="Texture2D" uid="uid://biho8t3sj7v14" path="res://icon.svg" id="1_4nlha"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy.gd" id="1_kg5c5"]
 [ext_resource type="PackedScene" uid="uid://c41vwc138rmsh" path="res://game_objects/components/health_comp.tscn" id="3_wio6r"]
 
+[sub_resource type="Curve" id="Curve_nj4rc"]
+min_value = -50.0
+max_value = 0.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.611, -50), 0.0, 0.0, 0, 0, Vector2(1, 0), 400.299, 0.0, 0, 0]
+point_count = 3
+
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_kg5c5")
+attack_anim_curve = SubResource("Curve_nj4rc")
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
