@@ -4,9 +4,11 @@ class_name LineHolder extends Node2D
 @export var battle : BattlePreset
 
 signal all_enemy_all_dead
+signal active_lines_changed
 
 @onready var lines : Array[BattleLine] = [$Line, $Line2, $Line3]
 var selected_line : int = -1
+var _active_lines_count : int = 0
 var _player : Player = null
 
 
@@ -24,6 +26,7 @@ func spawn_enemies() -> void:
 		i += 1
 	_plan_next_enemy_attack()
 	_select_next_line()
+	_update_active_lines()
 
 
 func apply_damage(damage : int) -> void:
@@ -81,6 +84,7 @@ func _on_click_action(_data : ClickData) -> void:
 
 
 func _on_enemy_dead() -> void:
+	_update_active_lines()
 	var enemies := lines[selected_line].enemies
 	if enemies.is_empty():
 		_select_next_line()
@@ -88,6 +92,13 @@ func _on_enemy_dead() -> void:
 			all_enemy_all_dead.emit()
 	else:
 		enemies[0].plan_next_attack(lines[selected_line])
+
+
+func _update_active_lines() -> void:
+	var i := get_active_lines_count()
+	if i != _active_lines_count:
+		_active_lines_count = i
+		active_lines_changed.emit()
 
 
 func enemy_attack() -> void:

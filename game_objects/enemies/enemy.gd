@@ -15,7 +15,10 @@ func initialize(data : EnemyData) -> void:
 	health_comp.health = data.max_health
 	health_comp.max_health = data.max_health
 	enemy_data = data
-	$Icon.self_modulate = data.color
+
+
+func set_in_shadow(in_shadow : bool) -> void:
+	$Icon.self_modulate = Color.GRAY if in_shadow else Color.WHITE
 
 
 func plan_next_attack(line : BattleLine) -> void:

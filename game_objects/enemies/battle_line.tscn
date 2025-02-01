@@ -1,30 +1,29 @@
 [gd_scene load_steps=4 format=3 uid="uid://xqigt823tg75"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/battle_line.gd" id="1_lr1ic"]
-[ext_resource type="PackedScene" uid="uid://bknffommb3er4" path="res://ui/health_comp_ui.tscn" id="2_lxrcy"]
+[ext_resource type="PackedScene" uid="uid://bknffommb3er4" path="res://ui/widgets/health_comp_ui.tscn" id="2_lxrcy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mjw3"]
-size = Vector2(100, 150)
+size = Vector2(256, 400)
 
 [node name="BattleLine" type="Area2D"]
 script = ExtResource("1_lr1ic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -25)
+position = Vector2(0, -200)
 shape = SubResource("RectangleShape2D_5mjw3")
 
 [node name="Target" type="Polygon2D" parent="."]
 visible = false
-position = Vector2(0, 75)
-polygon = PackedVector2Array(0, 0, 10, 10, -10, 10)
+position = Vector2(0, 65)
+polygon = PackedVector2Array(0, 0, 20, 20, -20, 20)
 
 [node name="HealthLabel" parent="." instance=ExtResource("2_lxrcy")]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -60.0
-offset_top = 50.0
-offset_right = 60.0
-offset_bottom = 82.0
+offset_left = -150.0
+offset_right = 82.0
+offset_bottom = 55.0
 grow_horizontal = 2

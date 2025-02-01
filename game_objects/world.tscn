@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl27d14vu5tdv"]
+[gd_scene load_steps=9 format=3 uid="uid://dl27d14vu5tdv"]
 
-[ext_resource type="PackedScene" uid="uid://bnca6y1kigsrx" path="res://ui/restart_screen.tscn" id="4_6cwhi"]
-[ext_resource type="PackedScene" uid="uid://cfol48c4emuyb" path="res://ui/hud.tscn" id="6_neynh"]
+[ext_resource type="Texture2D" uid="uid://bojay2qol5pfp" path="res://game_objects/Background.png" id="1_3na0c"]
+[ext_resource type="PackedScene" uid="uid://bnca6y1kigsrx" path="res://ui/restart_screen/restart_screen.tscn" id="4_6cwhi"]
+[ext_resource type="PackedScene" uid="uid://cfol48c4emuyb" path="res://ui/hub/hud.tscn" id="6_neynh"]
 [ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field/field.tscn" id="6_vodr4"]
 [ext_resource type="Script" path="res://game_objects/battle_game_mode.gd" id="6_xjlon"]
 [ext_resource type="PackedScene" uid="uid://ci26slyckun7b" path="res://game_objects/player/player.tscn" id="7_0vfua"]
@@ -10,13 +11,13 @@
 
 [node name="World" type="Node2D"]
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-z_index = -2
-color = Color(0.693841, 0.544613, 0.406277, 1)
-polygon = PackedVector2Array(20, 20, 572, 20, 572, 700, 20, 700)
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(803, 0)
+texture = ExtResource("1_3na0c")
+centered = false
 
 [node name="Field" parent="." instance=ExtResource("6_vodr4")]
-position = Vector2(40, 40)
+position = Vector2(30, 30)
 gem_set = ExtResource("7_2hrr1")
 player = NodePath("../Player")
 line_holder = NodePath("../LineHolder")
@@ -36,7 +37,7 @@ game_mode = NodePath("../../GameMode")
 [node name="Player" parent="." instance=ExtResource("7_0vfua")]
 
 [node name="LineHolder" parent="." instance=ExtResource("8_8i71o")]
-position = Vector2(730, 384)
+position = Vector2(1130, 720)
 player = NodePath("../Player")
 
 [node name="GameMode" type="Node" parent="." groups=["GameMode"]]

@@ -1,6 +1,6 @@
 class_name AttackAction extends RefCounted
 
-const ICON : Texture2D = preload("res://game_objects/gems/sword.tres")
+const ICON : Texture2D = preload("res://ui/action_icons/sword.png")
 
 
 func on_plan(args : Array[Variant]) -> bool:

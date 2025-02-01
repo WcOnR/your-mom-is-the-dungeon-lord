@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bisw0tue6xhhe"]
+
+[ext_resource type="Script" path="res://ui/turns/turn_tracker.gd" id="1_k5wko"]
+[ext_resource type="Texture2D" uid="uid://448webqg6fba" path="res://ui/turns/turn_tracker_n.png" id="1_w3ypx"]
+[ext_resource type="Texture2D" uid="uid://chugnxxb7lhm" path="res://ui/turns/turn_tracker_d.png" id="2_ut1c0"]
+[ext_resource type="Texture2D" uid="uid://bfuqpb17r8xih" path="res://ui/turns/turn_tracker_b.png" id="3_kpxfg"]
+
+[node name="TurnTracker" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_k5wko")
+normal = ExtResource("1_w3ypx")
+disabled = ExtResource("2_ut1c0")
+broken = ExtResource("3_kpxfg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ut1c0")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ut1c0")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ut1c0")
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ut1c0")
+stretch_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ut1c0")
+stretch_mode = 3

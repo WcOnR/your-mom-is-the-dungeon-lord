@@ -7,20 +7,29 @@ class_name BattleLine extends Area2D
 
 signal enemy_dead
 
+const ENEMY_OFFSET_Y := 15.0
+const ENEMY_OFFSET_X := 25.0
+const ENEMY_OFFSET_SCALE := 0.1
+
 var enemies : Array[Enemy] = []
 
 
 func set_enemies(data : Array[EnemyData]) -> void:
-	var i := 0
-	while i < data.size():
-		var reverse := data.size() - i - 1
+	var enemy_data := data.duplicate()
+	enemy_data.reverse()
+	for e in enemy_data: 
 		var enemy := enemy_scene.instantiate() as Enemy
 		add_child(enemy)
 		enemies.insert(0, enemy)
-		enemy.position.y = -reverse * 50
-		enemy.scale *= 1 - (reverse * 0.05)
-		enemy.initialize(data[-i-1])
+		enemy.initialize(e)
 		enemy.health_comp.death.connect(_on_enemy_death)
+	
+	var i := 0
+	for enemy in enemies:
+		enemy.position.x = _get_enemy_offset_x(i)
+		enemy.position.y = _get_enemy_offset_y(i)
+		enemy.scale = _get_enemy_offset_scale(i)
+		enemy.set_in_shadow(i != 0)
 		i += 1
 	_update_health_label()
 
@@ -35,11 +44,31 @@ func _on_enemy_death() -> void:
 	enemies.remove_at(0)
 	var i := 0
 	while i < enemies.size():
-		enemies[i].position.y = -i * 50
-		enemies[i].scale = Vector2.ONE * (1 - (i * 0.05))
+		if i == 0:
+			enemies[i].position.x = 0
+		enemies[i].position.y = _get_enemy_offset_y(i)
+		enemies[i].scale = _get_enemy_offset_scale(i)
+		enemies[i].set_in_shadow(i != 0)
 		i += 1
 	enemy_dead.emit()
 	_update_health_label()
+
+
+func _get_enemy_offset_x(i : int) -> float:
+	match i:
+		1:
+			return ENEMY_OFFSET_X
+		2:
+			return -ENEMY_OFFSET_X
+	return 0
+
+
+func _get_enemy_offset_y(i : int) -> float:
+	return -i * ENEMY_OFFSET_Y
+
+
+func _get_enemy_offset_scale(i : int) -> Vector2:
+	return Vector2.ONE * (1 - (i * ENEMY_OFFSET_SCALE))
 
 
 func _update_health_label() -> void:

@@ -43,9 +43,12 @@ func _drop_shield() -> void:
 
 
 func _set_health(new_health : int) -> void:
-	if _is_dead or new_health == health or new_health == max_health:
+	if _is_dead or new_health == health:
 		return
+	var old_health := health
 	health = min(max_health, new_health)
+	if old_health == health:
+		return
 	health_changed.emit()
 	if health <= 0:
 		_is_dead = false

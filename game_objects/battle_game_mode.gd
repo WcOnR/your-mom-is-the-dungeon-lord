@@ -19,6 +19,7 @@ const EXTRA_TURNS : int = 2
 
 signal state_changed
 signal turn_changed
+signal max_turn_changed
 
 
 func _ready() -> void:
@@ -28,6 +29,7 @@ func _ready() -> void:
 	_field = get_node(field) as Field
 	state_changed.connect(_update_field_input)
 	turn_changed.connect(_update_field_input)
+	_line_holder.active_lines_changed.connect(func(): max_turn_changed.emit())
 	await get_tree().process_frame
 	start_game()
 
@@ -56,6 +58,10 @@ func turns_left() -> int:
 	return _turns_left
 
 
+func get_max_turns() -> int:
+	return _line_holder.get_active_lines_count() + EXTRA_TURNS
+
+
 func is_state(state : State) -> bool:
 	return state == _state
 
@@ -76,7 +82,7 @@ func _end_game(is_win : bool) -> void:
 
 func _start_round() -> void:
 	_set_state(State.PLAYER_MOVE)
-	_turns_left = _line_holder.get_active_lines_count() + EXTRA_TURNS
+	_turns_left = get_max_turns()
 	turn_changed.emit()
 
 

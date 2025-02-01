@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cngk0jbsbhyq4"]
+[gd_scene load_steps=6 format=3 uid="uid://cngk0jbsbhyq4"]
 
-[ext_resource type="Texture2D" uid="uid://biho8t3sj7v14" path="res://icon.svg" id="1_4nlha"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy.gd" id="1_kg5c5"]
+[ext_resource type="Texture2D" uid="uid://clu42wvapdk0a" path="res://game_objects/enemies/shadow.png" id="2_3c58y"]
+[ext_resource type="Texture2D" uid="uid://bpkvc86n7xrh6" path="res://game_objects/enemies/goblin/goblin.png" id="2_tcxec"]
 [ext_resource type="PackedScene" uid="uid://c41vwc138rmsh" path="res://game_objects/components/health_comp.tscn" id="3_wio6r"]
 
 [sub_resource type="Curve" id="Curve_nj4rc"]
@@ -14,8 +15,12 @@ point_count = 3
 script = ExtResource("1_kg5c5")
 attack_anim_curve = SubResource("Curve_nj4rc")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("2_3c58y")
+offset = Vector2(0, -20)
+
 [node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("1_4nlha")
+position = Vector2(0, -200)
+texture = ExtResource("2_tcxec")
 
 [node name="HealthComp" parent="." instance=ExtResource("3_wio6r")]

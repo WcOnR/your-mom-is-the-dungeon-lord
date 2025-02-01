@@ -1,6 +1,6 @@
 class_name MixFieldAction extends RefCounted
 
-const ICON : Texture2D = preload("res://game_objects/enemies/combat_actions/mix.png")
+const ICON : Texture2D = preload("res://ui/action_icons/mix.png")
 
 
 func on_plan(args : Array[Variant]) -> void:

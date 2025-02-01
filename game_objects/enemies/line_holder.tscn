@@ -11,7 +11,7 @@ battle = ExtResource("2_13g25")
 [node name="Line" parent="." instance=ExtResource("1_5g3ba")]
 
 [node name="Line2" parent="." instance=ExtResource("1_5g3ba")]
-position = Vector2(120, 0)
+position = Vector2(276, 0)
 
 [node name="Line3" parent="." instance=ExtResource("1_5g3ba")]
-position = Vector2(240, 0)
+position = Vector2(552, 0)

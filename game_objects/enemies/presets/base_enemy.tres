@@ -9,4 +9,4 @@ script = ExtResource("1_tn0g8")
 max_health = 3
 damage = 1
 actions = Array[ExtResource("1_e620p")]([ExtResource("2_hqskt")])
-color = Color(1, 0, 0, 1)
+color = Color(1, 1, 1, 1)

@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfol48c4emuyb"]
+
+[ext_resource type="Script" path="res://ui/hub/hud.gd" id="1_08ihg"]
+[ext_resource type="PackedScene" uid="uid://1gowrjdv5xvj" path="res://ui/widgets/health_ui.tscn" id="1_upqgx"]
+[ext_resource type="Texture2D" uid="uid://b7ejqdtri4lvq" path="res://ui/widgets/balckout.png" id="2_pac05"]
+[ext_resource type="Texture2D" uid="uid://yjdohd4dyrr5" path="res://ui/ui_field/field_btns_back.png" id="2_rgat4"]
+[ext_resource type="PackedScene" uid="uid://bisw0tue6xhhe" path="res://ui/turns/turn_tracker.tscn" id="3_h7m6w"]
+[ext_resource type="Texture2D" uid="uid://c365l3cddwoah" path="res://ui/ui_field/field_background.png" id="5_5a6jh"]
+[ext_resource type="PackedScene" uid="uid://brda3c0wjq5gd" path="res://ui/turns/end_turn_btn.tscn" id="6_thlxe"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_08ihg")
+
+[node name="BalckoutL" type="Sprite2D" parent="."]
+scale = Vector2(1, 1080)
+texture = ExtResource("2_pac05")
+centered = false
+
+[node name="BalckoutR" type="Sprite2D" parent="."]
+position = Vector2(1920, 0)
+scale = Vector2(1, 1080)
+texture = ExtResource("2_pac05")
+centered = false
+offset = Vector2(-30, 0)
+flip_h = true
+
+[node name="FieldBtnsBack" type="Sprite2D" parent="."]
+position = Vector2(950, 960)
+texture = ExtResource("2_rgat4")
+
+[node name="Panel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="FieldFiller" type="CenterContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(803, 0)
+layout_mode = 2
+
+[node name="BtnHolder" type="VBoxContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/BtnHolder"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_bottom = 20
+
+[node name="TurnTracker" parent="Panel/HBoxContainer/BtnHolder/MarginContainer" instance=ExtResource("3_h7m6w")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="EndTurnBtn" parent="Panel/HBoxContainer/BtnHolder" instance=ExtResource("6_thlxe")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BottomOffset" type="MarginContainer" parent="Panel/HBoxContainer/BtnHolder"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 55
+
+[node name="ExtenderH" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightSide" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/RightSide"]
+layout_mode = 2
+alignment = 2
+
+[node name="HealthUi" parent="Panel/HBoxContainer/RightSide/VBoxContainer" instance=ExtResource("1_upqgx")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="FieldBackground" type="Sprite2D" parent="."]
+texture = ExtResource("5_5a6jh")
+centered = false
+
+[connection signal="pressed" from="Panel/HBoxContainer/BtnHolder/EndTurnBtn" to="." method="_on_end_turn_btn_pressed"]

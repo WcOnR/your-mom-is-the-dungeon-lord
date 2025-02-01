@@ -12,21 +12,21 @@ script = ExtResource("1_nfypd")
 max_health = 3
 damage = 1
 actions = Array[ExtResource("3_je1dy")]([ExtResource("4_ojjdq")])
-color = Color(1, 0, 0, 1)
+color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_tqsjb"]
 script = ExtResource("1_nfypd")
 max_health = 5
 damage = 3
 actions = Array[ExtResource("3_je1dy")]([ExtResource("5_igk8a")])
-color = Color(0, 1, 0.0833333, 1)
+color = Color(1, 1, 1, 1)
 
 [sub_resource type="Resource" id="Resource_tum7m"]
 script = ExtResource("1_nfypd")
 max_health = 8
 damage = 8
 actions = Array[ExtResource("3_je1dy")]([ExtResource("4_ojjdq")])
-color = Color(0, 0.0666666, 1, 1)
+color = Color(1, 1, 1, 1)
 
 [resource]
 script = ExtResource("2_i8u5x")

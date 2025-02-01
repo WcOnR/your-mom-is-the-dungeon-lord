@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://xikuimul3exk"]
+
+[ext_resource type="Script" path="res://ui/widgets/action_ui.gd" id="1_m2h8n"]
+[ext_resource type="Texture2D" uid="uid://jcuj1xtkotjv" path="res://ui/action_icons/sword.png" id="2_svb47"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1pi24"]
+font_size = 25
+font_color = Color(0.917647, 0.392157, 0.392157, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="ActionUi" type="MarginContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_m2h8n")
+
+[node name="ActionImg" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_svb47")
+expand_mode = 1
+
+[node name="ActionLabel" type="Label" parent="ActionImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = SubResource("LabelSettings_1pi24")
+horizontal_alignment = 2
+vertical_alignment = 2

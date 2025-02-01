@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dx1jniv33wger"]
+
+[ext_resource type="StyleBox" uid="uid://d27yw0jl8yfme" path="res://ui/themes/styles/turn_btn_style_flat_disabled.tres" id="1_0gfqw"]
+[ext_resource type="StyleBox" uid="uid://bdsie20vw3pcj" path="res://ui/themes/styles/turn_btn_style_flat_normal.tres" id="1_qw337"]
+[ext_resource type="StyleBox" uid="uid://b4rcaq26trxef" path="res://ui/themes/styles/turn_btn_style_flat_hover.tres" id="2_iiu6b"]
+[ext_resource type="StyleBox" uid="uid://ctnb1iu1btcco" path="res://ui/themes/styles/turn_btn_style_flat_pressed.tres" id="3_hm7nu"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.5)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 40
+Button/styles/disabled = ExtResource("1_0gfqw")
+Button/styles/hover = ExtResource("2_iiu6b")
+Button/styles/normal = ExtResource("1_qw337")
+Button/styles/pressed = ExtResource("3_hm7nu")
