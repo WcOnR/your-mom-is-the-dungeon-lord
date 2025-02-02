@@ -14,6 +14,8 @@ const ON_ACTION : StringName = "on_action"
 func initialize(data : EnemyData) -> void:
 	health_comp.health = data.max_health
 	health_comp.max_health = data.max_health
+	if data.texture:
+		$Icon.texture = data.texture
 	enemy_data = data
 
 
