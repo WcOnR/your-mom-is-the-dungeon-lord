@@ -2,18 +2,13 @@
 
 [ext_resource type="Script" path="res://game_objects/enemies/enemy.gd" id="1_kg5c5"]
 [ext_resource type="Texture2D" uid="uid://clu42wvapdk0a" path="res://game_objects/enemies/shadow.png" id="2_3c58y"]
+[ext_resource type="Curve" uid="uid://d4ji2iubyevf5" path="res://game_objects/enemies/anticipation_hit.tres" id="2_olmw3"]
 [ext_resource type="Texture2D" uid="uid://biho8t3sj7v14" path="res://icon.svg" id="3_e8gr2"]
 [ext_resource type="PackedScene" uid="uid://c41vwc138rmsh" path="res://game_objects/components/health_comp.tscn" id="3_wio6r"]
 
-[sub_resource type="Curve" id="Curve_nj4rc"]
-min_value = -50.0
-max_value = 0.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.611, -50), 0.0, 0.0, 0, 0, Vector2(1, 0), 400.299, 0.0, 0, 0]
-point_count = 3
-
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_kg5c5")
-attack_anim_curve = SubResource("Curve_nj4rc")
+attack_anim = ExtResource("2_olmw3")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.392157)
@@ -21,7 +16,7 @@ texture = ExtResource("2_3c58y")
 offset = Vector2(0, -20)
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -200)
 texture = ExtResource("3_e8gr2")
+offset = Vector2(0, -200)
 
 [node name="HealthComp" parent="." instance=ExtResource("3_wio6r")]

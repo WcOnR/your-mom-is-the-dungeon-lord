@@ -85,8 +85,33 @@ func _on_click_action(data : ClickData) -> void:
 		for gem in to_remove:
 			_delete_gem(gem)
 		if gem_type.actions:
-			gem_type.actions.run_event(ActionList.ON_ACTION, [to_remove.size(), _player, _line_holder])
+			var val := _mult_func(to_remove.size())
+			gem_type.actions.run_event(ActionList.ON_ACTION, [val, _player, _line_holder])
 		gem_collapsed.emit()
+
+
+func _mult_func(count : int) -> int:
+	if count >= 10:
+		return 999
+	return count + _fib(count - min_gem)
+
+
+func _fib(f : int) -> int:
+	if f <= 1:
+		return 0
+	if f == 2:
+		return 1
+	var val_1 := 1
+	var val_2 := 0
+	var res := val_1 + val_2
+	f -= 3
+	while f > 0:
+		f -= 1
+		val_2 = val_1
+		val_1 = res
+		res = val_1 + val_2
+	return res
+	
 
 
 func _get_all_near_gems(cell_id : Vector2i) -> Array[Gem]:

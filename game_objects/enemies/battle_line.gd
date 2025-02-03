@@ -12,6 +12,7 @@ const ENEMY_OFFSET_X := 25.0
 const ENEMY_OFFSET_SCALE := 0.1
 
 var enemies : Array[Enemy] = []
+var _move_in_front_anims : Array[AnimObject] = []
 
 
 func set_enemies(data : Array[EnemyData]) -> void:
@@ -42,14 +43,23 @@ func _on_enemy_death() -> void:
 	remove_child(enemies[0])
 	enemies[0].queue_free()
 	enemies.remove_at(0)
+	for a in _move_in_front_anims:
+		AnimManagerSystem.drop_anim(a)
+	_move_in_front_anims.clear()
+	var anim_curve := AnimManagerSystem.get_curve("easeInOut")
 	var i := 0
 	while i < enemies.size():
+		var enemy := enemies[i]
+		var pos := enemy.position
 		if i == 0:
-			enemies[i].position.x = 0
-		enemies[i].position.y = _get_enemy_offset_y(i)
-		enemies[i].scale = _get_enemy_offset_scale(i)
-		enemies[i].set_in_shadow(i != 0)
+			pos.x = 0
+		pos.y = _get_enemy_offset_y(i)
+		var params := [enemy, enemy.position, enemy.scale, pos, _get_enemy_offset_scale(i)]
+		var anim := AnimObject.new(enemy, _move_in_front.bindv(params), anim_curve, 0.25)
+		_move_in_front_anims.append(anim)
+		enemy.set_in_shadow(i != 0)
 		i += 1
+	AnimManagerSystem.start_anim_queue(_move_in_front_anims)
 	enemy_dead.emit()
 	_update_health_label()
 
@@ -69,6 +79,11 @@ func _get_enemy_offset_y(i : int) -> float:
 
 func _get_enemy_offset_scale(i : int) -> Vector2:
 	return Vector2.ONE * (1 - (i * ENEMY_OFFSET_SCALE))
+
+
+func _move_in_front(t : float, enemy : Enemy, f_p : Vector2, f_s : Vector2, t_p : Vector2, t_s : Vector2) -> void:
+	enemy.scale = lerp(f_s, t_s, t)
+	enemy.position = lerp(f_p, t_p, t)
 
 
 func _update_health_label() -> void:
