@@ -1,15 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl27d14vu5tdv"]
+[gd_scene load_steps=8 format=3 uid="uid://dl27d14vu5tdv"]
 
-[ext_resource type="Texture2D" uid="uid://bojay2qol5pfp" path="res://game_objects/Background.png" id="1_3na0c"]
+[ext_resource type="Texture2D" uid="uid://bojay2qol5pfp" path="res://game_objects/rooms/battle_rooms/Background.png" id="1_3na0c"]
 [ext_resource type="PackedScene" uid="uid://bnca6y1kigsrx" path="res://ui/restart_screen/restart_screen.tscn" id="4_6cwhi"]
 [ext_resource type="PackedScene" uid="uid://cfol48c4emuyb" path="res://ui/hub/hud.tscn" id="6_neynh"]
 [ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field/field.tscn" id="6_vodr4"]
-[ext_resource type="Script" path="res://game_objects/battle_game_mode.gd" id="6_xjlon"]
-[ext_resource type="PackedScene" uid="uid://ci26slyckun7b" path="res://game_objects/player/player.tscn" id="7_0vfua"]
+[ext_resource type="Script" path="res://game_objects/game_mode/battle_game_mode.gd" id="6_xjlon"]
 [ext_resource type="Resource" uid="uid://bd27barncwqpa" path="res://game_objects/gems/gem_set.tres" id="7_2hrr1"]
 [ext_resource type="PackedScene" uid="uid://b6s25t3xxttat" path="res://game_objects/enemies/line_holder.tscn" id="8_8i71o"]
 
-[node name="World" type="Node2D"]
+[node name="Room" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(803, 0)
@@ -19,7 +18,6 @@ centered = false
 [node name="Field" parent="." instance=ExtResource("6_vodr4")]
 position = Vector2(30, 30)
 gem_set = ExtResource("7_2hrr1")
-player = NodePath("../Player")
 line_holder = NodePath("../LineHolder")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -28,20 +26,15 @@ line_holder = NodePath("../LineHolder")
 size_flags_horizontal = 3
 size_flags_vertical = 3
 game_mode = NodePath("../../GameMode")
-player = NodePath("../../Player")
 
 [node name="RestartScreen" parent="CanvasLayer" instance=ExtResource("4_6cwhi")]
 visible = false
 game_mode = NodePath("../../GameMode")
 
-[node name="Player" parent="." instance=ExtResource("7_0vfua")]
-
 [node name="LineHolder" parent="." instance=ExtResource("8_8i71o")]
 position = Vector2(1130, 720)
-player = NodePath("../Player")
 
 [node name="GameMode" type="Node" parent="." groups=["GameMode"]]
 script = ExtResource("6_xjlon")
 line_holder = NodePath("../LineHolder")
-player = NodePath("../Player")
 field = NodePath("../Field")

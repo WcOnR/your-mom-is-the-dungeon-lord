@@ -2,7 +2,6 @@ class_name BattleGameMode extends Node
 
 
 @export var line_holder : NodePath
-@export var player : NodePath 
 @export var field : NodePath
 
 enum State {NOT_STARTED, PLAYER_MOVE, ENEMY_MOVE, WIN, LOST}
@@ -24,18 +23,18 @@ signal max_turn_changed
 
 func _ready() -> void:
 	_line_holder = get_node(line_holder) as LineHolder
-	_player = get_node(player) as Player
-	_health_comp = _player.get_node("HealthComp") as HealthComp
 	_field = get_node(field) as Field
 	state_changed.connect(_update_field_input)
 	turn_changed.connect(_update_field_input)
 	_line_holder.active_lines_changed.connect(func(): max_turn_changed.emit())
+
+
+func start_battle(preset : BattlePreset) -> void:
 	await get_tree().process_frame
-	start_game()
-
-
-func start_game() -> void:
-	_line_holder.spawn_enemies()
+	_player = get_tree().get_first_node_in_group("Player") as Player
+	_health_comp = _player.get_node("HealthComp") as HealthComp
+	_health_comp._drop_shield()
+	_line_holder.spawn_enemies(preset)
 	_line_holder.all_enemy_all_dead.connect(_on_win)
 	_health_comp.death.connect(_on_lost)
 	_field.gem_collapsed.connect(_next_turn)
@@ -102,8 +101,12 @@ func _update_field_input() -> void:
 
 
 func _on_win() -> void:
-	print("you win")
-	_end_game(true)
+	if SceneLoaderSystem.is_next_room():
+		await get_tree().process_frame
+		SceneLoaderSystem.unload_room()
+	else:
+		print("you win")
+		_end_game(true)
 
 
 func _on_lost() -> void:

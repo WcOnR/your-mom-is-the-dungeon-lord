@@ -1,7 +1,6 @@
 class_name HUD extends Control
 
 @export var game_mode : NodePath
-@export var player : NodePath 
 
 @onready var health_ui : HealthUI = $Panel/HBoxContainer/RightSide/VBoxContainer/HealthUi
 @onready var turn_tracker : TurnTracker = $Panel/HBoxContainer/BtnHolder/MarginContainer/TurnTracker
@@ -18,7 +17,7 @@ func _ready() -> void:
 	_game_mode.turn_changed.connect(_on_turns_updates)
 	_game_mode.max_turn_changed.connect(_on_max_turns_updates)
 	_game_mode.state_changed.connect(_on_btn_state_changed)
-	_player = get_node(player) as Player
+	_player = get_tree().get_first_node_in_group("Player") as Player
 	_health_comp = _player.get_node("HealthComp") as HealthComp
 	health_ui.set_health_comp(_health_comp)
 

@@ -2,7 +2,6 @@ class_name Field extends Node2D
 
 @export var gem_set : GemSet
 @export var min_gem : int = 2
-@export var player : NodePath 
 @export var line_holder : NodePath
 
 @onready var tile_map : TileMapLayer = $TileMapLayer
@@ -18,7 +17,7 @@ signal gem_collapsed
 
 
 func _ready() -> void:
-	_player = get_node(player) as Player
+	_player = get_tree().get_first_node_in_group("Player") as Player
 	_line_holder = get_node(line_holder)
 	_init_grid_with_tile_map()
 	_start_spawners()

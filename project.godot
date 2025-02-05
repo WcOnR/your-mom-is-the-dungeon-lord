@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Match3"
-run/main_scene="res://game_objects/world.tscn"
+run/main_scene="res://game_objects/rooms/world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameInputManagerSystem="*res://system/game_input_manager.gd"
 AnimManagerSystem="*res://system/anim_object/anim_object_manager.gd"
+SceneLoaderSystem="*res://game_systems/scene_loader.gd"
 
 [display]
 
@@ -29,6 +30,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 GameMode=""
+Player=""
 
 [input]
 

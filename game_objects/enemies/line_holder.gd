@@ -1,8 +1,5 @@
 class_name LineHolder extends Node2D
 
-@export var player : NodePath 
-@export var battle : BattlePreset
-
 signal all_enemy_all_dead
 signal active_lines_changed
 
@@ -13,11 +10,11 @@ var _player : Player = null
 
 
 func _ready() -> void:
-	_player = get_node(player) as Player
+	_player = get_tree().get_first_node_in_group("Player") as Player
 	GameInputManagerSystem.on_click_end.connect(_on_click_action)
 
 
-func spawn_enemies() -> void:
+func spawn_enemies(battle : BattlePreset) -> void:
 	var enemy_data := [battle.line1, battle.line2, battle.line3]
 	var i := 0
 	while i < lines.size():
