@@ -7,7 +7,7 @@ class_name HealthComp extends Node
 var _is_dead := false
 
 signal health_changed
-signal shield_changed
+signal shield_changed(bool)
 signal death
 
 
@@ -32,14 +32,14 @@ func _absorb_damage(damage : int) -> int:
 	var old_shield := shield
 	shield = max(-dif, 0)
 	if old_shield != shield :
-		shield_changed.emit()
+		shield_changed.emit(false)
 	return max(dif, 0)
 
 
 func _drop_shield() -> void:
 	if shield > 0 :
 		shield = 0
-		shield_changed.emit()
+		shield_changed.emit(true)
 
 
 func _set_health(new_health : int) -> void:

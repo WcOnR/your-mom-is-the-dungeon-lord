@@ -12,6 +12,7 @@ var _line_holder : LineHolder = null
 var _enabled : bool = false
 var _spawners : Array[GemSpawner] = []
 
+const DAMAGE_MULTIPLIER := 10
 
 signal gem_collapsed
 
@@ -92,7 +93,7 @@ func _on_click_action(data : ClickData) -> void:
 func _mult_func(count : int) -> int:
 	if count >= 10:
 		return 999
-	return count + _fib(count - min_gem)
+	return (count + _fib(count - min_gem)) * DAMAGE_MULTIPLIER
 
 
 func _fib(f : int) -> int:

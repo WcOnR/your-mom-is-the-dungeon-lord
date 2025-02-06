@@ -9,8 +9,8 @@
 
 [sub_resource type="Resource" id="Resource_gjv5e"]
 script = ExtResource("1_s1pma")
-max_health = 10
-damage = 1
+max_health = 100
+damage = 10
 actions = Array[ExtResource("2_yev7n")]([ExtResource("3_3eaun")])
 texture = ExtResource("4_d2ujv")
 

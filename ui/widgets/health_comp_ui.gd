@@ -42,9 +42,9 @@ func _on_health_changed() -> void:
 	health_progress.value = _health
 
 
-func _on_shield_changed() -> void:
+func _on_shield_changed(_hidden : bool = true) -> void:
 	var dif := health_comp.shield - shields.get_value()
-	if dif != 0:
+	if not _hidden and dif != 0:
 		var pos := shields.position + shields.size / 2.0
 		PopUpNumber.create_pop_up(self, dif, pos)
 	shields.set_value(health_comp.shield)
