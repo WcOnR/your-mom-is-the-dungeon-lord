@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=3 format=3 uid="uid://x2dj2atleasc"]
+
+[ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_eqf7a"]
+[ext_resource type="Texture2D" uid="uid://bfat8fe03x62r" path="res://game_objects/gems/heart.tres" id="2_bw7or"]
+
+[resource]
+script = ExtResource("1_eqf7a")
+type = 1
+texture = ExtResource("2_bw7or")

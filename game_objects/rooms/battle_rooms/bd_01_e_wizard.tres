@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=8 format=3 uid="uid://2qrasnhkns3t"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_cgole"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="2_dlaxs"]
+[ext_resource type="Resource" uid="uid://r5xxbsm8oy84" path="res://game_objects/enemies/goblin/e_goblin.tres" id="2_xkqkc"]
+[ext_resource type="Resource" uid="uid://o10377evkcr4" path="res://game_objects/enemies/combat_actions/mix_field_action.tres" id="3_ae6t3"]
+[ext_resource type="Texture2D" uid="uid://t266fu32e33y" path="res://game_objects/enemies/elf/elf.png" id="4_a37sc"]
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="5_s28bd"]
+
+[sub_resource type="Resource" id="Resource_gjv5e"]
+script = ExtResource("1_cgole")
+max_health = 100
+damage = 10
+reward = 100
+actions = Array[ExtResource("2_dlaxs")]([ExtResource("3_ae6t3")])
+texture = ExtResource("4_a37sc")
+
+[resource]
+script = ExtResource("5_s28bd")
+line1 = Array[ExtResource("1_cgole")]([])
+line2 = Array[ExtResource("1_cgole")]([ExtResource("2_xkqkc"), SubResource("Resource_gjv5e"), ExtResource("2_xkqkc")])
+line3 = Array[ExtResource("1_cgole")]([])

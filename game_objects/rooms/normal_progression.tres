@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="ProgressionPreset" load_steps=5 format=3 uid="uid://b4df8mtemc2vj"]
+[gd_resource type="Resource" script_class="ProgressionPreset" load_steps=6 format=3 uid="uid://b4df8mtemc2vj"]
 
 [ext_resource type="Script" path="res://game_objects/game_mode/room_preset.gd" id="1_2lt7t"]
 [ext_resource type="Resource" uid="uid://4nhnsl853ceq" path="res://game_objects/rooms/battle_rooms/battle_difficulty_01.tres" id="2_s6rmk"]
 [ext_resource type="Script" path="res://game_objects/game_mode/progression_preset.gd" id="2_x7iit"]
+[ext_resource type="Resource" uid="uid://ctc7dw4c0qrbr" path="res://game_objects/rooms/battle_rooms/battle_difficulty_01_elite.tres" id="3_1psyb"]
 [ext_resource type="Resource" uid="uid://1cwsxes73law" path="res://game_objects/rooms/battle_rooms/battle_difficulty_02.tres" id="3_jejq7"]
 
 [resource]
 script = ExtResource("2_x7iit")
-rooms = Array[ExtResource("1_2lt7t")]([ExtResource("2_s6rmk"), ExtResource("2_s6rmk"), ExtResource("3_jejq7")])
+rooms = Array[ExtResource("1_2lt7t")]([ExtResource("2_s6rmk"), ExtResource("2_s6rmk"), ExtResource("3_1psyb"), ExtResource("3_jejq7")])

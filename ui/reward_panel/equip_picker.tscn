@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl65gc4e573wo"]
+
+[ext_resource type="Script" path="res://ui/reward_panel/equip_picker.gd" id="1_hj1nt"]
+[ext_resource type="PackedScene" uid="uid://ba6rrbnc23vi1" path="res://ui/widgets/item_viewer.tscn" id="2_kh2af"]
+
+[node name="EquipPicker" type="Button"]
+custom_minimum_size = Vector2(120, 120)
+offset_right = 120.0
+offset_bottom = 120.0
+focus_mode = 0
+script = ExtResource("1_hj1nt")
+
+[node name="Selected" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.39, 0.39, 0.39, 0.392157)
+
+[node name="ItemViewer" parent="." instance=ExtResource("2_kh2af")]

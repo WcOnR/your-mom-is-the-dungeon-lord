@@ -1,12 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfol48c4emuyb"]
+[gd_scene load_steps=15 format=3 uid="uid://cfol48c4emuyb"]
 
 [ext_resource type="Script" path="res://ui/hub/hud.gd" id="1_08ihg"]
 [ext_resource type="PackedScene" uid="uid://1gowrjdv5xvj" path="res://ui/widgets/health_ui.tscn" id="1_upqgx"]
 [ext_resource type="Texture2D" uid="uid://b7ejqdtri4lvq" path="res://ui/widgets/balckout.png" id="2_pac05"]
 [ext_resource type="Texture2D" uid="uid://yjdohd4dyrr5" path="res://ui/ui_field/field_btns_back.png" id="2_rgat4"]
 [ext_resource type="PackedScene" uid="uid://bisw0tue6xhhe" path="res://ui/turns/turn_tracker.tscn" id="3_h7m6w"]
+[ext_resource type="PackedScene" uid="uid://gbp6mf6kpd3b" path="res://ui/widgets/consumable_item_holder.tscn" id="4_g7i34"]
 [ext_resource type="Texture2D" uid="uid://c365l3cddwoah" path="res://ui/ui_field/field_background.png" id="5_5a6jh"]
+[ext_resource type="Resource" uid="uid://c4o1anlio860k" path="res://game_objects/items/consumabl_item_1.tres" id="5_km1f5"]
+[ext_resource type="Resource" uid="uid://cgf7nuvx856d5" path="res://game_objects/items/consumabl_item_2.tres" id="6_efmqs"]
 [ext_resource type="PackedScene" uid="uid://brda3c0wjq5gd" path="res://ui/turns/end_turn_btn.tscn" id="6_thlxe"]
+[ext_resource type="Resource" uid="uid://4gow4p87dlkh" path="res://game_objects/items/consumabl_item_3.tres" id="7_vaihq"]
+[ext_resource type="PackedScene" uid="uid://c6k2jpfxwbkvq" path="res://ui/equip_viewer/equip_viewer.tscn" id="11_n4dsf"]
+[ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="11_tgfua"]
+[ext_resource type="PackedScene" uid="uid://dd6ac6gekp0dl" path="res://ui/reward_panel/reward_panel.tscn" id="12_e6moo"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -58,16 +65,46 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 alignment = 2
 
+[node name="ConsumablePanel" type="MarginContainer" parent="Panel/HBoxContainer/BtnHolder"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/BtnHolder/ConsumablePanel"]
+layout_mode = 2
+
+[node name="ConsumableItemHolder" parent="Panel/HBoxContainer/BtnHolder/ConsumablePanel/VBoxContainer" instance=ExtResource("4_g7i34")]
+unique_name_in_owner = true
+layout_mode = 2
+item_preset = ExtResource("5_km1f5")
+
+[node name="ConsumableItemHolder2" parent="Panel/HBoxContainer/BtnHolder/ConsumablePanel/VBoxContainer" instance=ExtResource("4_g7i34")]
+unique_name_in_owner = true
+layout_mode = 2
+item_preset = ExtResource("6_efmqs")
+
+[node name="ConsumableItemHolder3" parent="Panel/HBoxContainer/BtnHolder/ConsumablePanel/VBoxContainer" instance=ExtResource("4_g7i34")]
+unique_name_in_owner = true
+layout_mode = 2
+item_preset = ExtResource("7_vaihq")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/BtnHolder"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/BtnHolder"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/margin_bottom = 20
 
 [node name="TurnTracker" parent="Panel/HBoxContainer/BtnHolder/MarginContainer" instance=ExtResource("3_h7m6w")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="EndTurnBtn" parent="Panel/HBoxContainer/BtnHolder" instance=ExtResource("6_thlxe")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -85,15 +122,41 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/RightSide"]
 layout_mode = 2
 alignment = 2
 
 [node name="HealthUi" parent="Panel/HBoxContainer/RightSide/VBoxContainer" instance=ExtResource("1_upqgx")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="CoinPanel" parent="Panel/HBoxContainer/RightSide/VBoxContainer" instance=ExtResource("11_tgfua")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EquipViewer" parent="Panel/HBoxContainer/RightSide/VBoxContainer" instance=ExtResource("11_n4dsf")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FieldFiller" type="CenterContainer" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(803, 0)
+layout_mode = 2
+
+[node name="RewardPanel" parent="HBoxContainer2" instance=ExtResource("12_e6moo")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 
 [node name="FieldBackground" type="Sprite2D" parent="."]
 texture = ExtResource("5_5a6jh")

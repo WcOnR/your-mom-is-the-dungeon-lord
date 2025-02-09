@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bknffommb3er4"]
 
 [ext_resource type="Script" path="res://ui/widgets/health_comp_ui.gd" id="1_qitsd"]
+[ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="2_fqyxe"]
 [ext_resource type="Texture2D" uid="uid://l8y2l834aish" path="res://ui/action_icons/shield.png" id="3_7ixli"]
 [ext_resource type="PackedScene" uid="uid://xikuimul3exk" path="res://ui/widgets/action_ui.tscn" id="3_yv6fk"]
 
@@ -18,11 +19,6 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="LabelSettings" id="LabelSettings_t4dgy"]
-font_size = 20
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
 [node name="HealthComp" type="MarginContainer"]
 offset_right = 120.0
 offset_bottom = 32.0
@@ -37,9 +33,7 @@ custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 
 [node name="Container" type="MarginContainer" parent="Container2/MarginContainer"]
-custom_minimum_size = Vector2(232, 30)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container2/MarginContainer/Container"]
@@ -71,7 +65,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "10/10"
-label_settings = SubResource("LabelSettings_t4dgy")
+label_settings = ExtResource("2_fqyxe")
 horizontal_alignment = 1
 vertical_alignment = 1
 

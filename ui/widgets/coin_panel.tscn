@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf102rf2d2ahv"]
+
+[ext_resource type="Script" path="res://ui/widgets/coin_panel.gd" id="1_ach0u"]
+[ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="1_diqhe"]
+
+[node name="CoinPanel" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+script = ExtResource("1_ach0u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+alignment = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("1_diqhe")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2

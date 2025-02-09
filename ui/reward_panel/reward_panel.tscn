@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd6ac6gekp0dl"]
+
+[ext_resource type="Script" path="res://ui/reward_panel/reward_panel.gd" id="1_ced4u"]
+
+[node name="RewardPanel" type="Control"]
+custom_minimum_size = Vector2(1117, 160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1117.0
+offset_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_ced4u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CallToActionLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "THE BATTLE IS WON!"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1117, 160)
+layout_mode = 2
+
+[node name="RewardsContainer" type="HBoxContainer" parent="VBoxContainer/Panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CollectButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "Collect"
+
+[connection signal="pressed" from="VBoxContainer/CollectButton" to="." method="_on_button_pressed"]

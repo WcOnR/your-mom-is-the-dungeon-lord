@@ -11,6 +11,7 @@
 script = ExtResource("1_s1pma")
 max_health = 100
 damage = 10
+reward = 100
 actions = Array[ExtResource("2_yev7n")]([ExtResource("3_3eaun")])
 texture = ExtResource("4_d2ujv")
 

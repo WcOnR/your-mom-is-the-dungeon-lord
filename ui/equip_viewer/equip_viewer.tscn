@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6k2jpfxwbkvq"]
+
+[ext_resource type="PackedScene" uid="uid://ba6rrbnc23vi1" path="res://ui/widgets/item_viewer.tscn" id="1_j5gi5"]
+[ext_resource type="Script" path="res://ui/equip_viewer/equip_viewer.gd" id="1_lw20c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sicg2"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0, 0, 0, 0.588235)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="EquipViewer" type="Control"]
+custom_minimum_size = Vector2(430, 120)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 360.0
+offset_bottom = 120.0
+script = ExtResource("1_lw20c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicg2")
+
+[node name="Slot1" parent="HBoxContainer/MarginContainer" instance=ExtResource("1_j5gi5")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Panel2" type="Panel" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicg2")
+
+[node name="Slot2" parent="HBoxContainer/MarginContainer2" instance=ExtResource("1_j5gi5")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Panel" type="Panel" parent="HBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sicg2")
+
+[node name="Slot3" parent="HBoxContainer/MarginContainer3" instance=ExtResource("1_j5gi5")]
+unique_name_in_owner = true
+layout_mode = 2

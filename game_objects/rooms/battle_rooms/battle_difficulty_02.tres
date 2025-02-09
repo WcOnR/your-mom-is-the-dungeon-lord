@@ -8,4 +8,5 @@
 [resource]
 script = ExtResource("5_ftysa")
 pool = Array[ExtResource("1_ifep0")]([ExtResource("2_jhgry")])
+is_elite = false
 scene = ExtResource("4_wr783")
