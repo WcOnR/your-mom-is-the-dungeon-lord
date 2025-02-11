@@ -63,16 +63,19 @@ layout_mode = 2
 [node name="BtnHolder" type="VBoxContainer" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 2
 alignment = 2
 
 [node name="ConsumablePanel" type="MarginContainer" parent="Panel/HBoxContainer/BtnHolder"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/BtnHolder/ConsumablePanel"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ConsumableItemHolder" parent="Panel/HBoxContainer/BtnHolder/ConsumablePanel/VBoxContainer" instance=ExtResource("4_g7i34")]
 unique_name_in_owner = true

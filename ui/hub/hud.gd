@@ -1,6 +1,7 @@
 class_name HUD extends Control
 
 @export var game_mode : NodePath
+@export var field : NodePath
 
 @onready var health_ui : HealthUI = %HealthUi
 @onready var turn_tracker : TurnTracker = %TurnTracker
@@ -12,6 +13,7 @@ class_name HUD extends Control
 var _game_mode : BattleGameMode = null
 var _player : Player = null
 var _health_comp : HealthComp = null
+var _field : Field = null
 
 
 func _ready() -> void:
@@ -25,6 +27,9 @@ func _ready() -> void:
 	health_ui.set_health_comp(_health_comp)
 	reward_panel.collected.connect(_on_reward_collected)
 	_player.inventory_comp.items_changed.connect(_on_item_updated)
+	_field = get_node(field) as Field
+	for holder in consumable_item_holders:
+		holder.set_field(_field)
 	_on_item_updated()
 
 

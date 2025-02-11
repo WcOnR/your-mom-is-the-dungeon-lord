@@ -1,9 +1,17 @@
-[gd_resource type="Resource" script_class="ItemPreset" load_steps=3 format=3 uid="uid://c4o1anlio860k"]
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://c4o1anlio860k"]
 
+[ext_resource type="Script" path="res://behaviors/debug_log.gd" id="1_afjft"]
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_dhljs"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="2_36f8u"]
 [ext_resource type="Texture2D" uid="uid://gkbl8opd23yh" path="res://game_objects/gems/sword.tres" id="2_o7av2"]
+
+[sub_resource type="Resource" id="Resource_qjvjf"]
+script = ExtResource("2_36f8u")
+behavior = ExtResource("1_afjft")
+args = []
 
 [resource]
 script = ExtResource("1_dhljs")
 type = 0
 texture = ExtResource("2_o7av2")
+action = SubResource("Resource_qjvjf")

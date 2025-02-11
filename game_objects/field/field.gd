@@ -5,6 +5,7 @@ class_name Field extends Node2D
 @export var line_holder : NodePath
 
 @onready var tile_map : TileMapLayer = $TileMapLayer
+@onready var tile_map_h : TileMapLayer = $TileMapLayer_h
 
 var grid : Grid = null
 var _player : Player = null
@@ -13,6 +14,7 @@ var _enabled : bool = false
 var _spawners : Array[GemSpawner] = []
 
 const DAMAGE_MULTIPLIER := 10
+const ON_DROP : StringName = "on_drop"
 
 signal gem_collapsed
 
@@ -39,6 +41,11 @@ func enable_input(_enable_input : bool) -> void:
 
 func is_valid_cell_id(cell_id : Vector2i) -> bool:
 	return grid.is_valid_cell_id(cell_id)
+
+
+func start_drag(follower : MouseFollower) -> void:
+	follower.dropped.connect(_on_consumable_drop)
+	follower.position_updated.connect(_on_consumable_pos_updated)
 
 
 func _process(_delta: float) -> void:
@@ -141,3 +148,19 @@ func _get_cell_neighbors(map : Dictionary, id : Vector2i) -> Array[Gem]:
 			if gem != null:
 				result.append(gem)
 	return result
+
+
+func _on_consumable_pos_updated(_position: Vector2, _data : Variant) -> void:
+	var cell_id := grid.get_cell_id(_position - global_position)
+	tile_map_h.clear()
+	if is_valid_cell_id(cell_id):
+		tile_map_h.set_cell(cell_id, 0, Vector2i.ZERO)
+
+
+func _on_consumable_drop(_position: Vector2, _data : Variant) -> void:
+	var cell_id := grid.get_cell_id(_position - global_position)
+	tile_map_h.clear()
+	var item_preset := _data as ItemPreset
+	if is_valid_cell_id(cell_id):
+		item_preset.action.run(ON_DROP, [self, cell_id])
+		_player.inventory_comp.consume_item(item_preset)

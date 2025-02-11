@@ -8,3 +8,8 @@ func on_ready(args : Array[Variant]) -> bool:
 func on_process(args : Array[Variant]) -> bool:
 	print("[on_process] ", args[0])
 	return false
+
+
+func on_drop(args : Array[Variant]) -> bool:
+	print("[on_drop] ", args)
+	return false
