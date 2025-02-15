@@ -16,8 +16,10 @@ var _game_mode : BattleGameMode = null
 
 const DAMAGE_MULTIPLIER := 10
 const ON_DROP : StringName = "on_drop"
+const ON_MOVE : StringName = "on_move"
 
 signal gem_collapsed
+signal action_clicked
 
 
 func _ready() -> void:
@@ -48,6 +50,20 @@ func is_valid_cell_id(cell_id : Vector2i) -> bool:
 func start_drag(follower : MouseFollower) -> void:
 	follower.dropped.connect(_on_consumable_drop)
 	follower.position_updated.connect(_on_consumable_pos_updated)
+
+
+func highlight_cells(cells : Array[Vector2i]) -> void:
+	tile_map_h.clear()
+	for cell_id in cells:
+		tile_map_h.set_cell(cell_id, 0, Vector2i.ZERO)
+
+
+func collapse_ids(to_remove : Array[Vector2i]) -> void:
+	var gems : Array[Gem] = []
+	var map := grid.get_map()
+	for cell_id in to_remove:
+		gems.append(map.get(cell_id) as Gem)
+	_collapse_gems(gems)
 
 
 func _process(_delta: float) -> void:
@@ -92,13 +108,24 @@ func _on_click_action(data : ClickData) -> void:
 		return
 	var to_remove : Array[Gem] = _get_all_near_gems(cell_id)
 	if to_remove.size() >= min_gem:
-		var gem_type := to_remove[0]._gem_type
-		for gem in to_remove:
-			_delete_gem(gem)
+		_collapse_gems(to_remove)
+		action_clicked.emit()
+
+
+func _collapse_gems(to_remove : Array[Gem]) -> void:
+	var types = {}
+	for gem in to_remove:
+		var gem_type := gem.get_gem_type()
+		if gem_type in types:
+			types[gem_type] += 1
+		else:
+			types[gem_type] = 1
+		_delete_gem(gem)
+	for gem_type in types.keys():
 		if gem_type.actions:
-			var val := _mult_func(to_remove.size())
+			var val := _mult_func(types[gem_type])
 			gem_type.actions.run_event(ActionList.ON_ACTION, [val, _player, _line_holder])
-		gem_collapsed.emit()
+	gem_collapsed.emit()
 
 
 func _mult_func(count : int) -> int:
@@ -156,9 +183,11 @@ func _get_cell_neighbors(map : Dictionary, id : Vector2i) -> Array[Gem]:
 
 func _on_consumable_pos_updated(_position: Vector2, _data : Variant) -> void:
 	var cell_id := grid.get_cell_id(_position - global_position)
-	tile_map_h.clear()
 	if is_valid_cell_id(cell_id):
-		tile_map_h.set_cell(cell_id, 0, Vector2i.ZERO)
+		var item_preset := _data as ItemPreset
+		item_preset.action.run(ON_MOVE, [self, cell_id])
+	else:
+		tile_map_h.clear()
 
 
 func _on_consumable_drop(_position: Vector2, _data : Variant) -> void:

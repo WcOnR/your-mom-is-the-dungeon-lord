@@ -6,6 +6,7 @@ var _room : Node2D = null
 
 func start_game(world : Node2D, preset : ProgressionPreset) -> void:
 	_world = world
+	_world.load_game_autoload()
 	_preset = preset.duplicate()
 	for r in _preset.rooms:
 		r.on_room_reset()

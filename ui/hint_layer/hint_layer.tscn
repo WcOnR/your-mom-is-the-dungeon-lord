@@ -15,6 +15,7 @@ script = ExtResource("1_ulc6e")
 
 [node name="Hint" type="MarginContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_right = 820.0
 offset_bottom = 328.0

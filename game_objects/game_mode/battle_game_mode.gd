@@ -50,7 +50,7 @@ func start_battle(preset : BattlePreset, is_elite : bool) -> void:
 	_line_holder.spawn_enemies(preset)
 	_line_holder.all_enemy_all_dead.connect(_on_win)
 	_health_comp.death.connect(_on_lost)
-	_field.gem_collapsed.connect(_next_turn)
+	_field.action_clicked.connect(_next_turn)
 	_start_round()
 
 
