@@ -7,3 +7,5 @@
 script = ExtResource("1_wu3px")
 type = 0
 texture = ExtResource("2_ib3g0")
+item_name = "currency_item"
+item_description = "Money!"

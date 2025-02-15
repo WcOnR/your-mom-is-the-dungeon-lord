@@ -17,7 +17,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="ConsumableItemHolder" type="MarginContainer"]
+[node name="ConsumableItemHolder" type="MarginContainer" groups=["HintTarget"]]
 custom_minimum_size = Vector2(120, 140)
 offset_right = 120.0
 offset_bottom = 140.0

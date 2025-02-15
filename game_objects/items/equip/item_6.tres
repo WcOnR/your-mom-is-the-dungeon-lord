@@ -7,3 +7,5 @@
 script = ExtResource("1_sqbkh")
 type = 2
 texture = ExtResource("2_1t64w")
+item_name = "item_6"
+item_description = "item_1item_1item_1"

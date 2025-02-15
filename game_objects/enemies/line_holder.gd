@@ -7,10 +7,12 @@ signal active_lines_changed
 var selected_line : int = -1
 var _active_lines_count : int = 0
 var _player : Player = null
+var _game_mode : BattleGameMode = null
 
 
 func _ready() -> void:
 	_player = get_tree().get_first_node_in_group("Player") as Player
+	_game_mode = get_tree().get_first_node_in_group("GameMode") as BattleGameMode
 	GameInputManagerSystem.on_click_end.connect(_on_click_action)
 
 
@@ -74,6 +76,8 @@ func _selct_line(line : BattleLine) -> void:
 
 
 func _on_click_action(_data : ClickData) -> void:
+	if not _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
+		return
 	var space = get_world_2d().direct_space_state
 	var pp := PhysicsPointQueryParameters2D.new()
 	pp.collide_with_areas = true 

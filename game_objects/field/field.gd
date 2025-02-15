@@ -12,6 +12,7 @@ var _player : Player = null
 var _line_holder : LineHolder = null
 var _enabled : bool = false
 var _spawners : Array[GemSpawner] = []
+var _game_mode : BattleGameMode = null
 
 const DAMAGE_MULTIPLIER := 10
 const ON_DROP : StringName = "on_drop"
@@ -21,6 +22,7 @@ signal gem_collapsed
 
 func _ready() -> void:
 	_player = get_tree().get_first_node_in_group("Player") as Player
+	_game_mode = get_tree().get_first_node_in_group("GameMode") as BattleGameMode
 	_line_holder = get_node(line_holder)
 	_init_grid_with_tile_map()
 	_start_spawners()
@@ -82,6 +84,8 @@ func _init_grid_with_tile_map() -> void:
 
 
 func _on_click_action(data : ClickData) -> void:
+	if not _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
+		return
 	var old_cell_id := grid.get_cell_id(data.start_position - global_position)
 	var cell_id := grid.get_cell_id(data.end_position - global_position)
 	if not _enabled or cell_id != old_cell_id or not is_valid_cell_id(cell_id):

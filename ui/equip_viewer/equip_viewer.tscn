@@ -16,7 +16,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="EquipViewer" type="Control"]
+[node name="EquipViewer" type="Control" groups=["HintTarget"]]
 custom_minimum_size = Vector2(430, 120)
 layout_mode = 3
 anchors_preset = 0

@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8hqsq106wcho"]
+[gd_scene load_steps=5 format=3 uid="uid://c8hqsq106wcho"]
 
 [ext_resource type="Script" path="res://game_objects/rooms/world.gd" id="1_ngkjm"]
 [ext_resource type="Resource" uid="uid://b4df8mtemc2vj" path="res://game_objects/rooms/normal_progression.tres" id="2_3u4ur"]
 [ext_resource type="PackedScene" uid="uid://ci26slyckun7b" path="res://game_objects/player/player.tscn" id="3_ki5p2"]
+[ext_resource type="PackedScene" uid="uid://cytmwf2jvje6p" path="res://ui/hint_layer/hint_layer.tscn" id="4_5qb1q"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ngkjm")
 preset = ExtResource("2_3u4ur")
 
 [node name="Player" parent="." instance=ExtResource("3_ki5p2")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="HintLayer" parent="CanvasLayer" instance=ExtResource("4_5qb1q")]

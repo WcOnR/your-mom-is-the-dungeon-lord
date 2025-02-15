@@ -10,3 +10,11 @@ func update_view(inventory : InventoryComp) -> void:
 		if s:
 			item_viewers[i].set_item(s.item_preset)
 			i += i
+
+
+func get_hint_under_cursor(rect : Rect2) -> Hint:
+	for slot in item_viewers:
+		var hint := slot.get_hint_under_cursor(rect)
+		if hint:
+			return hint
+	return null

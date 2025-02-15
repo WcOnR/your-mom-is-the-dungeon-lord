@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/reward_panel/reward_panel.gd" id="1_ced4u"]
 
-[node name="RewardPanel" type="Control"]
+[node name="RewardPanel" type="Control" groups=["HintTarget"]]
 custom_minimum_size = Vector2(1117, 160)
 layout_mode = 3
 anchors_preset = 0

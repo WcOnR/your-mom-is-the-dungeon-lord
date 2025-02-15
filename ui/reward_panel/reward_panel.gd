@@ -3,6 +3,7 @@ class_name RewardPanel extends Control
 
 @onready var viewer_scene : PackedScene = preload("res://ui/reward_panel/item_pack_viewer.tscn")
 @onready var equip_scene : PackedScene = preload("res://ui/reward_panel/equip_picker.tscn")
+@onready var reward_container := %RewardsContainer
 
 
 signal collected(equip_choice : ItemPreset)
@@ -17,28 +18,40 @@ func set_reward_view(item_packs : Array[ItemPack]) -> void:
 	for pack in item_packs:
 		var viewer := viewer_scene.instantiate() as ItemPackViewer
 		viewer.set_pack(pack)
-		%RewardsContainer.add_child(viewer)
+		reward_container.add_child(viewer)
 
 
 func set_equip_choice(equip : Array[ItemPreset]) -> void:
 	_equip = equip
 
 
+func get_hint_under_cursor(rect : Rect2) -> Hint:
+	for node in reward_container.get_children():
+		var hint : Hint = node.get_hint_under_cursor(rect)
+		if hint:
+			return hint
+	return null
+
+
 func _setup_equip() -> void:
 	_is_choice = true
 	%CollectButton.disabled = true
 	%CallToActionLabel.text = "CHOOSE ONE"
-	var ch := %RewardsContainer.get_children()
+	var ch := reward_container.get_children()
 	while not ch.is_empty():
 		ch[0].queue_free()
-		%RewardsContainer.remove_child(ch[0])
-		ch = %RewardsContainer.get_children()
+		reward_container.remove_child(ch[0])
+		ch = reward_container.get_children()
+	_set_equip_pickers()
+
+
+func _set_equip_pickers() -> void:
 	for item in _equip:
 		var picker := equip_scene.instantiate() as EquipPicker
 		_pickers.append(picker)
 		picker.set_equip(item)
 		picker.pressed.connect(_on_equip_pick.bind(picker))
-		%RewardsContainer.add_child(picker)
+		reward_container.add_child(picker)
 
 
 func _on_equip_pick(picker : EquipPicker) -> void:

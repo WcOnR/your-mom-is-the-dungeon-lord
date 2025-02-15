@@ -51,7 +51,6 @@ func start_battle(preset : BattlePreset, is_elite : bool) -> void:
 	_line_holder.all_enemy_all_dead.connect(_on_win)
 	_health_comp.death.connect(_on_lost)
 	_field.gem_collapsed.connect(_next_turn)
-	GameInputManager.enabled = true
 	_start_round()
 
 
@@ -106,7 +105,6 @@ func _end_game(is_win : bool) -> void:
 	_set_state(State.WIN if is_win else State.LOST)
 	_line_holder.all_enemy_all_dead.disconnect(_on_win)
 	_health_comp.death.disconnect(_on_lost)
-	GameInputManager.enabled = false
 
 
 func _start_round() -> void:
