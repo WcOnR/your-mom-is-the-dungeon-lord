@@ -17,7 +17,7 @@ func initialize(size : Vector2i, cell_size : Vector2) -> void:
 
 
 func is_idle() -> bool:
-	return _is_all_gem_in_state(Gem.State.IDLE)
+	return not gems.is_empty() and _is_all_gem_in_state(Gem.State.IDLE)
 
 
 func is_spawn_allowed() -> bool:

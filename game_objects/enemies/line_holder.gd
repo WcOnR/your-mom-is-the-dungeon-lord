@@ -13,6 +13,7 @@ var _game_mode : BattleGameMode = null
 func _ready() -> void:
 	_player = get_tree().get_first_node_in_group("Player") as Player
 	_game_mode = get_tree().get_first_node_in_group("GameMode") as BattleGameMode
+	_game_mode.state_changed.connect(_on_game_mode_state_changed)
 	GameInputManagerSystem.on_click_end.connect(_on_click_action)
 
 
@@ -23,7 +24,6 @@ func spawn_enemies(battle : BattlePreset) -> void:
 		lines[i].set_enemies(enemy_data[i])
 		lines[i].enemy_dead.connect(_on_enemy_dead)
 		i += 1
-	_plan_next_enemy_attack()
 	_select_next_line()
 	_update_active_lines()
 
@@ -50,6 +50,11 @@ func get_active_lines_count() -> int:
 	return i
 
 
+func _on_game_mode_state_changed() -> void:
+	if _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
+		_plan_next_enemy_attack()
+
+
 func _select_next_line() -> void:
 	lines[selected_line].select(false)
 	var old_selected_line := selected_line
@@ -73,6 +78,11 @@ func _selct_line(line : BattleLine) -> void:
 				selected_line = i
 				break
 			i += 1
+	var target_enemy : Enemy = null
+	if selected_line >= 0:
+		if not lines[selected_line].enemies.is_empty():
+			target_enemy = lines[selected_line].enemies[0]
+	_player.set_enemy(target_enemy)
 
 
 func _on_click_action(_data : ClickData) -> void:

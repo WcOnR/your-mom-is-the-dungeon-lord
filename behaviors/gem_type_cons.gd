@@ -1,4 +1,4 @@
-class_name GemTypeCons extends Node
+class_name GemTypeCons extends RefCounted
 
 
 func on_move(args : Array[Variant]) -> bool:
@@ -11,7 +11,8 @@ func on_move(args : Array[Variant]) -> bool:
 func on_drop(args : Array[Variant]) -> bool:
 	var field := args[0] as Field
 	var id := args[1] as Vector2i
-	field.collapse_ids(_get_gem_by_type(field, id))
+	var player = field.get_tree().get_first_node_in_group("Player") as Player
+	field.collapse_ids(_get_gem_by_type(field, id), player)
 	return false
 
 

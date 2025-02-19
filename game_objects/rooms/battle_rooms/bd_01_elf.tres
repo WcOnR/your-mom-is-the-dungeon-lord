@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=4 format=3 uid="uid://bc63fuq45qm4b"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_uw7bm"]
+[ext_resource type="Resource" uid="uid://5qtmryjtf2th" path="res://game_objects/enemies/elf/e_elf.tres" id="2_2se1e"]
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="3_siqii"]
+
+[resource]
+script = ExtResource("3_siqii")
+line1 = Array[ExtResource("1_uw7bm")]([])
+line2 = Array[ExtResource("1_uw7bm")]([ExtResource("2_2se1e")])
+line3 = Array[ExtResource("1_uw7bm")]([])

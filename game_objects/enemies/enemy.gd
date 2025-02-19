@@ -1,6 +1,7 @@
 class_name Enemy extends Node2D
 
 @onready var health_comp : HealthComp = $HealthComp
+@onready var attack_comp : AttackComp = $AttackComp
 @export var attack_anim : Curve
 
 var enemy_data : EnemyData = null
@@ -9,12 +10,15 @@ var breath_anim_obj : AnimObject = null
 
 const ON_PLAN : StringName = "on_plan"
 const ON_ACTION : StringName = "on_action"
+const ON_DEATH : StringName = "on_death"
 const ATTACK_ANIM_OFFSET : float = -50.0
 
 
 func initialize(data : EnemyData) -> void:
 	health_comp.health = data.max_health
 	health_comp.max_health = data.max_health
+	var player := get_tree().get_first_node_in_group("Player") as Player
+	attack_comp.set_target(player.health_comp)
 	if data.texture:
 		$Icon.texture = data.texture
 	enemy_data = data
@@ -35,16 +39,20 @@ func plan_next_attack(line : BattleLine) -> void:
 	next_action.run(ON_PLAN, [enemy_data, line])
 
 
+func attack(player : Player):
+	var anim := AnimObject.new(self, _attack_anim, attack_anim, 0.4)
+	AnimManagerSystem.start_anim(anim)
+	await anim.anim_finished
+	await next_action.run(ON_ACTION, [self, player])
+
+
+func clear_actions() -> void:
+	next_action.run(ON_DEATH, [self])
+
+
 func _attack_anim(t : float) -> void:
 	$Icon.position.y = t * ATTACK_ANIM_OFFSET
 
 
 func _breath_anim(t : float) -> void:
 	$Icon.scale.y = 1.0 - (t - 0.5) * 0.02
-
-
-func attack(player : Player):
-	var anim := AnimObject.new(self, _attack_anim, attack_anim, 0.4)
-	AnimManagerSystem.start_anim(anim)
-	await anim.anim_finished
-	await next_action.run(ON_ACTION, [enemy_data, player])

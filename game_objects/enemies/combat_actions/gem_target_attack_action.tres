@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://dxrwpj0m8ik8m"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/gem_target_attack_action.gd" id="1_u64s8"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="2_d17sk"]
+
+[resource]
+script = ExtResource("2_d17sk")
+behavior = ExtResource("1_u64s8")
+args = []

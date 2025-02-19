@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxhjvuxnioqlf"
-path="res://.godot/imported/mix.png-52cd472298f2089a5fb07ff22aec3cf3.ctex"
+uid="uid://cos5i0goi4s1l"
+path="res://.godot/imported/statue.png-3b4eebe5813dd59d52723cae73a27bcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_objects/enemies/combat_actions/mix.png"
-dest_files=["res://.godot/imported/mix.png-52cd472298f2089a5fb07ff22aec3cf3.ctex"]
+source_file="res://game_objects/enemies/statue/statue.png"
+dest_files=["res://.godot/imported/statue.png-3b4eebe5813dd59d52723cae73a27bcc.ctex"]
 
 [params]
 

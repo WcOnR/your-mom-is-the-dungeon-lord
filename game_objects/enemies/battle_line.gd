@@ -40,9 +40,7 @@ func select(_select : bool) -> void:
 
 
 func _on_enemy_death() -> void:
-	remove_child(enemies[0])
-	enemies[0].queue_free()
-	enemies.remove_at(0)
+	_remove_front_enemy()
 	for a in _move_in_front_anims:
 		AnimManagerSystem.drop_anim(a)
 	_move_in_front_anims.clear()
@@ -62,6 +60,14 @@ func _on_enemy_death() -> void:
 	AnimManagerSystem.start_anim_queue(_move_in_front_anims)
 	enemy_dead.emit()
 	_update_health_label()
+
+
+func _remove_front_enemy() -> void:
+	var tmp_enemy := enemies[0]
+	tmp_enemy.clear_actions()
+	remove_child(tmp_enemy)
+	tmp_enemy.queue_free()
+	enemies.remove_at(0)
 
 
 func _get_enemy_offset_x(i : int) -> float:

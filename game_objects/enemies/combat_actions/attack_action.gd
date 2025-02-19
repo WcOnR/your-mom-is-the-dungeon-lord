@@ -12,9 +12,8 @@ func on_plan(args : Array[Variant]) -> bool:
 
 
 func on_action(args : Array[Variant]) -> bool:
-	var enemy_data : = args[0] as EnemyData
-	var base_attack : int = enemy_data.damage
-	#print("on attack ", base_attack)
+	var enemy : = args[0] as Enemy
+	var base_attack : int = enemy.enemy_data.damage
 	var player : Player = args[1] as Player
 	player.health_comp.apply_damage(base_attack)
 	return false

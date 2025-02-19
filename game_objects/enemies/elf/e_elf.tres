@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://5qtmryjtf2th"]
+
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_b0kes"]
+[ext_resource type="Resource" uid="uid://dxrwpj0m8ik8m" path="res://game_objects/enemies/combat_actions/gem_target_attack_action.tres" id="2_t5tu2"]
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_vfbhx"]
+[ext_resource type="Texture2D" uid="uid://t266fu32e33y" path="res://game_objects/enemies/elf/elf.png" id="4_8utk1"]
+
+[resource]
+script = ExtResource("3_vfbhx")
+max_health = 50
+damage = 30
+reward = 200
+actions = Array[ExtResource("1_b0kes")]([ExtResource("2_t5tu2")])
+texture = ExtResource("4_8utk1")

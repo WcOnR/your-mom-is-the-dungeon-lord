@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BattleRoomPreset" load_steps=5 format=3 uid="uid://1cwsxes73law"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="1_ifep0"]
-[ext_resource type="Resource" uid="uid://bsnj4vwdxuct2" path="res://game_objects/rooms/battle_rooms/bd_02_wizard.tres" id="2_jhgry"]
+[ext_resource type="Resource" uid="uid://bsnj4vwdxuct2" path="res://game_objects/rooms/battle_rooms/bd_02_statue.tres" id="2_jhgry"]
 [ext_resource type="PackedScene" uid="uid://dl27d14vu5tdv" path="res://game_objects/rooms/battle_rooms/battle_room.tscn" id="4_wr783"]
 [ext_resource type="Script" path="res://game_objects/game_mode/battle_room_preset.gd" id="5_ftysa"]
 

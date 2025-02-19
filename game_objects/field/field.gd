@@ -6,6 +6,7 @@ class_name Field extends Node2D
 
 @onready var tile_map : TileMapLayer = $TileMapLayer
 @onready var tile_map_h : TileMapLayer = $TileMapLayer_h
+@onready var tile_map_i : IconTileMapLayer = $TileMapLayer_i
 
 var grid : Grid = null
 var _player : Player = null
@@ -58,12 +59,45 @@ func highlight_cells(cells : Array[Vector2i]) -> void:
 		tile_map_h.set_cell(cell_id, 0, Vector2i.ZERO)
 
 
-func collapse_ids(to_remove : Array[Vector2i]) -> void:
+func collapse_ids(to_remove : Array[Vector2i], initiator : Node) -> void:
 	var gems : Array[Gem] = []
 	var map := grid.get_map()
 	for cell_id in to_remove:
 		gems.append(map.get(cell_id) as Gem)
-	_collapse_gems(gems)
+	_collapse_gems(gems, initiator)
+
+
+func hit_target(target : Vector2i, initiator : Node) -> void:
+	_collapse_by_id(target, initiator)
+
+
+func show_icon(cell_id : Vector2i, type : IconTileMapLayer.Type) -> void:
+	tile_map_i.set_cell_by_type(cell_id, type)
+
+
+func clean_icons() -> void:
+	tile_map_i.clear()
+
+
+func get_max_gem_cluster_by_type(gem_type : GemType) -> Array[Vector2i]:
+	var pool : Array[Vector2i] = []
+	for gem in grid.gems:
+		if gem.get_gem_type() == gem_type:
+			pool.append(grid.get_cell_id(gem.position))
+	var clusters : Array = []
+	while not pool.is_empty():
+		var cluster := _get_all_near_gems(pool[0])
+		for gem in cluster:
+			pool.erase(grid.get_cell_id(gem.position))
+		clusters.append(cluster)
+	var max_cluster : Array[Gem] = []
+	for cluster in clusters:
+		if cluster.size() > max_cluster.size():
+			max_cluster = cluster
+	var result : Array[Vector2i] = []
+	for gem in max_cluster:
+		result.append(grid.get_cell_id(gem.position))
+	return result
 
 
 func _process(_delta: float) -> void:
@@ -99,20 +133,28 @@ func _init_grid_with_tile_map() -> void:
 	grid.initialize(size, Vector2(tile_map.tile_set.tile_size))
 
 
+func _collapse_by_id(cell_id : Vector2i, initiator : Node) -> bool:
+	if not is_valid_cell_id(cell_id):
+		return false
+	var to_remove : Array[Gem] = _get_all_near_gems(cell_id)
+	if to_remove.size() >= min_gem:
+		_collapse_gems(to_remove, initiator)
+		return true
+	return false
+
+
 func _on_click_action(data : ClickData) -> void:
 	if not _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
 		return
 	var old_cell_id := grid.get_cell_id(data.start_position - global_position)
 	var cell_id := grid.get_cell_id(data.end_position - global_position)
-	if not _enabled or cell_id != old_cell_id or not is_valid_cell_id(cell_id):
+	if not _enabled or cell_id != old_cell_id:
 		return
-	var to_remove : Array[Gem] = _get_all_near_gems(cell_id)
-	if to_remove.size() >= min_gem:
-		_collapse_gems(to_remove)
+	if _collapse_by_id(cell_id, _player):
 		action_clicked.emit()
 
 
-func _collapse_gems(to_remove : Array[Gem]) -> void:
+func _collapse_gems(to_remove : Array[Gem], initiator : Node) -> void:
 	var types = {}
 	for gem in to_remove:
 		var gem_type := gem.get_gem_type()
@@ -124,7 +166,7 @@ func _collapse_gems(to_remove : Array[Gem]) -> void:
 	for gem_type in types.keys():
 		if gem_type.actions:
 			var val := _mult_func(types[gem_type])
-			gem_type.actions.run_event(ActionList.ON_ACTION, [val, _player, _line_holder])
+			gem_type.actions.run_event(ActionList.ON_ACTION, [val, initiator])
 	gem_collapsed.emit()
 
 
@@ -149,7 +191,6 @@ func _fib(f : int) -> int:
 		val_1 = res
 		res = val_1 + val_2
 	return res
-	
 
 
 func _get_all_near_gems(cell_id : Vector2i) -> Array[Gem]:

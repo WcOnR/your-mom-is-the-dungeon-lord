@@ -108,6 +108,9 @@ func _end_game(is_win : bool) -> void:
 
 
 func _start_round() -> void:
+	if is_state(State.COLLECTING_REWARD) or is_state(State.WIN) or is_state(State.LOST):
+		return
+	_field.clean_icons()
 	_set_state(State.PLAYER_MOVE)
 	_turns_left = get_max_turns()
 	turn_changed.emit()
