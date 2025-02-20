@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl27d14vu5tdv"]
+[gd_scene load_steps=8 format=3 uid="uid://dl27d14vu5tdv"]
 
 [ext_resource type="Texture2D" uid="uid://bojay2qol5pfp" path="res://game_objects/rooms/battle_rooms/Background.png" id="1_3na0c"]
 [ext_resource type="PackedScene" uid="uid://bnca6y1kigsrx" path="res://ui/restart_screen/restart_screen.tscn" id="4_6cwhi"]
-[ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="6_cxubf"]
 [ext_resource type="PackedScene" uid="uid://cfol48c4emuyb" path="res://ui/hub/hud.tscn" id="6_neynh"]
 [ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field/field.tscn" id="6_vodr4"]
 [ext_resource type="Resource" uid="uid://bd27barncwqpa" path="res://game_objects/gems/gem_set.tres" id="7_2hrr1"]
@@ -42,12 +41,6 @@ field = NodePath("../../Field")
 [node name="RestartScreen" parent="CanvasLayer" instance=ExtResource("4_6cwhi")]
 visible = false
 game_mode = NodePath("../../GameMode")
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "TEST TEXT"
-label_settings = ExtResource("6_cxubf")
 
 [node name="LineHolder" parent="." instance=ExtResource("8_8i71o")]
 position = Vector2(1130, 720)

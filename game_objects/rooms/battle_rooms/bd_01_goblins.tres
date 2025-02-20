@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("2_i8u5x")
 line1 = Array[ExtResource("1_nfypd")]([ExtResource("2_pdaco")])
-line2 = Array[ExtResource("1_nfypd")]([ExtResource("2_pdaco")])
+line2 = Array[ExtResource("1_nfypd")]([])
 line3 = Array[ExtResource("1_nfypd")]([ExtResource("2_pdaco")])
