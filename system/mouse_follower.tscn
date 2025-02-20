@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://biubckaryx2p4"]
 
 [ext_resource type="Script" path="res://system/mouse_follower.gd" id="1_tpaj1"]
-[ext_resource type="Texture2D" uid="uid://c4yjpdvtn474w" path="res://game_objects/gems/shield.tres" id="2_lsi30"]
+[ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="2_8w713"]
 
 [node name="MouseFollower" type="Node2D"]
 script = ExtResource("1_tpaj1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 5
-texture = ExtResource("2_lsi30")
+texture = ExtResource("2_8w713")

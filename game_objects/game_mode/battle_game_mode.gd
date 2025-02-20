@@ -146,8 +146,7 @@ func _on_lost() -> void:
 
 func _prepare_reward() -> void:
 	_set_state(State.COLLECTING_REWARD)
-	var calculator := RewardCalculator.new()
-	_reward = calculator.get_rewards(_preset)
+	_reward = $RewardCalculator.get_rewards(_preset)
 	if _is_elite_battle:
-		_equip_reward = calculator.get_equip_choice(_player.inventory_comp)
+		_equip_reward = $RewardCalculator.get_equip_choice(_player.inventory_comp)
 	reward_granted.emit()

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_inoiv"]
 [ext_resource type="Script" path="res://behaviors/h_line_cons.gd" id="1_j6mhi"]
-[ext_resource type="Texture2D" uid="uid://c4yjpdvtn474w" path="res://game_objects/gems/shield.tres" id="2_62obr"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="2_u7px7"]
+[ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="4_k1ehx"]
 
 [sub_resource type="Resource" id="Resource_v6efb"]
 script = ExtResource("2_u7px7")
@@ -13,7 +13,7 @@ args = []
 [resource]
 script = ExtResource("1_inoiv")
 type = 0
-texture = ExtResource("2_62obr")
+texture = ExtResource("4_k1ehx")
 action = SubResource("Resource_v6efb")
 item_name = "Horizontal Slash"
 item_description = "Consumable item, that can be used to collapse tiles on one horizontal line."

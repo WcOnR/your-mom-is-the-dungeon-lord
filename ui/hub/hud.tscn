@@ -38,7 +38,7 @@ offset = Vector2(-30, 0)
 flip_h = true
 
 [node name="FieldBtnsBack" type="Sprite2D" parent="."]
-position = Vector2(950, 960)
+position = Vector2(920, 920)
 texture = ExtResource("2_rgat4")
 
 [node name="Panel" type="MarginContainer" parent="."]
@@ -57,7 +57,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 
 [node name="FieldFiller" type="CenterContainer" parent="Panel/HBoxContainer"]
-custom_minimum_size = Vector2(803, 0)
+custom_minimum_size = Vector2(773, 0)
 layout_mode = 2
 
 [node name="BtnHolder" type="VBoxContainer" parent="Panel/HBoxContainer"]
@@ -93,7 +93,7 @@ layout_mode = 2
 item_preset = ExtResource("7_vaihq")
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/BtnHolder"]
-custom_minimum_size = Vector2(0, 350)
+custom_minimum_size = Vector2(0, 310)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/BtnHolder"]
@@ -115,7 +115,7 @@ size_flags_horizontal = 4
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 55
+theme_override_constants/margin_bottom = 95
 
 [node name="ExtenderH" type="MarginContainer" parent="Panel/HBoxContainer"]
 layout_mode = 2
@@ -153,7 +153,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="FieldFiller" type="CenterContainer" parent="HBoxContainer2"]
-custom_minimum_size = Vector2(803, 0)
+custom_minimum_size = Vector2(773, 0)
 layout_mode = 2
 
 [node name="RewardPanel" parent="HBoxContainer2" instance=ExtResource("12_e6moo")]
@@ -164,5 +164,6 @@ layout_mode = 2
 [node name="FieldBackground" type="Sprite2D" parent="."]
 texture = ExtResource("5_5a6jh")
 centered = false
+offset = Vector2(30, 40)
 
 [connection signal="pressed" from="Panel/HBoxContainer/BtnHolder/EndTurnBtn" to="." method="_on_end_turn_btn_pressed"]

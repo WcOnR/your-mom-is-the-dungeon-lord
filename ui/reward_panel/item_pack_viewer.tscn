@@ -5,7 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="2_4ox40"]
 
 [node name="ItemPackViewer" type="Control"]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(118, 118)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_2foje")

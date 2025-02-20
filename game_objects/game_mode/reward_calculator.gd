@@ -1,4 +1,4 @@
-class_name RewardCalculator extends RefCounted
+class_name RewardCalculator extends Node
 
 
 func get_rewards(battle : BattlePreset) -> Array[ItemPack]:

@@ -18,18 +18,18 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="ConsumableItemHolder" type="MarginContainer" groups=["HintTarget"]]
-custom_minimum_size = Vector2(120, 140)
-offset_right = 120.0
-offset_bottom = 140.0
+custom_minimum_size = Vector2(118, 136)
+offset_right = 118.0
+offset_bottom = 138.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
 script = ExtResource("1_dvb6r")
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(118, 118)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -37,13 +37,14 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_l8j7t")
 
 [node name="ItemViewer" parent="." instance=ExtResource("2_bj664")]
+custom_minimum_size = Vector2(118, 118)
 layout_mode = 2
 mouse_filter = 1
 
 [node name="CountLabel" type="Label" parent="ItemViewer"]
 layout_mode = 0
 offset_top = 100.0
-offset_right = 120.0
+offset_right = 118.0
 offset_bottom = 130.0
 mouse_filter = 1
 text = "0"

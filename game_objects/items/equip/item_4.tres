@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ItemPreset" load_steps=3 format=3 uid="uid://kpxl6vnay5yo"]
 
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_e7i48"]
-[ext_resource type="Texture2D" uid="uid://c4yjpdvtn474w" path="res://game_objects/gems/shield.tres" id="2_7gx5x"]
+[ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="2_ntlb4"]
 
 [resource]
 script = ExtResource("1_e7i48")
 type = 2
-texture = ExtResource("2_7gx5x")
+texture = ExtResource("2_ntlb4")
 item_name = "item_4"
 item_description = "item_1item_1item_1"

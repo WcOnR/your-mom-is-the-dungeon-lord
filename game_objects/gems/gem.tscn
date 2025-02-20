@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgixfq0fmucp"]
 
 [ext_resource type="Script" path="res://game_objects/gems/gem.gd" id="1_bonta"]
-[ext_resource type="Texture2D" uid="uid://bc2wjavxjv0x3" path="res://game_objects/gems/skull.tres" id="2_wty2c"]
+[ext_resource type="Texture2D" uid="uid://by8e35fgqpyy3" path="res://game_objects/gems/Skull.png" id="2_ri7yd"]
 
 [node name="Gem" type="Node2D"]
 script = ExtResource("1_bonta")
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_wty2c")
+texture = ExtResource("2_ri7yd")
 centered = false

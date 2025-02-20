@@ -1,9 +1,11 @@
 [gd_resource type="Resource" script_class="ItemPreset" load_steps=3 format=3 uid="uid://bwmuueluyis0k"]
 
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_2el8d"]
-[ext_resource type="Texture2D" uid="uid://gkbl8opd23yh" path="res://game_objects/gems/sword.tres" id="2_pxl42"]
+[ext_resource type="Texture2D" uid="uid://crwj0ycattsn2" path="res://game_objects/gems/Sword.png" id="2_1fqdm"]
 
 [resource]
 script = ExtResource("1_2el8d")
 type = 3
-texture = ExtResource("2_pxl42")
+texture = ExtResource("2_1fqdm")
+item_name = ""
+item_description = ""

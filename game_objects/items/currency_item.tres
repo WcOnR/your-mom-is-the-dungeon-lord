@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ItemPreset" load_steps=3 format=3 uid="uid://bldv4q5a2u38k"]
 
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_wu3px"]
-[ext_resource type="Texture2D" uid="uid://bfat8fe03x62r" path="res://game_objects/gems/heart.tres" id="2_ib3g0"]
+[ext_resource type="Texture2D" uid="uid://tojof4c08v2p" path="res://game_objects/gems/Heart.png" id="2_5pvab"]
 
 [resource]
 script = ExtResource("1_wu3px")
 type = 0
-texture = ExtResource("2_ib3g0")
+texture = ExtResource("2_5pvab")
 item_name = "Hero Coin"
 item_description = "Currency that can be used in shop."

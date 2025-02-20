@@ -30,7 +30,7 @@ layout_mode = 2
 
 [node name="RewardsContainer" type="HBoxContainer" parent="VBoxContainer/Panel"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 118)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5

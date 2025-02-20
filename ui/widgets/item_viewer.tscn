@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ba6rrbnc23vi1"]
 
 [ext_resource type="Script" path="res://ui/widgets/item_viewer.gd" id="1_baf40"]
-[ext_resource type="Texture2D" uid="uid://bfat8fe03x62r" path="res://game_objects/gems/heart.tres" id="2_0vhi2"]
+[ext_resource type="Texture2D" uid="uid://tojof4c08v2p" path="res://game_objects/gems/Heart.png" id="2_00g1r"]
 
 [node name="ItemViewer" type="Control"]
 custom_minimum_size = Vector2(120, 120)
@@ -11,9 +11,9 @@ mouse_filter = 2
 script = ExtResource("1_baf40")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(118, 118)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("2_0vhi2")
+texture = ExtResource("2_00g1r")
