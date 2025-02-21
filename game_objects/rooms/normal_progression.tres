@@ -1,12 +1,17 @@
-[gd_resource type="Resource" script_class="ProgressionPreset" load_steps=7 format=3 uid="uid://b4df8mtemc2vj"]
+[gd_resource type="Resource" script_class="ProgressionPreset" load_steps=9 format=3 uid="uid://b4df8mtemc2vj"]
 
-[ext_resource type="Script" path="res://game_objects/game_mode/room_preset.gd" id="1_2lt7t"]
+[ext_resource type="Script" path="res://game_objects/rooms/room_preset.gd" id="1_2lt7t"]
 [ext_resource type="Resource" uid="uid://4nhnsl853ceq" path="res://game_objects/rooms/battle_rooms/battle_difficulty_01.tres" id="2_s6rmk"]
-[ext_resource type="Script" path="res://game_objects/game_mode/progression_preset.gd" id="2_x7iit"]
+[ext_resource type="Script" path="res://game_objects/rooms/progression_preset.gd" id="2_x7iit"]
 [ext_resource type="Resource" uid="uid://ctc7dw4c0qrbr" path="res://game_objects/rooms/battle_rooms/battle_difficulty_01_elite.tres" id="3_1psyb"]
+[ext_resource type="PackedScene" uid="uid://c60poi4tadglk" path="res://game_objects/rooms/bonus_room/bonus_room.tscn" id="3_f3xmn"]
 [ext_resource type="Resource" uid="uid://1cwsxes73law" path="res://game_objects/rooms/battle_rooms/battle_difficulty_02.tres" id="3_jejq7"]
 [ext_resource type="Resource" uid="uid://bnw4bmtigo2t" path="res://game_objects/rooms/battle_rooms/battle_difficulty_02_elite.tres" id="5_75h8w"]
 
+[sub_resource type="Resource" id="Resource_pcl6j"]
+script = ExtResource("1_2lt7t")
+scene = ExtResource("3_f3xmn")
+
 [resource]
 script = ExtResource("2_x7iit")
-rooms = Array[ExtResource("1_2lt7t")]([ExtResource("2_s6rmk"), ExtResource("2_s6rmk"), ExtResource("3_1psyb"), ExtResource("3_jejq7"), ExtResource("3_jejq7"), ExtResource("5_75h8w")])
+rooms = Array[ExtResource("1_2lt7t")]([ExtResource("2_s6rmk"), ExtResource("2_s6rmk"), SubResource("Resource_pcl6j"), ExtResource("3_1psyb"), ExtResource("3_jejq7"), ExtResource("3_jejq7"), ExtResource("5_75h8w")])

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field/field.tscn" id="6_vodr4"]
 [ext_resource type="Resource" uid="uid://bd27barncwqpa" path="res://game_objects/gems/gem_set.tres" id="7_2hrr1"]
 [ext_resource type="PackedScene" uid="uid://b6s25t3xxttat" path="res://game_objects/enemies/line_holder.tscn" id="8_8i71o"]
-[ext_resource type="PackedScene" uid="uid://ycrf4vt7dlqs" path="res://game_objects/game_mode/battle_game_mode.tscn" id="8_c5vxj"]
+[ext_resource type="PackedScene" uid="uid://ycrf4vt7dlqs" path="res://game_objects/game_mode/battle_game_mode/battle_game_mode.tscn" id="8_c5vxj"]
 
 [node name="Room" type="Node2D"]
 

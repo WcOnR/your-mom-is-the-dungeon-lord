@@ -37,3 +37,16 @@ func _input(event: InputEvent) -> void:
 
 func _on_hold_on_timeout() -> void:
 	on_hold_on.emit()
+
+
+func is_click_on_area(space : PhysicsDirectSpaceState2D, data : ClickData) -> Area2D:
+	var pp := PhysicsPointQueryParameters2D.new()
+	pp.collide_with_areas = true 
+	pp.position = data.start_position
+	var start_point := space.intersect_point(pp, 1)
+	pp.position = data.end_position
+	var end_point := space.intersect_point(pp, 1)
+	var is_hit := not (start_point.is_empty() or end_point.is_empty())
+	if is_hit and start_point[0].collider == end_point[0].collider:
+		return start_point[0].collider
+	return null

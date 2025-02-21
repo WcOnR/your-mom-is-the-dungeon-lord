@@ -7,6 +7,7 @@ class_name HealthComp extends Node
 var _is_dead := false
 
 signal health_changed
+signal max_health_changed
 signal shield_changed(bool)
 signal death
 
@@ -25,6 +26,14 @@ func apply_heal(heal : int) -> void:
 func apply_damage(damage : int) -> void:
 	var new_damage := _absorb_damage(damage)
 	_set_health(health - new_damage)
+
+
+func set_max_health(new_max_health : int) -> void:
+	if new_max_health > max_health:
+		var dif := new_max_health - max_health
+		max_health = new_max_health
+		max_health_changed.emit()
+		apply_heal(dif)
 
 
 func _absorb_damage(damage : int) -> int:

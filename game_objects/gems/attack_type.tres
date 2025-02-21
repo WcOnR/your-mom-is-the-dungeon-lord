@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GemType" load_steps=8 format=3 uid="uid://bj8c4f7y4n43g"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_ly7l2"]
-[ext_resource type="Script" path="res://behaviors/gem_attack.gd" id="2_l5m0j"]
+[ext_resource type="Script" path="res://game_objects/gems/gem_attack.gd" id="2_l5m0j"]
 [ext_resource type="Script" path="res://game_systems/action_list.gd" id="3_x7dc6"]
 [ext_resource type="Script" path="res://game_objects/gems/gem_type.gd" id="4_mtphu"]
 [ext_resource type="Texture2D" uid="uid://crwj0ycattsn2" path="res://game_objects/gems/Sword.png" id="5_tb061"]

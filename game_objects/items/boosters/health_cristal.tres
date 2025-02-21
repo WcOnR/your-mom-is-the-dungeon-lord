@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://x2dj2atleasc"]
+
+[ext_resource type="Script" path="res://game_objects/items/boosters/health_cristal.gd" id="1_8tsdv"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="2_yyv28"]
+[ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="3_kj3hm"]
+[ext_resource type="Texture2D" uid="uid://tojof4c08v2p" path="res://game_objects/gems/Heart.png" id="4_mwurn"]
+
+[sub_resource type="Resource" id="Resource_47u7n"]
+script = ExtResource("2_yyv28")
+behavior = ExtResource("1_8tsdv")
+args = []
+
+[resource]
+script = ExtResource("3_kj3hm")
+type = 1
+texture = ExtResource("4_mwurn")
+action = SubResource("Resource_47u7n")
+item_name = "Cristal of Health"
+item_description = "Automatically increase hero health by 20%"

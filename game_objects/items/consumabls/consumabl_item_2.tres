@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://cgf7nuvx856d5"]
 
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_inoiv"]
-[ext_resource type="Script" path="res://behaviors/h_line_cons.gd" id="1_j6mhi"]
+[ext_resource type="Script" path="res://game_objects/items/consumabls/h_line_cons.gd" id="1_j6mhi"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="2_u7px7"]
 [ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="4_k1ehx"]
 

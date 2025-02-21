@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf0wckvixm5en"]
+
+[ext_resource type="Script" path="res://game_objects/rooms/bonus_room/pick_up_bonus.gd" id="1_tn2ng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uiqs"]
+size = Vector2(300, 600)
+
+[node name="PickUpBonus" type="Area2D"]
+position = Vector2(937, 725)
+script = ExtResource("1_tn2ng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6uiqs")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="1_nerx5"]
 [ext_resource type="Resource" uid="uid://bxonvpavrqchj" path="res://game_objects/rooms/battle_rooms/bd_02_e_statue.tres" id="2_awa0r"]
 [ext_resource type="PackedScene" uid="uid://dl27d14vu5tdv" path="res://game_objects/rooms/battle_rooms/battle_room.tscn" id="2_vfa2x"]
-[ext_resource type="Script" path="res://game_objects/game_mode/battle_room_preset.gd" id="3_i5ucr"]
+[ext_resource type="Script" path="res://game_objects/game_mode/battle_game_mode/battle_room_preset.gd" id="3_i5ucr"]
 
 [resource]
 script = ExtResource("3_i5ucr")

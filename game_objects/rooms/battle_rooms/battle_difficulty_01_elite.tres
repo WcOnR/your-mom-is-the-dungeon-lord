@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://2qrasnhkns3t" path="res://game_objects/rooms/battle_rooms/bd_01_e_statue.tres" id="2_rkx74"]
 [ext_resource type="Resource" uid="uid://174786co07hg" path="res://game_objects/rooms/battle_rooms/bd_01_e_elf.tres" id="3_7ybq0"]
 [ext_resource type="PackedScene" uid="uid://dl27d14vu5tdv" path="res://game_objects/rooms/battle_rooms/battle_room.tscn" id="4_opx2n"]
-[ext_resource type="Script" path="res://game_objects/game_mode/battle_room_preset.gd" id="5_bqggs"]
+[ext_resource type="Script" path="res://game_objects/game_mode/battle_game_mode/battle_room_preset.gd" id="5_bqggs"]
 
 [resource]
 script = ExtResource("5_bqggs")

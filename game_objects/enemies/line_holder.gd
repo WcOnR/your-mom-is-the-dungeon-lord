@@ -89,16 +89,10 @@ func _on_click_action(_data : ClickData) -> void:
 	if not _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
 		return
 	var space = get_world_2d().direct_space_state
-	var pp := PhysicsPointQueryParameters2D.new()
-	pp.collide_with_areas = true 
-	pp.position = _data.start_position
-	var start_point := space.intersect_point(pp, 1)
-	pp.position = _data.end_position
-	var end_point := space.intersect_point(pp, 1)
+	var collider := GameInputManagerSystem.is_click_on_area(space, _data)
 	var new_select : BattleLine = null
-	var is_hit := not (start_point.is_empty() or end_point.is_empty())
-	if is_hit and start_point[0].collider == end_point[0].collider:
-		new_select = start_point[0].collider as BattleLine
+	if collider:
+		new_select = collider as BattleLine
 	_selct_line(new_select)
 
 

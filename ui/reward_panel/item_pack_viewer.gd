@@ -9,6 +9,8 @@ func set_pack(pack : ItemPack) -> void:
 		$CountLabel.text = "x" + str(pack.count)
 		$CountLabel.visible = true
 		_hint = pack.item_preset.create_hint(self)
+	if pack.item_preset.type == ItemPreset.Type.BOOSTER:
+		_hint = pack.item_preset.create_hint(self)
 
 
 func get_hint_under_cursor(rect : Rect2) -> Hint:
