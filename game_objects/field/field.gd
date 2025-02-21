@@ -3,6 +3,7 @@ class_name Field extends Node2D
 @export var gem_set : GemSet
 @export var min_gem : int = 2
 @export var line_holder : NodePath
+@export var smoke_fx : PackedScene 
 
 @onready var tile_map : TileMapLayer = $TileMapLayer
 @onready var tile_map_h : TileMapLayer = $TileMapLayer_h
@@ -14,6 +15,7 @@ var _line_holder : LineHolder = null
 var _enabled : bool = false
 var _spawners : Array[GemSpawner] = []
 var _game_mode : BattleGameMode = null
+var _smoke_fx : Array[CPUParticles2D] = []
 
 const DAMAGE_MULTIPLIER := 10
 const ON_DROP : StringName = "on_drop"
@@ -85,8 +87,9 @@ func get_max_gem_cluster_by_type(gem_type : GemType) -> Array[Vector2i]:
 		if gem.get_gem_type() == gem_type:
 			pool.append(grid.get_cell_id(gem.position))
 	var clusters : Array = []
+	var map := grid.get_map()
 	while not pool.is_empty():
-		var cluster := _get_all_near_gems(pool[0])
+		var cluster := _get_all_near_gems(pool[0], map)
 		for gem in cluster:
 			pool.erase(grid.get_cell_id(gem.position))
 		clusters.append(cluster)
@@ -117,6 +120,7 @@ func _spawn_gems() -> void:
 
 
 func _delete_gem(gem : Gem) -> void:
+	_emit_smoke_fx(grid.get_cell_id(gem.position))
 	gem.destroy()
 
 
@@ -129,18 +133,32 @@ func _init_grid_with_tile_map() -> void:
 		size.x += 1
 	while tile_map.get_cell_source_id(Vector2i(0, size.y)) != -1:
 		size.y += 1
+	var tile_size := Vector2(tile_map.tile_set.tile_size)
 	grid = Grid.new()
-	grid.initialize(size, Vector2(tile_map.tile_set.tile_size))
+	grid.initialize(size, tile_size)
+	var half_size := tile_size / 2.0
+	for x in size.x:
+		for y in size.y:
+			var fx := smoke_fx.instantiate() as CPUParticles2D
+			add_child(fx)
+			fx.position = grid.get_cell_position(Vector2i(x, y)) + half_size
+			_smoke_fx.append(fx)
 
 
 func _collapse_by_id(cell_id : Vector2i, initiator : Node) -> bool:
 	if not is_valid_cell_id(cell_id):
 		return false
-	var to_remove : Array[Gem] = _get_all_near_gems(cell_id)
+	var map := grid.get_map()
+	var to_remove : Array[Gem] = _get_all_near_gems(cell_id, map)
 	if to_remove.size() >= min_gem:
 		_collapse_gems(to_remove, initiator)
 		return true
 	return false
+
+
+func _emit_smoke_fx(cell_id : Vector2i):
+	var id := cell_id.x * grid.get_size().y + cell_id.y
+	_smoke_fx[id].emitting = true
 
 
 func _on_click_action(data : ClickData) -> void:
@@ -193,8 +211,7 @@ func _fib(f : int) -> int:
 	return res
 
 
-func _get_all_near_gems(cell_id : Vector2i) -> Array[Gem]:
-	var map := grid.get_map()
+func _get_all_near_gems(cell_id : Vector2i, map : Dictionary) -> Array[Gem]:
 	var gem := map.get(cell_id) as Gem
 	if gem == null:
 		return []

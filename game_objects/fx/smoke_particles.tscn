@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://p0gyojpk6lh5"]
+
+[ext_resource type="Texture2D" uid="uid://bvgn75s4aoond" path="res://game_objects/fx/beam.png" id="1_86gwe"]
+
+[sub_resource type="Curve" id="Curve_if06y"]
+_data = [Vector2(0, 0.489851), 0.0, 1.34623, 0, 0, Vector2(1, 1), -0.0734311, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_lkqss"]
+colors = PackedColorArray(1, 1, 1, 0.447059, 1, 1, 1, 0)
+
+[node name="SmokeParticles2D" type="CPUParticles2D"]
+z_index = 2
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+texture = ExtResource("1_86gwe")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 100.0
+damping_min = 50.0
+damping_max = 70.0
+scale_amount_min = 0.4
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_if06y")
+color = Color(0.67069, 0.67069, 0.67069, 1)
+color_ramp = SubResource("Gradient_lkqss")
