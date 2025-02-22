@@ -1,6 +1,10 @@
 class_name PickUpBonus extends Area2D
 
+@export var bonus : NodePath
+
 signal picked_up
+
+var _is_enabled := true
 
 
 func _ready() -> void:
@@ -8,8 +12,10 @@ func _ready() -> void:
 
 
 func _on_click_action(_data : ClickData) -> void:
-	if _is_click_on_me(_data):
+	if _is_enabled and _is_click_on_me(_data):
 		picked_up.emit()
+		get_node(bonus).visible = false
+		_is_enabled = false
 
 
 func _is_click_on_me(_data : ClickData) -> bool:

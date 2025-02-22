@@ -9,7 +9,7 @@ signal enemy_dead
 
 const ENEMY_OFFSET_Y := 15.0
 const ENEMY_OFFSET_X := 25.0
-const ENEMY_OFFSET_SCALE := 0.1
+const ENEMY_OFFSET_SCALE := 0.12
 
 var enemies : Array[Enemy] = []
 var _move_in_front_anims : Array[AnimObject] = []
