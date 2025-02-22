@@ -17,7 +17,7 @@ func initialize(size : Vector2i, cell_size : Vector2) -> void:
 
 
 func is_idle() -> bool:
-	return not gems.is_empty() and _is_all_gem_in_state(Gem.State.IDLE)
+	return _get_max_gem_count() == gems.size() and _is_all_gem_in_state(Gem.State.IDLE)
 
 
 func is_spawn_allowed() -> bool:
@@ -102,6 +102,10 @@ func is_cell_free(id : Vector2i) -> bool:
 	return get_gems_in_cell(id).is_empty()
 
 
+func _get_max_gem_count() -> int:
+	return _size.x * _size.y
+
+
 func _is_all_gem_in_state(state : Gem.State) -> bool:
 	for g in gems:
 		if not g.is_state(state):
@@ -113,10 +117,11 @@ func _append_unique_gem(gem : Gem) -> void:
 	if gem in gems:
 		return
 	gems.append(gem)
-	gem.state_changed.connect(_on_state_changed.bind(gem))
+	gem.state_changed.connect(_on_state_changed)
+	_on_state_changed()
 
 
-func _on_state_changed(_gem : Gem) -> void:
+func _on_state_changed() -> void:
 	if is_idle():
 		grid_idle.emit()
 	elif _is_all_gem_in_state(Gem.State.STOPPED):

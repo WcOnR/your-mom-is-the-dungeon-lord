@@ -25,7 +25,7 @@ func on_action(args : Array[Variant]) -> void:
 	var field := game_mode._field
 	field.hit_target(target, enemy)
 	field.show_icon(target, CellIcons.Type.AIM, false, line_id)
-	if not field.grid.is_idle(): #TODO:: fix full idle
+	if not field.grid.is_idle():
 		await field.grid.grid_idle
 
 
