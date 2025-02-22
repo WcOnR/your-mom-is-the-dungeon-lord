@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ukfdhwlpdsp7"
-path="res://.godot/imported/Cross.png-e5d06c85205206af68b1bc06fe786b56.ctex"
+uid="uid://cpojhr3jnmf3i"
+path="res://.godot/imported/line_indefier_3.png-52e6e201b1c397781a5cb9144086005f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_objects/field/Cross.png"
-dest_files=["res://.godot/imported/Cross.png-e5d06c85205206af68b1bc06fe786b56.ctex"]
+source_file="res://game_objects/field/action_icons/line_indefier_3.png"
+dest_files=["res://.godot/imported/line_indefier_3.png-52e6e201b1c397781a5cb9144086005f.ctex"]
 
 [params]
 

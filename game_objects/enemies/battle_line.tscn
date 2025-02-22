@@ -1,13 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://xqigt823tg75"]
+[gd_scene load_steps=5 format=3 uid="uid://xqigt823tg75"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/battle_line.gd" id="1_lr1ic"]
 [ext_resource type="PackedScene" uid="uid://bknffommb3er4" path="res://ui/widgets/health_comp_ui.tscn" id="2_lxrcy"]
+[ext_resource type="Texture2D" uid="uid://qwdqnmmn2fup" path="res://ui/widgets/whiteout.png" id="3_ednma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mjw3"]
 size = Vector2(256, 400)
 
 [node name="BattleLine" type="Area2D"]
 script = ExtResource("1_lr1ic")
+
+[node name="LineColor" type="TextureRect" parent="."]
+visible = false
+offset_left = 115.0
+offset_right = 130.0
+offset_bottom = 230.0
+rotation = 1.5708
+texture = ExtResource("3_ednma")
+expand_mode = 1
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -200)

@@ -15,6 +15,10 @@ func _ready() -> void:
 	_game_mode = get_tree().get_first_node_in_group("GameMode") as BattleGameMode
 	_game_mode.state_changed.connect(_on_game_mode_state_changed)
 	GameInputManagerSystem.on_click_end.connect(_on_click_action)
+	var i := 0
+	while i < lines.size():
+		lines[i].set_id(i)
+		i += 1
 
 
 func spawn_enemies(battle : BattlePreset) -> void:

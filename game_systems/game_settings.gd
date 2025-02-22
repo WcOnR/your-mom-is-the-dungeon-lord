@@ -9,3 +9,5 @@ class_name GameSettings extends Resource
 @export var extra_consumabl_prob : float = 0.5
 @export var max_consumabl_reward : int = 3
 @export var consumabl_prob_weight : Array[int] = []
+
+@export var line_colors : Array[Color] = []

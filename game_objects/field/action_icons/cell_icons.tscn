@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://rmpkcrc0chhm"]
+
+[ext_resource type="Texture2D" uid="uid://bsok2o2m6ekp" path="res://game_objects/field/action_icons/cell_attack.png" id="1_ttqlu"]
+[ext_resource type="Script" path="res://game_objects/field/action_icons/cell_icons.gd" id="1_x738h"]
+[ext_resource type="Texture2D" uid="uid://feo0nem03awq" path="res://game_objects/field/action_icons/aim.png" id="2_0dghu"]
+[ext_resource type="Texture2D" uid="uid://dnh7hlwnhb3bf" path="res://game_objects/field/action_icons/line_indefier_1.png" id="3_88ss1"]
+[ext_resource type="Texture2D" uid="uid://btfi5vbgxjle" path="res://game_objects/field/action_icons/line_indefier_2.png" id="4_mkhpf"]
+[ext_resource type="Texture2D" uid="uid://cpojhr3jnmf3i" path="res://game_objects/field/action_icons/line_indefier_3.png" id="5_bnvfo"]
+[ext_resource type="PackedScene" uid="uid://p0gyojpk6lh5" path="res://game_objects/fx/smoke_particles.tscn" id="6_g40qa"]
+
+[node name="CellIcon" type="Node2D"]
+z_index = 3
+script = ExtResource("1_x738h")
+
+[node name="CellAttack" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_ttqlu")
+
+[node name="Aim" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_0dghu")
+
+[node name="LineIndefier1" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.521569, 0.729412, 0.843137, 1)
+position = Vector2(22, 22)
+texture = ExtResource("3_88ss1")
+centered = false
+
+[node name="LineIndefier2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.419608, 0.635294, 0.54902, 1)
+position = Vector2(22, 22)
+texture = ExtResource("4_mkhpf")
+centered = false
+
+[node name="LineIndefier3" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.670588, 0.478431, 0.4, 1)
+position = Vector2(22, 22)
+texture = ExtResource("5_bnvfo")
+centered = false
+
+[node name="SmokeParticles2D" parent="." instance=ExtResource("6_g40qa")]

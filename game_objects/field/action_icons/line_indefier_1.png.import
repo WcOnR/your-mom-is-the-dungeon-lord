@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7ejqdtri4lvq"
-path="res://.godot/imported/balckout.png-da99e442a73b5fd46fb05a800315e466.ctex"
+uid="uid://dnh7hlwnhb3bf"
+path="res://.godot/imported/line_indefier_1.png-c71c2f55fbcce4bbd2abb0d8c6e29e1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/widgets/balckout.png"
-dest_files=["res://.godot/imported/balckout.png-da99e442a73b5fd46fb05a800315e466.ctex"]
+source_file="res://game_objects/field/action_icons/line_indefier_1.png"
+dest_files=["res://.godot/imported/line_indefier_1.png-c71c2f55fbcce4bbd2abb0d8c6e29e1a.ctex"]
 
 [params]
 

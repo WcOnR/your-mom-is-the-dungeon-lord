@@ -3,11 +3,10 @@ class_name Field extends Node2D
 @export var gem_set : GemSet
 @export var min_gem : int = 2
 @export var line_holder : NodePath
-@export var smoke_fx : PackedScene 
+@export var cell_icons : PackedScene 
 
 @onready var tile_map : TileMapLayer = $TileMapLayer
 @onready var tile_map_h : TileMapLayer = $TileMapLayer_h
-@onready var tile_map_i : IconTileMapLayer = $TileMapLayer_i
 
 var grid : Grid = null
 var _player : Player = null
@@ -15,7 +14,7 @@ var _line_holder : LineHolder = null
 var _enabled : bool = false
 var _spawners : Array[GemSpawner] = []
 var _game_mode : BattleGameMode = null
-var _smoke_fx : Array[CPUParticles2D] = []
+var _cell_icons : Array[CellIcons] = []
 
 const DAMAGE_MULTIPLIER := 10
 const ON_DROP : StringName = "on_drop"
@@ -73,12 +72,13 @@ func hit_target(target : Vector2i, initiator : Node) -> void:
 	_collapse_by_id(target, initiator)
 
 
-func show_icon(cell_id : Vector2i, type : IconTileMapLayer.Type) -> void:
-	tile_map_i.set_cell_by_type(cell_id, type)
+func show_icon(cell_id : Vector2i, type : CellIcons.Type, _show : bool, line : int) -> void:
+	_get_cell_icons(cell_id).set_icon_visibility(type, _show, line)
 
 
 func clean_icons() -> void:
-	tile_map_i.clear()
+	for icons in _cell_icons:
+		icons.clean_icons()
 
 
 func get_max_gem_cluster_by_type(gem_type : GemType) -> Array[Vector2i]:
@@ -120,7 +120,7 @@ func _spawn_gems() -> void:
 
 
 func _delete_gem(gem : Gem) -> void:
-	_emit_smoke_fx(grid.get_cell_id(gem.position))
+	_get_cell_icons(grid.get_cell_id(gem.position)).emit_smoke_fx()
 	gem.destroy()
 
 
@@ -139,10 +139,10 @@ func _init_grid_with_tile_map() -> void:
 	var half_size := tile_size / 2.0
 	for x in size.x:
 		for y in size.y:
-			var fx := smoke_fx.instantiate() as CPUParticles2D
-			add_child(fx)
-			fx.position = grid.get_cell_position(Vector2i(x, y)) + half_size
-			_smoke_fx.append(fx)
+			var icons := cell_icons.instantiate() as CellIcons
+			add_child(icons)
+			icons.position = grid.get_cell_position(Vector2i(x, y)) + half_size
+			_cell_icons.append(icons)
 
 
 func _collapse_by_id(cell_id : Vector2i, initiator : Node) -> bool:
@@ -156,9 +156,9 @@ func _collapse_by_id(cell_id : Vector2i, initiator : Node) -> bool:
 	return false
 
 
-func _emit_smoke_fx(cell_id : Vector2i):
+func _get_cell_icons(cell_id : Vector2i) -> CellIcons:
 	var id := cell_id.x * grid.get_size().y + cell_id.y
-	_smoke_fx[id].emitting = true
+	return _cell_icons[id]
 
 
 func _on_click_action(data : ClickData) -> void:
