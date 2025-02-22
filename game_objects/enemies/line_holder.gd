@@ -109,6 +109,7 @@ func _on_enemy_dead() -> void:
 			all_enemy_all_dead.emit()
 	else:
 		enemies[0].plan_next_attack(lines[selected_line])
+		_player.set_enemy(enemies[0])
 
 
 func _update_active_lines() -> void:

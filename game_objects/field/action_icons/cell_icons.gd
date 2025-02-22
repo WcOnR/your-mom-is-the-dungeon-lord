@@ -8,8 +8,11 @@ enum Type {AIM, ATTACK}
 var _shown_lines : Dictionary = {}
 
 func set_icon_visibility(type : CellIcons.Type, _show : bool, line : int) -> void:
-	_icons[int(type)].visible = _show
-	_show_line(line, _show)
+	if _show:
+		_shown_lines[line] = type
+	else:
+		_shown_lines.erase(line)
+	_update_lines()
 
 
 func clean_icons() -> void:
@@ -24,20 +27,15 @@ func emit_smoke_fx() -> void:
 	$SmokeParticles2D.emitting = true
 
 
-func _show_line(line : int, _show : bool) -> void:
-	if _show:
-		_shown_lines[line] = null
-	else:
-		_shown_lines.erase(line)
-	_update_lines()
-
-
 func _update_lines() -> void:
+	for i in _icons:
+		i.visible = false
 	var count := _shown_lines.keys().size()
 	var i := 0
 	while i < _line_id.size():
 		_line_id[i].visible = i < count
 		if i < count:
-			var color_id : int = _shown_lines.keys()[i]
-			_line_id[i].modulate = SettingsManager.settings.line_colors[color_id]
+			var id : int = _shown_lines.keys()[i]
+			_line_id[i].modulate = SettingsManager.settings.line_colors[id]
+			_icons[int(_shown_lines[id])].visible = true
 		i += 1

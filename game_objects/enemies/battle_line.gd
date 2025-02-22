@@ -51,7 +51,7 @@ func get_id() -> int:
 
 
 func _on_enemy_death() -> void:
-	_remove_front_enemy()
+	await _remove_front_enemy()
 	for a in _move_in_front_anims:
 		AnimManagerSystem.drop_anim(a)
 	_move_in_front_anims.clear()
@@ -75,7 +75,7 @@ func _on_enemy_death() -> void:
 
 func _remove_front_enemy() -> void:
 	var tmp_enemy := enemies[0]
-	tmp_enemy.clear_actions()
+	await tmp_enemy.on_destroy()
 	remove_child(tmp_enemy)
 	tmp_enemy.queue_free()
 	enemies.remove_at(0)

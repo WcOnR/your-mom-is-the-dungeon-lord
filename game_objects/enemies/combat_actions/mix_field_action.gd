@@ -8,6 +8,14 @@ func on_plan(args : Array[Variant]) -> void:
 	line.set_action(0, ICON, true)
 
 
+func on_pre_action(args : Array[Variant]) -> void:
+	var enemy : Enemy = args[0] as Enemy
+	var game_mode := enemy.get_tree().get_first_node_in_group("GameMode") as BattleGameMode
+	var field := game_mode._field
+	if not field.grid.is_idle():
+		await field.grid.grid_idle
+
+
 func on_action(args : Array[Variant]) -> void:
 	var player : Player = args[1] as Player
 	var game_mode := player.get_tree().get_first_node_in_group("GameMode") as BattleGameMode
