@@ -55,7 +55,9 @@ func attack(player : Player):
 func on_destroy() -> void:
 	_clear_actions()
 	_invalid = true
-	await get_tree().create_timer(0.5).timeout #TODO:: add anim
+	var anim := AnimObject.new(self, _destroy_anim, AnimManagerSystem.get_curve("easeIn"), 0.1)
+	AnimManagerSystem.start_anim(anim)
+	await anim.anim_finished
 
 
 func is_invalid() -> bool:
@@ -64,6 +66,10 @@ func is_invalid() -> bool:
 
 func _clear_actions() -> void:
 	next_action.run(ON_DEATH, [self])
+
+
+func _destroy_anim(t : float) -> void:
+	$Icon.modulate = lerp(Color.WHITE, Color(Color.BLACK, 0.0), t)
 
 
 func _attack_anim(t : float) -> void:
