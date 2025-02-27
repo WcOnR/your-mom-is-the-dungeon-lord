@@ -1,20 +1,20 @@
 [gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://4gow4p87dlkh"]
 
-[ext_resource type="Script" path="res://game_objects/items/consumabls/gem_type_cons.gd" id="1_ep2fs"]
+[ext_resource type="Script" path="res://game_objects/items/consumabls/field_clean_cons.gd" id="1_8cdpm"]
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_jeh05"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="2_lae6x"]
-[ext_resource type="Texture2D" uid="uid://by8e35fgqpyy3" path="res://game_objects/gems/Skull.png" id="4_jdyuu"]
+[ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="4_k3min"]
 
 [sub_resource type="Resource" id="Resource_3obb2"]
 script = ExtResource("2_lae6x")
-behavior = ExtResource("1_ep2fs")
+behavior = ExtResource("1_8cdpm")
 args = []
 
 [resource]
 script = ExtResource("1_jeh05")
 type = 0
-texture = ExtResource("4_jdyuu")
+texture = ExtResource("4_k3min")
 action = SubResource("Resource_3obb2")
-item_name = "Chain Lightning"
-item_description = "Consumable item, that can be used to collapse all tiles with same type. "
+item_name = "Field Wipe"
+item_description = "Consumable item, that can be used to clean whole field. "
 price = 400

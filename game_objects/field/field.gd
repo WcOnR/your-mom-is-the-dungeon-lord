@@ -68,6 +68,11 @@ func collapse_ids(to_remove : Array[Vector2i], initiator : Node) -> void:
 	_collapse_gems(gems, initiator)
 
 
+func clean_field() -> void:
+	while not grid.gems.is_empty():
+		_delete_gem(grid.gems[0])
+
+
 func hit_target(target : Vector2i, initiator : Node) -> void:
 	_collapse_by_id(target, initiator)
 
@@ -240,18 +245,22 @@ func _get_cell_neighbors(map : Dictionary, id : Vector2i) -> Array[Gem]:
 
 
 func _on_consumable_pos_updated(_position: Vector2, _data : Variant) -> void:
-	var cell_id := grid.get_cell_id(_position - global_position)
+	var diff := _position - global_position
+	var cell_id := grid.get_cell_id(diff)
 	if is_valid_cell_id(cell_id):
 		var item_preset := _data as ItemPreset
-		item_preset.action.run(ON_MOVE, [self, cell_id])
+		var offset := (diff - grid.get_cell_position(cell_id)) / grid.get_cell_size()
+		item_preset.action.run(ON_MOVE, [self, cell_id, offset])
 	else:
 		tile_map_h.clear()
 
 
 func _on_consumable_drop(_position: Vector2, _data : Variant) -> void:
-	var cell_id := grid.get_cell_id(_position - global_position)
+	var diff := _position - global_position
+	var cell_id := grid.get_cell_id(diff)
 	tile_map_h.clear()
 	var item_preset := _data as ItemPreset
 	if is_valid_cell_id(cell_id):
-		item_preset.action.run(ON_DROP, [self, cell_id])
+		var offset := (diff - grid.get_cell_position(cell_id)) / grid.get_cell_size()
+		item_preset.action.run(ON_DROP, [self, cell_id, offset])
 		_player.inventory_comp.consume_item(item_preset)
