@@ -41,7 +41,7 @@ func apply_damage(damage : int) -> void:
 func debug_kill_all() -> void:
 	for line in lines:
 		while not line.enemies.is_empty():
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.3).timeout
 			if not line.enemies.is_empty():
 				line.enemies[0].health_comp.apply_damage(999)
 

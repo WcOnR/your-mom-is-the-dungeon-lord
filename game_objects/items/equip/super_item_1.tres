@@ -9,3 +9,4 @@ type = 3
 texture = ExtResource("2_1fqdm")
 item_name = ""
 item_description = ""
+price = 3000

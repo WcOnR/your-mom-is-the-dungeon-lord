@@ -49,8 +49,32 @@ func consume_item(item : ItemPreset) -> void:
 	items_changed.emit()
 
 
+func spend_money(amount : int) -> void:
+	var pack := get_currency_pack()
+	pack.count = pack.count - amount
+	items_changed.emit()
+
+
 func get_slots() -> Array[ItemPack]:
 	return _slots
+
+
+func can_buy(pack : ItemPack) -> bool:
+	var currency_pack := get_currency_pack()
+	var enough_currency := pack.get_price() <= currency_pack.count
+	var has_slot := false
+	for s in _slots:
+		if s == null or s.item_preset == pack.item_preset:
+			has_slot = true
+			break
+	return enough_currency and has_slot
+
+
+func get_currency_pack() -> ItemPack:
+	for pack in _consumabls:
+		if pack.item_preset == SettingsManager.settings.currency:
+			return pack
+	return null
 
 
 func get_pack(item : ItemPreset) -> ItemPack:

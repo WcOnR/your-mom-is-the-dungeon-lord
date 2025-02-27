@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct0vuxpt5832"]
+
+[ext_resource type="Script" path="res://ui/shop/shop_shelf.gd" id="1_kjajw"]
+
+[node name="ShopShelf" type="MarginContainer" groups=["HintTarget"]]
+custom_minimum_size = Vector2(0, 120)
+script = ExtResource("1_kjajw")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+
+[node name="ShelfContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 223)
+layout_mode = 2
+theme_override_constants/separation = 75
+alignment = 1

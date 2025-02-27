@@ -9,3 +9,4 @@ type = 0
 texture = ExtResource("2_5pvab")
 item_name = "Hero Coin"
 item_description = "Currency that can be used in shop."
+price = -1

@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://viqc2id4a1nb"]
+
+[ext_resource type="PackedScene" uid="uid://dhv5wq4lf1ren" path="res://ui/reward_panel/item_pack_viewer.tscn" id="1_d7npy"]
+[ext_resource type="Script" path="res://ui/shop/shop_item.gd" id="1_di36y"]
+[ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="2_xmhww"]
+[ext_resource type="Texture2D" uid="uid://ghdoymobjlab" path="res://ui/widgets/hero_coin.png" id="4_pek12"]
+
+[node name="ShopItem" type="MarginContainer"]
+script = ExtResource("1_di36y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ItemPackViewer" parent="VBoxContainer" instance=ExtResource("1_d7npy")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="CoinPanel" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PriceLabel" type="Label" parent="VBoxContainer/CoinPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5000"
+label_settings = ExtResource("2_xmhww")
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CoinPanel"]
+layout_mode = 2
+texture = ExtResource("4_pek12")
+
+[node name="BuyButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "BUY"
+
+[node name="SoldOutPanel" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Offset" type="MarginContainer" parent="SoldOutPanel"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SoldOutPanel"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="SoldOutPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="SoldOutLabel" type="Label" parent="SoldOutPanel/MarginContainer"]
+layout_mode = 2
+text = "SOLD OUT"
+label_settings = ExtResource("2_xmhww")
+horizontal_alignment = 1

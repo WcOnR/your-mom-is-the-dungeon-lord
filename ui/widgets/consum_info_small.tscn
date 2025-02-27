@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi57mfpvoblhr"]
+
+[ext_resource type="Script" path="res://ui/widgets/consum_info_small.gd" id="1_3sqb8"]
+[ext_resource type="PackedScene" uid="uid://8ug72ea6xxwh" path="res://ui/widgets/consum_item_info.tscn" id="1_aoa02"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+script = ExtResource("1_3sqb8")
+
+[node name="ConsumItemInfo" parent="." instance=ExtResource("1_aoa02")]
+layout_mode = 2
+
+[node name="ConsumItemInfo2" parent="." instance=ExtResource("1_aoa02")]
+layout_mode = 2
+
+[node name="ConsumItemInfo3" parent="." instance=ExtResource("1_aoa02")]
+layout_mode = 2

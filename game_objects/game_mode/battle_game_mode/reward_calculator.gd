@@ -3,16 +3,9 @@ class_name RewardCalculator extends Node
 
 func get_rewards(battle : BattlePreset) -> Array[ItemPack]:
 	var reward : Array[ItemPack] = []
-	var settings := SettingsManager.settings
-	var add_consumabl := settings.consumabl_prob >= randf()
+	var add_consumabl := SettingsManager.settings.consumabl_prob >= randf()
 	if add_consumabl:
-		var c := _pick_random_with_weight(settings.consumabl_presets, settings.consumabl_prob_weight)
-		var pack := ItemPack.new(c)
-		pack.count = 1
-		for i in settings.max_consumabl_reward:
-			if settings.extra_consumabl_prob >= randf():
-				pack.count += 1
-		reward.append(pack)
+		reward.append(_get_consumabl(1)[0])
 	
 	if battle:
 		var count := 0
@@ -22,7 +15,7 @@ func get_rewards(battle : BattlePreset) -> Array[ItemPack]:
 			count += enemy.reward
 		for enemy in battle.line3:
 			count += enemy.reward
-		var pack := ItemPack.new(settings.currency)
+		var pack := ItemPack.new(SettingsManager.settings.currency)
 		pack.count = count
 		reward.append(pack)
 	return reward
@@ -30,8 +23,43 @@ func get_rewards(battle : BattlePreset) -> Array[ItemPack]:
 
 func get_equip_choice(inventory : InventoryComp) -> Array[ItemPreset]:
 	var result : Array[ItemPreset] = []
-	for i in 3:
+	for i in SettingsManager.settings.equip_count:
 		result.append(_get_equip(inventory, result))
+	return result
+
+
+func get_shop_items(inventory : InventoryComp) -> Array[ItemPack]:
+	var settings := SettingsManager.settings
+	var equip_count := randi_range(settings.min_equip_count_in_shop, settings.equip_count)
+	var result : Array[ItemPack] = []
+	var items : Array[ItemPreset] = []
+	for i in equip_count:
+		items.append(_get_equip(inventory, items))
+	var consum := _get_consumabl(settings.max_items_in_shop - equip_count)
+	result.append_array(consum)
+	for i in items:
+		var pack := ItemPack.new(i)
+		pack.count = 1
+		result.append(pack)
+	result.shuffle()
+	return result
+
+
+func _get_consumabl(count : int) -> Array[ItemPack]:
+	var result : Array[ItemPack] = []
+	var settings := SettingsManager.settings
+	var weights := settings.consumabl_prob_weight.duplicate()
+	for c in count:
+		var preset := _pick_random_with_weight(settings.consumabl_presets, weights)
+		for i in settings.consumabl_presets.size():
+			if settings.consumabl_presets[i] == preset:
+				weights[i] = max(weights[i] - 1, 0)
+		var pack := ItemPack.new(preset)
+		pack.count = 1
+		for i in settings.max_consumabl_reward:
+			if settings.extra_consumabl_prob >= randf():
+				pack.count += 1
+		result.append(pack)
 	return result
 
 

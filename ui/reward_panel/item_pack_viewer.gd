@@ -5,12 +5,16 @@ var _hint : Hint = null
 func set_pack(pack : ItemPack) -> void:
 	$ItemViewer.set_item(pack.item_preset)
 	$CountLabel.visible = false
-	if pack.item_preset.type == ItemPreset.Type.CONSUMABL:
+	var pack_type := pack.item_preset.type
+	if pack_type == ItemPreset.Type.CONSUMABL or pack_type == ItemPreset.Type.BOOSTER:
 		$CountLabel.text = "x" + str(pack.count)
 		$CountLabel.visible = true
-		_hint = pack.item_preset.create_hint(self)
-	if pack.item_preset.type == ItemPreset.Type.BOOSTER:
-		_hint = pack.item_preset.create_hint(self)
+	_hint = pack.item_preset.create_hint(self)
+
+
+func set_gray_out() -> void:
+	$CountLabel.visible = false
+	$ItemViewer.set_gray_out()
 
 
 func get_hint_under_cursor(rect : Rect2) -> Hint:

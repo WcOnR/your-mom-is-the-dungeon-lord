@@ -31,6 +31,8 @@ func _ready() -> void:
 	for holder in consumable_item_holders:
 		holder.set_field(_field)
 	_on_item_updated()
+	%EquipViewer.update_view(_player.inventory_comp)
+	%CoinPanel.update_amount(_player.inventory_comp)
 
 
 func _on_health_changed() -> void:
@@ -69,5 +71,3 @@ func _on_item_updated() -> void:
 		var preset := holder.item_preset
 		var pack := _player.inventory_comp.get_pack(preset)
 		holder.set_pack(pack)
-	%EquipViewer.update_view(_player.inventory_comp)
-	%CoinPanel.update_amount(_player.inventory_comp)

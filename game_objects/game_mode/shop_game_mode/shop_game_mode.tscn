@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhqwtgb8jop5b"]
+
+[ext_resource type="Script" path="res://game_objects/game_mode/shop_game_mode/shop_game_mode.gd" id="1_tn07j"]
+[ext_resource type="Script" path="res://game_objects/game_mode/battle_game_mode/reward_calculator.gd" id="2_s35go"]
+
+[node name="GameMode" type="Node"]
+script = ExtResource("1_tn07j")
+
+[node name="RewardCalculator" type="Node" parent="."]
+script = ExtResource("2_s35go")

@@ -14,6 +14,8 @@ func on_plan(args : Array[Variant]) -> void:
 	var field := game_mode._field
 	if not field.grid.is_idle():
 		await field.grid.grid_idle
+	if enemy == null:
+		return
 	var cluster := field.get_max_gem_cluster_by_type(GEM_TYPE)
 	enemy.memory[TARGET] = cluster.pick_random()
 	enemy.memory[LINE_ID] = line.get_id()
@@ -40,4 +42,6 @@ func on_death(args : Array[Variant]) -> void:
 	var enemy : Enemy = args[0] as Enemy
 	var game_mode := enemy.get_tree().get_first_node_in_group("GameMode") as BattleGameMode
 	var field := game_mode._field
+	if not TARGET in enemy.memory:
+		return
 	field.show_icon(enemy.memory[TARGET], CellIcons.Type.AIM, false, enemy.memory[LINE_ID])

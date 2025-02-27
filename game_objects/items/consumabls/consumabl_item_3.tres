@@ -17,3 +17,4 @@ texture = ExtResource("4_jdyuu")
 action = SubResource("Resource_3obb2")
 item_name = "Chain Lightning"
 item_description = "Consumable item, that can be used to collapse all tiles with same type. "
+price = 400

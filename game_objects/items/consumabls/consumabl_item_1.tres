@@ -17,3 +17,4 @@ texture = ExtResource("4_1d6tf")
 action = SubResource("Resource_qjvjf")
 item_name = "Vertical Slash"
 item_description = "Consumable item, that can be used to collapse tiles on one vertical line. "
+price = 200

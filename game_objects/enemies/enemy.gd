@@ -65,6 +65,8 @@ func is_invalid() -> bool:
 
 
 func _clear_actions() -> void:
+	if next_action == null:
+		return
 	next_action.run(ON_DEATH, [self])
 
 

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RoomPreset" load_steps=3 format=3 uid="uid://b02t306uvs0ud"]
+
+[ext_resource type="PackedScene" uid="uid://dptbqlx6ek6gr" path="res://game_objects/rooms/shop_room/shop_room.tscn" id="1_1baea"]
+[ext_resource type="Script" path="res://game_objects/rooms/room_preset.gd" id="2_syx7r"]
+
+[resource]
+script = ExtResource("2_syx7r")
+scene = ExtResource("1_1baea")

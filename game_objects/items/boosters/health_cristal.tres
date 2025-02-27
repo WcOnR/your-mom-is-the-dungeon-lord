@@ -17,3 +17,4 @@ texture = ExtResource("4_mwurn")
 action = SubResource("Resource_47u7n")
 item_name = "Cristal of Health"
 item_description = "Automatically increase hero health by 20%"
+price = 5000

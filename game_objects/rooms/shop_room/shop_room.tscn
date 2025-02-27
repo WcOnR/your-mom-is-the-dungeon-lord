@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dptbqlx6ek6gr"]
+
+[ext_resource type="PackedScene" uid="uid://c0lpdbq68fc8d" path="res://ui/shop/shop_hub.tscn" id="1_ke8qq"]
+[ext_resource type="PackedScene" uid="uid://bhqwtgb8jop5b" path="res://game_objects/game_mode/shop_game_mode/shop_game_mode.tscn" id="2_w5tlw"]
+
+[node name="BonusRoom" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.27451, 0.337255, 0.329412, 1)
+polygon = PackedVector2Array(-14, -39, 1957, -38, 1943, 1101, -30, 1091)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0.384314, 0.423529, 0.419608, 1)
+polygon = PackedVector2Array(-28, 1121, -26, 920, 1933, 919, 1961, 1126)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+color = Color(0.183991, 0.231023, 0.225166, 1)
+polygon = PackedVector2Array(1540, 1023, 1602, 1009, 1606, 905, 1675, 904, 1669, 998, 1733, 1023, 1762, 1001, 1707, 970, 1710, 901, 1765, 895, 1764.5, 763.288, 1794, 710, 1764, 632, 1739, 584, 1698, 566, 1737, 548, 1751, 496, 1715, 437, 1645, 419, 1573, 442, 1547, 485, 1554.72, 514.603, 1502, 536, 1496, 568, 1528, 544, 1558, 535, 1565, 554, 1582, 566, 1534, 589, 1512, 641, 1495, 721, 1513.91, 759.333, 1516, 889, 1564, 896, 1563, 972, 1511, 990)
+
+[node name="Table" type="Node2D" parent="."]
+position = Vector2(523, 1041)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Table"]
+position = Vector2(-523, -1041)
+color = Color(0.324896, 0.395233, 0.386414, 1)
+polygon = PackedVector2Array(24, 1047, 1069, 1048, 1069, 704, 30, 700)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Table"]
+position = Vector2(-523, -1041)
+color = Color(0.355423, 0.430563, 0.422192, 1)
+polygon = PackedVector2Array(30, 700, 102, 677, 1024, 678, 1068, 705)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hub" parent="CanvasLayer" instance=ExtResource("1_ke8qq")]
+game_mode = NodePath("../../GameMode")
+
+[node name="GameMode" parent="." instance=ExtResource("2_w5tlw")]
