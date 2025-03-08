@@ -26,7 +26,7 @@ texture_region_size = Vector2i(118, 118)
 tile_size = Vector2i(118, 118)
 sources/0 = SubResource("TileSetAtlasSource_iijnd")
 
-[node name="Field" type="Node2D"]
+[node name="Field" type="Node2D" groups=["Field"]]
 z_index = 2
 script = ExtResource("1_8qhw5")
 cell_icons = ExtResource("2_u6o2p")

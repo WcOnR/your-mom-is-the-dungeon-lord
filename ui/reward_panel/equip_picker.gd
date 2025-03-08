@@ -1,16 +1,15 @@
 class_name EquipPicker extends Button
 
-var item : ItemPreset = null
-var _hint : Hint = null
+var _pack : ItemPack = null
 
 
-func set_equip(item_preset : ItemPreset) -> void:
-	$ItemViewer.set_item(item_preset)
-	item = item_preset
-	if item:
-		_hint = item.create_hint(self)
-	else:
-		_hint = null
+func set_equip(pack : ItemPack) -> void:
+	%EquipViewer.set_equip(pack)
+	_pack = pack
+
+
+func get_item() -> ItemPreset:
+	return _pack.item_preset if _pack else null
 
 
 func set_selection(selected : bool) -> void:
@@ -18,7 +17,7 @@ func set_selection(selected : bool) -> void:
 
 
 func get_hint_under_cursor(rect : Rect2) -> Hint:
-	var self_rect := Rect2(global_position, size)
-	if self_rect.intersects(rect):
-		return _hint
+	var hint : Hint = %EquipViewer.get_hint_under_cursor(rect)
+	if hint:
+		return hint
 	return null

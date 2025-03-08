@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://cowon7rtoskni"]
+
+[ext_resource type="Script" path="res://game_objects/items/equip/shield_armor/shield_armor_action.gd" id="1_1jn7j"]
+[ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_8lrbh"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_evi5l"]
+[ext_resource type="Texture2D" uid="uid://by8e35fgqpyy3" path="res://game_objects/gems/Skull.png" id="2_hx42q"]
+
+[sub_resource type="Resource" id="Resource_fad18"]
+script = ExtResource("1_evi5l")
+behavior = ExtResource("1_1jn7j")
+args = []
+
+[resource]
+script = ExtResource("1_8lrbh")
+type = 3
+texture = ExtResource("2_hx42q")
+action = SubResource("Resource_fad18")
+item_name = "Shield Armor"
+item_description = "If shields was broken on previous turn, give you a 100 shields on your turn. But if shields wasn't broken save 100% of them."
+price = 1000

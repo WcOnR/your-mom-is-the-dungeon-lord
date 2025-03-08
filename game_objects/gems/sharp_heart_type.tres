@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GemType" load_steps=8 format=3 uid="uid://dss4qrx4pqb3n"]
+
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_qbx16"]
+[ext_resource type="Script" path="res://game_objects/gems/gem_sharp_heart.gd" id="2_6s87n"]
+[ext_resource type="Script" path="res://game_systems/action_list.gd" id="3_58ly8"]
+[ext_resource type="Script" path="res://game_objects/gems/gem_type.gd" id="4_qgmm7"]
+[ext_resource type="Texture2D" uid="uid://tojof4c08v2p" path="res://game_objects/gems/Heart.png" id="5_xmfbp"]
+
+[sub_resource type="Resource" id="Resource_iu4rx"]
+script = ExtResource("1_qbx16")
+behavior = ExtResource("2_6s87n")
+args = []
+
+[sub_resource type="Resource" id="Resource_n42mt"]
+script = ExtResource("3_58ly8")
+actions = Array[ExtResource("1_qbx16")]([SubResource("Resource_iu4rx")])
+
+[resource]
+script = ExtResource("4_qgmm7")
+texture = ExtResource("5_xmfbp")
+actions = SubResource("Resource_n42mt")

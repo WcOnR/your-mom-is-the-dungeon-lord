@@ -27,21 +27,19 @@ func get_hint_under_cursor(rect : Rect2) -> Hint:
 
 
 func _update_availability() -> void:
-	#TODO check
-	if not _inventory.can_buy(_pack):
-		_hide_buy_btn()
+	_hide_buy_btn(not _inventory.can_buy(_pack))
 
 
-func _hide_buy_btn() -> void:
-	%ItemPackViewer.set_gray_out()
-	%BuyButton.visible = false
+func _hide_buy_btn(hide_btn : bool) -> void:
+	%ItemPackViewer.set_gray_out(hide_btn)
+	%BuyButton.visible = not hide_btn
 
 
 func _update_view() -> void:
 	%SoldOutPanel.visible = true
 	%BuyButton.visible = false
 	%CoinPanel.visible = false
-	%ItemPackViewer.set_gray_out()
+	%ItemPackViewer.set_gray_out(true)
 
 
 func _on_buy() -> void:

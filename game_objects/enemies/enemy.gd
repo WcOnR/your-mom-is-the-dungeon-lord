@@ -8,6 +8,7 @@ var enemy_data : EnemyData = null
 var next_action : Action = null
 var breath_anim_obj : AnimObject = null
 var memory : Dictionary = {}
+var _paralyze := false
 var _invalid := false
 
 const ON_PLAN : StringName = "on_plan"
@@ -15,6 +16,7 @@ const ON_PRE_ACTION : StringName = "on_pre_action"
 const ON_ACTION : StringName = "on_action"
 const ON_DEATH : StringName = "on_death"
 const ATTACK_ANIM_OFFSET : float = -50.0
+const ICON : Texture2D = preload("res://ui/action_icons/disoriented.png")
 
 
 func initialize(data : EnemyData) -> void:
@@ -37,14 +39,24 @@ func set_in_shadow(in_shadow : bool) -> void:
 	breath_anim_obj.set_pause(in_shadow)
 
 
+func set_paralyze() -> void:
+	_paralyze = true
+
+
 func plan_next_attack(line : BattleLine) -> void:
 	if is_invalid():
 		return
-	next_action = enemy_data.actions.pick_random() as Action
-	next_action.run(ON_PLAN, [self, line])
+	if _paralyze:
+		line.set_action(0, ICON, true)
+	else:
+		next_action = enemy_data.actions.pick_random() as Action
+		next_action.run(ON_PLAN, [self, line])
 
 
 func attack(player : Player):
+	if _paralyze:
+		_paralyze = false
+		return
 	await next_action.run(ON_PRE_ACTION, [self, player])
 	var anim := AnimObject.new(self, _attack_anim, attack_anim, 0.4)
 	AnimManagerSystem.start_anim(anim)

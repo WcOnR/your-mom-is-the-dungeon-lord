@@ -16,7 +16,6 @@ var _spawners : Array[GemSpawner] = []
 var _game_mode : BattleGameMode = null
 var _cell_icons : Array[CellIcons] = []
 
-const DAMAGE_MULTIPLIER := 10
 const ON_DROP : StringName = "on_drop"
 const ON_MOVE : StringName = "on_move"
 
@@ -29,7 +28,7 @@ func _ready() -> void:
 	_game_mode = get_tree().get_first_node_in_group("GameMode") as BattleGameMode
 	_line_holder = get_node(line_holder)
 	_init_grid_with_tile_map()
-	_start_spawners()
+	_game_mode.battle_started.connect(_start_spawners)
 	GameInputManagerSystem.on_click_end.connect(_on_click_action)
 
 
@@ -196,7 +195,7 @@ func _collapse_gems(to_remove : Array[Gem], initiator : Node) -> void:
 func _mult_func(count : int) -> int:
 	if count >= 10:
 		return 999
-	return (count + _fib(count - min_gem)) * DAMAGE_MULTIPLIER
+	return count + _fib(count - min_gem)
 
 
 func _fib(f : int) -> int:

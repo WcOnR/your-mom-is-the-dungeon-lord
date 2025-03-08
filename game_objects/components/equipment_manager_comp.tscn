@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bksn8hxfw31rn"]
+
+[ext_resource type="Script" path="res://game_objects/components/equipment_manager_comp.gd" id="1_piayd"]
+
+[node name="EquipmentManagerComp" type="Node"]
+script = ExtResource("1_piayd")

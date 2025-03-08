@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci26slyckun7b"]
+[gd_scene load_steps=6 format=3 uid="uid://ci26slyckun7b"]
 
 [ext_resource type="Script" path="res://game_objects/player/player.gd" id="1_uktum"]
 [ext_resource type="PackedScene" uid="uid://c41vwc138rmsh" path="res://game_objects/components/health_comp.tscn" id="2_561jy"]
 [ext_resource type="PackedScene" uid="uid://bq81no6v0nqsg" path="res://game_objects/components/inventory_comp.tscn" id="3_fgx2n"]
 [ext_resource type="PackedScene" uid="uid://butqodtuat2xq" path="res://game_objects/components/attack_comp.tscn" id="4_eotlx"]
+[ext_resource type="PackedScene" uid="uid://bksn8hxfw31rn" path="res://game_objects/components/equipment_manager_comp.tscn" id="5_g20a3"]
 
 [node name="Player" type="Node" groups=["Player"]]
 script = ExtResource("1_uktum")
@@ -13,3 +14,5 @@ script = ExtResource("1_uktum")
 [node name="InventoryComp" parent="." instance=ExtResource("3_fgx2n")]
 
 [node name="AttackComp" parent="." instance=ExtResource("4_eotlx")]
+
+[node name="EquipmentManagerComp" parent="." instance=ExtResource("5_g20a3")]

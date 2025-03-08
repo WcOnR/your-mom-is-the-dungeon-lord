@@ -49,7 +49,9 @@ func _set_equip_pickers() -> void:
 	for item in _equip:
 		var picker := equip_scene.instantiate() as EquipPicker
 		_pickers.append(picker)
-		picker.set_equip(item)
+		var pack := ItemPack.new(item)
+		pack.count = 1
+		picker.set_equip(pack)
 		picker.pressed.connect(_on_equip_pick.bind(picker))
 		reward_container.add_child(picker)
 
@@ -58,7 +60,7 @@ func _on_equip_pick(picker : EquipPicker) -> void:
 	for p in _pickers:
 		p.set_selection(false)
 	picker.set_selection(true)
-	_selected_equip = picker.item
+	_selected_equip = picker.get_item()
 	%CollectButton.disabled = false
 
 

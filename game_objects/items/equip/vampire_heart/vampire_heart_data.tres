@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EquipMetadata" load_steps=5 format=3 uid="uid://v7ghp6xcdhfs"]
+
+[ext_resource type="Resource" uid="uid://cuoo4hscsjlms" path="res://game_objects/items/equip/vampire_heart/vampire_fang.tres" id="1_qiwrq"]
+[ext_resource type="Resource" uid="uid://b3shf4uktg7h1" path="res://game_objects/items/equip/vampire_heart/sharp_heart.tres" id="2_ug4n8"]
+[ext_resource type="Script" path="res://game_objects/items/equip_metadata.gd" id="3_r02t1"]
+[ext_resource type="Resource" uid="uid://bl2jqvixlxmxo" path="res://game_objects/items/equip/vampire_heart/vampire_heart.tres" id="4_d55su"]
+
+[resource]
+script = ExtResource("3_r02t1")
+item_preset_a = ExtResource("1_qiwrq")
+item_description_a = Array[String](["Your every attacks heals you by 1% of your max health.", "Your every attacks heals you by 3% of your max health.", "Your every attacks heals you by 5% of your max health."])
+item_preset_b = ExtResource("2_ug4n8")
+item_description_b = Array[String](["Heart tiles applies 50% of base damage on collapse, but it healing become less effective by 50%", "Heart tiles applies 100% of base damage on collapse, but no longer health you.", "Heart tiles applies 150% of base damage on collapse, but no longer health you."])
+super_item_preset = ExtResource("4_d55su")

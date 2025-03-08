@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://n7oxl4i8smas"]
+
+[ext_resource type="PackedScene" uid="uid://ba6rrbnc23vi1" path="res://ui/widgets/item_viewer.tscn" id="1_j5gi5"]
+[ext_resource type="Script" path="res://ui/equip_panel/equip_viewer.gd" id="1_lw20c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2bo8"]
+bg_color = Color(1, 1, 1, 0.117647)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="EquipViewer" type="Control"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 118.0
+offset_bottom = 118.0
+mouse_filter = 2
+script = ExtResource("1_lw20c")
+
+[node name="Quality" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2bo8")
+
+[node name="ItemViewer" parent="." instance=ExtResource("1_j5gi5")]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EquipMetadata" load_steps=5 format=3 uid="uid://bh1s1126y52oa"]
+
+[ext_resource type="Resource" uid="uid://ddqk5c5b3i0nn" path="res://game_objects/items/equip/double_axe/axe_the_sharpener.tres" id="1_6p463"]
+[ext_resource type="Resource" uid="uid://j5sxno483pvb" path="res://game_objects/items/equip/double_axe/shieldbreaker.tres" id="2_r4spq"]
+[ext_resource type="Script" path="res://game_objects/items/equip_metadata.gd" id="3_qp68b"]
+[ext_resource type="Resource" uid="uid://ccoi1btaddgq3" path="res://game_objects/items/equip/double_axe/double_axe.tres" id="4_8pkdm"]
+
+[resource]
+script = ExtResource("3_qp68b")
+item_preset_a = ExtResource("1_6p463")
+item_description_a = Array[String](["Your base attack increase by 20%.", "Your base attack increase by 50%.", "Your base attack increase by 100%."])
+item_preset_b = ExtResource("2_r4spq")
+item_description_b = Array[String](["Shields breaks 2 times easier.", "Shields breaks 3 times easier.", "Shields breaks 4 times easier."])
+super_item_preset = ExtResource("4_8pkdm")

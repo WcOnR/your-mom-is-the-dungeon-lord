@@ -4,6 +4,8 @@ class_name HealthComp extends Node
 @export var health := 100
 @export var max_health := 100
 
+const MAX_DAMAGE : int = 999
+
 var _is_dead := false
 
 signal health_changed
@@ -16,16 +18,21 @@ func add_shield(points : int) -> void:
 	if _is_dead or points <= 0:
 		return
 	shield += points
+	shield = mini(shield, MAX_DAMAGE)
 	shield_changed.emit()
 
 
 func apply_heal(heal : int) -> void:
-	_set_health(health + heal)
+	var new_heal := mini(heal, MAX_DAMAGE)
+	_set_health(health + new_heal)
 
 
-func apply_damage(damage : int) -> void:
-	var new_damage := _absorb_damage(damage)
+func apply_damage(damage : int) -> int:
+	var new_damage := mini(damage, MAX_DAMAGE)
+	new_damage = _absorb_damage(new_damage)
+	var old_health := health
 	_set_health(health - new_damage)
+	return old_health - health
 
 
 func set_max_health(new_max_health : int) -> void:

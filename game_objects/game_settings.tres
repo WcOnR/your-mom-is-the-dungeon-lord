@@ -1,31 +1,30 @@
-[gd_resource type="Resource" script_class="GameSettings" load_steps=16 format=3 uid="uid://cuqllo6f3jnwn"]
+[gd_resource type="Resource" script_class="GameSettings" load_steps=13 format=3 uid="uid://cuqllo6f3jnwn"]
 
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_fyd36"]
 [ext_resource type="Resource" uid="uid://x2dj2atleasc" path="res://game_objects/items/boosters/health_cristal.tres" id="2_u7w3a"]
 [ext_resource type="Resource" uid="uid://c4o1anlio860k" path="res://game_objects/items/consumabls/consumabl_item_1.tres" id="3_0ogax"]
 [ext_resource type="Resource" uid="uid://cgf7nuvx856d5" path="res://game_objects/items/consumabls/consumabl_item_2.tres" id="4_8rfid"]
 [ext_resource type="Resource" uid="uid://4gow4p87dlkh" path="res://game_objects/items/consumabls/consumabl_item_3.tres" id="5_qu04f"]
-[ext_resource type="Resource" uid="uid://cq7gwa68eo5gd" path="res://game_objects/items/equip/item_1.tres" id="6_fc5gs"]
 [ext_resource type="Resource" uid="uid://bldv4q5a2u38k" path="res://game_objects/items/currency_item.tres" id="6_lakm5"]
-[ext_resource type="Resource" uid="uid://7nv3xnrfm1h2" path="res://game_objects/items/equip/item_2.tres" id="7_ij7yx"]
-[ext_resource type="Resource" uid="uid://cyasi1a41eqp4" path="res://game_objects/items/equip/item_3.tres" id="8_4ovgx"]
-[ext_resource type="Resource" uid="uid://kpxl6vnay5yo" path="res://game_objects/items/equip/item_4.tres" id="9_gmmw3"]
-[ext_resource type="Resource" uid="uid://dlpy1gvx8o0bg" path="res://game_objects/items/equip/item_5.tres" id="10_g3qfk"]
-[ext_resource type="Resource" uid="uid://ujd6eki0ce6c" path="res://game_objects/items/equip/item_6.tres" id="11_r5m1s"]
-[ext_resource type="Resource" uid="uid://dqnfewmaal4p5" path="res://game_objects/items/equip/item_7.tres" id="12_13i3h"]
-[ext_resource type="Resource" uid="uid://pboo7f1fwlt1" path="res://game_objects/items/equip/item_8.tres" id="13_4xokm"]
+[ext_resource type="Script" path="res://game_objects/items/equip_metadata.gd" id="7_wtbog"]
+[ext_resource type="Resource" uid="uid://b2pvkdqsl4phw" path="res://game_objects/items/equip/witch_kiss/witch_kiss_data.tres" id="8_56nqv"]
+[ext_resource type="Resource" uid="uid://bh1s1126y52oa" path="res://game_objects/items/equip/double_axe/double_axe_data.tres" id="8_r64kt"]
+[ext_resource type="Resource" uid="uid://bm5gqaut44qej" path="res://game_objects/items/equip/shield_armor/shield_armor_data.tres" id="9_kvacg"]
+[ext_resource type="Resource" uid="uid://v7ghp6xcdhfs" path="res://game_objects/items/equip/vampire_heart/vampire_heart_data.tres" id="10_ovbd8"]
 [ext_resource type="Script" path="res://game_systems/game_settings.gd" id="15_ek08f"]
 
 [resource]
 script = ExtResource("15_ek08f")
 currency = ExtResource("6_lakm5")
-equip_presets = Array[ExtResource("1_fyd36")]([ExtResource("6_fc5gs"), ExtResource("7_ij7yx"), ExtResource("8_4ovgx"), ExtResource("9_gmmw3"), ExtResource("10_g3qfk"), ExtResource("11_r5m1s"), ExtResource("12_13i3h"), ExtResource("13_4xokm")])
+equip_data = Array[ExtResource("7_wtbog")]([ExtResource("8_r64kt"), ExtResource("9_kvacg"), ExtResource("10_ovbd8"), ExtResource("8_56nqv")])
 consumabl_presets = Array[ExtResource("1_fyd36")]([ExtResource("3_0ogax"), ExtResource("4_8rfid"), ExtResource("5_qu04f")])
 booster_presets = Array[ExtResource("1_fyd36")]([ExtResource("2_u7w3a")])
 consumabl_prob = 0.6
 extra_consumabl_prob = 0.2
 max_consumabl_reward = 2
 consumabl_prob_weight = Array[int]([2, 2, 1])
+equip_level_colors = Array[Color]([Color(0.683077, 0.683077, 0.683077, 1), Color(0.298136, 0.461648, 0.33398, 1), Color(0.548908, 0.35626, 0.79588, 1), Color(0.710169, 0.274495, 0.201339, 1)])
+max_equip_level = 3
 equip_count = 3
 max_items_in_shop = 4
 min_equip_count_in_shop = 1

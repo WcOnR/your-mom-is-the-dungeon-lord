@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GemType" load_steps=8 format=3 uid="uid://cxr72qpeqq4e6"]
+
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_mxpnn"]
+[ext_resource type="Script" path="res://game_objects/gems/gem_heal.gd" id="2_bbn0k"]
+[ext_resource type="Script" path="res://game_systems/action_list.gd" id="3_ljutx"]
+[ext_resource type="Script" path="res://game_objects/gems/gem_type.gd" id="4_rvhnx"]
+[ext_resource type="Texture2D" uid="uid://tojof4c08v2p" path="res://game_objects/gems/Heart.png" id="5_fmu0v"]
+
+[sub_resource type="Resource" id="Resource_iu4rx"]
+script = ExtResource("1_mxpnn")
+behavior = ExtResource("2_bbn0k")
+args = [10]
+
+[sub_resource type="Resource" id="Resource_n42mt"]
+script = ExtResource("3_ljutx")
+actions = Array[ExtResource("1_mxpnn")]([SubResource("Resource_iu4rx")])
+
+[resource]
+script = ExtResource("4_rvhnx")
+texture = ExtResource("5_fmu0v")
+actions = SubResource("Resource_n42mt")

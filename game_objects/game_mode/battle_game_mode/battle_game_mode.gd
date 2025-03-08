@@ -25,6 +25,10 @@ signal state_changed
 signal turn_changed
 signal max_turn_changed
 signal reward_granted
+signal battle_started
+signal player_turn_started
+signal enemies_turn_started
+signal enemies_turn_finished
 
 
 func _ready() -> void:
@@ -40,17 +44,25 @@ func _input(_event: InputEvent) -> void:
 		_line_holder.debug_kill_all()
 
 
+func get_line_holder() -> LineHolder:
+	if not _line_holder:
+		_line_holder = get_node(line_holder) as LineHolder
+	return _line_holder
+
+
 func start_battle(preset : BattlePreset, is_elite : bool) -> void:
 	_preset = preset
 	_is_elite_battle = is_elite
 	await get_tree().process_frame
 	_player = get_tree().get_first_node_in_group("Player") as Player
+	_player.equipment_manager_comp.set_game_mode(self)
 	_health_comp = _player.get_node("HealthComp") as HealthComp
 	_health_comp._drop_shield()
 	_line_holder.spawn_enemies(preset)
-	_line_holder.all_enemy_all_dead.connect(_on_win)
-	_health_comp.death.connect(_on_lost)
+	_line_holder.all_enemy_all_dead.connect(_battle_end.bind(true))
+	_health_comp.death.connect(_battle_end.bind(false))
 	_field.action_clicked.connect(_next_turn)
+	battle_started.emit()
 	_start_round()
 
 
@@ -60,7 +72,9 @@ func finish_round() -> void:
 	_set_state(State.ENEMY_MOVE)
 	if not _field.grid.is_idle():
 		await _field.grid.grid_idle
+	enemies_turn_started.emit()
 	await _line_holder.enemy_attack()
+	enemies_turn_finished.emit()
 	_health_comp._drop_shield()
 	_start_round()
 
@@ -101,6 +115,14 @@ func _set_state(new_state : State) -> void:
 	state_changed.emit()
 
 
+func _battle_end(is_win : bool) -> void:
+	_player.equipment_manager_comp.set_game_mode(null)
+	if is_win:
+		_on_win()
+	else:
+		_on_lost()
+
+
 func _end_game(is_win : bool) -> void:
 	_set_state(State.WIN if is_win else State.LOST)
 	_line_holder.all_enemy_all_dead.disconnect(_on_win)
@@ -114,6 +136,7 @@ func _start_round() -> void:
 	_set_state(State.PLAYER_MOVE)
 	_turns_left = get_max_turns()
 	turn_changed.emit()
+	player_turn_started.emit()
 
 
 func _end_round() -> void:

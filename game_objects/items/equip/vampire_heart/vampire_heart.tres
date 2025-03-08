@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=8 format=3 uid="uid://bl2jqvixlxmxo"]
+
+[ext_resource type="Resource" uid="uid://cxr72qpeqq4e6" path="res://game_objects/gems/heal_type.tres" id="1_krwqg"]
+[ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_qjb6u"]
+[ext_resource type="Resource" uid="uid://dss4qrx4pqb3n" path="res://game_objects/gems/sharp_heart_type.tres" id="2_pr6ih"]
+[ext_resource type="Texture2D" uid="uid://by8e35fgqpyy3" path="res://game_objects/gems/Skull.png" id="2_t5fv8"]
+[ext_resource type="Script" path="res://game_objects/items/equip/vampire_heart/vampire_heart_action.gd" id="3_q20ki"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="4_kxlvm"]
+
+[sub_resource type="Resource" id="Resource_m00ti"]
+script = ExtResource("4_kxlvm")
+behavior = ExtResource("3_q20ki")
+args = [ExtResource("1_krwqg"), ExtResource("2_pr6ih")]
+
+[resource]
+script = ExtResource("1_qjb6u")
+type = 3
+texture = ExtResource("2_t5fv8")
+action = SubResource("Resource_m00ti")
+item_name = "Vampire Heart"
+item_description = "Your every attacks heals you by 10% of your max health. And heart tiles applies 200% of base damage on collapse, but no longer health you."
+price = 1000

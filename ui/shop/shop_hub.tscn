@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/shop/shop_hub.gd" id="1_a47al"]
 [ext_resource type="PackedScene" uid="uid://ct0vuxpt5832" path="res://ui/shop/shop_shelf.tscn" id="2_53ihb"]
-[ext_resource type="PackedScene" uid="uid://c6k2jpfxwbkvq" path="res://ui/equip_viewer/equip_viewer.tscn" id="2_s46nl"]
+[ext_resource type="PackedScene" uid="uid://c6k2jpfxwbkvq" path="res://ui/equip_panel/equip_panel.tscn" id="2_s46nl"]
 [ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="3_5tamf"]
 [ext_resource type="PackedScene" uid="uid://bi57mfpvoblhr" path="res://ui/widgets/consum_info_small.tscn" id="3_67hek"]
 

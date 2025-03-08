@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="GemSet" load_steps=21 format=3 uid="uid://bd27barncwqpa"]
+[gd_resource type="Resource" script_class="GemSet" load_steps=17 format=3 uid="uid://bd27barncwqpa"]
 
 [ext_resource type="Script" path="res://game_objects/gems/gem_type.gd" id="1_xj6pg"]
 [ext_resource type="Script" path="res://game_objects/gems/gem_set.gd" id="2_agmup"]
-[ext_resource type="Script" path="res://game_objects/gems/gem_heal.gd" id="3_6ffn8"]
+[ext_resource type="Resource" uid="uid://cxr72qpeqq4e6" path="res://game_objects/gems/heal_type.tres" id="2_ipy7a"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="4_ouamk"]
-[ext_resource type="Texture2D" uid="uid://tojof4c08v2p" path="res://game_objects/gems/Heart.png" id="5_5d6ka"]
 [ext_resource type="Script" path="res://game_systems/action_list.gd" id="5_k6ock"]
 [ext_resource type="Script" path="res://game_objects/gems/gem_skull.gd" id="6_bq3r8"]
 [ext_resource type="Texture2D" uid="uid://by8e35fgqpyy3" path="res://game_objects/gems/Skull.png" id="7_qtogc"]
@@ -12,24 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="10_86t2v"]
 [ext_resource type="Script" path="res://game_objects/gems/gem_shield.gd" id="10_s226j"]
 
-[sub_resource type="Resource" id="Resource_iu4rx"]
-script = ExtResource("4_ouamk")
-behavior = ExtResource("3_6ffn8")
-args = [1]
-
-[sub_resource type="Resource" id="Resource_n42mt"]
-script = ExtResource("5_k6ock")
-actions = Array[ExtResource("4_ouamk")]([SubResource("Resource_iu4rx")])
-
-[sub_resource type="Resource" id="Resource_e33x5"]
-script = ExtResource("1_xj6pg")
-texture = ExtResource("5_5d6ka")
-actions = SubResource("Resource_n42mt")
-
 [sub_resource type="Resource" id="Resource_ilyei"]
 script = ExtResource("4_ouamk")
 behavior = ExtResource("6_bq3r8")
-args = [1]
+args = [10]
 
 [sub_resource type="Resource" id="Resource_u1wpl"]
 script = ExtResource("5_k6ock")
@@ -43,7 +28,7 @@ actions = SubResource("Resource_u1wpl")
 [sub_resource type="Resource" id="Resource_vqxbn"]
 script = ExtResource("4_ouamk")
 behavior = ExtResource("10_s226j")
-args = [1]
+args = [10]
 
 [sub_resource type="Resource" id="Resource_uft2m"]
 script = ExtResource("5_k6ock")
@@ -56,4 +41,4 @@ actions = SubResource("Resource_uft2m")
 
 [resource]
 script = ExtResource("2_agmup")
-gem_types = Array[ExtResource("1_xj6pg")]([SubResource("Resource_e33x5"), SubResource("Resource_dqugh"), ExtResource("8_y5bdw"), SubResource("Resource_hhkoo")])
+gem_types = Array[ExtResource("1_xj6pg")]([ExtResource("2_ipy7a"), SubResource("Resource_dqugh"), ExtResource("8_y5bdw"), SubResource("Resource_hhkoo")])

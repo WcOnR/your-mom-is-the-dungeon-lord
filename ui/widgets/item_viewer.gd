@@ -14,18 +14,18 @@ func set_modular_color(color : Color) -> void:
 	$TextureRect.self_modulate = color
 
 
-func set_item(item : ItemPreset) -> void:
+func set_item(item : ItemPreset, hint_override : Hint = null) -> void:
 	item_preset = item
 	if item:
 		$TextureRect.texture = item.texture
-		_hint = item.create_hint(self)
+		_hint = hint_override if hint_override else item.create_hint(self)
 	else:
 		$TextureRect.texture = null
 		_hint = null
 
 
-func set_gray_out() -> void:
-	$TextureRect.modulate = Color.DIM_GRAY
+func set_gray_out(gray_out : bool) -> void:
+	$TextureRect.modulate = Color.DIM_GRAY if gray_out else Color.WHITE
 
 
 func get_hint_under_cursor(rect : Rect2) -> Hint:

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EquipMetadata" load_steps=5 format=3 uid="uid://b2pvkdqsl4phw"]
+
+[ext_resource type="Resource" uid="uid://bicryknfvwjaf" path="res://game_objects/items/equip/witch_kiss/golden_earring_of_witch.tres" id="1_metmh"]
+[ext_resource type="Resource" uid="uid://c326va7h1ejbw" path="res://game_objects/items/equip/witch_kiss/silver_earring_of_witch.tres" id="2_llidc"]
+[ext_resource type="Script" path="res://game_objects/items/equip_metadata.gd" id="3_ik4vj"]
+[ext_resource type="Resource" uid="uid://ju3q70bb4lal" path="res://game_objects/items/equip/witch_kiss/witch_kiss.tres" id="4_wp82y"]
+
+[resource]
+script = ExtResource("3_ik4vj")
+item_preset_a = ExtResource("1_metmh")
+item_description_a = Array[String](["First enemy in left line are disoriented and will skip the first turn.", "First 2 enemies in left line are disoriented and will skip the first turn.", "All enemies in left line are disoriented and will skip the first turn."])
+item_preset_b = ExtResource("2_llidc")
+item_description_b = Array[String](["First enemy in right  line are disoriented and will skip the first turn.", "First 2 enemies in right line are disoriented and will skip the first turn.", "All enemies in right line are disoriented and will skip the first turn."])
+super_item_preset = ExtResource("4_wp82y")

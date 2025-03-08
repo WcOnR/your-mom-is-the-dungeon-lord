@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://ccoi1btaddgq3"]
+
+[ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_4gwu3"]
+[ext_resource type="Script" path="res://game_objects/items/equip/double_axe/double_axe_action.gd" id="1_ilbra"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="2_ci1c4"]
+[ext_resource type="Texture2D" uid="uid://by8e35fgqpyy3" path="res://game_objects/gems/Skull.png" id="2_d2vcq"]
+
+[sub_resource type="Resource" id="Resource_jt435"]
+script = ExtResource("2_ci1c4")
+behavior = ExtResource("1_ilbra")
+args = []
+
+[resource]
+script = ExtResource("1_4gwu3")
+type = 3
+texture = ExtResource("2_d2vcq")
+action = SubResource("Resource_jt435")
+item_name = "Double Axe"
+item_description = "Your base attack increase by 150%. And shields breaks like doesn't exist."
+price = 1000

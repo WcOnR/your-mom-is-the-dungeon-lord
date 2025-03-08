@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://ju3q70bb4lal"]
+
+[ext_resource type="Script" path="res://game_objects/items/equip/witch_kiss/witch_kiss_action.gd" id="1_8e5tk"]
+[ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_q656j"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="2_pe0i8"]
+[ext_resource type="Texture2D" uid="uid://by8e35fgqpyy3" path="res://game_objects/gems/Skull.png" id="2_plith"]
+
+[sub_resource type="Resource" id="Resource_p54ud"]
+script = ExtResource("2_pe0i8")
+behavior = ExtResource("1_8e5tk")
+args = []
+
+[resource]
+script = ExtResource("1_q656j")
+type = 3
+texture = ExtResource("2_plith")
+action = SubResource("Resource_p54ud")
+item_name = "Witch Earrings"
+item_description = "All your enemies are disoriented and will skip their first turn."
+price = 1000

@@ -1,6 +1,6 @@
-class_name EquipViewer extends Control
+class_name EquipPanel extends Control
 
-@onready var item_viewers : Array[ItemViewer] = [%Slot1, %Slot2, %Slot3]
+@onready var item_viewers : Array[EquipViewer] = [%Slot1, %Slot2, %Slot3]
 
 var _inventory : InventoryComp = null
 
@@ -14,11 +14,8 @@ func update_view(inventory : InventoryComp) -> void:
 
 func _on_items_update() -> void:
 	var slots := _inventory.get_slots()
-	var i := 0
-	for s in slots:
-		if s:
-			item_viewers[i].set_item(s.item_preset)
-			i += i
+	for i in slots.size():
+		item_viewers[i].set_equip(slots[i], false)
 
 
 func get_hint_under_cursor(rect : Rect2) -> Hint:
