@@ -14,8 +14,7 @@ func on_battle_start(args : Array[Variant]) -> bool:
 	var _player := args[2] as Player
 	var _level := args[3] as int
 	
-	_to_type.actions.actions[0].args.append(0)
-	_to_type.actions.actions[0].args.append(20)
+	_to_type.actions.actions[0].args = [0, 20]
 	
 	var _field := _player.get_tree().get_first_node_in_group("Field") as Field
 	var _gem_set := _field.gem_set.duplicate() as GemSet

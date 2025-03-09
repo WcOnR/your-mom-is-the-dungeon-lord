@@ -67,56 +67,31 @@ func _get_consumabl(count : int) -> Array[ItemPack]:
 	return result
 
 
-func _get_equip_presets() -> Array[ItemPreset]:
-	var equip_presets : Array[ItemPreset] = []
-	for data in SettingsManager.settings.equip_data:
-		equip_presets.append(data.item_preset_a)
-		equip_presets.append(data.item_preset_b)
-	return equip_presets
-
-
 func _get_equip(inventory : InventoryComp, ignore : Array[ItemPreset]) -> ItemPreset:
 	var settings := SettingsManager.settings
 	var fav_items : Array[ItemPreset] = []
-	var maxed_items : Array[ItemPreset] = []
-	var slots := inventory.get_slots()
-	for s in slots:
-		if s == null:
-			break
-		if s.count == settings.max_equip_level:
-			maxed_items.append(s.item_preset)
-		fav_items.append(s.item_preset)
-	## Get pool
-	var preset_pool := _get_equip_presets()
-	## Filter pool
-	if fav_items.size() == settings.equip_count:
-		preset_pool = fav_items.duplicate()
-	for maxed in maxed_items:
-		preset_pool.erase(maxed)
-	## Add super equip to pool if possible
-	var metadatas : Array[EquipMetadata] = []
-	for maxed in maxed_items:
-		var data := settings.get_equip_metadata(maxed)
-		if data in metadatas:
-			preset_pool.append(data.super_item_preset)
-		metadatas.append(data)
-	## Filter super equip
-	for item in fav_items:
-		if item.type == ItemPreset.Type.SUPER_EQUIP:
-			for data in settings.equip_data:
-				if data.super_item_preset == item:
-					preset_pool.erase(data.item_preset_a)
-					preset_pool.erase(data.item_preset_b)
-					preset_pool.erase(data.super_item_preset)
-					break
-	## Setup weights
+	for slot in inventory.get_slots():
+		if slot != null:
+			fav_items.append(slot.item_preset)
+	var preset_pool : Array[ItemPreset] = []
+	for data in settings.equip_data:
+		for item in data.get_items():
+			if inventory.is_fit_in_slots(item):
+				preset_pool.append(item)
+	var pool := preset_pool.duplicate()
+	for i in ignore:
+		pool.erase(i)
+	if pool.is_empty():
+		for item in preset_pool:
+			if item.type == ItemPreset.Type.SUPER_EQUIP:
+				pool.append(item)
+	preset_pool = pool
+	
 	var weight : Array[int] = []
 	for equip in preset_pool:
 		var w := 1
-		if equip in fav_items:
+		if equip in fav_items or equip.type == ItemPreset.Type.SUPER_EQUIP:
 			w += 5
-		if equip in ignore and equip.type == ItemPreset.Type.EQUIP:
-			w = 0
 		weight.append(w)
 	return _pick_random_with_weight(preset_pool, weight)
 

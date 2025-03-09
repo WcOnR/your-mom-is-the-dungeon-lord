@@ -64,7 +64,7 @@ func get_slots() -> Array[ItemPack]:
 func can_buy(pack : ItemPack) -> bool:
 	var currency_pack := get_currency_pack()
 	var enough_currency := pack.get_price() <= currency_pack.count
-	return enough_currency and _is_fit_in_slots(pack.item_preset)
+	return enough_currency and is_fit_in_slots(pack.item_preset)
 
 
 func get_currency_pack() -> ItemPack:
@@ -108,7 +108,7 @@ func _add_super_to_slot(pack : ItemPack) -> void:
 				was_null = false
 
 
-func _is_fit_in_slots(item : ItemPreset) -> bool:
+func is_fit_in_slots(item : ItemPreset) -> bool:
 	var max_equip_level := SettingsManager.settings.max_equip_level
 	var items : Array[ItemPreset] = []
 	var maxed_items : Array[ItemPreset] = []
