@@ -125,8 +125,8 @@ func _battle_end(is_win : bool) -> void:
 
 func _end_game(is_win : bool) -> void:
 	_set_state(State.WIN if is_win else State.LOST)
-	_line_holder.all_enemy_all_dead.disconnect(_on_win)
-	_health_comp.death.disconnect(_on_lost)
+	_line_holder.all_enemy_all_dead.disconnect(_battle_end)
+	_health_comp.death.disconnect(_battle_end)
 
 
 func _start_round() -> void:
