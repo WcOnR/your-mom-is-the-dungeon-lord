@@ -64,7 +64,10 @@ func get_slots() -> Array[ItemPack]:
 func can_buy(pack : ItemPack) -> bool:
 	var currency_pack := get_currency_pack()
 	var enough_currency := pack.get_price() <= currency_pack.count
-	return enough_currency and is_fit_in_slots(pack.item_preset)
+	var type := pack.item_preset.type
+	var is_equipment := type == ItemPreset.Type.EQUIP or type ==ItemPreset.Type.SUPER_EQUIP
+	var can_be_pickup := not is_equipment or is_fit_in_slots(pack.item_preset)
+	return enough_currency and can_be_pickup
 
 
 func get_currency_pack() -> ItemPack:

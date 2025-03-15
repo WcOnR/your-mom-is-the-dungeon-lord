@@ -22,7 +22,7 @@ func set_pack(pack : ItemPack) -> void:
 
 
 func set_gray_out(grat_out : bool) -> void:
-	$CountLabel.visible = false
+	$CountLabel.visible = not grat_out and not _is_equip
 	$ItemViewer.set_gray_out(grat_out)
 	$EquipViewer.set_gray_out(grat_out)
 

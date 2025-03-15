@@ -6,14 +6,15 @@ class_name ShopItem extends MarginContainer
 
 var _inventory : InventoryComp = null
 var _pack : ItemPack = null
+var _is_sold_out : bool = false
 
 
 func _ready() -> void:
 	buy_btn.pressed.connect(_on_buy)
 	var player = get_tree().get_first_node_in_group("Player") as Player
 	_inventory = player.inventory_comp
-	_inventory.items_changed.connect(_update_availability)
-	_update_availability()
+	_inventory.items_changed.connect(_update_view)
+	_update_view()
 
 
 func set_item(pack : ItemPack) -> void:
@@ -26,24 +27,17 @@ func get_hint_under_cursor(rect : Rect2) -> Hint:
 	return item_pack_viewer.get_hint_under_cursor(rect)
 
 
-func _update_availability() -> void:
-	_hide_buy_btn(not _inventory.can_buy(_pack))
-
-
-func _hide_buy_btn(hide_btn : bool) -> void:
-	%ItemPackViewer.set_gray_out(hide_btn)
-	%BuyButton.visible = not hide_btn
-
-
 func _update_view() -> void:
-	%SoldOutPanel.visible = true
-	%BuyButton.visible = false
-	%CoinPanel.visible = false
-	%ItemPackViewer.set_gray_out(true)
+	var can_buy := not _is_sold_out and _inventory.can_buy(_pack)
+	%SoldOutPanel.visible = _is_sold_out
+	buy_btn.visible = can_buy
+	%CoinPanel.visible = can_buy
+	%ItemPackViewer.set_gray_out(not can_buy)
 
 
 func _on_buy() -> void:
 	_inventory.spend_money(_pack.get_price())
 	_inventory.add_pack(_pack)
+	_is_sold_out = true
 	_update_view()
 	
