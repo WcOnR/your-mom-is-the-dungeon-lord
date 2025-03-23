@@ -2,11 +2,11 @@ class_name HealthCompUI extends Container
 
 @export var health_comp : HealthComp
 
-@onready var health_label : Label = $Container2/MarginContainer/Container/HBoxContainer/HealthProgressBar/HealthLabel
-@onready var health_progress : ProgressBar = $Container2/MarginContainer/Container/HBoxContainer/HealthProgressBar
+@onready var health_label : Label = %HealthLabel
+@onready var health_progress : ProgressBar = %HealthProgressBar
 
-@onready var shields : ActionUI = $Container2/MarginContainer/shields
-@onready var action_ui : ActionUI = $Container2/MarginContainer2/ActionUi
+@onready var shields : ActionUI = %shields
+@onready var action_ui : ActionUI = %ActionUi
 
 const HEALTH_FORMAT := "%d/%d"
 

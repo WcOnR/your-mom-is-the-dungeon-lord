@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="1_ju8wk"]
 [ext_resource type="Script" path="res://game_objects/game_mode/battle_game_mode/battle_room_preset.gd" id="2_itgda"]
-[ext_resource type="PackedScene" uid="uid://dl27d14vu5tdv" path="res://game_objects/rooms/battle_rooms/battle_room.tscn" id="2_t8baf"]
 [ext_resource type="Resource" uid="uid://iw5qg7ym5s5t" path="res://game_objects/rooms/battle_rooms/bd_01_statue.tres" id="3_rnv6p"]
 [ext_resource type="Resource" uid="uid://deswhayq4p0xv" path="res://game_objects/rooms/battle_rooms/bd_01_goblins.tres" id="3_rto7g"]
 [ext_resource type="Resource" uid="uid://bc63fuq45qm4b" path="res://game_objects/rooms/battle_rooms/bd_01_elf.tres" id="4_2nqo3"]
+[ext_resource type="PackedScene" uid="uid://6dj4su8wc8ak" path="res://game_objects/rooms/battle_rooms/battle_room.tscn" id="5_p0d2j"]
 
 [resource]
 script = ExtResource("2_itgda")
 pool = Array[ExtResource("1_ju8wk")]([ExtResource("3_rnv6p"), ExtResource("3_rto7g"), ExtResource("4_2nqo3")])
 is_elite = false
-scene = ExtResource("2_t8baf")
+scene = ExtResource("5_p0d2j")

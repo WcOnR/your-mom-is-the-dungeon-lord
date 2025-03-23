@@ -2,7 +2,6 @@ class_name Field extends Node2D
 
 @export var gem_set : GemSet
 @export var min_gem : int = 2
-@export var line_holder : NodePath
 @export var cell_icons : PackedScene 
 
 @onready var tile_map : TileMapLayer = $TileMapLayer
@@ -25,10 +24,12 @@ signal action_clicked
 
 func _ready() -> void:
 	_player = get_tree().get_first_node_in_group("Player") as Player
-	_game_mode = get_tree().get_first_node_in_group("GameMode") as BattleGameMode
-	_line_holder = get_node(line_holder)
+	_line_holder = get_tree().get_first_node_in_group("LineHolder")
 	_init_grid_with_tile_map()
-	_game_mode.battle_started.connect(_start_spawners)
+	var game_mode : Node = get_tree().get_first_node_in_group("GameMode")
+	if game_mode != null and game_mode is BattleGameMode:
+		_game_mode = game_mode as BattleGameMode
+		_game_mode.battle_started.connect(_start_spawners)
 	GameInputManagerSystem.on_click_end.connect(_on_click_action)
 
 
@@ -166,7 +167,7 @@ func _get_cell_icons(cell_id : Vector2i) -> CellIcons:
 
 
 func _on_click_action(data : ClickData) -> void:
-	if not _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
+	if _game_mode == null or not _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
 		return
 	var old_cell_id := grid.get_cell_id(data.start_position - global_position)
 	var cell_id := grid.get_cell_id(data.end_position - global_position)
@@ -246,7 +247,7 @@ func _get_cell_neighbors(map : Dictionary, id : Vector2i) -> Array[Gem]:
 func _on_consumable_pos_updated(_position: Vector2, _data : Variant) -> void:
 	var diff := _position - global_position
 	var cell_id := grid.get_cell_id(diff)
-	if is_valid_cell_id(cell_id):
+	if is_valid_cell_id(cell_id) and grid.is_idle():
 		var item_preset := _data as ItemPreset
 		var offset := (diff - grid.get_cell_position(cell_id)) / grid.get_cell_size()
 		item_preset.action.run(ON_MOVE, [self, cell_id, offset])

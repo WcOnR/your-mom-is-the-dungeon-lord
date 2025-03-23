@@ -1,9 +1,6 @@
 class_name BattleGameMode extends Node
 
 
-@export var line_holder : NodePath
-@export var field : NodePath
-
 enum State {NOT_STARTED, PLAYER_MOVE, ENEMY_MOVE, COLLECTING_REWARD, WIN, LOST}
 
 
@@ -17,6 +14,7 @@ var _preset : BattlePreset = null
 var _is_elite_battle := false
 
 var _reward : Array[ItemPack] = []
+var _statistics : Array[StatisticsInfo] = []
 var _equip_reward : Array[ItemPreset] = []
 
 const EXTRA_TURNS : int = 2
@@ -32,10 +30,10 @@ signal enemies_turn_finished
 
 
 func _ready() -> void:
-	_line_holder = get_node(line_holder) as LineHolder
-	_field = get_node(field) as Field
-	state_changed.connect(_update_field_input)
-	turn_changed.connect(_update_field_input)
+	_line_holder = get_tree().get_first_node_in_group("LineHolder")
+	_field = get_tree().get_first_node_in_group("Field")
+	state_changed.connect(update_field_input)
+	turn_changed.connect(update_field_input)
 	_line_holder.active_lines_changed.connect(func(): max_turn_changed.emit())
 
 
@@ -46,7 +44,7 @@ func _input(_event: InputEvent) -> void:
 
 func get_line_holder() -> LineHolder:
 	if not _line_holder:
-		_line_holder = get_node(line_holder) as LineHolder
+		_line_holder = get_tree().get_first_node_in_group("LineHolder")
 	return _line_holder
 
 
@@ -93,11 +91,19 @@ func is_state(state : State) -> bool:
 
 func finish_battle(equip_choice : ItemPreset) -> void:
 	if is_state(State.COLLECTING_REWARD):
+		var sum := 0
+		for s in _statistics:
+			sum += s.score * s.count
+		_player.inventory_comp.add_currency(sum)
 		for r in _reward:
 			_player.inventory_comp.add_pack(r)
 		if equip_choice:
 			_player.inventory_comp.add_item(equip_choice)
 		SceneLoaderSystem.unload_room()
+
+
+func get_statistics() -> Array[StatisticsInfo]:
+	return _statistics
 
 
 func get_reward() -> Array[ItemPack]:
@@ -148,7 +154,7 @@ func _next_turn() -> void:
 	turn_changed.emit()
 
 
-func _update_field_input() -> void:
+func update_field_input() -> void:
 	var is_turns_left := _turns_left > 0
 	var is_player_move := is_state(State.PLAYER_MOVE)
 	_field.enable_input(is_player_move and is_turns_left)
@@ -169,7 +175,8 @@ func _on_lost() -> void:
 
 func _prepare_reward() -> void:
 	_set_state(State.COLLECTING_REWARD)
-	_reward = $RewardCalculator.get_rewards(_preset)
+	_statistics = $RewardCalculator.get_statistics(_preset)
+	_reward = $RewardCalculator.get_rewards()
 	if _is_elite_battle:
 		_equip_reward = $RewardCalculator.get_equip_choice(_player.inventory_comp)
 	reward_granted.emit()

@@ -42,6 +42,12 @@ func add_item(item : ItemPreset) -> void:
 	add_pack(pack)
 
 
+func add_currency(count : int) -> void:
+	var pack := ItemPack.new(SettingsManager.settings.currency)
+	pack.count = count
+	add_pack(pack)
+
+
 func consume_item(item : ItemPreset) -> void:
 	if item.type != ItemPreset.Type.CONSUMABL:
 		return

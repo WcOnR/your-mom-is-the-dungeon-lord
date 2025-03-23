@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://s8pd43t32c5v"]
+
+[ext_resource type="Script" path="res://ui/statistics_panel/statistics_panel.gd" id="1_gbugr"]
+[ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="1_mxavn"]
+[ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="2_3g1fb"]
+
+[node name="StatisticsPanel" type="MarginContainer"]
+offset_right = 72.0
+offset_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+script = ExtResource("1_gbugr")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+alignment = 2
+
+[node name="CoinPanel" parent="VBoxContainer2/HBoxContainer" instance=ExtResource("2_3g1fb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "RESULT"
+label_settings = ExtResource("1_mxavn")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+
+[node name="InfoContainer" type="VBoxContainer" parent="VBoxContainer2/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3

@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfbuiik3genxv"]
+
+[ext_resource type="Script" path="res://ui/battle_hub/battle_hud.gd" id="1_0h25g"]
+[ext_resource type="PackedScene" uid="uid://1gowrjdv5xvj" path="res://ui/widgets/health_ui.tscn" id="1_xuqrh"]
+[ext_resource type="PackedScene" uid="uid://bisw0tue6xhhe" path="res://ui/turns/turn_tracker.tscn" id="3_t7ypo"]
+[ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field/field.tscn" id="3_vf1ns"]
+[ext_resource type="Resource" uid="uid://bd27barncwqpa" path="res://game_objects/gems/gem_set.tres" id="4_uok5p"]
+[ext_resource type="PackedScene" uid="uid://bo7rl2hrsqc1f" path="res://ui/phone/consumable_panel/consumable_panel.tscn" id="6_c5auh"]
+[ext_resource type="PackedScene" uid="uid://s8pd43t32c5v" path="res://ui/statistics_panel/statistics_panel.tscn" id="6_gdv6x"]
+[ext_resource type="PackedScene" uid="uid://dryqdlvxj3gdo" path="res://ui/phone/item_loot_panel/item_loot_panel.tscn" id="7_j6aeh"]
+[ext_resource type="PackedScene" uid="uid://bwjhr3canvxqn" path="res://ui/phone/equip_loot_panel/equip_loot_panel.tscn" id="8_svha1"]
+
+[node name="BattleHub" type="MarginContainer"]
+offset_right = 760.0
+offset_bottom = 918.0
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_0h25g")
+
+[node name="BattleView" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Field" parent="BattleView" instance=ExtResource("3_vf1ns")]
+position = Vector2(0, 73)
+gem_set = ExtResource("4_uok5p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleView"]
+layout_mode = 2
+
+[node name="HealthUi" parent="BattleView/HBoxContainer" instance=ExtResource("1_xuqrh")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="TurnTracker" parent="BattleView/HBoxContainer" instance=ExtResource("3_t7ypo")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Spacer" type="MarginContainer" parent="BattleView"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConsumablePanel" parent="BattleView" instance=ExtResource("6_c5auh")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="StatisticsPanel" parent="." instance=ExtResource("6_gdv6x")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemLootPanel" parent="." instance=ExtResource("7_j6aeh")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="EquipLootPanel" parent="." instance=ExtResource("8_svha1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2

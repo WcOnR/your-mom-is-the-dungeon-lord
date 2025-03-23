@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xikuimul3exk" path="res://ui/widgets/action_ui.tscn" id="3_yv6fk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y71ew"]
-bg_color = Color(0.150075, 0.150075, 0.150075, 1)
+bg_color = Color(0.266575, 0.266575, 0.266575, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -26,24 +26,21 @@ script = ExtResource("1_qitsd")
 
 [node name="Container2" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = -10
 
 [node name="MarginContainer" type="MarginContainer" parent="Container2"]
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 
-[node name="Container" type="MarginContainer" parent="Container2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Container2/MarginContainer"]
+layout_mode = 2
+
+[node name="Container" type="MarginContainer" parent="Container2/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Container2/MarginContainer/Container"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="Container2/MarginContainer/Container/HBoxContainer"]
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 2
-
-[node name="HealthProgressBar" type="ProgressBar" parent="Container2/MarginContainer/Container/HBoxContainer"]
+[node name="HealthProgressBar" type="ProgressBar" parent="Container2/MarginContainer/HBoxContainer/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -51,7 +48,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_y71ew")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vp78b")
 show_percentage = false
 
-[node name="HealthLabel" type="Label" parent="Container2/MarginContainer/Container/HBoxContainer/HealthProgressBar"]
+[node name="HealthLabel" type="Label" parent="Container2/MarginContainer/HBoxContainer/Container/HealthProgressBar"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,14 +67,20 @@ label_settings = ExtResource("2_fqyxe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="shields" parent="Container2/MarginContainer" instance=ExtResource("3_yv6fk")]
+[node name="shields" parent="Container2/MarginContainer/HBoxContainer" instance=ExtResource("3_yv6fk")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 default_texture = ExtResource("3_7ixli")
 
-[node name="MarginContainer2" type="HBoxContainer" parent="Container2"]
+[node name="MarginContainer3" type="MarginContainer" parent="Container2"]
 layout_mode = 2
-alignment = 2
+theme_override_constants/margin_top = -10
 
-[node name="ActionUi" parent="Container2/MarginContainer2" instance=ExtResource("3_yv6fk")]
+[node name="MarginContainer2" type="HBoxContainer" parent="Container2/MarginContainer3"]
+layout_mode = 2
+
+[node name="ActionUi" parent="Container2/MarginContainer3/MarginContainer2" instance=ExtResource("3_yv6fk")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2

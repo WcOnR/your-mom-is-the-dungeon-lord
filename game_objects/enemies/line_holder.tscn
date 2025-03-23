@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://xqigt823tg75" path="res://game_objects/enemies/battle_line.tscn" id="1_5g3ba"]
 [ext_resource type="Script" path="res://game_objects/enemies/line_holder.gd" id="1_e3fqe"]
 
-[node name="LineHolder" type="Node2D"]
+[node name="LineHolder" type="Node2D" groups=["LineHolder"]]
 script = ExtResource("1_e3fqe")
 
 [node name="Line" parent="." instance=ExtResource("1_5g3ba")]

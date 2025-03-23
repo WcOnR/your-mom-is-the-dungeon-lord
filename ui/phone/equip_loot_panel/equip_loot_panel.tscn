@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwjhr3canvxqn"]
+
+[ext_resource type="Script" path="res://ui/phone/equip_loot_panel/equip_loot_panel.gd" id="1_gjimy"]
+
+[node name="EquipLootPanel" type="MarginContainer" groups=["HintTarget"]]
+offset_right = 493.0
+offset_bottom = 287.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_gjimy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="CallToActionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "CHOOSE YOUR REWARD"
+horizontal_alignment = 1
+
+[node name="ItemContainer" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 118)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1

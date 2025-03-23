@@ -7,6 +7,7 @@
 
 [resource]
 script = ExtResource("3_cm32p")
+name = "Goblin"
 max_health = 30
 damage = 10
 reward = 100

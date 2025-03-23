@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bo7rl2hrsqc1f"]
+
+[ext_resource type="Script" path="res://ui/phone/consumable_panel/consumable_panel.gd" id="1_08qus"]
+[ext_resource type="PackedScene" uid="uid://gbp6mf6kpd3b" path="res://ui/widgets/consumable_item_holder.tscn" id="1_8sxqr"]
+[ext_resource type="Resource" uid="uid://c4o1anlio860k" path="res://game_objects/items/consumabls/consumabl_item_1.tres" id="2_6ef7h"]
+[ext_resource type="Resource" uid="uid://cgf7nuvx856d5" path="res://game_objects/items/consumabls/consumabl_item_2.tres" id="3_12r4s"]
+[ext_resource type="Resource" uid="uid://4gow4p87dlkh" path="res://game_objects/items/consumabls/consumabl_item_3.tres" id="4_w5o6f"]
+
+[node name="ConsumablePanel" type="HBoxContainer"]
+z_index = 4
+theme_override_constants/separation = 20
+alignment = 1
+script = ExtResource("1_08qus")
+
+[node name="ConsumableItemHolder" parent="." instance=ExtResource("1_8sxqr")]
+layout_mode = 2
+item_preset = ExtResource("2_6ef7h")
+
+[node name="ConsumableItemHolder2" parent="." instance=ExtResource("1_8sxqr")]
+layout_mode = 2
+item_preset = ExtResource("3_12r4s")
+
+[node name="ConsumableItemHolder3" parent="." instance=ExtResource("1_8sxqr")]
+layout_mode = 2
+item_preset = ExtResource("4_w5o6f")

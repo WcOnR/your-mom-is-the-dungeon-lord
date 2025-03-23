@@ -1,23 +1,33 @@
 class_name RewardCalculator extends Node
 
 
-func get_rewards(battle : BattlePreset) -> Array[ItemPack]:
+func get_statistics(battle : BattlePreset) -> Array[StatisticsInfo]:
+	var map : Dictionary = {}
+	var result : Array[StatisticsInfo]
+	if battle:
+		for enemy in battle.line1:
+			var has : int = map[enemy] if enemy in map else 0
+			map[enemy] = has + 1
+		for enemy in battle.line2:
+			var has : int = map[enemy] if enemy in map else 0
+			map[enemy] = has + 1
+		for enemy in battle.line3:
+			var has : int = map[enemy] if enemy in map else 0
+			map[enemy] = has + 1
+		for enemy in map.keys():
+			var info := StatisticsInfo.new()
+			info.name = "Killed %s" % enemy.name
+			info.count = map[enemy]
+			info.score = enemy.reward * info.count
+			result.append(info)
+	return result
+
+
+func get_rewards() -> Array[ItemPack]:
 	var reward : Array[ItemPack] = []
 	var add_consumabl := SettingsManager.settings.consumabl_prob >= randf()
 	if add_consumabl:
 		reward.append(_get_consumabl(1)[0])
-	
-	if battle:
-		var count := 0
-		for enemy in battle.line1:
-			count += enemy.reward
-		for enemy in battle.line2:
-			count += enemy.reward
-		for enemy in battle.line3:
-			count += enemy.reward
-		var pack := ItemPack.new(SettingsManager.settings.currency)
-		pack.count = count
-		reward.append(pack)
 	return reward
 
 

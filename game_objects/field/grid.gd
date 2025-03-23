@@ -38,7 +38,7 @@ func get_cell_position(id : Vector2i) -> Vector2:
 
 
 func get_cell_id(pos : Vector2) -> Vector2i:
-	return Vector2i(int(pos.x / _cell_size.x), int(pos.y / _cell_size.y))
+	return Vector2i(floori(pos.x / _cell_size.x), floori(pos.y / _cell_size.y))
 
 
 func get_size() -> Vector2i:

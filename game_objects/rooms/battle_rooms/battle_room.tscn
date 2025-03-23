@@ -1,48 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl27d14vu5tdv"]
+[gd_scene load_steps=6 format=3 uid="uid://6dj4su8wc8ak"]
 
 [ext_resource type="Texture2D" uid="uid://bojay2qol5pfp" path="res://game_objects/rooms/battle_rooms/Background.png" id="1_3na0c"]
-[ext_resource type="PackedScene" uid="uid://bnca6y1kigsrx" path="res://ui/restart_screen/restart_screen.tscn" id="4_6cwhi"]
-[ext_resource type="PackedScene" uid="uid://cfol48c4emuyb" path="res://ui/hub/hud.tscn" id="6_neynh"]
-[ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field/field.tscn" id="6_vodr4"]
-[ext_resource type="Resource" uid="uid://bd27barncwqpa" path="res://game_objects/gems/gem_set.tres" id="7_2hrr1"]
+[ext_resource type="PackedScene" uid="uid://bnca6y1kigsrx" path="res://ui/restart_screen/restart_screen.tscn" id="5_tjvym"]
+[ext_resource type="PackedScene" uid="uid://h8i61u7scjja" path="res://ui/phone/phone.tscn" id="8_0i1lv"]
 [ext_resource type="PackedScene" uid="uid://b6s25t3xxttat" path="res://game_objects/enemies/line_holder.tscn" id="8_8i71o"]
 [ext_resource type="PackedScene" uid="uid://ycrf4vt7dlqs" path="res://game_objects/game_mode/battle_game_mode/battle_game_mode.tscn" id="8_c5vxj"]
 
 [node name="Room" type="Node2D"]
 
-[node name="Patch" type="Node2D" parent="."]
-
-[node name="Patch_1" type="Polygon2D" parent="Patch"]
-color = Color(0.27451, 0.337255, 0.329412, 1)
-polygon = PackedVector2Array(822, -19, -22, -17, -3, 1128, 819, 1130)
-
-[node name="Patch_2" type="Polygon2D" parent="Patch"]
-color = Color(0.384314, 0.423529, 0.419608, 1)
-polygon = PackedVector2Array(812, 777, 133, 1121, 901, 1122)
-
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(803, 0)
+z_index = -10
 texture = ExtResource("1_3na0c")
 centered = false
 
-[node name="Field" parent="." instance=ExtResource("6_vodr4")]
-position = Vector2(60, 70)
-gem_set = ExtResource("7_2hrr1")
-line_holder = NodePath("../LineHolder")
+[node name="LineHolder" parent="." instance=ExtResource("8_8i71o")]
+position = Vector2(327, 720)
+
+[node name="GameMode" parent="." instance=ExtResource("8_c5vxj")]
+
+[node name="Phone" parent="." instance=ExtResource("8_0i1lv")]
+position = Vector2(1515, 500)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Hud" parent="CanvasLayer" instance=ExtResource("6_neynh")]
-size_flags_horizontal = 3
-size_flags_vertical = 3
-game_mode = NodePath("../../GameMode")
-field = NodePath("../../Field")
-
-[node name="RestartScreen" parent="CanvasLayer" instance=ExtResource("4_6cwhi")]
+[node name="RestartScreen" parent="CanvasLayer" instance=ExtResource("5_tjvym")]
 visible = false
 game_mode = NodePath("../../GameMode")
-
-[node name="LineHolder" parent="." instance=ExtResource("8_8i71o")]
-position = Vector2(1130, 720)
-
-[node name="GameMode" parent="." instance=ExtResource("8_c5vxj")]
