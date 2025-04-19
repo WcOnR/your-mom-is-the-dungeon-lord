@@ -2,19 +2,25 @@ class_name ItemLootPanel extends Control
 
 
 @onready var viewer_scene : PackedScene = preload("res://ui/reward_panel/item_pack_viewer.tscn")
-@onready var item_container := %ItemContainer
+@onready var viewer : ItemPackViewer = %ItemPackViewer
+@onready var item_hint : EquipHint = %EquipHint
+@onready var buy_btn : Button = %BuyButton
 
 
-func set_reward_view(item_packs : Array[ItemPack]) -> void:
-	for pack in item_packs:
-		var viewer := viewer_scene.instantiate() as ItemPackViewer
-		viewer.set_pack(pack)
-		item_container.add_child(viewer)
+signal buy_btn_pressed
 
 
-func get_hint_under_cursor(rect : Rect2) -> Hint:
-	for node in item_container.get_children():
-		var hint : Hint = node.get_hint_under_cursor(rect)
-		if hint:
-			return hint
-	return null
+func set_reward_view(pack : ItemPack) -> void:
+	viewer.set_pack(pack)
+	if pack.item_preset.type == ItemPreset.Type.EQUIP:
+		item_hint.set_equip(pack, true)
+	else:
+		item_hint.set_item(pack.item_preset)
+
+
+func show_buy_btn(_show : bool) -> void:
+	buy_btn.visible = _show
+
+
+func _on_buy_btn_pressed() -> void:
+	buy_btn_pressed.emit()

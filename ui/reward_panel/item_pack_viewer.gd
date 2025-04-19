@@ -9,11 +9,13 @@ func set_pack(pack : ItemPack) -> void:
 	var pack_type := pack.item_preset.type
 	_is_equip =  pack_type == ItemPreset.Type.EQUIP or pack_type == ItemPreset.Type.SUPER_EQUIP
 	if _is_equip:
+		$EquipViewer.visible = true
 		$EquipViewer.set_equip(pack)
 		_hint = $EquipViewer._hint
 		$ItemViewer.visible = false
 		$CountLabel.visible = false
 	else:
+		$ItemViewer.visible = true
 		$ItemViewer.set_item(pack.item_preset)
 		$CountLabel.text = "x" + str(pack.count)
 		$CountLabel.visible = true

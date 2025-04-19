@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfy4agorh33pb"]
+
+[ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="1_52gxq"]
+[ext_resource type="Script" path="res://ui/widgets/equip_hint.gd" id="1_hctvu"]
+
+[node name="EquipHint" type="MarginContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_hctvu")
+
+[node name="HintContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="NameLabel" type="Label" parent="HintContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name"
+label_settings = ExtResource("1_52gxq")
+
+[node name="DescriptionLabel" type="Label" parent="HintContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Your base attack increase by 150%. And shields breaks like doesn't exist."
+label_settings = ExtResource("1_52gxq")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="EmptySlot" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "- EMPTY SLOT -"
+label_settings = ExtResource("1_52gxq")
+horizontal_alignment = 1
+vertical_alignment = 1

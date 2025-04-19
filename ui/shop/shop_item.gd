@@ -2,42 +2,36 @@ class_name ShopItem extends MarginContainer
 
 @onready var item_pack_viewer := %ItemPackViewer
 @onready var price_lbl := %PriceLabel
-@onready var buy_btn := %BuyButton
+@onready var select_btn := $SelectButton
+@onready var selected_back := %SelectedBack
 
 var _inventory : InventoryComp = null
-var _pack : ItemPack = null
-var _is_sold_out : bool = false
+var _shop_item : ShopItemData = null
 
 
 func _ready() -> void:
-	buy_btn.pressed.connect(_on_buy)
+	select_btn.pressed.connect(_on_select)
 	var player = get_tree().get_first_node_in_group("Player") as Player
 	_inventory = player.inventory_comp
 	_inventory.items_changed.connect(_update_view)
 	_update_view()
 
 
-func set_item(pack : ItemPack) -> void:
-	_pack = pack
-	%ItemPackViewer.set_pack(pack)
-	%PriceLabel.text = str(pack.get_price())
-
-
-func get_hint_under_cursor(rect : Rect2) -> Hint:
-	return item_pack_viewer.get_hint_under_cursor(rect)
+func set_shop_item(shop_item : ShopItemData) -> void:
+	_shop_item = shop_item
+	_shop_item.selection_changed.connect(_update_view)
+	%ItemPackViewer.set_pack(_shop_item.pack)
+	%PriceLabel.text = str(_shop_item.pack.get_price())
 
 
 func _update_view() -> void:
-	var can_buy := not _is_sold_out and _inventory.can_buy(_pack)
-	%SoldOutPanel.visible = _is_sold_out
-	buy_btn.visible = can_buy
+	var can_buy := _shop_item.can_buy(_inventory)
+	%SoldOutPanel.visible = _shop_item.is_sold_out
+	select_btn.disabled = not can_buy
+	selected_back.visible = _shop_item.is_selected
 	%CoinPanel.visible = can_buy
 	%ItemPackViewer.set_gray_out(not can_buy)
 
 
-func _on_buy() -> void:
-	_inventory.spend_money(_pack.get_price())
-	_inventory.add_pack(_pack)
-	_is_sold_out = true
-	_update_view()
-	
+func _on_select() -> void:
+	_shop_item.select(true)

@@ -20,25 +20,22 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="HealthComp" type="MarginContainer"]
-offset_right = 120.0
-offset_bottom = 32.0
+offset_right = 200.0
+offset_bottom = 65.0
 script = ExtResource("1_qitsd")
 
-[node name="Container2" type="VBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Container2"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Container2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Container" type="MarginContainer" parent="Container2/MarginContainer/HBoxContainer"]
+[node name="Container" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="HealthProgressBar" type="ProgressBar" parent="Container2/MarginContainer/HBoxContainer/Container"]
+[node name="HealthProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/Container"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
@@ -48,7 +45,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_y71ew")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vp78b")
 show_percentage = false
 
-[node name="HealthLabel" type="Label" parent="Container2/MarginContainer/HBoxContainer/Container/HealthProgressBar"]
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer/Container/HealthProgressBar"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -67,20 +64,8 @@ label_settings = ExtResource("2_fqyxe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="shields" parent="Container2/MarginContainer/HBoxContainer" instance=ExtResource("3_yv6fk")]
+[node name="shields" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_yv6fk")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 default_texture = ExtResource("3_7ixli")
-
-[node name="MarginContainer3" type="MarginContainer" parent="Container2"]
-layout_mode = 2
-theme_override_constants/margin_top = -10
-
-[node name="MarginContainer2" type="HBoxContainer" parent="Container2/MarginContainer3"]
-layout_mode = 2
-
-[node name="ActionUi" parent="Container2/MarginContainer3/MarginContainer2" instance=ExtResource("3_yv6fk")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2

@@ -1,67 +1,158 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfbuiik3genxv"]
+[gd_scene load_steps=15 format=3 uid="uid://dfbuiik3genxv"]
 
 [ext_resource type="Script" path="res://ui/battle_hub/battle_hud.gd" id="1_0h25g"]
 [ext_resource type="PackedScene" uid="uid://1gowrjdv5xvj" path="res://ui/widgets/health_ui.tscn" id="1_xuqrh"]
 [ext_resource type="PackedScene" uid="uid://bisw0tue6xhhe" path="res://ui/turns/turn_tracker.tscn" id="3_t7ypo"]
 [ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field/field.tscn" id="3_vf1ns"]
 [ext_resource type="Resource" uid="uid://bd27barncwqpa" path="res://game_objects/gems/gem_set.tres" id="4_uok5p"]
-[ext_resource type="PackedScene" uid="uid://bo7rl2hrsqc1f" path="res://ui/phone/consumable_panel/consumable_panel.tscn" id="6_c5auh"]
-[ext_resource type="PackedScene" uid="uid://s8pd43t32c5v" path="res://ui/statistics_panel/statistics_panel.tscn" id="6_gdv6x"]
-[ext_resource type="PackedScene" uid="uid://dryqdlvxj3gdo" path="res://ui/phone/item_loot_panel/item_loot_panel.tscn" id="7_j6aeh"]
-[ext_resource type="PackedScene" uid="uid://bwjhr3canvxqn" path="res://ui/phone/equip_loot_panel/equip_loot_panel.tscn" id="8_svha1"]
+[ext_resource type="Texture2D" uid="uid://bcynj12kbr3ea" path="res://ui/phone/equip_icon.png" id="6_018a3"]
+[ext_resource type="PackedScene" uid="uid://gbp6mf6kpd3b" path="res://ui/widgets/consumable_item_holder.tscn" id="6_w5ivp"]
+[ext_resource type="Resource" uid="uid://c4o1anlio860k" path="res://game_objects/items/consumabls/consumabl_item_1.tres" id="7_2mlrx"]
+[ext_resource type="Resource" uid="uid://cgf7nuvx856d5" path="res://game_objects/items/consumabls/consumabl_item_2.tres" id="8_0gdwd"]
+[ext_resource type="Resource" uid="uid://4gow4p87dlkh" path="res://game_objects/items/consumabls/consumabl_item_3.tres" id="9_jx6ti"]
 
-[node name="BattleHub" type="MarginContainer"]
-offset_right = 760.0
-offset_bottom = 918.0
-theme_override_constants/margin_left = 26
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 26
-theme_override_constants/margin_bottom = 10
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyx4w"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 90
+corner_detail = 5
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjf5n"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 90
+corner_detail = 5
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5afjf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 90
+corner_detail = 5
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+
+[sub_resource type="Theme" id="Theme_5f1dw"]
+Button/styles/hover = SubResource("StyleBoxFlat_kyx4w")
+Button/styles/normal = SubResource("StyleBoxFlat_gjf5n")
+Button/styles/pressed = SubResource("StyleBoxFlat_5afjf")
+
+[node name="BattleHUD" type="MarginContainer"]
+offset_right = 748.0
+offset_bottom = 978.0
 script = ExtResource("1_0h25g")
 
-[node name="BattleView" type="VBoxContainer" parent="."]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Field" parent="BattleView" instance=ExtResource("3_vf1ns")]
-position = Vector2(0, 73)
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="EquipButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+focus_mode = 0
+theme = SubResource("Theme_5f1dw")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/EquipButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -19.5
+offset_right = 28.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_018a3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="BattleView" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Field" parent="MarginContainer/BattleView" instance=ExtResource("3_vf1ns")]
+position = Vector2(0, 65)
 gem_set = ExtResource("4_uok5p")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BattleView"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BattleView"]
 layout_mode = 2
 
-[node name="HealthUi" parent="BattleView/HBoxContainer" instance=ExtResource("1_xuqrh")]
+[node name="HealthUi" parent="MarginContainer/BattleView/HBoxContainer" instance=ExtResource("1_xuqrh")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="TurnTracker" parent="BattleView/HBoxContainer" instance=ExtResource("3_t7ypo")]
+[node name="TurnTracker" parent="MarginContainer/BattleView/HBoxContainer" instance=ExtResource("3_t7ypo")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Spacer" type="MarginContainer" parent="BattleView"]
+[node name="Spacer" type="MarginContainer" parent="MarginContainer/BattleView"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ConsumablePanel" parent="BattleView" instance=ExtResource("6_c5auh")]
-unique_name_in_owner = true
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BattleView"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/BattleView/MarginContainer"]
 layout_mode = 2
 
-[node name="StatisticsPanel" parent="." instance=ExtResource("6_gdv6x")]
-unique_name_in_owner = true
-visible = false
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/BattleView/MarginContainer"]
+custom_minimum_size = Vector2(320, 85)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 30
+alignment = 1
 
-[node name="ItemLootPanel" parent="." instance=ExtResource("7_j6aeh")]
-unique_name_in_owner = true
-visible = false
+[node name="ConsumableItemHolder" parent="MarginContainer/BattleView/MarginContainer/HBoxContainer2" instance=ExtResource("6_w5ivp")]
 layout_mode = 2
+size_flags_vertical = 4
+item_preset = ExtResource("7_2mlrx")
 
-[node name="EquipLootPanel" parent="." instance=ExtResource("8_svha1")]
-unique_name_in_owner = true
-visible = false
+[node name="ConsumableItemHolder2" parent="MarginContainer/BattleView/MarginContainer/HBoxContainer2" instance=ExtResource("6_w5ivp")]
 layout_mode = 2
+size_flags_vertical = 4
+item_preset = ExtResource("8_0gdwd")
+
+[node name="ConsumableItemHolder3" parent="MarginContainer/BattleView/MarginContainer/HBoxContainer2" instance=ExtResource("6_w5ivp")]
+layout_mode = 2
+size_flags_vertical = 4
+item_preset = ExtResource("9_jx6ti")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdpd3qeeslwwq"
-path="res://.godot/imported/spell_icon.png-5711f2d10d6f8aaba7b5a2a628acb6da.ctex"
+uid="uid://71pl3fgldoch"
+path="res://.godot/imported/home_btn_bg_h.png-4b00e1244bf4aba6107360f7d44e4e2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/phone/bottom_btns_panel/spell_icon.png"
-dest_files=["res://.godot/imported/spell_icon.png-5711f2d10d6f8aaba7b5a2a628acb6da.ctex"]
+source_file="res://ui/phone/home_btn/home_btn_bg_h.png"
+dest_files=["res://.godot/imported/home_btn_bg_h.png-4b00e1244bf4aba6107360f7d44e4e2d.ctex"]
 
 [params]
 

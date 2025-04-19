@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci26slyckun7b"]
+[gd_scene load_steps=13 format=3 uid="uid://ci26slyckun7b"]
 
 [ext_resource type="Script" path="res://game_objects/player/player.gd" id="1_uktum"]
 [ext_resource type="PackedScene" uid="uid://c41vwc138rmsh" path="res://game_objects/components/health_comp.tscn" id="2_561jy"]
+[ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="2_xj2dj"]
 [ext_resource type="PackedScene" uid="uid://bq81no6v0nqsg" path="res://game_objects/components/inventory_comp.tscn" id="3_fgx2n"]
+[ext_resource type="Resource" uid="uid://kpxl6vnay5yo" path="res://game_objects/items/equip/shield_armor/ring_of_shields.tres" id="3_kswn3"]
 [ext_resource type="PackedScene" uid="uid://butqodtuat2xq" path="res://game_objects/components/attack_comp.tscn" id="4_eotlx"]
+[ext_resource type="Resource" uid="uid://cyasi1a41eqp4" path="res://game_objects/items/equip/shield_armor/shield_of_rings.tres" id="4_kcus3"]
 [ext_resource type="PackedScene" uid="uid://bksn8hxfw31rn" path="res://game_objects/components/equipment_manager_comp.tscn" id="5_g20a3"]
+[ext_resource type="Resource" uid="uid://bicryknfvwjaf" path="res://game_objects/items/equip/witch_kiss/golden_earring_of_witch.tres" id="5_mil3a"]
+[ext_resource type="Resource" uid="uid://c4o1anlio860k" path="res://game_objects/items/consumabls/consumabl_item_1.tres" id="6_1777d"]
+[ext_resource type="Resource" uid="uid://cgf7nuvx856d5" path="res://game_objects/items/consumabls/consumabl_item_2.tres" id="7_0p0uu"]
+[ext_resource type="Resource" uid="uid://4gow4p87dlkh" path="res://game_objects/items/consumabls/consumabl_item_3.tres" id="8_vjwo7"]
 
 [node name="Player" type="Node" groups=["Player"]]
 script = ExtResource("1_uktum")
+debug_equid = Array[ExtResource("2_xj2dj")]([ExtResource("3_kswn3"), ExtResource("4_kcus3"), ExtResource("5_mil3a"), ExtResource("6_1777d"), ExtResource("7_0p0uu"), ExtResource("7_0p0uu"), ExtResource("8_vjwo7"), ExtResource("8_vjwo7"), ExtResource("8_vjwo7")])
 
 [node name="HealthComp" parent="." instance=ExtResource("2_561jy")]
 

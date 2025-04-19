@@ -13,12 +13,13 @@ attack_anim = ExtResource("2_olmw3")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_3c58y")
 offset = Vector2(0, -20)
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("3_e8gr2")
-offset = Vector2(0, -200)
+offset = Vector2(0, -275)
 
 [node name="HealthComp" parent="." instance=ExtResource("3_wio6r")]
 

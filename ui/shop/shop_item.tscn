@@ -8,6 +8,11 @@
 [node name="ShopItem" type="MarginContainer"]
 script = ExtResource("1_di36y")
 
+[node name="SelectedBack" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
@@ -35,12 +40,6 @@ horizontal_alignment = 2
 layout_mode = 2
 texture = ExtResource("4_pek12")
 
-[node name="BuyButton" type="Button" parent="VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-focus_mode = 0
-text = "BUY"
-
 [node name="SoldOutPanel" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -61,3 +60,8 @@ layout_mode = 2
 text = "SOLD OUT"
 label_settings = ExtResource("2_xmhww")
 horizontal_alignment = 1
+
+[node name="SelectButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+focus_mode = 0

@@ -15,7 +15,7 @@ const ON_PLAN : StringName = "on_plan"
 const ON_PRE_ACTION : StringName = "on_pre_action"
 const ON_ACTION : StringName = "on_action"
 const ON_DEATH : StringName = "on_death"
-const ATTACK_ANIM_OFFSET : float = -50.0
+const ATTACK_ANIM_OFFSET : float = -150.0
 const ICON : Texture2D = preload("res://ui/action_icons/disoriented.png")
 
 
@@ -35,7 +35,7 @@ func initialize(data : EnemyData) -> void:
 
 
 func set_in_shadow(in_shadow : bool) -> void:
-	$Icon.self_modulate = Color.GRAY if in_shadow else Color.WHITE
+	$Icon.self_modulate = Color.DIM_GRAY if in_shadow else Color.WHITE
 	breath_anim_obj.set_pause(in_shadow)
 
 

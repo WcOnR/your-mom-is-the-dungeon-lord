@@ -1,8 +1,150 @@
 class_name Phone extends Node2D
 
-
 enum State {BATTLE, SHOP, BONUS}
 
-# Called when the node enters the scene tree for the first time.
+@export var state : State = State.BATTLE
+
+@onready var battle_hub : BattleHUD = %BattleHUD
+@onready var settings_panel : Container = %SettingsPanel
+
+@onready var equipment_panel : EquipmentPanel = %EquipmentPanel
+@onready var statistics_panel : StatisticsPanel = %StatisticsPanel
+@onready var item_loot_panel : ItemLootPanel = %ItemLootPanel
+@onready var equip_loot_panel : EquipLootPanel = %EquipLootPanel
+
+@onready var back_button : Button = %BackButton
+@onready var home_button : HomeBtn = %HomeBtn
+@onready var pause_button : TextureButton = %PauseBtn
+
+
+signal panel_changed
+
+
+var init_pos : Vector2
+var main_screen : Control = null
+var panel_stack : Array[Control] = []
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	init_pos = position
+	back_button.pressed.connect(_on_back_button_pressed)
+	pause_button.pressed.connect(_on_pause_button_pressed)
+	if state == State.BONUS:
+		position = position + Vector2(800, 1200)
+	else:
+		position = position + Vector2(50, 400)
+		start_show_anim()
+
+
+func start_show_anim() -> void:
+	_pre_anim_init()
+	var tween := get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(self, "position", init_pos, 0.5)
+	await get_tree().create_timer(0.75).timeout
+	%ScreenLight.visible = true
+	await get_tree().create_timer(0.2).timeout
+	%ScreenUI.visible = true
+
+
+func get_home_btn() -> HomeBtn:
+	return home_button
+
+
+func get_equipment_panel() -> EquipmentPanel:
+	return equipment_panel
+
+
+func get_battle_hub() -> BattleHUD:
+	return battle_hub
+
+
+func get_statistics_panel() -> StatisticsPanel:
+	return statistics_panel
+
+
+func get_item_loot_panel() -> ItemLootPanel:
+	return item_loot_panel
+
+
+func get_equip_loot_panel() -> EquipLootPanel:
+	return equip_loot_panel
+
+
+func set_main_screen(panel : Control) -> void:
+	if main_screen == null:
+		_set_visible_panel(panel, true)
+		main_screen = panel
+	elif panel != main_screen:
+		var old_panel := main_screen
+		_set_visible_panel(old_panel, false)
+		_set_visible_panel(panel, true)
+		panel_changed.emit()
+		main_screen = panel
+
+
+func add_to_panel_stack(panel : Control) -> void:
+	if panel_stack.is_empty():
+		_set_visible_panel(main_screen, false)
+	else:
+		if panel_stack[-1] == panel:
+			return
+		_set_visible_panel(panel_stack[-1], false)
+	_set_visible_panel(panel, true)
+	panel_stack.append(panel)
+	panel_changed.emit()
+	_update_back_button()
+
+
+func get_top_panel() -> Control:
+	if not panel_stack.is_empty():
+		return panel_stack[-1]
+	return null
+
+
+func pop_top_panel() -> void:
+	if not panel_stack.is_empty():
+		_set_visible_panel(panel_stack[-1], false)
+		panel_stack.remove_at(panel_stack.size() - 1)
+	if panel_stack.is_empty():
+		_set_visible_panel(main_screen, true)
+	else:
+		_set_visible_panel(panel_stack[-1], true)
+	panel_changed.emit()
+	_update_back_button()
+
+
+func _set_visible_panel(panel : Control, vis : bool) -> void:
+	panel.visible = vis
+	if panel is BattleHUD:
+		battle_hub.enable_input(vis)
+
+
+func _on_back_button_pressed() -> void:
+	pop_top_panel()
+
+
+func _on_pause_button_pressed() -> void:
+	if not panel_stack.is_empty() and panel_stack[-1] == settings_panel:
+		return
+	add_to_panel_stack(settings_panel)
+
+
+func _update_back_button() -> void:
+	back_button.visible = not panel_stack.is_empty()
+
+
+func _pre_anim_init() -> void:
+	match state:
+		State.BONUS:
+			var game_mode := get_tree().get_first_node_in_group("GameMode") as BonusGameMode
+			item_loot_panel.set_reward_view(game_mode.get_rewards()[0]) #TODO:: rework rewards
+			set_main_screen(item_loot_panel)
+		State.BATTLE:
+			var game_mode := get_tree().get_first_node_in_group("GameMode") as BattleGameMode
+			game_mode.set_phone(self)
+		State.SHOP:
+			set_main_screen(equipment_panel)
+			var game_mode := get_tree().get_first_node_in_group("GameMode") as ShopGameMod
+			game_mode.set_phone(self)

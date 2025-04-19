@@ -1,6 +1,9 @@
 class_name BonusGameMode extends Node
 
 @export var bonuies : Array[ItemPreset] = []
+@export var phone : NodePath
+
+
 var _reward : Array[ItemPack] = []
 var _player : Player = null
 
@@ -15,6 +18,14 @@ func _ready() -> void:
 
 func get_rewards() -> Array[ItemPack]:
 	return _reward
+
+
+func pick_up_done() -> void:
+	var _phone := get_node(phone) as Phone
+	var btn := _phone.get_home_btn()
+	btn.set_state(HomeBtn.State.ACTIVE)
+	btn.pressed.connect(finish_room)
+	_phone.start_show_anim()
 
 
 func finish_room() -> void:

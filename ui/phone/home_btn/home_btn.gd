@@ -1,8 +1,8 @@
-class_name HomeBtn extends Button
+class_name HomeBtn extends TextureButton
 
-@export var normal_theme : Theme
-@export var active_theme : Theme
-
+@export var normal_color : Color
+@export var active_color : Color
+@export var disable_color : Color
 
 enum State {NORMAL, ACTIVE, DISABLED}
 
@@ -12,5 +12,10 @@ func set_state(new_state : State) -> void:
 	if new_state == _state:
 		return
 	_state = new_state
-	set_theme(active_theme if _state == State.ACTIVE else normal_theme)
+	if _state == State.ACTIVE:
+		%RingTexture.modulate = active_color
+	elif _state == State.NORMAL:
+		%RingTexture.modulate = normal_color
+	else:
+		%RingTexture.modulate = disable_color
 	disabled = _state == State.DISABLED

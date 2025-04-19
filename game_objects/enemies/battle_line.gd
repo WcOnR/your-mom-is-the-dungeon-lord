@@ -2,14 +2,14 @@ class_name BattleLine extends Area2D
 
 
 @onready var target : Node2D = $Target
-@onready var health_ui : HealthCompUI = $HealthLabel
+@onready var health_ui : EnemyHealthComp = $HealthComp
 @onready var line_color : TextureRect = $LineColor
 @onready var enemy_scene : PackedScene = preload("res://game_objects/enemies/enemy.tscn")
 
 signal enemy_dead
 
-const ENEMY_OFFSET_Y := 15.0
-const ENEMY_OFFSET_X := 25.0
+const ENEMY_OFFSET_Y := 65.0
+const ENEMY_OFFSET_X := 55.0
 const ENEMY_OFFSET_SCALE := 0.12
 
 var enemies : Array[Enemy] = []
@@ -110,8 +110,7 @@ func _update_health_label() -> void:
 		return
 	health_ui.visible = true
 	line_color.visible = true
-	health_ui.health_comp = enemies[0].get_node("HealthComp") as HealthComp
-	health_ui.sync_comp()
+	health_ui.set_health_comp(enemies[0].get_node("HealthComp"))
 
 
 func set_action(value : int, img : Texture2D, force : bool = false) -> void:

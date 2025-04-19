@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bojay2qol5pfp"
-path="res://.godot/imported/Background.png-eb39ab7366aee9a5272fefcb3c4049b3.ctex"
+uid="uid://bdpd3qeeslwwq"
+path="res://.godot/imported/spell_icon.png-01201d6805c412debdf7cfe6e5a91bf5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_objects/rooms/battle_rooms/Background.png"
-dest_files=["res://.godot/imported/Background.png-eb39ab7366aee9a5272fefcb3c4049b3.ctex"]
+source_file="res://ui/phone/spell_icon.png"
+dest_files=["res://.godot/imported/spell_icon.png-01201d6805c412debdf7cfe6e5a91bf5.ctex"]
 
 [params]
 

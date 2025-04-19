@@ -1,23 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://c60poi4tadglk"]
+[gd_scene load_steps=6 format=3 uid="uid://c60poi4tadglk"]
 
 [ext_resource type="PackedScene" uid="uid://cf0wckvixm5en" path="res://game_objects/rooms/bonus_room/pick_up_bonus.tscn" id="1_1nl3s"]
-[ext_resource type="Script" path="res://ui/hub/bonus_room_hub.gd" id="2_mkxb7"]
-[ext_resource type="PackedScene" uid="uid://dbp4qpxqek8ms" path="res://ui/bonus_pick_up_panel/bonus_pick_up_panel.tscn" id="3_v5lv1"]
 [ext_resource type="Script" path="res://game_objects/game_mode/bonus_game_mode/bonus_game_mode.gd" id="4_2y7wp"]
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="5_xsc06"]
 [ext_resource type="Resource" uid="uid://x2dj2atleasc" path="res://game_objects/items/boosters/health_cristal.tres" id="6_776vp"]
+[ext_resource type="PackedScene" uid="uid://h8i61u7scjja" path="res://ui/phone/phone.tscn" id="7_v7qx5"]
 
 [node name="BonusRoom" type="Node2D"]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -5
 color = Color(0.27451, 0.337255, 0.329412, 1)
 polygon = PackedVector2Array(-14, -39, 1957, -38, 1943, 1101, -30, 1091)
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
+z_index = -5
 color = Color(0.384314, 0.423529, 0.419608, 1)
 polygon = PackedVector2Array(-28, 1121, -26, 920, 1933, 919, 1961, 1126)
 
 [node name="Polygon2D3" type="Polygon2D" parent="."]
+z_index = -5
 position = Vector2(7.25433, 3.7653)
 scale = Vector2(0.993535, 0.996173)
 color = Color(0.222229, 0.276156, 0.269431, 1)
@@ -33,27 +35,14 @@ color = Color(0.389609, 0.0989062, 0.143257, 1)
 polygon = PackedVector2Array(923.718, 506.172, 879.432, 629.644, 901.575, 693.89, 926.738, 651.729, 933.783, 675.821, 957.939, 665.782, 984.109, 635.667, 947.874, 551.344, 945.861, 589.49)
 
 [node name="PickUpBonus" parent="." instance=ExtResource("1_1nl3s")]
-visible = false
+game_mode = NodePath("../GameMode")
 bonus = NodePath("../Polygon2D3/Polygon2D")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Hub" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("2_mkxb7")
-game_mode = NodePath("../../GameMode")
-bonus = NodePath("../../PickUpBonus")
-
-[node name="BonusPickUpPanel" parent="CanvasLayer/Hub" instance=ExtResource("3_v5lv1")]
-visible = false
-layout_mode = 1
-
-[node name="GameMode" type="Node" parent="."]
+[node name="GameMode" type="Node" parent="." groups=["GameMode"]]
 script = ExtResource("4_2y7wp")
 bonuies = Array[ExtResource("5_xsc06")]([ExtResource("6_776vp")])
+phone = NodePath("../Phone")
+
+[node name="Phone" parent="." instance=ExtResource("7_v7qx5")]
+position = Vector2(1515, 500)
+state = 2

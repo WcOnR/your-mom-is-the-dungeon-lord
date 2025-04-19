@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcynj12kbr3ea"
-path="res://.godot/imported/equip_icon.png-9f24caf9a9728752f76aa140762f5b61.ctex"
+uid="uid://56d1ysqvy03o"
+path="res://.godot/imported/home_btn_bg.png-15a7b2ec524a0c81acb718be74fa563a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/phone/bottom_btns_panel/equip_icon.png"
-dest_files=["res://.godot/imported/equip_icon.png-9f24caf9a9728752f76aa140762f5b61.ctex"]
+source_file="res://ui/phone/home_btn/home_btn_bg.png"
+dest_files=["res://.godot/imported/home_btn_bg.png-15a7b2ec524a0c81acb718be74fa563a.ctex"]
 
 [params]
 

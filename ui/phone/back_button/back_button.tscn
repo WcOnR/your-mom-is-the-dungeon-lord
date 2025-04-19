@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd7vaw348eqa4"]
+
+[ext_resource type="Texture2D" uid="uid://3fx0emjlsas0" path="res://ui/phone/back_button/back_btn.png" id="1_v1oo7"]
+
+[node name="BackButton" type="Button"]
+custom_minimum_size = Vector2(90, 60)
+focus_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_v1oo7")

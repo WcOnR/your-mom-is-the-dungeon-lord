@@ -12,6 +12,7 @@ var _turns_left : int = 0
 var _state : State = State.NOT_STARTED
 var _preset : BattlePreset = null
 var _is_elite_battle := false
+var _phone : Phone = null
 
 var _reward : Array[ItemPack] = []
 var _statistics : Array[StatisticsInfo] = []
@@ -40,6 +41,15 @@ func _ready() -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_W):
 		_line_holder.debug_kill_all()
+
+
+func set_phone(phone : Phone) -> void:
+	_phone = phone
+	%BattleUIStateController.set_phone(phone)
+
+
+func get_phone() -> Phone:
+	return _phone
 
 
 func get_line_holder() -> LineHolder:

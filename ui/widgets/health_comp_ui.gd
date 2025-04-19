@@ -6,7 +6,6 @@ class_name HealthCompUI extends Container
 @onready var health_progress : ProgressBar = %HealthProgressBar
 
 @onready var shields : ActionUI = %shields
-@onready var action_ui : ActionUI = %ActionUi
 
 const HEALTH_FORMAT := "%d/%d"
 
@@ -24,12 +23,6 @@ func sync_comp() -> void:
 	health_comp.health_changed.connect(_on_health_changed)
 	_on_shield_changed()
 	health_comp.shield_changed.connect(_on_shield_changed)
-
-
-func set_action(value : int, img : Texture2D, force : bool = false) -> void:
-	action_ui.show_img_with_zero = force
-	action_ui.set_value(value)
-	action_ui.set_img(img)
 
 
 func _on_health_changed() -> void:

@@ -1,27 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwjhr3canvxqn"]
+[gd_scene load_steps=3 format=3 uid="uid://bwjhr3canvxqn"]
 
 [ext_resource type="Script" path="res://ui/phone/equip_loot_panel/equip_loot_panel.gd" id="1_gjimy"]
+[ext_resource type="PackedScene" uid="uid://dfy4agorh33pb" path="res://ui/widgets/equip_hint.tscn" id="2_uoflj"]
 
-[node name="EquipLootPanel" type="MarginContainer" groups=["HintTarget"]]
+[node name="EquipLootPanel" type="MarginContainer"]
 offset_right = 493.0
 offset_bottom = 287.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 script = ExtResource("1_gjimy")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="CallToActionLabel" type="Label" parent="VBoxContainer"]
+[node name="CallToActionLabel" type="Label" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "CHOOSE YOUR REWARD"
 horizontal_alignment = 1
 
-[node name="ItemContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="ItemContainer" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 118)
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
+
+[node name="EquipHint" parent="VBoxContainer2" instance=ExtResource("2_uoflj")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3

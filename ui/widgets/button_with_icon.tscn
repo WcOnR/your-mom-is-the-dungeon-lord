@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://vv441by8asxy"]
 
 [ext_resource type="Script" path="res://ui/widgets/button_with_icon.gd" id="1_0ymyo"]
-[ext_resource type="Texture2D" uid="uid://cod8fdr64ij81" path="res://ui/phone/bottom_btns_panel/cog_icon.png" id="1_3m0is"]
+[ext_resource type="Texture2D" uid="uid://cod8fdr64ij81" path="res://ui/phone/cog_icon.png" id="1_3m0is"]
 
 [node name="ButtonWithIcon" type="MarginContainer"]
 size_flags_horizontal = 3
