@@ -54,10 +54,10 @@ func start_drag(follower : MouseFollower) -> void:
 	follower.position_updated.connect(_on_consumable_pos_updated)
 
 
-func highlight_cells(cells : Array[Vector2i]) -> void:
+func highlight_cells(cells : Array[Vector2i], index : int = 0) -> void:
 	tile_map_h.clear()
 	for cell_id in cells:
-		tile_map_h.set_cell(cell_id, 0, Vector2i.ZERO)
+		tile_map_h.set_cell(cell_id, 0, Vector2i(index, 0))
 
 
 func collapse_ids(to_remove : Array[Vector2i], initiator : Node) -> void:

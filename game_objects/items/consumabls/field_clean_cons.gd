@@ -1,9 +1,11 @@
 class_name FieldCleanCons extends RefCounted
 
+const CLEAR_INDEX : int = 1
+
 
 func on_move(args : Array[Variant]) -> bool:
 	var field := args[0] as Field
-	field.highlight_cells(_get_all_cells(field))
+	field.highlight_cells(_get_all_cells(field), CLEAR_INDEX)
 	return false
 
 

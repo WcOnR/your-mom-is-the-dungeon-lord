@@ -108,18 +108,12 @@ size_flags_vertical = 3
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
 
 [node name="EquipLootPanel" parent="ScreenUI/GamePanels" instance=ExtResource("6_rt1ff")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
 
 [node name="SettingsPanel" type="MarginContainer" parent="ScreenUI"]
 unique_name_in_owner = true

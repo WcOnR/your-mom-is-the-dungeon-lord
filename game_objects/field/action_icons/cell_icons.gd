@@ -1,9 +1,9 @@
 class_name CellIcons extends Node2D
 
-@onready var _icons : Array[Sprite2D] = [$Aim, $CellAttack]
+@onready var _icons : Array[Sprite2D] = [$Aim, $CellAttack, $CellClear]
 @onready var _line_id : Array[Sprite2D] = [$LineIndefier1, $LineIndefier2, $LineIndefier3]
 
-enum Type {AIM, ATTACK}
+enum Type {AIM, ATTACK, CLEAR}
 
 var _shown_lines : Dictionary = {}
 
