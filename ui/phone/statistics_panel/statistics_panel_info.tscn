@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b80nspwqf35b1"]
 
-[ext_resource type="Script" path="res://ui/statistics_panel/statistics_panel_info.gd" id="1_kpgxy"]
+[ext_resource type="Script" path="res://ui/phone/statistics_panel/statistics_panel_info.gd" id="1_kpgxy"]
 [ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="1_ykx07"]
 
 [node name="StatisticsPanelInfo" type="HBoxContainer"]

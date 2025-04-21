@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://dfbuiik3genxv"]
 
-[ext_resource type="Script" path="res://ui/battle_hub/battle_hud.gd" id="1_0h25g"]
+[ext_resource type="Script" path="res://ui/phone/battle_hub/battle_hud.gd" id="1_0h25g"]
 [ext_resource type="PackedScene" uid="uid://1gowrjdv5xvj" path="res://ui/widgets/health_ui.tscn" id="1_xuqrh"]
-[ext_resource type="PackedScene" uid="uid://bisw0tue6xhhe" path="res://ui/turns/turn_tracker.tscn" id="3_t7ypo"]
+[ext_resource type="PackedScene" uid="uid://bisw0tue6xhhe" path="res://ui/phone/battle_hub/turns/turn_tracker.tscn" id="3_t7ypo"]
 [ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field/field.tscn" id="3_vf1ns"]
 [ext_resource type="Resource" uid="uid://bd27barncwqpa" path="res://game_objects/gems/gem_set.tres" id="4_uok5p"]
 [ext_resource type="Texture2D" uid="uid://bcynj12kbr3ea" path="res://ui/phone/equip_icon.png" id="6_018a3"]

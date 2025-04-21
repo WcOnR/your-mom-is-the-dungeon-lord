@@ -23,10 +23,3 @@ func set_equip(pack : ItemPack, is_reward : bool = true) -> void:
 
 func set_gray_out(gray_out : bool) -> void:
 	$ItemViewer.modulate = Color.DIM_GRAY if gray_out else Color.WHITE
-
-
-func get_hint_under_cursor(rect : Rect2) -> Hint:
-	var self_rect := Rect2(global_position, size)
-	if self_rect.intersects(rect):
-		return _hint
-	return null

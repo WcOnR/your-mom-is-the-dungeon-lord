@@ -1,7 +1,7 @@
 class_name ItemLootPanel extends Control
 
 
-@onready var viewer_scene : PackedScene = preload("res://ui/reward_panel/item_pack_viewer.tscn")
+@onready var viewer_scene : PackedScene = preload("res://ui/phone/item_loot_panel/item_pack_viewer.tscn")
 @onready var viewer : ItemPackViewer = %ItemPackViewer
 @onready var item_hint : EquipHint = %EquipHint
 @onready var buy_btn : Button = %BuyButton

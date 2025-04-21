@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cleurd3y7psra"
-path="res://.godot/imported/battery_cell.png-20463ab538e4ed1e1c4cbee7fa850ab7.ctex"
+uid="uid://b0pv5sp748qkq"
+path="res://.godot/imported/battery_bg.png-4f191713894ee9995307d36f2ed4eeb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/turns/battery_cell.png"
-dest_files=["res://.godot/imported/battery_cell.png-20463ab538e4ed1e1c4cbee7fa850ab7.ctex"]
+source_file="res://ui/phone/battle_hub/turns/battery_bg.png"
+dest_files=["res://.godot/imported/battery_bg.png-4f191713894ee9995307d36f2ed4eeb2.ctex"]
 
 [params]
 

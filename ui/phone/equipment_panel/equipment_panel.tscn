@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://sb6dv6fa1fl"]
 
 [ext_resource type="Script" path="res://ui/phone/equipment_panel/equipment_panel.gd" id="1_f47ep"]
-[ext_resource type="PackedScene" uid="uid://c6k2jpfxwbkvq" path="res://ui/equip_panel/equip_panel.tscn" id="1_s15xe"]
+[ext_resource type="PackedScene" uid="uid://c6k2jpfxwbkvq" path="res://ui/phone/equip_panel/equip_panel.tscn" id="1_s15xe"]
 [ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="2_s7f3i"]
 [ext_resource type="PackedScene" uid="uid://bi57mfpvoblhr" path="res://ui/widgets/consum_info_small.tscn" id="2_vipth"]
 

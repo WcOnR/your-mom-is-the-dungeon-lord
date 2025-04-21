@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://viqc2id4a1nb"]
 
-[ext_resource type="PackedScene" uid="uid://dhv5wq4lf1ren" path="res://ui/reward_panel/item_pack_viewer.tscn" id="1_d7npy"]
+[ext_resource type="PackedScene" uid="uid://dhv5wq4lf1ren" path="res://ui/phone/item_loot_panel/item_pack_viewer.tscn" id="1_d7npy"]
 [ext_resource type="Script" path="res://ui/shop/shop_item.gd" id="1_di36y"]
 [ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="2_xmhww"]
 [ext_resource type="Texture2D" uid="uid://ghdoymobjlab" path="res://ui/widgets/hero_coin.png" id="4_pek12"]

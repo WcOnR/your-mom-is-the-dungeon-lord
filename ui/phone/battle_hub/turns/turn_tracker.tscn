@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bisw0tue6xhhe"]
 
-[ext_resource type="Script" path="res://ui/turns/turn_tracker.gd" id="1_k5wko"]
+[ext_resource type="Script" path="res://ui/phone/battle_hub/turns/turn_tracker.gd" id="1_k5wko"]
 [ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="4_0y34c"]
-[ext_resource type="Texture2D" uid="uid://b0pv5sp748qkq" path="res://ui/turns/battery_bg.png" id="5_vmsg8"]
-[ext_resource type="Texture2D" uid="uid://cleurd3y7psra" path="res://ui/turns/battery_cell.png" id="6_fr0iw"]
+[ext_resource type="Texture2D" uid="uid://b0pv5sp748qkq" path="res://ui/phone/battle_hub/turns/battery_bg.png" id="5_vmsg8"]
+[ext_resource type="Texture2D" uid="uid://cleurd3y7psra" path="res://ui/phone/battle_hub/turns/battery_cell.png" id="6_fr0iw"]
 
 [node name="Battery" type="MarginContainer"]
 clip_contents = true

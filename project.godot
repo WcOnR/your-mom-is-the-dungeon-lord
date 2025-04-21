@@ -32,7 +32,6 @@ window/stretch/mode="canvas_items"
 
 GameMode=""
 Player=""
-HintTarget=""
 Field=""
 LineHolder=""
 

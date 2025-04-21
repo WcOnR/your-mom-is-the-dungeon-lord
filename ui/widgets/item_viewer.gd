@@ -26,10 +26,3 @@ func set_item(item : ItemPreset, hint_override : Hint = null) -> void:
 
 func set_gray_out(gray_out : bool) -> void:
 	$TextureRect.modulate = Color.DIM_GRAY if gray_out else Color.WHITE
-
-
-func get_hint_under_cursor(rect : Rect2) -> Hint:
-	var self_rect := Rect2(global_position, size)
-	if self_rect.intersects(rect):
-		return _hint
-	return null

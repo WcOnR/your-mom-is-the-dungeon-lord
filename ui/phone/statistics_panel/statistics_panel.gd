@@ -2,7 +2,7 @@ class_name StatisticsPanel extends Container
 
 @onready var info_container := %InfoContainer
 @onready var coin_panel := %CoinPanel
-@onready var info_scene : PackedScene = preload("res://ui/statistics_panel/statistics_panel_info.tscn")
+@onready var info_scene : PackedScene = preload("res://ui/phone/statistics_panel/statistics_panel_info.tscn")
 
 
 func show_info(info : Array[StatisticsInfo], inventory : InventoryComp) -> void:

@@ -14,10 +14,3 @@ func get_item() -> ItemPreset:
 
 func set_selection(selected : bool) -> void:
 	%Selected.visible = selected
-
-
-func get_hint_under_cursor(rect : Rect2) -> Hint:
-	var hint : Hint = %EquipViewer.get_hint_under_cursor(rect)
-	if hint:
-		return hint
-	return null

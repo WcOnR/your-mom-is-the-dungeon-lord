@@ -1,7 +1,7 @@
 class_name EquipLootPanel extends Control
 
 
-@onready var viewer_scene : PackedScene = preload("res://ui/reward_panel/equip_picker.tscn")
+@onready var viewer_scene : PackedScene = preload("res://ui/phone/equip_panel/equip_picker.tscn")
 @onready var item_container := %ItemContainer
 
 signal selection_changed
@@ -38,11 +38,3 @@ func _on_equip_pick(picker : EquipPicker) -> void:
 	_selected_equip = picker.get_item()
 	%EquipHint.set_equip(ItemPack.new(_selected_equip), true)
 	selection_changed.emit()
-
-
-func get_hint_under_cursor(rect : Rect2) -> Hint:
-	for node in item_container.get_children():
-		var hint : Hint = node.get_hint_under_cursor(rect)
-		if hint:
-			return hint
-	return null

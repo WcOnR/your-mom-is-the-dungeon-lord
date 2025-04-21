@@ -27,10 +27,3 @@ func set_gray_out(grat_out : bool) -> void:
 	$CountLabel.visible = not grat_out and not _is_equip
 	$ItemViewer.set_gray_out(grat_out)
 	$EquipViewer.set_gray_out(grat_out)
-
-
-func get_hint_under_cursor(rect : Rect2) -> Hint:
-	var self_rect := Rect2(global_position, size)
-	if self_rect.intersects(rect):
-		return _hint
-	return null

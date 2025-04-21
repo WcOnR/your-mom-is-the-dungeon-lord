@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brda3c0wjq5gd"]
 
 [ext_resource type="Theme" uid="uid://dx1jniv33wger" path="res://ui/themes/end_turn_theme.tres" id="1_47qno"]
-[ext_resource type="Script" path="res://ui/turns/end_turn_btn.gd" id="2_3amrf"]
+[ext_resource type="Script" path="res://ui/phone/battle_hub/turns/end_turn_btn.gd" id="2_3amrf"]
 [ext_resource type="Theme" uid="uid://ub4pr5pc6hbx" path="res://ui/themes/end_turn_no_moves_theme.tres" id="3_6x0x6"]
 
 [node name="EndTurn" type="Button"]

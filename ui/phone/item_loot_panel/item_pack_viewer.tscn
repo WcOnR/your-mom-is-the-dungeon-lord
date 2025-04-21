@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhv5wq4lf1ren"]
 
-[ext_resource type="Script" path="res://ui/reward_panel/item_pack_viewer.gd" id="1_2foje"]
+[ext_resource type="Script" path="res://ui/phone/item_loot_panel/item_pack_viewer.gd" id="1_2foje"]
 [ext_resource type="PackedScene" uid="uid://ba6rrbnc23vi1" path="res://ui/widgets/item_viewer.tscn" id="1_83qnh"]
 [ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="2_4ox40"]
-[ext_resource type="PackedScene" uid="uid://n7oxl4i8smas" path="res://ui/equip_panel/equip_viewer.tscn" id="2_ce8ih"]
+[ext_resource type="PackedScene" uid="uid://n7oxl4i8smas" path="res://ui/phone/equip_panel/equip_viewer.tscn" id="2_ce8ih"]
 
 [node name="ItemPackViewer" type="Control"]
 custom_minimum_size = Vector2(118, 118)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgplpiie3wm0u"]
+[gd_scene load_steps=2 format=3 uid="uid://dgplpiie3wm0u"]
 
 [ext_resource type="PackedScene" uid="uid://ci26slyckun7b" path="res://game_objects/player/player.tscn" id="1_jtiuw"]
-[ext_resource type="PackedScene" uid="uid://cytmwf2jvje6p" path="res://ui/hint_layer/hint_layer.tscn" id="2_7kc6i"]
 
 [node name="GameAutoload" type="Node2D"]
 
@@ -9,5 +8,3 @@
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
-
-[node name="HintLayer" parent="CanvasLayer" instance=ExtResource("2_7kc6i")]

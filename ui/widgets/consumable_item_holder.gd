@@ -35,13 +35,6 @@ func _on_item_updated() -> void:
 		viewer.set_modular_color(Color.DIM_GRAY)
 
 
-func get_hint_under_cursor(rect : Rect2) -> Hint:
-	var self_rect := Rect2(global_position, size)
-	if self_rect.intersects(rect):
-		return _hint
-	return null
-
-
 func _on_button_button_down() -> void:
 	if _pack.count > 0:
 		var follower := MouseFollower.create(item_preset.texture, item_preset, self.get_parent().get_parent())
