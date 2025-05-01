@@ -17,3 +17,4 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("2_00g1r")
+expand_mode = 1

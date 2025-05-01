@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c60poi4tadglk"]
+[gd_scene load_steps=7 format=3 uid="uid://c60poi4tadglk"]
 
 [ext_resource type="PackedScene" uid="uid://cf0wckvixm5en" path="res://game_objects/rooms/bonus_room/pick_up_bonus.tscn" id="1_1nl3s"]
+[ext_resource type="Texture2D" uid="uid://t43nms5rskdx" path="res://game_objects/items/boosters/HealthCristal.png" id="1_b8w85"]
 [ext_resource type="Script" path="res://game_objects/game_mode/bonus_game_mode/bonus_game_mode.gd" id="4_2y7wp"]
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="5_xsc06"]
 [ext_resource type="Resource" uid="uid://x2dj2atleasc" path="res://game_objects/items/boosters/health_cristal.tres" id="6_776vp"]
@@ -23,20 +24,30 @@ z_index = -5
 position = Vector2(7.25433, 3.7653)
 scale = Vector2(0.993535, 0.996173)
 color = Color(0.222229, 0.276156, 0.269431, 1)
-polygon = PackedVector2Array(786.833, 982.996, 869.367, 649.721, 997.193, 649.721, 1078.72, 982.996, 1007.26, 1026.16, 885.471, 1029.17)
+polygon = PackedVector2Array(786.833, 982.996, 869.367, 649.721, 895.535, 641.69, 970.017, 640.687, 997.193, 649.721, 1078.72, 982.996, 1007.26, 1026.16, 885.471, 1029.17)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Polygon2D3"]
 color = Color(0.158091, 0.201428, 0.195248, 1)
-polygon = PackedVector2Array(880.438, 649.721, 904.594, 721.998, 929.757, 680.84, 936.802, 704.932, 966.997, 688.871, 989.14, 657.752, 986.121, 649.721)
+polygon = PackedVector2Array(880.438, 649.721, 904.594, 721.998, 929.757, 680.84, 936.802, 704.932, 966.997, 688.871, 989.14, 657.752, 986.121, 649.721, 968.004, 643.698, 899.561, 643.698)
 
-[node name="Polygon2D" type="Polygon2D" parent="Polygon2D3"]
-position = Vector2(3.77004, 22.3201)
-color = Color(0.389609, 0.0989062, 0.143257, 1)
-polygon = PackedVector2Array(923.718, 506.172, 879.432, 629.644, 901.575, 693.89, 926.738, 651.729, 933.783, 675.821, 957.939, 665.782, 984.109, 635.667, 947.874, 551.344, 945.861, 589.49)
+[node name="HealthCristal" type="Sprite2D" parent="Polygon2D3"]
+position = Vector2(929.757, 634.664)
+texture = ExtResource("1_b8w85")
+
+[node name="Polygon2D5" type="Polygon2D" parent="Polygon2D3"]
+scale = Vector2(1, 1)
+color = Color(0.222229, 0.276156, 0.269431, 1)
+polygon = PackedVector2Array(907.614, 736.052, 902.581, 721.998, 929.757, 679.837, 937.809, 695.898, 979.076, 682.848, 975.05, 724.006)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Polygon2D3"]
+scale = Vector2(1, 1)
+color = Color(0.158091, 0.201428, 0.195248, 1)
+polygon = PackedVector2Array(880.438, 649.721, 904.594, 721.998, 929.757, 680.84, 936.802, 704.932, 966.997, 688.871, 989.14, 657.752, 986.121, 649.721, 965.991, 678.833, 939.822, 691.882, 930.763, 674.817, 906.607, 705.936, 883.457, 650.725)
 
 [node name="PickUpBonus" parent="." instance=ExtResource("1_1nl3s")]
+visible = false
 game_mode = NodePath("../GameMode")
-bonus = NodePath("../Polygon2D3/Polygon2D")
+bonus = NodePath("../Polygon2D3/HealthCristal")
 
 [node name="GameMode" type="Node" parent="." groups=["GameMode"]]
 script = ExtResource("4_2y7wp")

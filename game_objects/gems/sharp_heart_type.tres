@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game_objects/gems/gem_sharp_heart.gd" id="2_6s87n"]
 [ext_resource type="Script" path="res://game_systems/action_list.gd" id="3_58ly8"]
 [ext_resource type="Script" path="res://game_objects/gems/gem_type.gd" id="4_qgmm7"]
-[ext_resource type="Texture2D" uid="uid://tojof4c08v2p" path="res://game_objects/gems/Heart.png" id="5_xmfbp"]
+[ext_resource type="Texture2D" uid="uid://oy0a6acdy3ps" path="res://game_objects/items/equip/vampire_heart/SharpHeart.png" id="5_t7ckh"]
 
 [sub_resource type="Resource" id="Resource_iu4rx"]
 script = ExtResource("1_qbx16")
@@ -17,5 +17,5 @@ actions = Array[ExtResource("1_qbx16")]([SubResource("Resource_iu4rx")])
 
 [resource]
 script = ExtResource("4_qgmm7")
-texture = ExtResource("5_xmfbp")
+texture = ExtResource("5_t7ckh")
 actions = SubResource("Resource_n42mt")

@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://cxr72qpeqq4e6" path="res://game_objects/gems/heal_type.tres" id="1_xeyqk"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="2_76lxt"]
 [ext_resource type="Resource" uid="uid://dss4qrx4pqb3n" path="res://game_objects/gems/sharp_heart_type.tres" id="2_frjmh"]
-[ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="2_i2c62"]
+[ext_resource type="Texture2D" uid="uid://oy0a6acdy3ps" path="res://game_objects/items/equip/vampire_heart/SharpHeart.png" id="6_c6h3j"]
 
 [sub_resource type="Resource" id="Resource_bubb6"]
 script = ExtResource("2_76lxt")
@@ -15,7 +15,7 @@ args = [ExtResource("1_xeyqk"), ExtResource("2_frjmh")]
 [resource]
 script = ExtResource("1_clj67")
 type = 2
-texture = ExtResource("2_i2c62")
+texture = ExtResource("6_c6h3j")
 action = SubResource("Resource_bubb6")
 item_name = "Sharp Heart"
 item_description = "This text shouldn't be visible"

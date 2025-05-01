@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_inoiv"]
 [ext_resource type="Script" path="res://game_objects/items/consumabls/gem_type_cons.gd" id="1_js5cx"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="2_u7px7"]
-[ext_resource type="Texture2D" uid="uid://by8e35fgqpyy3" path="res://game_objects/gems/Skull.png" id="4_kg1mo"]
+[ext_resource type="Texture2D" uid="uid://doksmligc36cv" path="res://game_objects/items/consumabls/ChainLightningBall.png" id="4_h3s3d"]
 
 [sub_resource type="Resource" id="Resource_v6efb"]
 script = ExtResource("2_u7px7")
@@ -13,7 +13,7 @@ args = []
 [resource]
 script = ExtResource("1_inoiv")
 type = 0
-texture = ExtResource("4_kg1mo")
+texture = ExtResource("4_h3s3d")
 action = SubResource("Resource_v6efb")
 item_name = "Chain Lightning"
 item_description = "Consumable item, that can be used to collapse all tiles with same type. "

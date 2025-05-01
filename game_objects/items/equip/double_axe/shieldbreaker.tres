@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_3ch8c"]
 [ext_resource type="Script" path="res://game_objects/items/equip/double_axe/shieldbreaker_action.gd" id="1_n8cbl"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="2_jxvwr"]
-[ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="2_uvtpm"]
+[ext_resource type="Texture2D" uid="uid://cxy0nmsry1txy" path="res://game_objects/items/equip/double_axe/Shieldbreaker.png" id="4_jl4g7"]
 
 [sub_resource type="Resource" id="Resource_vdksi"]
 script = ExtResource("2_jxvwr")
@@ -13,7 +13,7 @@ args = []
 [resource]
 script = ExtResource("1_3ch8c")
 type = 2
-texture = ExtResource("2_uvtpm")
+texture = ExtResource("4_jl4g7")
 action = SubResource("Resource_vdksi")
 item_name = "Shieldbreaker"
 item_description = "This text shouldn't be visible"

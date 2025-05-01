@@ -5,13 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://ghdoymobjlab" path="res://ui/widgets/hero_coin.png" id="3_i1uik"]
 
 [node name="CoinPanel" type="MarginContainer"]
-custom_minimum_size = Vector2(0, 50)
+offset_right = 48.0
+offset_bottom = 32.0
 script = ExtResource("1_ach0u")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 4
+size_flags_vertical = 0
 alignment = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]

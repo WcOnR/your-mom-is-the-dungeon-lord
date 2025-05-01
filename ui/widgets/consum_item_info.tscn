@@ -5,12 +5,8 @@
 [ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="2_1k7d7"]
 
 [node name="ConsumItemInfo" type="MarginContainer"]
-custom_minimum_size = Vector2(134, 32)
+custom_minimum_size = Vector2(80, 32)
 size_flags_horizontal = 0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 script = ExtResource("1_frk2f")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

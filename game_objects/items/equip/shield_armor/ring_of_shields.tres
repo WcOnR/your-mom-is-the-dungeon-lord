@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_26bpq"]
 [ext_resource type="Script" path="res://game_objects/items/equip/shield_armor/ring_of_shields_action.gd" id="1_pd1i4"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="2_1jimj"]
-[ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="2_porrb"]
+[ext_resource type="Texture2D" uid="uid://bu176715tbbwo" path="res://game_objects/items/equip/shield_armor/RingOfShields.png" id="4_vvwcs"]
 
 [sub_resource type="Resource" id="Resource_810tt"]
 script = ExtResource("2_1jimj")
@@ -13,7 +13,7 @@ args = []
 [resource]
 script = ExtResource("1_26bpq")
 type = 2
-texture = ExtResource("2_porrb")
+texture = ExtResource("4_vvwcs")
 action = SubResource("Resource_810tt")
 item_name = "Ring of Shields"
 item_description = "This text shouldn't be visible"
