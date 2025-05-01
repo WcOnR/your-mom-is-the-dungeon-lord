@@ -33,6 +33,7 @@ func set_enemies(data : Array[EnemyData]) -> void:
 		enemy.position.y = _get_enemy_offset_y(i)
 		enemy.scale = _get_enemy_offset_scale(i)
 		enemy.set_in_shadow(i != 0)
+		enemy.z_index = -i
 		i += 1
 	_update_health_label()
 
@@ -79,6 +80,10 @@ func _remove_front_enemy() -> void:
 	remove_child(tmp_enemy)
 	tmp_enemy.queue_free()
 	enemies.remove_at(0)
+	var i := 0
+	for enemy in enemies:
+		enemy.z_index = -i
+		i += 1
 
 
 func _get_enemy_offset_x(i : int) -> float:
