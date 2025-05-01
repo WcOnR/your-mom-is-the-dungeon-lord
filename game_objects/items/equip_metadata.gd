@@ -12,7 +12,7 @@ const LEVEL_STR : String = "Level %d: %s\n"
 
 
 func get_items() -> Array[ItemPreset]:
-	return [item_preset_a, item_preset_b, super_item_preset]
+	return [item_preset_a, item_preset_b]
 
 
 func get_full_item_description_a() -> String:

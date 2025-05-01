@@ -27,5 +27,5 @@ equip_level_colors = Array[Color]([Color(0.683077, 0.683077, 0.683077, 1), Color
 max_equip_level = 3
 equip_count = 3
 max_items_in_shop = 4
-min_equip_count_in_shop = 1
+min_equip_count_in_shop = 2
 line_colors = Array[Color]([Color(0.521963, 0.72766, 0.844966, 1), Color(0.420706, 0.63438, 0.55071, 1), Color(0.671219, 0.476939, 0.400545, 1)])

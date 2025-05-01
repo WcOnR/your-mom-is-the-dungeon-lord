@@ -46,7 +46,7 @@ func get_shop_items(inventory : InventoryComp) -> Array[ItemPack]:
 	var result : Array[ItemPack] = []
 	var items : Array[ItemPreset] = []
 	for i in equip_count:
-		var equip := _get_equip(inventory, items)
+		var equip := _get_equip(inventory, [])
 		if equip:
 			items.append(equip)
 	var consum := _get_consumabl(settings.max_items_in_shop - items.size())
@@ -88,19 +88,13 @@ func _get_equip(inventory : InventoryComp, ignore : Array[ItemPreset]) -> ItemPr
 		for item in data.get_items():
 			if inventory.is_fit_in_slots(item):
 				preset_pool.append(item)
-	var pool := preset_pool.duplicate()
 	for i in ignore:
-		pool.erase(i)
-	if pool.is_empty():
-		for item in preset_pool:
-			if item.type == ItemPreset.Type.SUPER_EQUIP:
-				pool.append(item)
-	preset_pool = pool
+		preset_pool.erase(i)
 	
 	var weight : Array[int] = []
 	for equip in preset_pool:
 		var w := 1
-		if equip in fav_items or equip.type == ItemPreset.Type.SUPER_EQUIP:
+		if equip in fav_items:
 			w += 5
 		weight.append(w)
 	return _pick_random_with_weight(preset_pool, weight)

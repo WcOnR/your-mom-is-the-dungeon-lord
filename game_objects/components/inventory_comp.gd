@@ -91,6 +91,21 @@ func get_pack(item : ItemPreset) -> ItemPack:
 	return null
 
 
+func _try_add_super_to_slot() -> void:
+	var settings := SettingsManager.settings
+	for data in settings.equip_data:
+		var has_a : ItemPack = null
+		var has_b : ItemPack = null
+		for slot in _slots:
+			if slot:
+				has_a = slot if data.item_preset_a == slot.item_preset else has_a
+				has_b = slot if data.item_preset_b == slot.item_preset else has_b
+		if has_a and has_a.count == settings.max_equip_level and has_b and has_b.count == settings.max_equip_level:
+			var super_pack := ItemPack.new(data.super_item_preset)
+			_add_super_to_slot(super_pack)
+			break
+
+
 func _add_super_to_slot(pack : ItemPack) -> void:
 	var settings := SettingsManager.settings
 	var metadata : EquipMetadata = null
@@ -130,16 +145,7 @@ func is_fit_in_slots(item : ItemPreset) -> bool:
 		if not (item in items):
 			return _slots.size() != items.size()
 		return not (item in maxed_items)
-	if item in items:
-		return false
-	var metadatas : Array[EquipMetadata] = []
-	for maxed in maxed_items:
-		var data := SettingsManager.settings.get_equip_metadata(maxed)
-		if data in metadatas and data.super_item_preset == item:
-			return true
-		metadatas.append(data)
 	return false
-	
 
 
 func _add_to_slot(pack : ItemPack) -> void:
@@ -152,6 +158,7 @@ func _add_to_slot(pack : ItemPack) -> void:
 			break
 		i += 1
 	_add_count(_slots, pack)
+	_try_add_super_to_slot()
 
 
 func _add_count(packs : Array[ItemPack], pack : ItemPack) -> void:
