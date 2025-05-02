@@ -80,14 +80,18 @@ func _get_consumabl(count : int) -> Array[ItemPack]:
 func _get_equip(inventory : InventoryComp, ignore : Array[ItemPreset]) -> ItemPreset:
 	var settings := SettingsManager.settings
 	var fav_items : Array[ItemPreset] = []
+	var super_metadata : Array[EquipMetadata] = []
 	for slot in inventory.get_slots():
 		if slot != null:
 			fav_items.append(slot.item_preset)
+			if slot.item_preset.type == ItemPreset.Type.SUPER_EQUIP:
+				super_metadata.append(settings.get_equip_metadata(slot.item_preset))
 	var preset_pool : Array[ItemPreset] = []
 	for data in settings.equip_data:
-		for item in data.get_items():
-			if inventory.is_fit_in_slots(item):
-				preset_pool.append(item)
+		if not data in super_metadata:
+			for item in data.get_items():
+				if inventory.is_fit_in_slots(item):
+					preset_pool.append(item)
 	for i in ignore:
 		preset_pool.erase(i)
 	
