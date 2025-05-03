@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=4 format=3 uid="uid://dvhntssh7dunv"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_poekg"]
+[ext_resource type="Resource" uid="uid://dx31823ylxmtu" path="res://game_objects/enemies/seeker/e_seeker.tres" id="2_1k006"]
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="3_fthjl"]
+
+[resource]
+script = ExtResource("3_fthjl")
+line1 = Array[ExtResource("1_poekg")]([ExtResource("2_1k006")])
+line2 = Array[ExtResource("1_poekg")]([])
+line3 = Array[ExtResource("1_poekg")]([ExtResource("2_1k006")])

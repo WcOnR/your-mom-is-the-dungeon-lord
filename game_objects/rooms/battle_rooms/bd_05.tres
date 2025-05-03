@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BattleRoomPreset" load_steps=7 format=3 uid="uid://d37244ctsbrbu"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="1_cr1bn"]
+[ext_resource type="PackedScene" uid="uid://6dj4su8wc8ak" path="res://game_objects/rooms/battle_rooms/battle_room.tscn" id="2_t4l00"]
+[ext_resource type="Resource" uid="uid://bdjd2y3wtd6dd" path="res://game_objects/rooms/battle_rooms/battle_presets/bp_05_01.tres" id="2_w6xjh"]
+[ext_resource type="Resource" uid="uid://brfdwkuqworfw" path="res://game_objects/rooms/battle_rooms/battle_presets/bp_05_02.tres" id="3_dch5f"]
+[ext_resource type="Script" path="res://game_objects/game_mode/battle_game_mode/battle_room_preset.gd" id="3_u3q5l"]
+[ext_resource type="Resource" uid="uid://bmi5n1l8mnuuc" path="res://game_objects/rooms/battle_rooms/battle_presets/bp_05_03.tres" id="4_2vrh7"]
+
+[resource]
+script = ExtResource("3_u3q5l")
+pool = Array[ExtResource("1_cr1bn")]([ExtResource("2_w6xjh"), ExtResource("3_dch5f"), ExtResource("4_2vrh7")])
+is_elite = false
+scene = ExtResource("2_t4l00")

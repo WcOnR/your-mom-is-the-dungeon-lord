@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=5 format=3 uid="uid://dj4lchys83knl"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_ogiue"]
+[ext_resource type="Resource" uid="uid://byapc2k7gle4p" path="res://game_objects/enemies/skillet_shield/e_skillet_shield.tres" id="2_qia2y"]
+[ext_resource type="Resource" uid="uid://b4kbnjw5i8fjs" path="res://game_objects/enemies/slime_mage/e_slime_mage.tres" id="3_alfil"]
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="3_d8jg7"]
+
+[resource]
+script = ExtResource("3_d8jg7")
+line1 = Array[ExtResource("1_ogiue")]([ExtResource("2_qia2y")])
+line2 = Array[ExtResource("1_ogiue")]([ExtResource("3_alfil")])
+line3 = Array[ExtResource("1_ogiue")]([])

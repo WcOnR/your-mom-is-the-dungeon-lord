@@ -44,7 +44,7 @@ func get_reward_equip_hint(pack : ItemPack) -> String:
 
 func get_equip_metadata(item_preset : ItemPreset) -> EquipMetadata:
 	for data in equip_data:
-		if data.item_preset_a == item_preset or data.item_preset_b == item_preset:
+		if item_preset in data.get_items() or data.super_item_preset == item_preset:
 			return data
 	return null
 

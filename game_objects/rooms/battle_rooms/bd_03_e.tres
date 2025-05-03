@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattleRoomPreset" load_steps=5 format=3 uid="uid://bsecn5m5wlsu8"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="1_dq6by"]
+[ext_resource type="Resource" uid="uid://stw38g0s2say" path="res://game_objects/rooms/battle_rooms/battle_presets/bp_03_e_01.tres" id="2_4pjvj"]
+[ext_resource type="PackedScene" uid="uid://6dj4su8wc8ak" path="res://game_objects/rooms/battle_rooms/battle_room.tscn" id="2_sstif"]
+[ext_resource type="Script" path="res://game_objects/game_mode/battle_game_mode/battle_room_preset.gd" id="3_5xmdy"]
+
+[resource]
+script = ExtResource("3_5xmdy")
+pool = Array[ExtResource("1_dq6by")]([ExtResource("2_4pjvj")])
+is_elite = true
+scene = ExtResource("2_sstif")

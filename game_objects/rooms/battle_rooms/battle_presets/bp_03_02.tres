@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=6 format=3 uid="uid://c1c35l7s1p3o"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_ro7xr"]
+[ext_resource type="Resource" uid="uid://5qtmryjtf2th" path="res://game_objects/enemies/elf/e_elf.tres" id="2_onlxp"]
+[ext_resource type="Resource" uid="uid://bjiryiqv0mvnm" path="res://game_objects/enemies/statue/e_statue.tres" id="3_p7ntt"]
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="3_vo5tn"]
+[ext_resource type="Resource" uid="uid://byapc2k7gle4p" path="res://game_objects/enemies/skillet_shield/e_skillet_shield.tres" id="4_an6wi"]
+
+[resource]
+script = ExtResource("3_vo5tn")
+line1 = Array[ExtResource("1_ro7xr")]([ExtResource("2_onlxp"), ExtResource("3_p7ntt")])
+line2 = Array[ExtResource("1_ro7xr")]([ExtResource("4_an6wi")])
+line3 = Array[ExtResource("1_ro7xr")]([ExtResource("3_p7ntt"), ExtResource("2_onlxp")])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=4 format=3 uid="uid://bsnj4vwdxuct2"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_s1pma"]
+[ext_resource type="Resource" uid="uid://r5xxbsm8oy84" path="res://game_objects/enemies/goblin/e_goblin.tres" id="2_8p4u3"]
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="5_np6sw"]
+
+[resource]
+script = ExtResource("5_np6sw")
+line1 = Array[ExtResource("1_s1pma")]([ExtResource("2_8p4u3")])
+line2 = Array[ExtResource("1_s1pma")]([])
+line3 = Array[ExtResource("1_s1pma")]([ExtResource("2_8p4u3")])

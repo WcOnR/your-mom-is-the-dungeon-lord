@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://dx31823ylxmtu"]
+
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_vtgig"]
+[ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_epit8"]
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_b20iu"]
+[ext_resource type="Texture2D" uid="uid://b47p3typgx782" path="res://game_objects/enemies/seeker/Seeker.png" id="4_7247r"]
+
+[resource]
+script = ExtResource("3_b20iu")
+name = "Seeker"
+max_health = 25
+damage = 10
+reward = 100
+actions = Array[ExtResource("1_vtgig")]([ExtResource("2_epit8")])
+texture = ExtResource("4_7247r")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=7 format=3 uid="uid://bxonvpavrqchj"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_gghp5"]
+[ext_resource type="Resource" uid="uid://dx31823ylxmtu" path="res://game_objects/enemies/seeker/e_seeker.tres" id="2_rciuh"]
+[ext_resource type="Resource" uid="uid://bjiryiqv0mvnm" path="res://game_objects/enemies/statue/e_statue.tres" id="3_6xh6o"]
+[ext_resource type="Resource" uid="uid://r5xxbsm8oy84" path="res://game_objects/enemies/goblin/e_goblin.tres" id="4_udocc"]
+[ext_resource type="Resource" uid="uid://5qtmryjtf2th" path="res://game_objects/enemies/elf/e_elf.tres" id="4_x74dd"]
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="5_266ae"]
+
+[resource]
+script = ExtResource("5_266ae")
+line1 = Array[ExtResource("1_gghp5")]([ExtResource("2_rciuh"), ExtResource("3_6xh6o")])
+line2 = Array[ExtResource("1_gghp5")]([ExtResource("4_udocc"), ExtResource("4_x74dd")])
+line3 = Array[ExtResource("1_gghp5")]([ExtResource("2_rciuh"), ExtResource("3_6xh6o")])

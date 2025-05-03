@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=5 format=3 uid="uid://cwlok6ubo3vnp"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_fex0h"]
+[ext_resource type="Resource" uid="uid://dx31823ylxmtu" path="res://game_objects/enemies/seeker/e_seeker.tres" id="2_op76g"]
+[ext_resource type="Resource" uid="uid://r5xxbsm8oy84" path="res://game_objects/enemies/goblin/e_goblin.tres" id="3_555ku"]
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="4_ao0pj"]
+
+[resource]
+script = ExtResource("4_ao0pj")
+line1 = Array[ExtResource("1_fex0h")]([ExtResource("2_op76g")])
+line2 = Array[ExtResource("1_fex0h")]([ExtResource("3_555ku")])
+line3 = Array[ExtResource("1_fex0h")]([ExtResource("2_op76g")])

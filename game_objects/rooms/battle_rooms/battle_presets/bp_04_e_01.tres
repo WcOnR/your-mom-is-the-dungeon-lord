@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=6 format=3 uid="uid://crfs2nv3anoix"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_gf021"]
+[ext_resource type="Resource" uid="uid://r5xxbsm8oy84" path="res://game_objects/enemies/goblin/e_goblin.tres" id="2_8rvef"]
+[ext_resource type="Resource" uid="uid://b4kbnjw5i8fjs" path="res://game_objects/enemies/slime_mage/e_slime_mage.tres" id="3_3xlug"]
+[ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="3_jj7fj"]
+[ext_resource type="Resource" uid="uid://bjiryiqv0mvnm" path="res://game_objects/enemies/statue/e_statue.tres" id="4_ex472"]
+
+[resource]
+script = ExtResource("3_jj7fj")
+line1 = Array[ExtResource("1_gf021")]([ExtResource("2_8rvef"), ExtResource("3_3xlug")])
+line2 = Array[ExtResource("1_gf021")]([ExtResource("4_ex472"), ExtResource("4_ex472")])
+line3 = Array[ExtResource("1_gf021")]([ExtResource("2_8rvef"), ExtResource("3_3xlug")])

@@ -1,18 +1,20 @@
-[gd_resource type="Resource" script_class="ProgressionPreset" load_steps=10 format=3 uid="uid://b4df8mtemc2vj"]
+[gd_resource type="Resource" script_class="ProgressionPreset" load_steps=15 format=3 uid="uid://b4df8mtemc2vj"]
 
 [ext_resource type="Script" path="res://game_objects/rooms/room_preset.gd" id="1_2lt7t"]
 [ext_resource type="Resource" uid="uid://b02t306uvs0ud" path="res://game_objects/rooms/shop_room/shop_room_preset.tres" id="2_03wbd"]
-[ext_resource type="Resource" uid="uid://4nhnsl853ceq" path="res://game_objects/rooms/battle_rooms/battle_difficulty_01.tres" id="2_s6rmk"]
+[ext_resource type="Resource" uid="uid://4nhnsl853ceq" path="res://game_objects/rooms/battle_rooms/bd_01.tres" id="2_il1in"]
 [ext_resource type="Script" path="res://game_objects/rooms/progression_preset.gd" id="2_x7iit"]
-[ext_resource type="Resource" uid="uid://ctc7dw4c0qrbr" path="res://game_objects/rooms/battle_rooms/battle_difficulty_01_elite.tres" id="3_1psyb"]
-[ext_resource type="PackedScene" uid="uid://c60poi4tadglk" path="res://game_objects/rooms/bonus_room/bonus_room.tscn" id="3_f3xmn"]
-[ext_resource type="Resource" uid="uid://1cwsxes73law" path="res://game_objects/rooms/battle_rooms/battle_difficulty_02.tres" id="3_jejq7"]
-[ext_resource type="Resource" uid="uid://bnw4bmtigo2t" path="res://game_objects/rooms/battle_rooms/battle_difficulty_02_elite.tres" id="5_75h8w"]
-
-[sub_resource type="Resource" id="Resource_pcl6j"]
-script = ExtResource("1_2lt7t")
-scene = ExtResource("3_f3xmn")
+[ext_resource type="Resource" uid="uid://bpryxymgg2vsf" path="res://game_objects/rooms/bonus_room/bonus_room_preset.tres" id="3_b3nxl"]
+[ext_resource type="Resource" uid="uid://ctc7dw4c0qrbr" path="res://game_objects/rooms/battle_rooms/bd_01_e.tres" id="4_wn3lu"]
+[ext_resource type="Resource" uid="uid://1cwsxes73law" path="res://game_objects/rooms/battle_rooms/bd_02.tres" id="5_ecpxw"]
+[ext_resource type="Resource" uid="uid://bnw4bmtigo2t" path="res://game_objects/rooms/battle_rooms/bd_02_e.tres" id="7_j6til"]
+[ext_resource type="Resource" uid="uid://c8k7sf1blk2jt" path="res://game_objects/rooms/battle_rooms/bd_03.tres" id="8_1l0tm"]
+[ext_resource type="Resource" uid="uid://bsecn5m5wlsu8" path="res://game_objects/rooms/battle_rooms/bd_03_e.tres" id="9_a83l3"]
+[ext_resource type="Resource" uid="uid://bvqg64xsfm6v5" path="res://game_objects/rooms/battle_rooms/bd_04.tres" id="10_uvbwm"]
+[ext_resource type="Resource" uid="uid://d37244ctsbrbu" path="res://game_objects/rooms/battle_rooms/bd_05.tres" id="11_4fxrk"]
+[ext_resource type="Resource" uid="uid://biidgrrbhe6lv" path="res://game_objects/rooms/battle_rooms/bd_04_e.tres" id="11_ty0lp"]
+[ext_resource type="Resource" uid="uid://cyahxvlt0n1ga" path="res://game_objects/rooms/battle_rooms/bd_05_e.tres" id="12_vp1hr"]
 
 [resource]
 script = ExtResource("2_x7iit")
-rooms = Array[ExtResource("1_2lt7t")]([ExtResource("2_s6rmk"), ExtResource("2_s6rmk"), SubResource("Resource_pcl6j"), ExtResource("3_1psyb"), ExtResource("3_jejq7"), ExtResource("2_03wbd"), ExtResource("3_jejq7"), ExtResource("5_75h8w")])
+rooms = Array[ExtResource("1_2lt7t")]([ExtResource("3_b3nxl"), ExtResource("2_03wbd"), ExtResource("2_il1in"), ExtResource("2_il1in"), ExtResource("3_b3nxl"), ExtResource("4_wn3lu"), ExtResource("5_ecpxw"), ExtResource("5_ecpxw"), ExtResource("2_03wbd"), ExtResource("7_j6til"), ExtResource("8_1l0tm"), ExtResource("8_1l0tm"), ExtResource("3_b3nxl"), ExtResource("2_03wbd"), ExtResource("9_a83l3"), ExtResource("10_uvbwm"), ExtResource("10_uvbwm"), ExtResource("3_b3nxl"), ExtResource("11_ty0lp"), ExtResource("11_4fxrk"), ExtResource("11_4fxrk"), ExtResource("2_03wbd"), ExtResource("12_vp1hr")])
