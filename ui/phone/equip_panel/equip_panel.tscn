@@ -46,11 +46,9 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sicg2")
 
 [node name="Slot1" parent="HBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource("2_nj6ve")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="EquipHint1" parent="HBoxContainer/HBoxContainer" instance=ExtResource("3_oqxpi")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
@@ -68,11 +66,9 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sicg2")
 
 [node name="Slot2" parent="HBoxContainer/HBoxContainer2/MarginContainer" instance=ExtResource("2_nj6ve")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="EquipHint2" parent="HBoxContainer/HBoxContainer2" instance=ExtResource("3_oqxpi")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer"]
@@ -90,9 +86,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sicg2")
 
 [node name="Slot3" parent="HBoxContainer/HBoxContainer3/MarginContainer" instance=ExtResource("2_nj6ve")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="EquipHint3" parent="HBoxContainer/HBoxContainer3" instance=ExtResource("3_oqxpi")]
-unique_name_in_owner = true
 layout_mode = 2

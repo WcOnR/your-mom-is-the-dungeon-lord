@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ci26slyckun7b"]
+[gd_scene load_steps=13 format=3 uid="uid://ci26slyckun7b"]
 
 [ext_resource type="Script" path="res://game_objects/player/player.gd" id="1_uktum"]
 [ext_resource type="PackedScene" uid="uid://c41vwc138rmsh" path="res://game_objects/components/health_comp.tscn" id="2_561jy"]
@@ -12,11 +12,10 @@
 [ext_resource type="Resource" uid="uid://b3shf4uktg7h1" path="res://game_objects/items/equip/vampire_heart/sharp_heart.tres" id="7_5vvoe"]
 [ext_resource type="Resource" uid="uid://ddqk5c5b3i0nn" path="res://game_objects/items/equip/double_axe/axe_the_sharpener.tres" id="8_niq4q"]
 [ext_resource type="Resource" uid="uid://4gow4p87dlkh" path="res://game_objects/items/consumabls/consumabl_item_3.tres" id="8_vjwo7"]
-[ext_resource type="Resource" uid="uid://j5sxno483pvb" path="res://game_objects/items/equip/double_axe/shieldbreaker.tres" id="9_sdofp"]
 
 [node name="Player" type="Node" groups=["Player"]]
 script = ExtResource("1_uktum")
-debug_equid = Array[ExtResource("2_xj2dj")]([ExtResource("6_1777d"), ExtResource("7_0p0uu"), ExtResource("7_0p0uu"), ExtResource("8_vjwo7"), ExtResource("8_vjwo7"), ExtResource("8_vjwo7"), ExtResource("6_0tb5c"), ExtResource("6_0tb5c"), ExtResource("6_0tb5c"), ExtResource("7_5vvoe"), ExtResource("7_5vvoe"), ExtResource("7_5vvoe"), ExtResource("8_niq4q"), ExtResource("8_niq4q"), ExtResource("8_niq4q"), ExtResource("9_sdofp"), ExtResource("9_sdofp")])
+debug_equid = Array[ExtResource("2_xj2dj")]([ExtResource("6_1777d"), ExtResource("7_0p0uu"), ExtResource("7_0p0uu"), ExtResource("8_vjwo7"), ExtResource("8_vjwo7"), ExtResource("8_vjwo7"), ExtResource("6_0tb5c"), ExtResource("6_0tb5c"), ExtResource("6_0tb5c"), ExtResource("7_5vvoe"), ExtResource("7_5vvoe"), ExtResource("7_5vvoe"), ExtResource("8_niq4q"), ExtResource("8_niq4q")])
 
 [node name="HealthComp" parent="." instance=ExtResource("2_561jy")]
 

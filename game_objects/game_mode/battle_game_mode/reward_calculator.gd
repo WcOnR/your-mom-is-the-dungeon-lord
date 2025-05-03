@@ -25,7 +25,7 @@ func get_statistics(battle : BattlePreset) -> Array[StatisticsInfo]:
 
 func get_rewards() -> Array[ItemPack]:
 	var reward : Array[ItemPack] = []
-	var add_consumabl := SettingsManager.settings.consumabl_prob >= randf()
+	var add_consumabl := SettingsManager.get_settings().consumabl_prob >= randf()
 	if add_consumabl:
 		reward.append(_get_consumabl(1)[0])
 	return reward
@@ -33,7 +33,7 @@ func get_rewards() -> Array[ItemPack]:
 
 func get_equip_choice(inventory : InventoryComp) -> Array[ItemPreset]:
 	var result : Array[ItemPreset] = []
-	for i in SettingsManager.settings.equip_count:
+	for i in SettingsManager.get_settings().equip_count:
 		var equip := _get_equip(inventory, result)
 		if equip:
 			result.append(equip)
@@ -41,7 +41,7 @@ func get_equip_choice(inventory : InventoryComp) -> Array[ItemPreset]:
 
 
 func get_shop_items(inventory : InventoryComp) -> Array[ItemPack]:
-	var settings := SettingsManager.settings
+	var settings := SettingsManager.get_settings()
 	var equip_count := randi_range(settings.min_equip_count_in_shop, settings.equip_count)
 	var result : Array[ItemPack] = []
 	var items : Array[ItemPreset] = []
@@ -61,7 +61,7 @@ func get_shop_items(inventory : InventoryComp) -> Array[ItemPack]:
 
 func _get_consumabl(count : int) -> Array[ItemPack]:
 	var result : Array[ItemPack] = []
-	var settings := SettingsManager.settings
+	var settings := SettingsManager.get_settings()
 	var weights := settings.consumabl_prob_weight.duplicate()
 	for c in count:
 		var preset := _pick_random_with_weight(settings.consumabl_presets, weights)
@@ -78,7 +78,7 @@ func _get_consumabl(count : int) -> Array[ItemPack]:
 
 
 func _get_equip(inventory : InventoryComp, ignore : Array[ItemPreset]) -> ItemPreset:
-	var settings := SettingsManager.settings
+	var settings := SettingsManager.get_settings()
 	var fav_items : Array[ItemPreset] = []
 	var super_metadata : Array[EquipMetadata] = []
 	for slot in inventory.get_slots():

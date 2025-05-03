@@ -1,7 +1,7 @@
 class_name EquipPanel extends Control
 
-@onready var item_viewers : Array[EquipViewer] = [%Slot1, %Slot2, %Slot3]
-@onready var item_hint : Array[EquipHint] = [%EquipHint1, %EquipHint2, %EquipHint3]
+@onready var item_viewers : Array[EquipViewer] = [$HBoxContainer/HBoxContainer/MarginContainer/Slot1, $HBoxContainer/HBoxContainer2/MarginContainer/Slot2, $HBoxContainer/HBoxContainer3/MarginContainer/Slot3]
+@onready var item_hint : Array[EquipHint] = [$HBoxContainer/HBoxContainer/EquipHint1, $HBoxContainer/HBoxContainer2/EquipHint2, $HBoxContainer/HBoxContainer3/EquipHint3]
 
 var _inventory : InventoryComp = null
 

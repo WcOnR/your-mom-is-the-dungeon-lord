@@ -10,13 +10,14 @@ func set_equip(pack : ItemPack, is_reward : bool = true) -> void:
 	_pack = pack
 	_hint = null
 	$Quality.visible = false
+	var settings := SettingsManager.get_settings()
 	if _pack and _pack.item_preset:
 		var hint_text : String = ""
 		if is_reward:
-			hint_text = SettingsManager.settings.get_reward_equip_hint(_pack)
+			hint_text = settings.get_reward_equip_hint(_pack)
 		else:
-			hint_text = SettingsManager.settings.get_equip_hint(_pack)
-			$Quality.modulate = SettingsManager.settings.get_pack_color(pack)
+			hint_text = settings.get_equip_hint(_pack)
+			$Quality.modulate = settings.get_pack_color(pack)
 			$Quality.visible = true
 		_hint = Hint.new(_pack.item_preset.item_name, hint_text, self)
 

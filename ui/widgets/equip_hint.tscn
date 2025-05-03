@@ -20,7 +20,6 @@ text = "Name"
 label_settings = ExtResource("1_52gxq")
 
 [node name="DescriptionLabel" type="Label" parent="HintContainer"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 text = "Your base attack increase by 150%. And shields breaks like doesn't exist."

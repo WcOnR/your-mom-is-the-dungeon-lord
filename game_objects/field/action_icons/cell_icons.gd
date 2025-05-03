@@ -36,6 +36,6 @@ func _update_lines() -> void:
 		_line_id[i].visible = i < count
 		if i < count:
 			var id : int = _shown_lines.keys()[i]
-			_line_id[i].modulate = SettingsManager.settings.line_colors[id]
+			_line_id[i].modulate = SettingsManager.get_settings().line_colors[id]
 			_icons[int(_shown_lines[id])].visible = true
 		i += 1

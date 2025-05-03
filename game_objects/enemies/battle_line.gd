@@ -44,7 +44,7 @@ func select(_select : bool) -> void:
 
 func set_id(id : int) -> void:
 	_id = id
-	$LineColor.modulate = SettingsManager.settings.line_colors[id]
+	$LineColor.modulate = SettingsManager.get_settings().line_colors[id]
 
 
 func get_id() -> int:

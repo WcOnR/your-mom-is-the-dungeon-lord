@@ -12,11 +12,12 @@ const ON_PICK_UP : StringName = "on_pick_up"
 func _ready() -> void:
 	for slot in _slots:
 		slot = ItemPack.new(null)
-	var consumabl_presets := SettingsManager.settings.consumabl_presets
+	var settings := SettingsManager.get_settings()
+	var consumabl_presets := settings.consumabl_presets
 	for preset in consumabl_presets:
 		_consumabls.append(ItemPack.new(preset))
-	_consumabls.append(ItemPack.new(SettingsManager.settings.currency))
-	var booster_presets := SettingsManager.settings.booster_presets
+	_consumabls.append(ItemPack.new(settings.currency))
+	var booster_presets := settings.booster_presets
 	for preset in booster_presets:
 		_boosters.append(ItemPack.new(preset))
 
@@ -43,7 +44,7 @@ func add_item(item : ItemPreset) -> void:
 
 
 func add_currency(count : int) -> void:
-	var pack := ItemPack.new(SettingsManager.settings.currency)
+	var pack := ItemPack.new(SettingsManager.get_settings().currency)
 	pack.count = count
 	add_pack(pack)
 
@@ -74,7 +75,7 @@ func can_buy(pack : ItemPack) -> bool:
 	var is_equipment := type == ItemPreset.Type.EQUIP or type ==ItemPreset.Type.SUPER_EQUIP
 	var can_be_pickup := not is_equipment or is_fit_in_slots(pack.item_preset)
 	if can_be_pickup:
-		var settings := SettingsManager.settings
+		var settings := SettingsManager.get_settings()
 		var super_metadata : Array[EquipMetadata] = []
 		for slot in get_slots():
 			if slot != null and slot.item_preset.type == ItemPreset.Type.SUPER_EQUIP:
@@ -87,8 +88,9 @@ func can_buy(pack : ItemPack) -> bool:
 
 
 func get_currency_pack() -> ItemPack:
+	var settings := SettingsManager.get_settings()
 	for pack in _consumabls:
-		if pack.item_preset == SettingsManager.settings.currency:
+		if pack.item_preset == settings.currency:
 			return pack
 	return null
 
@@ -102,7 +104,7 @@ func get_pack(item : ItemPreset) -> ItemPack:
 
 
 func _try_add_super_to_slot() -> void:
-	var settings := SettingsManager.settings
+	var settings := SettingsManager.get_settings()
 	for data in settings.equip_data:
 		var has_a : ItemPack = null
 		var has_b : ItemPack = null
@@ -117,7 +119,7 @@ func _try_add_super_to_slot() -> void:
 
 
 func _add_super_to_slot(pack : ItemPack) -> void:
-	var settings := SettingsManager.settings
+	var settings := SettingsManager.get_settings()
 	var metadata : EquipMetadata = null
 	for data in settings.equip_data:
 		if data.super_item_preset == pack.item_preset:
@@ -143,7 +145,7 @@ func _add_super_to_slot(pack : ItemPack) -> void:
 
 
 func is_fit_in_slots(item : ItemPreset) -> bool:
-	var max_equip_level := SettingsManager.settings.max_equip_level
+	var max_equip_level := SettingsManager.get_settings().max_equip_level
 	var items : Array[ItemPreset] = []
 	var maxed_items : Array[ItemPreset] = []
 	for slot in _slots:

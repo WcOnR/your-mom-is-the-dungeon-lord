@@ -12,6 +12,6 @@ func _ready() -> void:
 
 
 func _on_items_update() -> void:
-	var items := SettingsManager.settings.consumabl_presets
+	var items := SettingsManager.get_settings().consumabl_presets
 	for i in items.size(): 
 		info[i].set_pack(_inventory.get_pack(items[i]))
