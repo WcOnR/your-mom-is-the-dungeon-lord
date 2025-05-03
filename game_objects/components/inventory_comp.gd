@@ -73,6 +73,16 @@ func can_buy(pack : ItemPack) -> bool:
 	var type := pack.item_preset.type
 	var is_equipment := type == ItemPreset.Type.EQUIP or type ==ItemPreset.Type.SUPER_EQUIP
 	var can_be_pickup := not is_equipment or is_fit_in_slots(pack.item_preset)
+	if can_be_pickup:
+		var settings := SettingsManager.settings
+		var super_metadata : Array[EquipMetadata] = []
+		for slot in get_slots():
+			if slot != null and slot.item_preset.type == ItemPreset.Type.SUPER_EQUIP:
+				super_metadata.append(settings.get_equip_metadata(slot.item_preset))
+		for data in settings.equip_data:
+			if data in super_metadata and pack.item_preset in data.get_items():
+				can_be_pickup = false
+				break
 	return enough_currency and can_be_pickup
 
 
