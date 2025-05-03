@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3 uid="uid://byapc2k7gle4p"]
+
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_prlld"]
+[ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_78u0x"]
+[ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="3_7mfjr"]
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="4_s1xto"]
+[ext_resource type="Texture2D" uid="uid://bvntiavtihtr8" path="res://game_objects/enemies/skillet_shield/SkilletShield.png" id="5_epdcj"]
+
+[resource]
+script = ExtResource("4_s1xto")
+name = "Skillet"
+max_health = 55
+damage = 30
+reward = 400
+actions = Array[ExtResource("1_prlld")]([ExtResource("2_78u0x")])
+behavior = ExtResource("3_7mfjr")
+texture = ExtResource("5_epdcj")

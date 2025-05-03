@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://r5xxbsm8oy84"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3 uid="uid://r5xxbsm8oy84"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_d1hb1"]
 [ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_xg5e2"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_cm32p"]
+[ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="3_fhbvu"]
 [ext_resource type="Texture2D" uid="uid://bpkvc86n7xrh6" path="res://game_objects/enemies/goblin/goblin.png" id="4_0fwpd"]
 
 [resource]
@@ -12,4 +13,5 @@ max_health = 45
 damage = 25
 reward = 200
 actions = Array[ExtResource("1_d1hb1")]([ExtResource("2_xg5e2")])
+behavior = ExtResource("3_fhbvu")
 texture = ExtResource("4_0fwpd")

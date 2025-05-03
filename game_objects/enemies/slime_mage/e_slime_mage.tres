@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3 uid="uid://b4kbnjw5i8fjs"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3 uid="uid://b4kbnjw5i8fjs"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_opyrl"]
 [ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_xobmf"]
+[ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="3_1bcbk"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_w2or8"]
 [ext_resource type="Texture2D" uid="uid://dlgiumwvfsi3a" path="res://game_objects/enemies/slime_mage/SlimeMage.png" id="4_cfkx4"]
 
@@ -12,4 +13,5 @@ max_health = 250
 damage = 10
 reward = 500
 actions = Array[ExtResource("1_opyrl")]([ExtResource("2_xobmf")])
+behavior = ExtResource("3_1bcbk")
 texture = ExtResource("4_cfkx4")

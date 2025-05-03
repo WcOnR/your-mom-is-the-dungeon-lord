@@ -49,7 +49,7 @@ func plan_next_attack(line : BattleLine) -> void:
 	if _paralyze:
 		line.set_action(0, ICON, true)
 	else:
-		next_action = enemy_data.actions.pick_random() as Action
+		next_action = enemy_data.behavior.get_next_action(self)
 		next_action.run(ON_PLAN, [self, line])
 
 
