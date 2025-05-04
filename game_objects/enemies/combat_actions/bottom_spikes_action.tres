@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://be21m8tftvi4y"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/bottom_spikes.gd" id="1_cqe6m"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_position_action.gd" id="2_s41ev"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="3_ky487"]
+
+[resource]
+script = ExtResource("3_ky487")
+behavior = ExtResource("2_s41ev")
+args = [ExtResource("1_cqe6m")]

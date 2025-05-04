@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3 uid="uid://bjiryiqv0mvnm"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3 uid="uid://bjiryiqv0mvnm"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_bi2n5"]
 [ext_resource type="Resource" uid="uid://o10377evkcr4" path="res://game_objects/enemies/combat_actions/mix_field_action.tres" id="2_rqbrp"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_5f3po"]
+[ext_resource type="Resource" uid="uid://be21m8tftvi4y" path="res://game_objects/enemies/combat_actions/bottom_spikes_action.tres" id="3_b7b7f"]
 [ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="3_hb45h"]
 [ext_resource type="Texture2D" uid="uid://cos5i0goi4s1l" path="res://game_objects/enemies/statue/statue.png" id="4_vsfml"]
 
@@ -12,6 +13,6 @@ name = "Statue"
 max_health = 100
 damage = 10
 reward = 100
-actions = Array[ExtResource("1_bi2n5")]([ExtResource("2_rqbrp")])
+actions = Array[ExtResource("1_bi2n5")]([ExtResource("2_rqbrp"), ExtResource("3_b7b7f")])
 behavior = ExtResource("3_hb45h")
 texture = ExtResource("4_vsfml")
