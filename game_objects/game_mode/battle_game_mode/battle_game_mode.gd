@@ -80,6 +80,7 @@ func finish_round() -> void:
 	_set_state(State.ENEMY_MOVE)
 	if not _field.grid.is_idle():
 		await _field.grid.grid_idle
+	_field.clean_effects()
 	enemies_turn_started.emit()
 	await _line_holder.enemy_attack()
 	enemies_turn_finished.emit()
@@ -148,7 +149,7 @@ func _end_game(is_win : bool) -> void:
 func _start_round() -> void:
 	if is_state(State.COLLECTING_REWARD) or is_state(State.WIN) or is_state(State.LOST):
 		return
-	_field.clean_icons()
+	#_field.clean_icons()
 	_set_state(State.PLAYER_MOVE)
 	_turns_left = get_max_turns()
 	turn_changed.emit()

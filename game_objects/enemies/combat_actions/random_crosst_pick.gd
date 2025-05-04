@@ -8,5 +8,5 @@ func get_target_ids(field : Field) -> Array[Vector2i]:
 	targets.append(cell_id + Vector2i.LEFT)
 	targets.append(cell_id + Vector2i.RIGHT)
 	targets.append(cell_id + Vector2i.UP)
-	targets.append(cell_id + Vector2i.LEFT)
-	return [Vector2i(randi_range(0, size.x - 1), randi_range(0, size.y - 1))]
+	targets.append(cell_id + Vector2i.DOWN)
+	return targets

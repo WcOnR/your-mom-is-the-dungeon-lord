@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://c1a5qlc3x45xg"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/random_dirt.gd" id="1_mhxga"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/dirt_position_action.gd" id="2_qimss"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="3_7yvws"]
+
+[resource]
+script = ExtResource("3_7yvws")
+behavior = ExtResource("2_qimss")
+args = [ExtResource("1_mhxga")]

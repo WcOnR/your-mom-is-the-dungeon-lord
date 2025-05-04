@@ -86,6 +86,11 @@ func clean_icons() -> void:
 		icons.clean_icons()
 
 
+func clean_effects() -> void:
+	for icons in _cell_icons:
+		icons.clean_effects()
+
+
 func get_max_gem_cluster_by_type(gem_type : GemType) -> Array[Vector2i]:
 	var pool : Array[Vector2i] = []
 	for gem in grid.gems:
@@ -152,6 +157,9 @@ func _init_grid_with_tile_map() -> void:
 
 func _collapse_by_id(cell_id : Vector2i, initiator : Node) -> bool:
 	if not is_valid_cell_id(cell_id):
+		return false
+	var icons := _get_cell_icons(cell_id)
+	if icons.is_icon_type(CellIcons.Type.DIRT):
 		return false
 	var map := grid.get_map()
 	var to_remove : Array[Gem] = _get_all_near_gems(cell_id, map)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://rmpkcrc0chhm"]
+[gd_scene load_steps=10 format=3 uid="uid://rmpkcrc0chhm"]
 
 [ext_resource type="Texture2D" uid="uid://bsok2o2m6ekp" path="res://game_objects/field/action_icons/cell_attack.png" id="1_ttqlu"]
 [ext_resource type="Script" path="res://game_objects/field/action_icons/cell_icons.gd" id="1_x738h"]
 [ext_resource type="Texture2D" uid="uid://feo0nem03awq" path="res://game_objects/field/action_icons/aim.png" id="2_0dghu"]
+[ext_resource type="Texture2D" uid="uid://cjaas0jst5yc0" path="res://game_objects/field/action_icons/dirt.png" id="2_hiqmg"]
 [ext_resource type="Texture2D" uid="uid://bagtf6ox4vheb" path="res://game_objects/field/action_icons/cell_clear.png" id="3_3byfx"]
 [ext_resource type="Texture2D" uid="uid://dnh7hlwnhb3bf" path="res://game_objects/field/action_icons/line_indefier_1.png" id="3_88ss1"]
 [ext_resource type="Texture2D" uid="uid://btfi5vbgxjle" path="res://game_objects/field/action_icons/line_indefier_2.png" id="4_mkhpf"]
@@ -12,6 +13,12 @@
 [node name="CellIcon" type="Node2D"]
 z_index = 3
 script = ExtResource("1_x738h")
+
+[node name="Dirt" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.898039)
+position = Vector2(0, -1)
+texture = ExtResource("2_hiqmg")
 
 [node name="CellAttack" type="Sprite2D" parent="."]
 visible = false
