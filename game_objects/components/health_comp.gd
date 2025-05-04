@@ -14,6 +14,10 @@ signal shield_changed(bool)
 signal death
 
 
+func is_dead() -> bool:
+	return _is_dead
+
+
 func add_shield(points : int) -> void:
 	if _is_dead or points <= 0:
 		return

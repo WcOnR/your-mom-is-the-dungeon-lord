@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=9 format=3 uid="uid://5qtmryjtf2th"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_b0kes"]
-[ext_resource type="Resource" uid="uid://dxrwpj0m8ik8m" path="res://game_objects/enemies/combat_actions/gem_target_attack_action.tres" id="2_t5tu2"]
+[ext_resource type="Resource" uid="uid://dxrwpj0m8ik8m" path="res://game_objects/enemies/combat_actions/max_attack_cluster_action.tres" id="2_t5tu2"]
 [ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="3_c7dhm"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_vfbhx"]
 [ext_resource type="Script" path="res://behaviors/random_weigth_action.gd" id="4_4o84x"]

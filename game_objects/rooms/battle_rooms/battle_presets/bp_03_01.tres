@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BattlePreset" load_steps=4 format=3 uid="uid://dtcx7cmbwdfuq"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_t1315"]
-[ext_resource type="Resource" uid="uid://byapc2k7gle4p" path="res://game_objects/enemies/e_skillet_shield.tres" id="2_4p5p1"]
+[ext_resource type="Resource" uid="uid://byapc2k7gle4p" path="res://game_objects/enemies/skillet_shield/e_skillet_shield.tres" id="2_4p5p1"]
 [ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="3_1c6p1"]
 
 [resource]
