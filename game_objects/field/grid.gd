@@ -53,22 +53,10 @@ func is_valid_cell_id(id : Vector2i) -> bool:
 	return id.x >= 0 and id.x < _size.x and id.y >=0 and id.y < _size.y
 
 
-func reshuffle() -> void:
+func reshuffle(map : Dictionary) -> void:
 	_is_spawn_allowed = false
 	if not is_idle():
 		await grid_idle
-	var map := {}
-	for g in gems:
-		map[g] = get_cell_id(g.position)
-	for i in gems.size():
-		var ran : int = randi_range(0, gems.size() - 1)
-		if i == ran:
-			continue
-		var gem_from := map.keys()[i] as Gem
-		var gem_to := map.keys()[ran] as Gem
-		var tmp := map[gem_from] as Vector2i
-		map[gem_from] = map[gem_to] as Vector2i
-		map[gem_to] = tmp
 	for g in map.keys():
 		g.move_to_cell_id(map[g])
 	await grid_stopped

@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3 uid="uid://b4kbnjw5i8fjs"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://b4kbnjw5i8fjs"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_opyrl"]
 [ext_resource type="Resource" uid="uid://c76g1v4h0q8bd" path="res://game_objects/enemies/combat_actions/random_cone.tres" id="2_1xi16"]
 [ext_resource type="Resource" uid="uid://btx2nomwm7nrn" path="res://game_objects/enemies/combat_actions/random_target_cells_pick_3.tres" id="2_5356s"]
 [ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="3_1bcbk"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_w2or8"]
+[ext_resource type="Resource" uid="uid://dhck84l5i3j43" path="res://game_objects/enemies/combat_actions/mix_by_line_action.tres" id="4_1uiju"]
 [ext_resource type="Texture2D" uid="uid://dlgiumwvfsi3a" path="res://game_objects/enemies/slime_mage/SlimeMage.png" id="4_cfkx4"]
 
 [resource]
@@ -13,6 +14,6 @@ name = "Slime Mage"
 max_health = 250
 damage = 10
 reward = 500
-actions = Array[ExtResource("1_opyrl")]([ExtResource("2_5356s"), ExtResource("2_1xi16")])
+actions = Array[ExtResource("1_opyrl")]([ExtResource("2_5356s"), ExtResource("2_1xi16"), ExtResource("4_1uiju")])
 behavior = ExtResource("3_1bcbk")
 texture = ExtResource("4_cfkx4")

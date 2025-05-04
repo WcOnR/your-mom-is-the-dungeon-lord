@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://dhck84l5i3j43"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/by_line_shuffle.gd" id="1_3owks"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/mix_field_action.gd" id="2_i8qgu"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="3_fbjv6"]
+
+[resource]
+script = ExtResource("3_fbjv6")
+behavior = ExtResource("2_i8qgu")
+args = [ExtResource("1_3owks")]
