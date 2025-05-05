@@ -24,11 +24,12 @@ func is_icon_type(icon_type : CellIcons.Type) -> bool:
 
 
 func clean_icons() -> void:
-	for i in _icons:
-		i.visible = false
-	for l in _line_id:
-		l.visible = false
-	_shown_lines.clear()
+	var lines := _shown_lines.keys().duplicate()
+	if INVALID_ID in lines:
+		lines.erase(INVALID_ID)
+	for line in lines:
+		_shown_lines.erase(line)
+	_update_lines()
 
 
 func clean_effects() -> void:
