@@ -31,8 +31,10 @@ func apply_heal(heal : int) -> void:
 	_set_health(health + new_heal)
 
 
-func apply_damage(damage : int) -> int:
-	var new_damage := mini(damage, MAX_DAMAGE)
+func apply_damage(damage : int, ignore_damage_cap : bool = false) -> int:
+	var new_damage := damage
+	if not ignore_damage_cap:
+		new_damage = mini(damage, MAX_DAMAGE)
 	new_damage = _absorb_damage(new_damage)
 	var old_health := health
 	_set_health(health - new_damage)

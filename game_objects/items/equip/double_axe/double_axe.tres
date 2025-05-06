@@ -16,5 +16,5 @@ type = 3
 texture = ExtResource("4_x66bt")
 action = SubResource("Resource_jt435")
 item_name = "Double Axe"
-item_description = "Your base attack increase by 150%. And shields breaks like doesn't exist."
+item_description = "Your base attack increase by 125%. And shields breaks like doesn't exist."
 price = 1000
