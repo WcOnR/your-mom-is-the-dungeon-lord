@@ -8,11 +8,11 @@ var _phone : Phone = null
 
 func set_phone(phone : Phone) -> void:
 	_phone = phone
+	_select_first_available_or_equip()
 	var btn := _phone.get_home_btn()
 	btn.pressed.connect(finish_room)
 	_player = get_tree().get_first_node_in_group("Player") as Player
 	_player.inventory_comp.items_changed.connect(_update_shop_view)
-	_phone.panel_changed.connect(_on_panel_changed)
 	var item_loot_panel := _phone.get_item_loot_panel()
 	item_loot_panel.buy_btn_pressed.connect(_on_buy)
 	_update_shop_view()
@@ -33,6 +33,17 @@ func finish_room() -> void:
 	SceneLoaderSystem.unload_room()
 
 
+func _select_first_available_or_equip() -> void:
+	for item in _shop_items:
+		if item.can_buy(_player.inventory_comp):
+			item.select(true)
+			return
+	if _selected_item and _selected_item.is_selected:
+		_selected_item.select(false)
+	var equip_panel := _phone.get_equipment_panel()
+	_phone.set_main_screen(equip_panel)
+
+
 func _on_shop_item_selected(data : ShopItemData) -> void:
 	if not data.is_selected:
 		return
@@ -43,24 +54,13 @@ func _on_shop_item_selected(data : ShopItemData) -> void:
 	var item_loot_panel := _phone.get_item_loot_panel()
 	item_loot_panel.set_reward_view(data.pack)
 	item_loot_panel.show_buy_btn(true)
-	_phone.add_to_panel_stack(item_loot_panel)
 
 
 func _on_buy() -> void:
 	_player.inventory_comp.spend_money(_selected_item.pack.get_price())
 	_selected_item.is_sold_out = true
 	_player.inventory_comp.add_pack(_selected_item.pack)
-	_phone.pop_top_panel()
-
-
-func _on_panel_changed() -> void:
-	var panel := _phone.get_top_panel()
-	for item in _shop_items:
-		item.enable_selection(not panel or panel is ItemLootPanel)
-	if panel and panel is ItemLootPanel:
-		_selected_item.select(true)
-	elif _selected_item != null:
-		_selected_item.select(false)
+	_select_first_available_or_equip()
 
 
 func _update_shop_view() -> void:

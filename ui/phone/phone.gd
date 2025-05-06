@@ -133,6 +133,7 @@ func _on_pause_button_pressed() -> void:
 
 func _update_back_button() -> void:
 	back_button.visible = not panel_stack.is_empty()
+	home_button.set_main_state(panel_stack.is_empty())
 
 
 func _pre_anim_init() -> void:
@@ -145,6 +146,6 @@ func _pre_anim_init() -> void:
 			var game_mode := get_tree().get_first_node_in_group("GameMode") as BattleGameMode
 			game_mode.set_phone(self)
 		State.SHOP:
-			set_main_screen(equipment_panel)
+			set_main_screen(item_loot_panel)
 			var game_mode := get_tree().get_first_node_in_group("GameMode") as ShopGameMod
 			game_mode.set_phone(self)

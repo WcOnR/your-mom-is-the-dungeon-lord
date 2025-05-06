@@ -1,53 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://dfbuiik3genxv"]
+[gd_scene load_steps=11 format=3 uid="uid://dfbuiik3genxv"]
 
 [ext_resource type="Script" path="res://ui/phone/battle_hub/battle_hud.gd" id="1_0h25g"]
 [ext_resource type="PackedScene" uid="uid://1gowrjdv5xvj" path="res://ui/widgets/health_ui.tscn" id="1_xuqrh"]
+[ext_resource type="PackedScene" uid="uid://dhihkx5clxl6c" path="res://ui/phone/equip_btn/equip_button.tscn" id="2_hliog"]
 [ext_resource type="PackedScene" uid="uid://bisw0tue6xhhe" path="res://ui/phone/battle_hub/turns/turn_tracker.tscn" id="3_t7ypo"]
 [ext_resource type="PackedScene" uid="uid://cd0bt5xyril8k" path="res://game_objects/field/field.tscn" id="3_vf1ns"]
 [ext_resource type="Resource" uid="uid://bd27barncwqpa" path="res://game_objects/gems/gem_set.tres" id="4_uok5p"]
-[ext_resource type="Texture2D" uid="uid://bcynj12kbr3ea" path="res://ui/phone/equip_icon.png" id="6_018a3"]
 [ext_resource type="PackedScene" uid="uid://gbp6mf6kpd3b" path="res://ui/widgets/consumable_item_holder.tscn" id="6_w5ivp"]
 [ext_resource type="Resource" uid="uid://c4o1anlio860k" path="res://game_objects/items/consumabls/consumabl_item_1.tres" id="7_2mlrx"]
 [ext_resource type="Resource" uid="uid://cgf7nuvx856d5" path="res://game_objects/items/consumabls/consumabl_item_2.tres" id="8_0gdwd"]
 [ext_resource type="Resource" uid="uid://4gow4p87dlkh" path="res://game_objects/items/consumabls/consumabl_item_3.tres" id="9_jx6ti"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyx4w"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
-corner_radius_top_left = 90
-corner_detail = 5
-expand_margin_left = 12.0
-expand_margin_top = 12.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjf5n"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 90
-corner_detail = 5
-expand_margin_left = 12.0
-expand_margin_top = 12.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5afjf"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 90
-corner_detail = 5
-expand_margin_left = 12.0
-expand_margin_top = 12.0
-
-[sub_resource type="Theme" id="Theme_5f1dw"]
-Button/styles/hover = SubResource("StyleBoxFlat_kyx4w")
-Button/styles/normal = SubResource("StyleBoxFlat_gjf5n")
-Button/styles/pressed = SubResource("StyleBoxFlat_5afjf")
 
 [node name="BattleHUD" type="MarginContainer"]
 offset_right = 748.0
@@ -70,27 +32,9 @@ layout_mode = 2
 mouse_filter = 2
 alignment = 2
 
-[node name="EquipButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="EquipButton" parent="VBoxContainer/HBoxContainer" instance=ExtResource("2_hliog")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-focus_mode = 0
-theme = SubResource("Theme_5f1dw")
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/EquipButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.5
-offset_top = -19.5
-offset_right = 28.5
-offset_bottom = 25.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_018a3")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

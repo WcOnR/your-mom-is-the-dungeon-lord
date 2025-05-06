@@ -8,6 +8,7 @@ signal selection_changed
 
 var _selected_equip : ItemPreset = null
 var _pickers : Array[EquipPicker] = []
+var _phone : Phone = null
 
 
 func _ready() -> void:
@@ -23,6 +24,7 @@ func set_reward_view(equip : Array[ItemPreset]) -> void:
 		picker.set_equip(pack)
 		picker.pressed.connect(_on_equip_pick.bind(picker))
 		item_container.add_child(picker)
+	_on_equip_pick(_pickers[floori(_pickers.size() / 2.0)])
 
 
 func get_selected_equip() -> ItemPreset:
@@ -38,3 +40,9 @@ func _on_equip_pick(picker : EquipPicker) -> void:
 	_selected_equip = picker.get_item()
 	%EquipHint.set_equip(ItemPack.new(_selected_equip), true)
 	selection_changed.emit()
+
+
+func _on_equip_button_pressed() -> void:
+	if _phone == null:
+		_phone = get_tree().get_first_node_in_group("Phone") as Phone
+	_phone.add_to_panel_stack(_phone.get_equipment_panel())

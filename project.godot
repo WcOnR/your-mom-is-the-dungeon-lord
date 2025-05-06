@@ -34,6 +34,7 @@ GameMode=""
 Player=""
 Field=""
 LineHolder=""
+Phone=""
 
 [input]
 

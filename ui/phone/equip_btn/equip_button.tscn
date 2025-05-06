@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhihkx5clxl6c"]
+
+[ext_resource type="Texture2D" uid="uid://bcynj12kbr3ea" path="res://ui/phone/equip_icon.png" id="1_5vxwj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyx4w"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 90
+corner_detail = 5
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjf5n"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 90
+corner_detail = 5
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5afjf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 90
+corner_detail = 5
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+
+[sub_resource type="Theme" id="Theme_5f1dw"]
+Button/styles/hover = SubResource("StyleBoxFlat_kyx4w")
+Button/styles/normal = SubResource("StyleBoxFlat_gjf5n")
+Button/styles/pressed = SubResource("StyleBoxFlat_5afjf")
+
+[node name="EquipButton" type="Button"]
+custom_minimum_size = Vector2(75, 75)
+focus_mode = 0
+theme = SubResource("Theme_5f1dw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -19.5
+offset_right = 28.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5vxwj")

@@ -55,7 +55,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_byv2o")
 Button/styles/normal = SubResource("StyleBoxFlat_2tjre")
 Button/styles/pressed = SubResource("StyleBoxFlat_s3i1g")
 
-[node name="Phone" type="Node2D"]
+[node name="Phone" type="Node2D" groups=["Phone"]]
 script = ExtResource("1_rc8y6")
 
 [node name="Phone" type="Sprite2D" parent="."]

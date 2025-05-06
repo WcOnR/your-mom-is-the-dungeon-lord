@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwjhr3canvxqn"]
+[gd_scene load_steps=4 format=3 uid="uid://bwjhr3canvxqn"]
 
 [ext_resource type="Script" path="res://ui/phone/equip_loot_panel/equip_loot_panel.gd" id="1_gjimy"]
 [ext_resource type="PackedScene" uid="uid://dfy4agorh33pb" path="res://ui/widgets/equip_hint.tscn" id="2_uoflj"]
+[ext_resource type="PackedScene" uid="uid://dhihkx5clxl6c" path="res://ui/phone/equip_btn/equip_button.tscn" id="3_14t2t"]
 
 [node name="EquipLootPanel" type="MarginContainer"]
 offset_right = 500.0
@@ -14,7 +15,7 @@ script = ExtResource("1_gjimy")
 layout_mode = 2
 
 [node name="Extander" type="MarginContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 350)
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 size_flags_vertical = 0
 
@@ -52,3 +53,17 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+alignment = 2
+
+[node name="EquipButton" parent="VBoxContainer2/HBoxContainer" instance=ExtResource("3_14t2t")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer/EquipButton" to="." method="_on_equip_button_pressed"]

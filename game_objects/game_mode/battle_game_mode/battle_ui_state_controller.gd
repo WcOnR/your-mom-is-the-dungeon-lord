@@ -6,6 +6,7 @@ var _state : State = State.BATTLE
 var _phone : Phone = null
 var _game_mode : BattleGameMode = null
 var _equip_choice : ItemPreset = null
+var _accident_click_protection : bool = false 
 
 
 func set_phone(phone : Phone) -> void:
@@ -30,7 +31,7 @@ func _show_items() -> void:
 	var item_loot_panel := _phone.get_item_loot_panel()
 	_phone.set_main_screen(item_loot_panel)
 	item_loot_panel.set_reward_view(_game_mode.get_reward()[0])#TODO rework
-	_update_home_btn()
+	_update_home_btn_with_protection()
 
 
 func _show_equip() -> void:
@@ -38,6 +39,14 @@ func _show_equip() -> void:
 	_phone.set_main_screen(equip_loot_panel)
 	equip_loot_panel.set_reward_view(_game_mode.get_equip_reward())
 	equip_loot_panel.selection_changed.connect(_update_home_btn)
+	_update_home_btn_with_protection()
+
+
+func _update_home_btn_with_protection() -> void:
+	_accident_click_protection = true
+	_update_home_btn()
+	await get_tree().create_timer(0.5).timeout
+	_accident_click_protection = false
 	_update_home_btn()
 
 
@@ -87,9 +96,14 @@ func _update_home_btn() -> void:
 			home_btn.set_state(state)
 	elif _state == State.STATISTIC:
 		home_btn.set_state(HomeBtn.State.ACTIVE)
+	elif _state == State.ITEM:
+		if _accident_click_protection:
+			home_btn.set_state(HomeBtn.State.DISABLED)
+		else:
+			home_btn.set_state(HomeBtn.State.ACTIVE)
 	elif _state == State.EQUIP:
 		var equip_loot_panel := _phone.get_equip_loot_panel()
-		if equip_loot_panel.get_selected_equip():
+		if equip_loot_panel.get_selected_equip() and not _accident_click_protection:
 			home_btn.set_state(HomeBtn.State.ACTIVE)
 		else:
 			home_btn.set_state(HomeBtn.State.DISABLED)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbp4qpxqek8ms"]
+[gd_scene load_steps=6 format=3 uid="uid://dbp4qpxqek8ms"]
 
 [ext_resource type="Script" path="res://ui/phone/item_loot_panel/item_loot_panel.gd" id="1_dgjw6"]
 [ext_resource type="PackedScene" uid="uid://dhv5wq4lf1ren" path="res://ui/phone/item_loot_panel/item_pack_viewer.tscn" id="2_djxav"]
 [ext_resource type="PackedScene" uid="uid://dfy4agorh33pb" path="res://ui/widgets/equip_hint.tscn" id="3_pbwd1"]
 [ext_resource type="Texture2D" uid="uid://8kc7f1ngfdwv" path="res://ui/phone/item_loot_panel/pay_btn.png" id="4_lf5qx"]
+[ext_resource type="PackedScene" uid="uid://dhihkx5clxl6c" path="res://ui/phone/equip_btn/equip_button.tscn" id="5_jnwcp"]
 
 [node name="ItemLootPanel" type="MarginContainer"]
 offset_right = 552.0
@@ -17,7 +18,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Extander" type="MarginContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 350)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -82,4 +83,20 @@ focus_mode = 0
 icon = ExtResource("4_lf5qx")
 icon_alignment = 1
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="EquipButton" parent="VBoxContainer3/HBoxContainer" instance=ExtResource("5_jnwcp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
 [connection signal="pressed" from="VBoxContainer2/MarginContainer/CenterContainer/BuyButton" to="." method="_on_buy_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer3/HBoxContainer/EquipButton" to="." method="_on_equip_button_pressed"]
