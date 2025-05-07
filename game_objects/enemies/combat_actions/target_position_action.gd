@@ -43,7 +43,7 @@ func on_action(args : Array[Variant]) -> void:
 		if enemy == null or enemy.health_comp == null or enemy.health_comp.is_dead():
 			return
 		field.hit_target(cell_id, enemy)
-		field.show_icon(cell_id, CellIcons.Type.ATTACK, false, enemy.memory[LINE_ID])
+		field.show_icon(cell_id, CellIcons.Type.AIM, false, enemy.memory[LINE_ID])
 
 
 func on_death(args : Array[Variant]) -> void:

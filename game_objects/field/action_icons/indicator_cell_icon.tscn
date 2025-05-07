@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce62rgbsujlkw"]
+
+[ext_resource type="Script" path="res://game_objects/field/action_icons/indicator_cell_icon.gd" id="1_dmd2y"]
+
+[node name="IndicatorCellIcon" type="Node2D"]
+script = ExtResource("1_dmd2y")
+
+[node name="Indicator1" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Indicator2" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Indicator3" type="Sprite2D" parent="."]
+visible = false

@@ -1,39 +1,42 @@
 class_name CellIcons extends Node2D
 
-@onready var _icons : Array[Sprite2D] = [$Aim, $CellAttack, $CellClear, $Dirt]
-@onready var _line_id : Array[Sprite2D] = [$LineIndefier1, $LineIndefier2, $LineIndefier3]
+@onready var _indicators : Array[IndicatorCellIcon] = [$AimIndicatorCellIcon, $AreaIndicatorCellIcon, $ClearIndicatorCellIcon]
+@onready var _effects : Array[Sprite2D] = [$Dirt]
 
 enum Type {AIM, ATTACK, CLEAR, DIRT}
 const INVALID_ID := -1
+const FIRST_EFFECT_INDEX := 3
 
 var _shown_lines : Dictionary = {}
 
+
 func set_icon_visibility(type : CellIcons.Type, _show : bool, line : int) -> void:
 	if _show:
-		_shown_lines[line] = type
+		if not type in _shown_lines:
+			_shown_lines[type] = {}
+		_shown_lines[type][line] = null
 	else:
-		_shown_lines.erase(line)
+		if type in _shown_lines:
+			_shown_lines[type].erase(line)
 	_update_lines()
 
 
 func is_icon_type(icon_type : CellIcons.Type) -> bool:
-	for line in _shown_lines:
-		if _shown_lines[line] == icon_type:
-			return true
-	return false
+	return icon_type in _shown_lines and not _shown_lines[icon_type].is_empty()
 
 
 func clean_icons() -> void:
-	var lines := _shown_lines.keys().duplicate()
-	if INVALID_ID in lines:
-		lines.erase(INVALID_ID)
-	for line in lines:
-		_shown_lines.erase(line)
+	var effects := _get_all_effects_type()
+	for type in _shown_lines:
+		if not type in effects:
+			_shown_lines[type] = {}
 	_update_lines()
 
 
 func clean_effects() -> void:
-	_shown_lines.erase(INVALID_ID)
+	var effects := _get_all_effects_type()
+	for type in effects:
+		_shown_lines[type] = {}
 	_update_lines()
 
 
@@ -41,19 +44,27 @@ func emit_smoke_fx() -> void:
 	$SmokeParticles2D.emitting = true
 
 
+func _get_indicator_by_type(type : CellIcons.Type) -> IndicatorCellIcon:
+	return _indicators[int(type)]
+
+
+func _get_effect_by_type(type : CellIcons.Type) -> Sprite2D:
+	return _effects[int(type) - FIRST_EFFECT_INDEX] # Be smarter don't do like this 
+
+
+func _get_all_effects_type() -> Array[CellIcons.Type]:
+	return [CellIcons.Type.DIRT]
+
+
 func _update_lines() -> void:
-	for i in _icons:
+	for i in _indicators:
 		i.visible = false
-	var lines := _shown_lines.keys().duplicate()
-	if INVALID_ID in lines:
-		_icons[INVALID_ID].visible = true
-		lines.erase(INVALID_ID)
-	var count := lines.size()
-	var i := 0
-	while i < _line_id.size():
-		_line_id[i].visible = i < count
-		if i < count:
-			var id : int = lines[i]
-			_line_id[i].modulate = SettingsManager.get_settings().line_colors[id]
-			_icons[int(_shown_lines[id])].visible = true
-		i += 1
+	var effects := _get_all_effects_type()
+	for type in effects:
+		var effect := _get_effect_by_type(type)
+		effect.visible = is_icon_type(CellIcons.Type.DIRT)
+	for type in _shown_lines:
+		if not _shown_lines[type].is_empty() and not type in effects:
+			var indicator := _get_indicator_by_type(type)
+			indicator.set_lines(_shown_lines[type].keys())
+			indicator.visible = true

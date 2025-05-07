@@ -1,14 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://rmpkcrc0chhm"]
+[gd_scene load_steps=21 format=3 uid="uid://rmpkcrc0chhm"]
 
-[ext_resource type="Texture2D" uid="uid://bsok2o2m6ekp" path="res://game_objects/field/action_icons/cell_attack.png" id="1_ttqlu"]
 [ext_resource type="Script" path="res://game_objects/field/action_icons/cell_icons.gd" id="1_x738h"]
-[ext_resource type="Texture2D" uid="uid://feo0nem03awq" path="res://game_objects/field/action_icons/aim.png" id="2_0dghu"]
 [ext_resource type="Texture2D" uid="uid://cjaas0jst5yc0" path="res://game_objects/field/action_icons/dirt.png" id="2_hiqmg"]
-[ext_resource type="Texture2D" uid="uid://bagtf6ox4vheb" path="res://game_objects/field/action_icons/cell_clear.png" id="3_3byfx"]
-[ext_resource type="Texture2D" uid="uid://dnh7hlwnhb3bf" path="res://game_objects/field/action_icons/line_indefier_1.png" id="3_88ss1"]
-[ext_resource type="Texture2D" uid="uid://btfi5vbgxjle" path="res://game_objects/field/action_icons/line_indefier_2.png" id="4_mkhpf"]
-[ext_resource type="Texture2D" uid="uid://cpojhr3jnmf3i" path="res://game_objects/field/action_icons/line_indefier_3.png" id="5_bnvfo"]
+[ext_resource type="PackedScene" uid="uid://ce62rgbsujlkw" path="res://game_objects/field/action_icons/indicator_cell_icon.tscn" id="3_dcrds"]
+[ext_resource type="Texture2D" uid="uid://beqkw7qayxj1a" path="res://game_objects/field/action_icons/area/area1.png" id="4_fchcs"]
+[ext_resource type="Texture2D" uid="uid://d1rlmx3os8rqc" path="res://game_objects/field/action_icons/area/area2_1.png" id="5_n8xgy"]
 [ext_resource type="PackedScene" uid="uid://p0gyojpk6lh5" path="res://game_objects/fx/smoke_particles.tscn" id="6_g40qa"]
+[ext_resource type="Texture2D" uid="uid://cc3h65spdj74f" path="res://game_objects/field/action_icons/area/area2_2.png" id="6_g82d3"]
+[ext_resource type="Texture2D" uid="uid://bpt5mg76rmpc8" path="res://game_objects/field/action_icons/area/area3_1.png" id="7_brjwp"]
+[ext_resource type="Texture2D" uid="uid://bt3cbqmu3ghmm" path="res://game_objects/field/action_icons/area/area3_2.png" id="8_ggqab"]
+[ext_resource type="Texture2D" uid="uid://cgael5rrkfuwi" path="res://game_objects/field/action_icons/area/area3_3.png" id="9_v87d7"]
+[ext_resource type="Texture2D" uid="uid://dsfluto8rug2" path="res://game_objects/field/action_icons/clear/clear1.png" id="9_xaepx"]
+[ext_resource type="Texture2D" uid="uid://ddd3dp3w0t0va" path="res://game_objects/field/action_icons/clear/clear2_1.png" id="10_mfjxd"]
+[ext_resource type="Texture2D" uid="uid://boh1wy2mtude" path="res://game_objects/field/action_icons/clear/clear2_2.png" id="11_dt0xc"]
+[ext_resource type="Texture2D" uid="uid://2adossvhkww8" path="res://game_objects/field/action_icons/clear/clear3_1.png" id="12_o6spx"]
+[ext_resource type="Texture2D" uid="uid://g6u03vgyk58s" path="res://game_objects/field/action_icons/clear/clear3_2.png" id="13_obgxg"]
+[ext_resource type="Texture2D" uid="uid://dkdbuqo6617ii" path="res://game_objects/field/action_icons/aim/aim1.png" id="14_mvdht"]
+[ext_resource type="Texture2D" uid="uid://dgrtv8udwjnbh" path="res://game_objects/field/action_icons/aim/aim2_1.png" id="15_5o4pi"]
+[ext_resource type="Texture2D" uid="uid://c87vcsdc6c6dq" path="res://game_objects/field/action_icons/aim/aim2_2.png" id="16_yoviq"]
+[ext_resource type="Texture2D" uid="uid://06o18vc5ytdu" path="res://game_objects/field/action_icons/aim/aim3_1.png" id="17_8qklq"]
+[ext_resource type="Texture2D" uid="uid://c8874l6lv37e7" path="res://game_objects/field/action_icons/aim/aim3_2.png" id="18_p4088"]
 
 [node name="CellIcon" type="Node2D"]
 z_index = 3
@@ -20,37 +31,16 @@ modulate = Color(1, 1, 1, 0.898039)
 position = Vector2(0, -1)
 texture = ExtResource("2_hiqmg")
 
-[node name="CellAttack" type="Sprite2D" parent="."]
+[node name="AreaIndicatorCellIcon" parent="." instance=ExtResource("3_dcrds")]
 visible = false
-texture = ExtResource("1_ttqlu")
+icons = Array[Texture2D]([ExtResource("4_fchcs"), ExtResource("5_n8xgy"), ExtResource("6_g82d3"), ExtResource("7_brjwp"), ExtResource("8_ggqab"), ExtResource("9_v87d7")])
 
-[node name="CellClear" type="Sprite2D" parent="."]
+[node name="ClearIndicatorCellIcon" parent="." instance=ExtResource("3_dcrds")]
 visible = false
-texture = ExtResource("3_3byfx")
+icons = Array[Texture2D]([ExtResource("9_xaepx"), ExtResource("10_mfjxd"), ExtResource("11_dt0xc"), ExtResource("12_o6spx"), ExtResource("13_obgxg"), ExtResource("11_dt0xc")])
 
-[node name="Aim" type="Sprite2D" parent="."]
+[node name="AimIndicatorCellIcon" parent="." instance=ExtResource("3_dcrds")]
 visible = false
-texture = ExtResource("2_0dghu")
-
-[node name="LineIndefier1" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.521569, 0.729412, 0.843137, 1)
-position = Vector2(22, 22)
-texture = ExtResource("3_88ss1")
-centered = false
-
-[node name="LineIndefier2" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.419608, 0.635294, 0.54902, 1)
-position = Vector2(22, 22)
-texture = ExtResource("4_mkhpf")
-centered = false
-
-[node name="LineIndefier3" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.670588, 0.478431, 0.4, 1)
-position = Vector2(22, 22)
-texture = ExtResource("5_bnvfo")
-centered = false
+icons = Array[Texture2D]([ExtResource("14_mvdht"), ExtResource("15_5o4pi"), ExtResource("16_yoviq"), ExtResource("17_8qklq"), ExtResource("18_p4088"), ExtResource("16_yoviq")])
 
 [node name="SmokeParticles2D" parent="." instance=ExtResource("6_g40qa")]
