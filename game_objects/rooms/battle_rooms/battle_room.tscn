@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://6dj4su8wc8ak"]
+[gd_scene load_steps=7 format=3 uid="uid://6dj4su8wc8ak"]
 
 [ext_resource type="Texture2D" uid="uid://e3tbq1glsbbn" path="res://game_objects/rooms/battle_rooms/battle_room_bg.png" id="1_nlcry"]
+[ext_resource type="Texture2D" uid="uid://c2xqbpk7fa61d" path="res://game_objects/rooms/battle_rooms/battle_bg.png" id="2_2d1ae"]
 [ext_resource type="PackedScene" uid="uid://bnca6y1kigsrx" path="res://ui/restart_screen/restart_screen.tscn" id="5_tjvym"]
 [ext_resource type="PackedScene" uid="uid://h8i61u7scjja" path="res://ui/phone/phone.tscn" id="8_0i1lv"]
 [ext_resource type="PackedScene" uid="uid://b6s25t3xxttat" path="res://game_objects/enemies/line_holder.tscn" id="8_8i71o"]
@@ -9,8 +10,15 @@
 [node name="Room" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 z_index = -10
 texture = ExtResource("1_nlcry")
+centered = false
+
+[node name="BattleBg" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(0, -10)
+texture = ExtResource("2_2d1ae")
 centered = false
 
 [node name="LineHolder" parent="." instance=ExtResource("8_8i71o")]
