@@ -80,8 +80,10 @@ func set_main_screen(panel : Control) -> void:
 		var old_panel := main_screen
 		_set_visible_panel(old_panel, false)
 		_set_visible_panel(panel, true)
-		panel_changed.emit()
 		main_screen = panel
+		panel_changed.emit()
+		while not panel_stack.is_empty():
+			pop_top_panel()
 
 
 func add_to_panel_stack(panel : Control) -> void:
