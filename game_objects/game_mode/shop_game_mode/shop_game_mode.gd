@@ -30,6 +30,7 @@ func get_shop_items() -> Array[ShopItemData]:
 
 
 func finish_room() -> void:
+	_player.shop_level += 1
 	SceneLoaderSystem.unload_room()
 
 
@@ -57,7 +58,7 @@ func _on_shop_item_selected(data : ShopItemData) -> void:
 
 
 func _on_buy() -> void:
-	_player.inventory_comp.spend_money(_selected_item.pack.get_price())
+	_player.inventory_comp.spend_money(_selected_item.pack.get_price(_player.shop_level))
 	_selected_item.is_sold_out = true
 	_player.inventory_comp.add_pack(_selected_item.pack)
 	_select_first_available_or_equip()

@@ -49,7 +49,7 @@ func get_shop_items(inventory : InventoryComp) -> Array[ItemPack]:
 		var equip := _get_equip(inventory, [])
 		if equip:
 			items.append(equip)
-	var consum := _get_consumabl(settings.max_items_in_shop - items.size())
+	var consum := _get_consumabl(settings.max_items_in_shop - items.size(), true)
 	result.append_array(consum)
 	for i in items:
 		var pack := ItemPack.new(i)
@@ -59,7 +59,7 @@ func get_shop_items(inventory : InventoryComp) -> Array[ItemPack]:
 	return result
 
 
-func _get_consumabl(count : int) -> Array[ItemPack]:
+func _get_consumabl(count : int, one_only : bool = false) -> Array[ItemPack]:
 	var result : Array[ItemPack] = []
 	var settings := SettingsManager.get_settings()
 	var weights := settings.consumabl_prob_weight.duplicate()
@@ -70,9 +70,10 @@ func _get_consumabl(count : int) -> Array[ItemPack]:
 				weights[i] = max(weights[i] - 1, 0)
 		var pack := ItemPack.new(preset)
 		pack.count = 1
-		for i in settings.max_consumabl_reward:
-			if settings.extra_consumabl_prob >= randf():
-				pack.count += 1
+		if not one_only:
+			for i in settings.max_consumabl_reward:
+				if settings.extra_consumabl_prob >= randf():
+					pack.count += 1
 		result.append(pack)
 	return result
 

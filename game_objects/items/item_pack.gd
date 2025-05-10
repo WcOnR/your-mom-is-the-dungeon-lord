@@ -7,10 +7,5 @@ func _init(preset : ItemPreset) -> void:
 	item_preset = preset
 
 
-func get_price() -> int:
-	var percent : float = 0
-	var shift : float = 1
-	for i in count:
-		percent += shift
-		shift *= 0.9
-	return floori(item_preset.price * percent)
+func get_price(level : int) -> int:
+	return floori(item_preset.price * pow(2.0, level - 1.0))

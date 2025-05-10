@@ -6,11 +6,6 @@
 custom_minimum_size = Vector2(0, 120)
 script = ExtResource("1_kjajw")
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-
 [node name="ShelfContainer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 223)

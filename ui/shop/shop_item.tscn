@@ -1,39 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://viqc2id4a1nb"]
+[gd_scene load_steps=6 format=3 uid="uid://viqc2id4a1nb"]
 
 [ext_resource type="PackedScene" uid="uid://dhv5wq4lf1ren" path="res://ui/phone/item_loot_panel/item_pack_viewer.tscn" id="1_d7npy"]
 [ext_resource type="Script" path="res://ui/shop/shop_item.gd" id="1_di36y"]
-[ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="2_xmhww"]
+[ext_resource type="Texture2D" uid="uid://dvtv7dqmlfxff" path="res://game_objects/rooms/shop_room/AlphaPatch.png" id="2_8x2fi"]
+[ext_resource type="LabelSettings" uid="uid://crgqaykk56kor" path="res://ui/themes/label_settings/shop_item_label.tres" id="4_mi8nc"]
 [ext_resource type="Texture2D" uid="uid://ghdoymobjlab" path="res://ui/widgets/hero_coin.png" id="4_pek12"]
 
 [node name="ShopItem" type="MarginContainer"]
 script = ExtResource("1_di36y")
 
-[node name="SelectedBack" type="Panel" parent="."]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ItemPackViewer" parent="VBoxContainer" instance=ExtResource("1_d7npy")]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+clip_children = 1
+z_index = -1
+layout_mode = 2
+texture = ExtResource("2_8x2fi")
+
+[node name="ItemPackViewer" parent="VBoxContainer/TextureRect" instance=ExtResource("1_d7npy")]
 unique_name_in_owner = true
 layout_mode = 2
+offset_top = 4.0
+offset_right = 118.0
+offset_bottom = 122.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
 [node name="CoinPanel" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
+z_index = 3
 layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
 
 [node name="PriceLabel" type="Label" parent="VBoxContainer/CoinPanel"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
 text = "5000"
-label_settings = ExtResource("2_xmhww")
+label_settings = ExtResource("4_mi8nc")
 horizontal_alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/CoinPanel"]
@@ -46,19 +53,13 @@ visible = false
 layout_mode = 2
 
 [node name="Offset" type="MarginContainer" parent="SoldOutPanel"]
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="SoldOutPanel"]
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="SoldOutPanel/MarginContainer"]
-layout_mode = 2
-
-[node name="SoldOutLabel" type="Label" parent="SoldOutPanel/MarginContainer"]
+[node name="SoldOutLabel" type="Label" parent="SoldOutPanel"]
 layout_mode = 2
 text = "SOLD OUT"
-label_settings = ExtResource("2_xmhww")
+label_settings = ExtResource("4_mi8nc")
 horizontal_alignment = 1
 
 [node name="SelectButton" type="Button" parent="."]

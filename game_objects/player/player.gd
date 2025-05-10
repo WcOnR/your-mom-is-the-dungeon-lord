@@ -8,6 +8,7 @@ class_name Player extends Node
 @onready var equipment_manager_comp : EquipmentManagerComp = $EquipmentManagerComp
 
 var memory : Dictionary = {}
+var shop_level : int = 1
 var _enemy : Enemy = null
 
 
