@@ -11,6 +11,7 @@ func set_phone(phone : Phone) -> void:
 	_select_first_available_or_equip()
 	var btn := _phone.get_home_btn()
 	btn.pressed.connect(finish_room)
+	btn.set_icon(1)
 	_player = get_tree().get_first_node_in_group("Player") as Player
 	_player.inventory_comp.items_changed.connect(_update_shop_view)
 	var item_loot_panel := _phone.get_item_loot_panel()

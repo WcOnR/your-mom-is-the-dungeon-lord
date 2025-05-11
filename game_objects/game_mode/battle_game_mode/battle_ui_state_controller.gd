@@ -56,18 +56,26 @@ func _on_reward_granted() -> void:
 
 
 func _update_state() -> void:
+	_state = _get_next_state()
+	if _get_next_state() == State.NEXT_ROUND:
+		_phone.get_home_btn().set_icon(1)
+
+
+func _get_next_state() -> State:
+	var new_state := State.BATTLE
 	if _state == State.BATTLE:
-		_state = State.STATISTIC
+		new_state = State.STATISTIC
 	else:
 		var has_reward := not _game_mode.get_reward().is_empty()
 		var has_equip_reward := not _game_mode.get_equip_reward().is_empty()
 		var item_next_stage := State.EQUIP if has_equip_reward else State.NEXT_ROUND
 		if _state == State.STATISTIC:
-			_state = State.ITEM if has_reward else item_next_stage
+			new_state = State.ITEM if has_reward else item_next_stage
 		elif _state == State.ITEM:
-			_state = item_next_stage
+			new_state = item_next_stage
 		elif _state == State.EQUIP:
-			_state = State.NEXT_ROUND
+			new_state = State.NEXT_ROUND
+	return new_state
 
 
 func _on_home_btn_pressed() -> void:
@@ -89,6 +97,7 @@ func _on_home_btn_pressed() -> void:
 func _update_home_btn() -> void:
 	var home_btn := _phone.get_home_btn()
 	if _state == State.BATTLE:
+		home_btn.set_icon(0)
 		if not _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
 			home_btn.set_state(HomeBtn.State.DISABLED)
 		else:

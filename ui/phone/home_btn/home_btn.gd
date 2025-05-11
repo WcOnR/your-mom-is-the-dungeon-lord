@@ -3,11 +3,16 @@ class_name HomeBtn extends TextureButton
 @export var normal_color : Color
 @export var active_color : Color
 @export var disable_color : Color
+@export var icons : Array[Texture2D] = []
 
 enum State {NORMAL, ACTIVE, DISABLED}
 
 var _state : State = State.NORMAL
 var _is_active : bool = true
+
+
+func set_icon(i : int) -> void:
+	%InfoIcon.texture = icons[i]
 
 
 func set_state(new_state : State) -> void:
@@ -30,7 +35,9 @@ func _set_state(new_state : State) -> void:
 			%RingTexture.modulate = normal_color
 		else:
 			%RingTexture.modulate = disable_color
+		%InfoIcon.visible = _state != State.DISABLED
 		disabled = _state == State.DISABLED
 	else:
+		%InfoIcon.visible = false
 		%RingTexture.modulate = disable_color
 		disabled = true

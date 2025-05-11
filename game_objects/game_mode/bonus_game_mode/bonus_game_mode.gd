@@ -25,6 +25,7 @@ func pick_up_done() -> void:
 	var btn := _phone.get_home_btn()
 	btn.set_state(HomeBtn.State.ACTIVE)
 	btn.pressed.connect(finish_room)
+	btn.set_icon(1)
 	_phone.start_show_anim()
 
 
