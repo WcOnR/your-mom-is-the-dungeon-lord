@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://h8i61u7scjja"]
+[gd_scene load_steps=19 format=3 uid="uid://h8i61u7scjja"]
 
 [ext_resource type="Texture2D" uid="uid://diuold6p66vl7" path="res://ui/phone/Phone.png" id="1_ixggs"]
 [ext_resource type="Script" path="res://ui/phone/phone.gd" id="1_rc8y6"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bwjhr3canvxqn" path="res://ui/phone/equip_loot_panel/equip_loot_panel.tscn" id="6_rt1ff"]
 [ext_resource type="PackedScene" uid="uid://dbp4qpxqek8ms" path="res://ui/phone/item_loot_panel/item_loot_panel.tscn" id="6_s0dhv"]
 [ext_resource type="PackedScene" uid="uid://bd7vaw348eqa4" path="res://ui/phone/back_button/back_button.tscn" id="7_oan2s"]
+[ext_resource type="PackedScene" uid="uid://bnca6y1kigsrx" path="res://ui/restart_screen/restart_panel.tscn" id="8_vjta8"]
 [ext_resource type="Texture2D" uid="uid://7ayfnrnlhmrc" path="res://ui/phone/menu_btn.png" id="11_8qv82"]
 [ext_resource type="Texture2D" uid="uid://713tg3ovawxk" path="res://ui/phone/menu_btn_p.png" id="12_x6uw2"]
 [ext_resource type="Texture2D" uid="uid://wfvy1pb2lb2e" path="res://ui/phone/menu_btn_h.png" id="13_apvpc"]
@@ -114,6 +115,12 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 1
+
+[node name="RestartPanel" parent="ScreenUI/GamePanels" instance=ExtResource("8_vjta8")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
 
 [node name="SettingsPanel" type="MarginContainer" parent="ScreenUI"]
 unique_name_in_owner = true

@@ -11,10 +11,14 @@ enum State {BATTLE, SHOP, BONUS}
 @onready var statistics_panel : StatisticsPanel = %StatisticsPanel
 @onready var item_loot_panel : ItemLootPanel = %ItemLootPanel
 @onready var equip_loot_panel : EquipLootPanel = %EquipLootPanel
+@onready var restart_panel : RestartPanel = %RestartPanel
 
 @onready var back_button : Button = %BackButton
 @onready var home_button : HomeBtn = %HomeBtn
 @onready var pause_button : TextureButton = %PauseBtn
+
+
+const CENTER_POS := Vector2(960, 500)
 
 
 signal panel_changed
@@ -48,6 +52,13 @@ func start_show_anim() -> void:
 	%ScreenUI.visible = true
 
 
+func move_to_center() -> void:
+	var tween := get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(self, "position", CENTER_POS, 1.0)
+
+
 func get_home_btn() -> HomeBtn:
 	return home_button
 
@@ -70,6 +81,10 @@ func get_item_loot_panel() -> ItemLootPanel:
 
 func get_equip_loot_panel() -> EquipLootPanel:
 	return equip_loot_panel
+
+
+func get_restart_panel() -> RestartPanel:
+	return restart_panel
 
 
 func set_main_screen(panel : Control) -> void:

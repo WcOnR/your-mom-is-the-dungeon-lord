@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnca6y1kigsrx"]
+
+[ext_resource type="Script" path="res://ui/restart_screen/restart_panel.gd" id="1_u6tsd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yuprc"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyoxn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hu5bh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Theme" id="Theme_prmme"]
+Button/styles/hover = SubResource("StyleBoxFlat_yuprc")
+Button/styles/normal = SubResource("StyleBoxFlat_hyoxn")
+Button/styles/pressed = SubResource("StyleBoxFlat_hu5bh")
+
+[node name="RestartScreen" type="MarginContainer"]
+offset_right = 981.0
+offset_bottom = 326.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+script = ExtResource("1_u6tsd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label1" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "YOU WON'T SAVE HER!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(748, 200)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "You won’t even save yourself..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ResetBtn" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme = SubResource("Theme_prmme")
+theme_override_font_sizes/font_size = 60
+text = "Again!"
+
+[connection signal="pressed" from="VBoxContainer/ResetBtn" to="." method="_on_button_pressed"]

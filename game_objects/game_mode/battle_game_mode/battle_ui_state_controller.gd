@@ -91,6 +91,8 @@ func _on_home_btn_pressed() -> void:
 	elif _state == State.EQUIP:
 		_show_equip()
 	elif _state == State.NEXT_ROUND:
+		var home_btn := _phone.get_home_btn()
+		home_btn.pressed.disconnect(_on_home_btn_pressed)
 		_game_mode.finish_battle(_equip_choice)
 
 

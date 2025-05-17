@@ -24,7 +24,7 @@ func pick_up_done() -> void:
 	var _phone := get_node(phone) as Phone
 	var btn := _phone.get_home_btn()
 	btn.set_state(HomeBtn.State.ACTIVE)
-	btn.pressed.connect(finish_room)
+	btn.pressed.connect(finish_room, ConnectFlags.CONNECT_ONE_SHOT)
 	btn.set_icon(1)
 	_phone.start_show_anim()
 

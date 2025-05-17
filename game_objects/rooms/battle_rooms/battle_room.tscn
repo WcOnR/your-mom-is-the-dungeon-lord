@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://6dj4su8wc8ak"]
+[gd_scene load_steps=6 format=3 uid="uid://6dj4su8wc8ak"]
 
 [ext_resource type="Texture2D" uid="uid://e3tbq1glsbbn" path="res://game_objects/rooms/battle_rooms/battle_room_bg.png" id="1_nlcry"]
 [ext_resource type="Texture2D" uid="uid://c2xqbpk7fa61d" path="res://game_objects/rooms/battle_rooms/battle_bg.png" id="2_2d1ae"]
-[ext_resource type="PackedScene" uid="uid://bnca6y1kigsrx" path="res://ui/restart_screen/restart_screen.tscn" id="5_tjvym"]
 [ext_resource type="PackedScene" uid="uid://h8i61u7scjja" path="res://ui/phone/phone.tscn" id="8_0i1lv"]
 [ext_resource type="PackedScene" uid="uid://b6s25t3xxttat" path="res://game_objects/enemies/line_holder.tscn" id="8_8i71o"]
 [ext_resource type="PackedScene" uid="uid://ycrf4vt7dlqs" path="res://game_objects/game_mode/battle_game_mode/battle_game_mode.tscn" id="8_c5vxj"]
@@ -25,12 +24,18 @@ centered = false
 position = Vector2(308, 902)
 
 [node name="GameMode" parent="." instance=ExtResource("8_c5vxj")]
-
-[node name="Phone" parent="." instance=ExtResource("8_0i1lv")]
-position = Vector2(1515, 500)
+battle_fade = NodePath("../CanvasLayer/BattleFade")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="RestartScreen" parent="CanvasLayer" instance=ExtResource("5_tjvym")]
-visible = false
-game_mode = NodePath("../../GameMode")
+[node name="BattleFade" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 0)
+z_index = -6
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Phone" parent="CanvasLayer" instance=ExtResource("8_0i1lv")]
+position = Vector2(1515, 500)

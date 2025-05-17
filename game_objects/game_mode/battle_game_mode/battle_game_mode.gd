@@ -1,6 +1,9 @@
 class_name BattleGameMode extends Node
 
 
+@export var battle_fade : NodePath
+
+
 enum State {NOT_STARTED, PLAYER_MOVE, ENEMY_MOVE, COLLECTING_REWARD, WIN, LOST}
 
 
@@ -144,6 +147,20 @@ func _end_game(is_win : bool) -> void:
 	_set_state(State.WIN if is_win else State.LOST)
 	_line_holder.all_enemy_all_dead.disconnect(_battle_end)
 	_health_comp.death.disconnect(_battle_end)
+	if is_win:
+		SceneLoaderSystem.load_win_scene()
+	else:
+		_final_screen_anim()
+
+
+func _final_screen_anim() -> void:
+	var panel := _phone.get_restart_panel()
+	_phone.set_main_screen(panel)
+	panel.end_game()
+	var fade := get_node(battle_fade) as ColorRect
+	var tween := get_tree().create_tween()
+	tween.tween_property(fade, "modulate", Color("0A0000", 1.0), 1.0)
+	_phone.move_to_center()
 
 
 func _start_round() -> void:
