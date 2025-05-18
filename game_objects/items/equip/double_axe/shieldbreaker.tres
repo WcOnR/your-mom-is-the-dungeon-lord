@@ -17,4 +17,4 @@ texture = ExtResource("4_jl4g7")
 action = SubResource("Resource_vdksi")
 item_name = "Shieldbreaker"
 item_description = "This text shouldn't be visible"
-price = 2000
+price = 3500

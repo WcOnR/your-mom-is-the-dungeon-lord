@@ -17,4 +17,4 @@ texture = ExtResource("4_7e6cp")
 action = SubResource("Resource_cb55a")
 item_name = "Axe The Sharpener"
 item_description = "This text shouldn't be visible"
-price = 2000
+price = 3500

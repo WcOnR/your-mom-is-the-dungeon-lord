@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbp4qpxqek8ms"]
+[gd_scene load_steps=7 format=3 uid="uid://dbp4qpxqek8ms"]
 
 [ext_resource type="Script" path="res://ui/phone/item_loot_panel/item_loot_panel.gd" id="1_dgjw6"]
 [ext_resource type="PackedScene" uid="uid://dhv5wq4lf1ren" path="res://ui/phone/item_loot_panel/item_pack_viewer.tscn" id="2_djxav"]
 [ext_resource type="PackedScene" uid="uid://dfy4agorh33pb" path="res://ui/widgets/equip_hint.tscn" id="3_pbwd1"]
 [ext_resource type="Texture2D" uid="uid://8kc7f1ngfdwv" path="res://ui/phone/item_loot_panel/pay_btn.png" id="4_lf5qx"]
 [ext_resource type="PackedScene" uid="uid://dhihkx5clxl6c" path="res://ui/phone/equip_btn/equip_button.tscn" id="5_jnwcp"]
+[ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="6_48087"]
 
 [node name="ItemLootPanel" type="MarginContainer"]
 offset_right = 552.0
@@ -63,18 +64,15 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-alignment = 2
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 100
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/margin_bottom = 20
-
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer2/MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="BuyButton" type="Button" parent="VBoxContainer2/MarginContainer/CenterContainer"]
+[node name="BuyButton" type="Button" parent="MarginContainer/CenterContainer"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(75, 75)
@@ -86,6 +84,7 @@ icon_alignment = 1
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 0
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
@@ -98,5 +97,32 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[connection signal="pressed" from="VBoxContainer2/MarginContainer/CenterContainer/BuyButton" to="." method="_on_buy_btn_pressed"]
+[node name="BottomPanel" type="MarginContainer" parent="VBoxContainer3"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer3/BottomPanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/BottomPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3/BottomPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer3/BottomPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CoinPanel" parent="VBoxContainer3/BottomPanel/MarginContainer/HBoxContainer" instance=ExtResource("6_48087")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/BuyButton" to="." method="_on_buy_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer3/HBoxContainer/EquipButton" to="." method="_on_equip_button_pressed"]

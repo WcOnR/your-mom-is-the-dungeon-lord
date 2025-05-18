@@ -4,6 +4,10 @@ class_name Enemy extends Node2D
 @onready var attack_comp : AttackComp = $AttackComp
 @export var attack_anim : Curve
 
+
+signal start_action
+
+
 var enemy_data : EnemyData = null
 var next_action : Action = null
 var breath_anim_obj : AnimObject = null
@@ -58,6 +62,7 @@ func attack(player : Player):
 		_paralyze = false
 		return
 	await next_action.run(ON_PRE_ACTION, [self, player])
+	start_action.emit()
 	var anim := AnimObject.new(self, _attack_anim, attack_anim, 0.4)
 	AnimManagerSystem.start_anim(anim)
 	await anim.anim_finished

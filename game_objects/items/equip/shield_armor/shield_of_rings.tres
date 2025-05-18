@@ -17,4 +17,4 @@ texture = ExtResource("4_y6im1")
 action = SubResource("Resource_kq5hk")
 item_name = "Shield of Rings"
 item_description = "This text shouldn't be visible"
-price = 2000
+price = 3500

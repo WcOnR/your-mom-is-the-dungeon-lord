@@ -12,6 +12,9 @@ signal health_changed
 signal max_health_changed
 signal shield_changed(bool)
 signal death
+signal shield_cap
+signal heal_cap
+signal damage_cap
 
 
 func is_dead() -> bool:
@@ -23,11 +26,15 @@ func add_shield(points : int) -> void:
 		return
 	shield += points
 	shield = mini(shield, MAX_DAMAGE)
+	if points >= MAX_DAMAGE:
+		shield_cap.emit()
 	shield_changed.emit()
 
 
 func apply_heal(heal : int) -> void:
 	var new_heal := mini(heal, MAX_DAMAGE)
+	if heal >= MAX_DAMAGE:
+		heal_cap.emit()
 	_set_health(health + new_heal)
 
 
@@ -35,6 +42,8 @@ func apply_damage(damage : int, ignore_damage_cap : bool = false) -> int:
 	var new_damage := damage
 	if not ignore_damage_cap:
 		new_damage = mini(damage, MAX_DAMAGE)
+	if new_damage >= MAX_DAMAGE:
+		damage_cap.emit()
 	new_damage = _absorb_damage(new_damage)
 	var old_health := health
 	_set_health(health - new_damage)
@@ -73,5 +82,5 @@ func _set_health(new_health : int) -> void:
 		return
 	health_changed.emit()
 	if health <= 0:
-		_is_dead = false
+		_is_dead = true
 		death.emit()

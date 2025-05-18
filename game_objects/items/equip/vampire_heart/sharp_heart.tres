@@ -19,4 +19,4 @@ texture = ExtResource("6_c6h3j")
 action = SubResource("Resource_bubb6")
 item_name = "Sharp Heart"
 item_description = "This text shouldn't be visible"
-price = 2000
+price = 3500

@@ -1,26 +1,50 @@
 class_name RewardCalculator extends Node
 
 
-func get_statistics(battle : BattlePreset) -> Array[StatisticsInfo]:
+func get_statistics(battle : BattlePreset, events : Dictionary) -> Array:
 	var map : Dictionary = {}
 	var result : Array[StatisticsInfo]
+	var sum := 0
 	if battle:
-		for enemy in battle.line1:
-			var has : int = map[enemy] if enemy in map else 0
-			map[enemy] = has + 1
-		for enemy in battle.line2:
-			var has : int = map[enemy] if enemy in map else 0
-			map[enemy] = has + 1
-		for enemy in battle.line3:
-			var has : int = map[enemy] if enemy in map else 0
-			map[enemy] = has + 1
+		var lines := battle.get_lines()
+		for line in lines:
+			for enemy in line:
+				var has : int = map[enemy] if enemy in map else 0
+				map[enemy] = has + 1
 		for enemy in map.keys():
 			var info := StatisticsInfo.new()
-			info.name = "Killed %s" % enemy.name
+			info.name = "%s was killed" % enemy.name
 			info.count = map[enemy]
 			info.score = enemy.reward * info.count
+			sum += info.score
 			result.append(info)
-	return result
+		
+		var bonus_price := {BattleGameMode.IN_ONE_HIT : ["Decisive Thrust", 100],
+		BattleGameMode.IN_SELF_HIT : ["I didn\'t do that", 500],
+		BattleGameMode.HEALCAP : ["Overheal", 300],
+		BattleGameMode.ATTACKCAP : ["Powerful Strike", 300],
+		BattleGameMode.SHIELDCAP : ["Invincible", 300],
+		BattleGameMode.SKULLCAP : ["I did survive this!", 750]}
+		for key in bonus_price.keys():
+			if key in events and events[key] > 0:
+				var info := StatisticsInfo.new()
+				info.name = "\"%s\"" % bonus_price[key][0]
+				info.count = events[key]
+				info.score = bonus_price[key][1] * info.count
+				sum += info.score
+				result.append(info)
+		
+		var bonus_mult := {BattleGameMode.FLAWLESS_VICTORY : ["Untouchable", 2],
+		BattleGameMode.IN_ONE_TURN : ["They Didn\'t Saw It Coming", 2]}
+		for key in bonus_mult.keys():
+			if key in events:
+				var info := StatisticsInfo.new()
+				info.name = "\"%s\"" % bonus_mult[key][0]
+				info.is_multiplayer = true
+				info.count = bonus_mult[key][1]
+				sum = sum * info.count
+				result.append(info)
+	return [sum, result]
 
 
 func get_rewards() -> Array[ItemPack]:

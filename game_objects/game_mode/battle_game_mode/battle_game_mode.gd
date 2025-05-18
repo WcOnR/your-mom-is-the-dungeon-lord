@@ -16,12 +16,23 @@ var _state : State = State.NOT_STARTED
 var _preset : BattlePreset = null
 var _is_elite_battle := false
 var _phone : Phone = null
+var _events : Dictionary = {}
 
 var _reward : Array[ItemPack] = []
 var _statistics : Array[StatisticsInfo] = []
+var _total_score : int = 0
 var _equip_reward : Array[ItemPreset] = []
 
 const EXTRA_TURNS : int = 2
+
+const IN_ONE_TURN : StringName = "in_one_turn"
+const IN_ONE_HIT : StringName = "in_one_hit"
+const IN_SELF_HIT : StringName = "in_self_hit"
+const HEALCAP : StringName = "healcap"
+const ATTACKCAP : StringName = "attackcap"
+const SHIELDCAP : StringName = "shieldcap"
+const SKULLCAP : StringName = "skullcap"
+const FLAWLESS_VICTORY : StringName = "flawless_victory"
 
 signal state_changed
 signal turn_changed
@@ -69,10 +80,20 @@ func start_battle(preset : BattlePreset, is_elite : bool) -> void:
 	_player.equipment_manager_comp.set_game_mode(self)
 	_health_comp = _player.get_node("HealthComp") as HealthComp
 	_health_comp._drop_shield()
+	_health_comp.health_changed.connect(_on_player_health_changed)
+	_health_comp.heal_cap.connect(_add_overhit.bind(HEALCAP))
+	_health_comp.shield_cap.connect(_add_overhit.bind(SHIELDCAP))
+	_health_comp.damage_cap.connect(_add_overhit.bind(SKULLCAP))
 	_line_holder.spawn_enemies(preset)
+	for line in _line_holder.lines:
+		for enemy in line.enemies:
+			enemy.health_comp.damage_cap.connect(_add_overhit.bind(ATTACKCAP))
 	_line_holder.all_enemy_all_dead.connect(_battle_end.bind(true))
 	_health_comp.death.connect(_battle_end.bind(false))
 	_field.action_clicked.connect(_next_turn)
+	_events[FLAWLESS_VICTORY] = _health_comp.health
+	_events[IN_ONE_TURN] = null
+	_events[IN_SELF_HIT] = 0
 	battle_started.emit()
 	_start_round()
 
@@ -80,6 +101,8 @@ func start_battle(preset : BattlePreset, is_elite : bool) -> void:
 func finish_round() -> void:
 	if is_state(State.ENEMY_MOVE):
 		return
+	if IN_ONE_TURN in _events:
+		_events.erase(IN_ONE_TURN)
 	_set_state(State.ENEMY_MOVE)
 	if not _field.grid.is_idle():
 		await _field.grid.grid_idle
@@ -105,10 +128,6 @@ func is_state(state : State) -> bool:
 
 func finish_battle(equip_choice : ItemPreset) -> void:
 	if is_state(State.COLLECTING_REWARD):
-		var sum := 0
-		for s in _statistics:
-			sum += s.score * s.count
-		_player.inventory_comp.add_currency(sum)
 		for r in _reward:
 			_player.inventory_comp.add_pack(r)
 		if equip_choice:
@@ -120,12 +139,30 @@ func get_statistics() -> Array[StatisticsInfo]:
 	return _statistics
 
 
+func get_total_score() -> int:
+	return _total_score
+
+
 func get_reward() -> Array[ItemPack]:
 	return _reward
 
 
 func get_equip_reward() -> Array[ItemPreset]:
 	return _equip_reward
+
+
+func collect_statistics() -> void:
+	_player.inventory_comp.add_currency(_total_score)
+
+
+func add_self_killed_enemy() -> void:
+	_events[IN_SELF_HIT] = _events[IN_SELF_HIT] + 1
+
+
+func _add_overhit(overhit : StringName) -> void:
+	if not overhit in _events:
+		_events[overhit] = 0
+	_events[overhit] = _events[overhit] + 1
 
 
 func _set_state(new_state : State) -> void:
@@ -137,6 +174,7 @@ func _set_state(new_state : State) -> void:
 
 func _battle_end(is_win : bool) -> void:
 	_player.equipment_manager_comp.set_game_mode(null)
+	_events[IN_ONE_HIT] = _line_holder.get_wasnt_move_enemies()
 	if is_win:
 		_on_win()
 	else:
@@ -177,6 +215,14 @@ func _end_round() -> void:
 	pass
 
 
+func _on_player_health_changed() -> void:
+	if FLAWLESS_VICTORY in _events:
+		if _events[FLAWLESS_VICTORY] <= _health_comp.health:
+			_events[FLAWLESS_VICTORY] = _health_comp.health
+		else:
+			_events.erase(FLAWLESS_VICTORY)
+
+
 func _next_turn() -> void:
 	_turns_left -= 1
 	turn_changed.emit()
@@ -203,7 +249,9 @@ func _on_lost() -> void:
 
 func _prepare_reward() -> void:
 	_set_state(State.COLLECTING_REWARD)
-	_statistics = $RewardCalculator.get_statistics(_preset)
+	var stat = $RewardCalculator.get_statistics(_preset, _events)
+	_total_score = stat[0]
+	_statistics = stat[1]
 	_reward = $RewardCalculator.get_rewards()
 	if _is_elite_battle:
 		_equip_reward = $RewardCalculator.get_equip_choice(_player.inventory_comp)

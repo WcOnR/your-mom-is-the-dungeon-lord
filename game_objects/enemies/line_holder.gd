@@ -8,6 +8,7 @@ var selected_line : int = -1
 var _active_lines_count : int = 0
 var _player : Player = null
 var _game_mode : BattleGameMode = null
+var _wasnt_move : Dictionary = {}
 
 
 func _ready() -> void:
@@ -27,6 +28,9 @@ func spawn_enemies(battle : BattlePreset) -> void:
 	while i < lines.size():
 		lines[i].set_enemies(enemy_data[i])
 		lines[i].enemy_dead.connect(_on_enemy_dead)
+		for enemy in lines[i].enemies:
+			_wasnt_move[enemy] = null
+			enemy.start_action.connect(_on_first_enemy_move.bind(enemy))
 		i += 1
 	_select_next_line()
 	_update_active_lines()
@@ -54,9 +58,17 @@ func get_active_lines_count() -> int:
 	return i
 
 
+func get_wasnt_move_enemies() -> int:
+	return _wasnt_move.keys().size()
+
+
 func _on_game_mode_state_changed() -> void:
 	if _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
 		_plan_next_enemy_attack()
+
+
+func _on_first_enemy_move(enemy : Enemy) -> void:
+	_wasnt_move.erase(enemy)
 
 
 func _select_next_line() -> void:
@@ -123,6 +135,8 @@ func enemy_attack() -> void:
 	for l in lines:
 		if not l.enemies.is_empty():
 			await l.enemies[0].attack(_player)
+			if l.enemies[0].health_comp.is_dead():
+				_game_mode.add_self_killed_enemy()
 	await get_tree().process_frame
 
 

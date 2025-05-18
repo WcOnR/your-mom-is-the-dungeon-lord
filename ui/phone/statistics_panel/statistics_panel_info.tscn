@@ -3,28 +3,48 @@
 [ext_resource type="Script" path="res://ui/phone/statistics_panel/statistics_panel_info.gd" id="1_kpgxy"]
 [ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="1_ykx07"]
 
-[node name="StatisticsPanelInfo" type="HBoxContainer"]
+[node name="StatisticsPanelInfo" type="MarginContainer"]
+offset_right = 221.0
+offset_bottom = 28.0
 script = ExtResource("1_kpgxy")
 
-[node name="Name" type="Label" parent="."]
+[node name="BgPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Killed Goblin"
 label_settings = ExtResource("1_ykx07")
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(10, 0)
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 
-[node name="Multiplier" type="Label" parent="."]
+[node name="Multiplier" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "x3"
 label_settings = ExtResource("1_ykx07")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Coins" type="Label" parent="."]
+[node name="Coins" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "200 H"
 label_settings = ExtResource("1_ykx07")

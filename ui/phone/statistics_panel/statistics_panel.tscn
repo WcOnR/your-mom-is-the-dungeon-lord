@@ -1,8 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://s8pd43t32c5v"]
+[gd_scene load_steps=9 format=3 uid="uid://s8pd43t32c5v"]
 
 [ext_resource type="Script" path="res://ui/phone/statistics_panel/statistics_panel.gd" id="1_gbugr"]
-[ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="1_mxavn"]
 [ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="2_3g1fb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pda3l"]
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hfyo2"]
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c5daj"]
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33f7t"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.9, 0.9, 0.9, 0.588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4w23"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.588235)
+
+[sub_resource type="Theme" id="Theme_b47d4"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_33f7t")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_33f7t")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_33f7t")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_m4w23")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_m4w23")
 
 [node name="StatisticsPanel" type="MarginContainer"]
 offset_right = 72.0
@@ -15,29 +50,83 @@ script = ExtResource("1_gbugr")
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 300)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 875)
 layout_mode = 2
-text = "RESULT"
-label_settings = ExtResource("1_mxavn")
-horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer3"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2/MarginContainer"]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+
+[node name="TotalHolder" type="MarginContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
 
-[node name="InfoContainer" type="VBoxContainer" parent="VBoxContainer2/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2/MarginContainer/TotalHolder"]
+layout_mode = 2
+
+[node name="Total" type="Label" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2/MarginContainer/TotalHolder/HBoxContainer"]
+layout_mode = 2
+text = "Total"
+label_settings = SubResource("LabelSettings_pda3l")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2/MarginContainer/TotalHolder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TotalAmount" type="Label" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2/MarginContainer/TotalHolder/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "500 H"
+label_settings = SubResource("LabelSettings_hfyo2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "BATTLE STATISTIC"
+label_settings = SubResource("LabelSettings_c5daj")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 88
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 10
+theme = SubResource("Theme_b47d4")
+horizontal_scroll_mode = 0
+
+[node name="InfoContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2"]
 layout_mode = 2

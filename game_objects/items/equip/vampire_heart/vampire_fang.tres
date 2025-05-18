@@ -17,4 +17,4 @@ texture = ExtResource("4_fa6qh")
 action = SubResource("Resource_6fd34")
 item_name = "Vampire Fang"
 item_description = "This text shouldn't be visible"
-price = 2000
+price = 3500

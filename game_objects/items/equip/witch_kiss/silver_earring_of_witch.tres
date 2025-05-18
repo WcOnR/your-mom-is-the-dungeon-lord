@@ -17,4 +17,4 @@ texture = ExtResource("4_rtiy6")
 action = SubResource("Resource_2roxf")
 item_name = "Silver Earring of Witch"
 item_description = "This text shouldn't be visible"
-price = 2000
+price = 3500

@@ -23,7 +23,7 @@ func _show_statistics() -> void:
 	var statistics_panel := _phone.get_statistics_panel()
 	_phone.set_main_screen(statistics_panel)
 	var _player = get_tree().get_first_node_in_group("Player") as Player
-	statistics_panel.show_info(_game_mode.get_statistics(), _player.inventory_comp)
+	statistics_panel.show_info(_game_mode.get_statistics(), _game_mode.get_total_score(), _player.inventory_comp)
 	_update_home_btn()
 
 
@@ -82,6 +82,8 @@ func _on_home_btn_pressed() -> void:
 	if _state == State.BATTLE:
 		_game_mode.finish_round()
 		return
+	if _state == State.STATISTIC:
+		_game_mode.collect_statistics()
 	if _state == State.EQUIP:
 		var equip_loot_panel := _phone.get_equip_loot_panel()
 		_equip_choice = equip_loot_panel.get_selected_equip()
