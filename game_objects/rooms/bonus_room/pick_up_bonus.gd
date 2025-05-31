@@ -2,6 +2,7 @@ class_name PickUpBonus extends Area2D
 
 @export var game_mode : NodePath
 @export var bonus : NodePath
+@export var pick_up_sound : AudioData = null
 
 var _game_mode : BonusGameMode = null
 var _is_enabled := true
@@ -14,9 +15,11 @@ func _ready() -> void:
 
 func _on_click_action(_data : ClickData) -> void:
 	if _is_enabled and _is_click_on_me(_data):
-		_game_mode.pick_up_done()
+		SoundSystem.play_sound(pick_up_sound)
 		get_node(bonus).visible = false
 		_is_enabled = false
+		await get_tree().create_timer(0.5).timeout
+		_game_mode.pick_up_done()
 
 
 func _is_click_on_me(_data : ClickData) -> bool:

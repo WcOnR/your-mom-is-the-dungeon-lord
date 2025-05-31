@@ -41,7 +41,6 @@ mouse_filter = 1
 
 [node name="TextureRect" parent="ItemViewer" index="0"]
 custom_minimum_size = Vector2(75, 75)
-expand_mode = 1
 
 [node name="CountLabel" type="Label" parent="ItemViewer"]
 layout_mode = 0

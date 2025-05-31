@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3 uid="uid://dx31823ylxmtu"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=10 format=3 uid="uid://dx31823ylxmtu"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_vtgig"]
 [ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_epit8"]
@@ -6,6 +6,14 @@
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_b20iu"]
 [ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="3_cvgwx"]
 [ext_resource type="Texture2D" uid="uid://b47p3typgx782" path="res://game_objects/enemies/seeker/Seeker.png" id="4_7247r"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="5_mmnk4"]
+[ext_resource type="AudioStream" uid="uid://b47i8v2qnfhh" path="res://sounds/seeker_hit.wav" id="6_ag6mp"]
+
+[sub_resource type="Resource" id="Resource_5jgca"]
+script = ExtResource("5_mmnk4")
+stream = ExtResource("6_ag6mp")
+volume_db = -15.0
+pitch_scale = 1.0
 
 [resource]
 script = ExtResource("3_b20iu")
@@ -16,3 +24,4 @@ reward = 100
 actions = Array[ExtResource("1_vtgig")]([ExtResource("2_ohyhq"), ExtResource("2_epit8")])
 behavior = ExtResource("3_cvgwx")
 texture = ExtResource("4_7247r")
+hit_sound = SubResource("Resource_5jgca")

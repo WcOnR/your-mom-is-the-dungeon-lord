@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbp4qpxqek8ms"]
+[gd_scene load_steps=10 format=3 uid="uid://dbp4qpxqek8ms"]
 
 [ext_resource type="Script" path="res://ui/phone/item_loot_panel/item_loot_panel.gd" id="1_dgjw6"]
 [ext_resource type="PackedScene" uid="uid://dhv5wq4lf1ren" path="res://ui/phone/item_loot_panel/item_pack_viewer.tscn" id="2_djxav"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="2_htox6"]
+[ext_resource type="AudioStream" uid="uid://b51isahurgs2x" path="res://sounds/184438__capslok__cash-register-fake.wav" id="3_pahpa"]
 [ext_resource type="PackedScene" uid="uid://dfy4agorh33pb" path="res://ui/widgets/equip_hint.tscn" id="3_pbwd1"]
 [ext_resource type="Texture2D" uid="uid://8kc7f1ngfdwv" path="res://ui/phone/item_loot_panel/pay_btn.png" id="4_lf5qx"]
 [ext_resource type="PackedScene" uid="uid://dhihkx5clxl6c" path="res://ui/phone/equip_btn/equip_button.tscn" id="5_jnwcp"]
 [ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="6_48087"]
+
+[sub_resource type="Resource" id="Resource_5f71s"]
+script = ExtResource("2_htox6")
+stream = ExtResource("3_pahpa")
+volume_db = -15.0
+pitch_scale = 1.0
 
 [node name="ItemLootPanel" type="MarginContainer"]
 offset_right = 552.0
@@ -13,6 +21,7 @@ offset_bottom = 337.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_dgjw6")
+buy_sound = SubResource("Resource_5f71s")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2

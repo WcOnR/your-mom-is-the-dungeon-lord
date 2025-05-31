@@ -2,6 +2,7 @@ class_name BattleGameMode extends Node
 
 
 @export var battle_fade : NodePath
+@export var ambient_sound : AudioData = null
 
 
 enum State {NOT_STARTED, PLAYER_MOVE, ENEMY_MOVE, COLLECTING_REWARD, WIN, LOST}
@@ -192,9 +193,10 @@ func _end_game(is_win : bool) -> void:
 
 
 func _final_screen_anim() -> void:
+	var player := SoundSystem.play_sound(ambient_sound)
 	var panel := _phone.get_restart_panel()
 	_phone.set_main_screen(panel)
-	panel.end_game()
+	panel.end_game(player)
 	var fade := get_node(battle_fade) as ColorRect
 	var tween := get_tree().create_tween()
 	tween.tween_property(fade, "modulate", Color("0A0000", 1.0), 1.0)

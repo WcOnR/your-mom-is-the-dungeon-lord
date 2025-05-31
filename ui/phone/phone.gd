@@ -38,6 +38,7 @@ func _ready() -> void:
 	else:
 		position = position + Vector2(50, 400)
 		start_show_anim()
+	GameInputManagerSystem.on_click_start.connect(_on_click_action)
 
 
 func start_show_anim() -> void:
@@ -60,7 +61,7 @@ func move_to_center() -> void:
 
 
 func get_home_btn() -> HomeBtn:
-	return home_button
+	return %HomeBtn
 
 
 func get_equipment_panel() -> EquipmentPanel:
@@ -138,12 +139,23 @@ func _set_visible_panel(panel : Control, vis : bool) -> void:
 		battle_hub.enable_input(vis)
 
 
+func _on_click_action(data : ClickData) -> void:
+	var screen_rect : Rect2 = %ScreenUI.get_rect()
+	screen_rect.position = screen_rect.position + global_position
+	if screen_rect.intersects(Rect2(data.start_position, Vector2.ONE)):
+		var tap := SettingsManager.get_settings().sounds.tap
+		SoundSystem.play_sound(tap)
+
+
 func _on_back_button_pressed() -> void:
 	pop_top_panel()
 
 
 func _on_pause_button_pressed() -> void:
+	var click := SettingsManager.get_settings().sounds.click
+	SoundSystem.play_sound(click)
 	if not panel_stack.is_empty() and panel_stack[-1] == settings_panel:
+		pop_top_panel()
 		return
 	add_to_panel_stack(settings_panel)
 

@@ -16,7 +16,7 @@ centered = false
 
 [node name="BattleBg" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(0, -10)
+position = Vector2(-10, -10)
 texture = ExtResource("2_2d1ae")
 centered = false
 

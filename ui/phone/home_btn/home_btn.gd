@@ -41,3 +41,8 @@ func _set_state(new_state : State) -> void:
 		%InfoIcon.visible = false
 		%RingTexture.modulate = disable_color
 		disabled = true
+
+
+func _on_pressed() -> void:
+	var click := SettingsManager.get_settings().sounds.click
+	SoundSystem.play_sound(click)

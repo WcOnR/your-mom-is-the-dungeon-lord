@@ -39,6 +39,8 @@ func _on_equip_pick(picker : EquipPicker) -> void:
 	picker.set_selection(true)
 	_selected_equip = picker.get_item()
 	%EquipHint.set_equip(ItemPack.new(_selected_equip), true)
+	var selection := SettingsManager.get_settings().sounds.selection
+	SoundSystem.play_sound(selection)
 	selection_changed.emit()
 
 

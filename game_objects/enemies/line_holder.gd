@@ -91,6 +91,9 @@ func _selct_line(line : BattleLine) -> void:
 		var i := 0
 		while i < lines.size():
 			if lines[i] == line:
+				if selected_line != -1 and selected_line != i:
+					var selection := SettingsManager.get_settings().sounds.selection
+					SoundSystem.play_sound(selection)
 				selected_line = i
 				break
 			i += 1
@@ -134,6 +137,7 @@ func _update_active_lines() -> void:
 func enemy_attack() -> void:
 	for l in lines:
 		if not l.enemies.is_empty():
+			await get_tree().create_timer(0.2).timeout
 			await l.enemies[0].attack(_player)
 			if l.enemies[0].health_comp.is_dead():
 				_game_mode.add_self_killed_enemy()

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=9 format=3 uid="uid://5qtmryjtf2th"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=12 format=3 uid="uid://5qtmryjtf2th"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_b0kes"]
 [ext_resource type="Resource" uid="uid://dxrwpj0m8ik8m" path="res://game_objects/enemies/combat_actions/max_attack_cluster_action.tres" id="2_t5tu2"]
@@ -7,11 +7,19 @@
 [ext_resource type="Script" path="res://behaviors/random_weigth_action.gd" id="4_4o84x"]
 [ext_resource type="Texture2D" uid="uid://t266fu32e33y" path="res://game_objects/enemies/elf/elf.png" id="4_8utk1"]
 [ext_resource type="Script" path="res://game_systems/ai_behavior.gd" id="5_bwelx"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="6_xwksj"]
+[ext_resource type="AudioStream" uid="uid://d3e3teji13g0y" path="res://sounds/elf_hit.wav" id="7_u5qym"]
 
 [sub_resource type="Resource" id="Resource_5qeuo"]
 script = ExtResource("5_bwelx")
 behavior = ExtResource("4_4o84x")
 args = [3, 1]
+
+[sub_resource type="Resource" id="Resource_xk3uh"]
+script = ExtResource("6_xwksj")
+stream = ExtResource("7_u5qym")
+volume_db = -10.0
+pitch_scale = 1.0
 
 [resource]
 script = ExtResource("3_vfbhx")
@@ -22,3 +30,4 @@ reward = 150
 actions = Array[ExtResource("1_b0kes")]([ExtResource("2_t5tu2"), ExtResource("3_c7dhm")])
 behavior = SubResource("Resource_5qeuo")
 texture = ExtResource("4_8utk1")
+hit_sound = SubResource("Resource_xk3uh")

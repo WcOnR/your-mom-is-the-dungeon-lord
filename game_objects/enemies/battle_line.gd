@@ -13,7 +13,7 @@ const ENEMY_OFFSET_X := 55.0
 const ENEMY_OFFSET_SCALE := 0.12
 
 var enemies : Array[Enemy] = []
-var _move_in_front_anims : Array[AnimObject] = []
+var _move_in_front_anims : Array[Tween] = []
 var _id : int = -1
 
 
@@ -53,10 +53,9 @@ func get_id() -> int:
 
 func _on_enemy_death() -> void:
 	await _remove_front_enemy()
-	for a in _move_in_front_anims:
-		AnimManagerSystem.drop_anim(a)
+	for t in _move_in_front_anims:
+		t.kill()
 	_move_in_front_anims.clear()
-	var anim_curve := AnimManagerSystem.get_curve("easeInOut")
 	var i := 0
 	while i < enemies.size():
 		var enemy := enemies[i]
@@ -65,11 +64,13 @@ func _on_enemy_death() -> void:
 			pos.x = 0
 		pos.y = _get_enemy_offset_y(i)
 		var params := [enemy, enemy.position, enemy.scale, pos, _get_enemy_offset_scale(i)]
-		var anim := AnimObject.new(enemy, _move_in_front.bindv(params), anim_curve, 0.25)
-		_move_in_front_anims.append(anim)
+		var tween := enemy.create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.tween_interval(i * 0.25)
+		tween.tween_method(_move_in_front.bindv(params), 0.0, 1.0, 0.25)
+		_move_in_front_anims.append(tween)
 		enemy.set_in_shadow(i != 0)
 		i += 1
-	AnimManagerSystem.start_anim_queue(_move_in_front_anims)
 	enemy_dead.emit()
 	_update_health_label()
 

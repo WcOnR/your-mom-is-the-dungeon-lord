@@ -2,7 +2,9 @@ class_name Enemy extends Node2D
 
 @onready var health_comp : HealthComp = $HealthComp
 @onready var attack_comp : AttackComp = $AttackComp
+@onready var highlight : Node2D = %Highlight
 @export var attack_anim : Curve
+@export var attack_sound : AudioData = null
 
 
 signal start_action
@@ -10,10 +12,12 @@ signal start_action
 
 var enemy_data : EnemyData = null
 var next_action : Action = null
-var breath_anim_obj : AnimObject = null
+var breath_anim : Tween = null
 var memory : Dictionary = {}
 var _paralyze := false
 var _invalid := false
+var _id_anim_offset := 0.0
+var _last_health := 0.0
 
 const ON_PLAN : StringName = "on_plan"
 const ON_PRE_ACTION : StringName = "on_pre_action"
@@ -26,21 +30,24 @@ const ICON : Texture2D = preload("res://ui/action_icons/disoriented.png")
 func initialize(data : EnemyData) -> void:
 	health_comp.health = data.max_health
 	health_comp.max_health = data.max_health
+	_last_health = data.max_health
+	health_comp.health_changed.connect(_health_changed)
 	var player := get_tree().get_first_node_in_group("Player") as Player
 	attack_comp.set_target(player.health_comp)
 	if data.texture:
 		$Icon.texture = data.texture
 	enemy_data = data
-	var sin_curve := AnimManagerSystem.get_curve("sin")
-	breath_anim_obj = AnimObject.new(self, _breath_anim, sin_curve, 1.0)
-	breath_anim_obj.set_loop(true, randf())
-	breath_anim_obj.set_pause(true)
-	AnimManagerSystem.start_anim(breath_anim_obj)
+	breath_anim = create_tween().set_loops()
+	breath_anim.tween_method(_breath_anim, 0.0, TAU, 1.5)
+	_id_anim_offset = randf_range(0.0, TAU)
 
 
 func set_in_shadow(in_shadow : bool) -> void:
 	$Icon.self_modulate = Color.DIM_GRAY if in_shadow else Color.WHITE
-	breath_anim_obj.set_pause(in_shadow)
+	if in_shadow:
+		breath_anim.pause()
+	else:
+		breath_anim.play()
 
 
 func set_paralyze() -> void:
@@ -63,18 +70,22 @@ func attack(player : Player):
 		return
 	await next_action.run(ON_PRE_ACTION, [self, player])
 	start_action.emit()
-	var anim := AnimObject.new(self, _attack_anim, attack_anim, 0.4)
-	AnimManagerSystem.start_anim(anim)
-	await anim.anim_finished
+	var tween := create_tween()
+	tween.tween_method(_attack_anim, 0.0, 1.0, 0.4)
+	SoundSystem.play_sound(attack_sound)
+	await tween.finished
+	var camera := get_tree().get_first_node_in_group("Camera") as GameCamera
+	camera.screen_shake(5.0, 0.1)
 	await next_action.run(ON_ACTION, [self, player])
 
 
 func on_destroy() -> void:
 	_clear_actions()
 	_invalid = true
-	var anim := AnimObject.new(self, _destroy_anim, AnimManagerSystem.get_curve("easeIn"), 0.1)
-	AnimManagerSystem.start_anim(anim)
-	await anim.anim_finished
+	var tween := get_tree().create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_method(_destroy_anim, 0.0, 1.0, 0.1)
+	await tween.finished
 
 
 func is_invalid() -> bool:
@@ -87,13 +98,29 @@ func _clear_actions() -> void:
 	next_action.run(ON_DEATH, [self])
 
 
+func _health_changed() -> void:
+	if _last_health > health_comp.health:
+		var tween := create_tween()
+		tween.tween_property(highlight, "modulate:a", 0.75, 0.01)
+		tween.parallel().tween_property($Icon, "scale:x", 0.9, 0.01)
+		tween.tween_interval(0.19)
+		tween.tween_property(highlight, "modulate:a", 0.0, 0.1)
+		tween.parallel().tween_property($Icon, "scale:x", 1.0, 0.1)
+		var camera := get_tree().get_first_node_in_group("Camera") as GameCamera
+		var intencity := 10.0 if _last_health - health_comp.health > 75.0 else 5.0
+		camera.screen_shake(intencity, 0.1)
+		if enemy_data.hit_sound:
+			SoundSystem.play_sound(enemy_data.hit_sound)
+	_last_health = health_comp.health
+
+
 func _destroy_anim(t : float) -> void:
 	$Icon.modulate = lerp(Color.WHITE, Color(Color.BLACK, 0.0), t)
 
 
 func _attack_anim(t : float) -> void:
-	$Icon.position.y = t * ATTACK_ANIM_OFFSET
+	$Icon.position.y = attack_anim.sample(t) * ATTACK_ANIM_OFFSET
 
 
 func _breath_anim(t : float) -> void:
-	$Icon.scale.y = 1.0 - (t - 0.5) * 0.02
+	$Icon.scale.y = 1.0 - sin(t + _id_anim_offset) * 0.01

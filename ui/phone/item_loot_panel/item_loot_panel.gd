@@ -1,5 +1,7 @@
 class_name ItemLootPanel extends Control
 
+@export var buy_sound : AudioData = null
+
 
 @onready var viewer_scene : PackedScene = preload("res://ui/phone/item_loot_panel/item_pack_viewer.tscn")
 @onready var viewer : ItemPackViewer = %ItemPackViewer
@@ -35,6 +37,7 @@ func show_buy_btn(_show : bool) -> void:
 
 
 func _on_buy_btn_pressed() -> void:
+	SoundSystem.play_sound(buy_sound)
 	buy_btn_pressed.emit()
 
 

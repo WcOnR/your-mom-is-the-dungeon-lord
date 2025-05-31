@@ -25,5 +25,4 @@ layout_mode = 2
 
 [node name="ActionUi" parent="Container2/MarginContainer2" instance=ExtResource("3_gf4pf")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2

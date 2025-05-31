@@ -1,15 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://cngk0jbsbhyq4"]
+[gd_scene load_steps=10 format=3 uid="uid://cngk0jbsbhyq4"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/enemy.gd" id="1_kg5c5"]
 [ext_resource type="Texture2D" uid="uid://clu42wvapdk0a" path="res://game_objects/enemies/shadow.png" id="2_3c58y"]
 [ext_resource type="Curve" uid="uid://d4ji2iubyevf5" path="res://game_objects/enemies/anticipation_hit.tres" id="2_olmw3"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="3_4xukv"]
 [ext_resource type="Texture2D" uid="uid://biho8t3sj7v14" path="res://icon.svg" id="3_e8gr2"]
 [ext_resource type="PackedScene" uid="uid://c41vwc138rmsh" path="res://game_objects/components/health_comp.tscn" id="3_wio6r"]
+[ext_resource type="AudioStream" uid="uid://c7u1dcgk0qh12" path="res://sounds/impact_hit.wav" id="4_qdip4"]
 [ext_resource type="PackedScene" uid="uid://butqodtuat2xq" path="res://game_objects/components/attack_comp.tscn" id="6_o83wa"]
+
+[sub_resource type="Resource" id="Resource_4hwsm"]
+script = ExtResource("3_4xukv")
+stream = ExtResource("4_qdip4")
+volume_db = 0.0
+pitch_scale = 1.0
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_kg5c5")
 attack_anim = ExtResource("2_olmw3")
+attack_sound = SubResource("Resource_4hwsm")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.392157)
@@ -18,8 +27,15 @@ texture = ExtResource("2_3c58y")
 offset = Vector2(0, -20)
 
 [node name="Icon" type="Sprite2D" parent="."]
+clip_children = 2
 texture = ExtResource("3_e8gr2")
 offset = Vector2(0, -275)
+
+[node name="Highlight" type="Polygon2D" parent="Icon"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-207, -550)
+polygon = PackedVector2Array(0, 0, 414, 0, 414, 550, 0, 550)
 
 [node name="HealthComp" parent="." instance=ExtResource("3_wio6r")]
 

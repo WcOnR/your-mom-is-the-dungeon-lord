@@ -19,6 +19,8 @@ class_name GameSettings extends Resource
 
 @export var line_colors : Array[Color] = []
 
+@export var sounds : CommonSounds = null
+
 
 func get_equip_hint(pack : ItemPack) -> String:
 	for data in equip_data:

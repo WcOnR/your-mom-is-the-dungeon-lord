@@ -2,7 +2,10 @@ class_name Field extends Node2D
 
 @export var gem_set : GemSet
 @export var min_gem : int = 2
-@export var cell_icons : PackedScene 
+@export var cell_icons : PackedScene
+@export var collapse_sound : AudioData = null
+@export var shuffle_sound : AudioData = null
+@export var ball_drop_sound : AudioData = null
 
 @onready var tile_map : TileMapLayer = $TileMapLayer
 @onready var tile_map_h : TileMapLayer = $TileMapLayer_h
@@ -146,6 +149,7 @@ func _init_grid_with_tile_map() -> void:
 	var tile_size := Vector2(tile_map.tile_set.tile_size)
 	grid = Grid.new()
 	grid.initialize(size, tile_size)
+	grid.shuffle_sound = shuffle_sound
 	var half_size := tile_size / 2.0
 	for x in size.x:
 		for y in size.y:
@@ -199,6 +203,7 @@ func _collapse_gems(to_remove : Array[Gem], initiator : Node) -> void:
 			var val := _mult_func(types[gem_type])
 			gem_type.actions.run_event(ActionList.ON_ACTION, [val, initiator])
 	gem_collapsed.emit()
+	SoundSystem.play_sound(collapse_sound)
 
 
 func _mult_func(count : int) -> int:
@@ -270,5 +275,6 @@ func _on_consumable_drop(_position: Vector2, _data : Variant) -> void:
 	var item_preset := _data as ItemPreset
 	if is_valid_cell_id(cell_id):
 		var offset := (diff - grid.get_cell_position(cell_id)) / grid.get_cell_size()
+		SoundSystem.play_sound(ball_drop_sound)
 		item_preset.action.run(ON_DROP, [self, cell_id, offset])
 		_player.inventory_comp.consume_item(item_preset)

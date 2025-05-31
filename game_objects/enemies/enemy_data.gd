@@ -7,3 +7,4 @@ class_name EnemyData extends Resource
 @export var actions : Array[Action] = [] 
 @export var behavior : AIBehavior = null
 @export var texture : Texture2D = null
+@export var hit_sound : AudioData = null

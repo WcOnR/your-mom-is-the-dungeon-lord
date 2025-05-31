@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CommonSounds" load_steps=9 format=3 uid="uid://chxwtlw8cu6u3"]
+
+[ext_resource type="Script" path="res://system/audio_data.gd" id="1_cmjn8"]
+[ext_resource type="Script" path="res://game_systems/common_sounds.gd" id="1_iomwg"]
+[ext_resource type="AudioStream" uid="uid://d1p4nl6o0281t" path="res://sounds/805433_big_btn_click.wav" id="2_ctg0u"]
+[ext_resource type="AudioStream" uid="uid://is4cjnh25x2m" path="res://sounds/kenney_rollover.wav" id="4_10q4t"]
+[ext_resource type="AudioStream" uid="uid://y0slobr86ajx" path="res://sounds/591486_change_selection.wav" id="4_jx8tf"]
+
+[sub_resource type="Resource" id="Resource_fchd1"]
+script = ExtResource("1_cmjn8")
+stream = ExtResource("2_ctg0u")
+volume_db = 0.0
+pitch_scale = 1.0
+
+[sub_resource type="Resource" id="Resource_qt7dy"]
+script = ExtResource("1_cmjn8")
+stream = ExtResource("4_jx8tf")
+volume_db = 0.0
+pitch_scale = 1.0
+
+[sub_resource type="Resource" id="Resource_cnq3d"]
+script = ExtResource("1_cmjn8")
+stream = ExtResource("4_10q4t")
+volume_db = -20.0
+pitch_scale = 0.5
+
+[resource]
+script = ExtResource("1_iomwg")
+click = SubResource("Resource_fchd1")
+tap = SubResource("Resource_cnq3d")
+selection = SubResource("Resource_qt7dy")

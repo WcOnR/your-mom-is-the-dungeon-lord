@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8hqsq106wcho"]
+[gd_scene load_steps=6 format=3 uid="uid://c8hqsq106wcho"]
 
 [ext_resource type="Script" path="res://game_objects/rooms/world.gd" id="1_ngkjm"]
 [ext_resource type="Resource" uid="uid://b4df8mtemc2vj" path="res://game_objects/rooms/normal_progression.tres" id="2_uyyti"]
 [ext_resource type="PackedScene" uid="uid://dgplpiie3wm0u" path="res://game_systems/game_autoload.tscn" id="3_5d151"]
 [ext_resource type="PackedScene" uid="uid://bwhreyk8calwh" path="res://game_objects/rooms/win_scene.tscn" id="4_xrbgg"]
+[ext_resource type="Script" path="res://game_objects/camera.gd" id="5_b6c1w"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ngkjm")
@@ -29,3 +30,19 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="HitOverlay" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.3, 0.087, 0.087, 0.639216)
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+anchor_mode = 0
+script = ExtResource("5_b6c1w")
+hit_overlay_path = NodePath("../CanvasLayer/HitOverlay")

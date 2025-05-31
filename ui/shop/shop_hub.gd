@@ -41,5 +41,7 @@ func _update_item(i : int) -> void:
 	var is_avalible := not shop_item.is_sold_out and shop_item.can_buy(_inventory)
 	if shop_item.is_selected:
 		label.modulate = HI_COLOR
+		var selection_sound := SettingsManager.get_settings().sounds.selection
+		SoundSystem.play_sound(selection_sound)
 	else:
 		label.modulate = NORMAL_COLOR if is_avalible else DEACTIVE_COLOR

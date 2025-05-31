@@ -1,7 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://s8pd43t32c5v"]
+[gd_scene load_steps=14 format=3 uid="uid://s8pd43t32c5v"]
 
 [ext_resource type="Script" path="res://ui/phone/statistics_panel/statistics_panel.gd" id="1_gbugr"]
 [ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="2_3g1fb"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="2_hrnw1"]
+[ext_resource type="AudioStream" uid="uid://biplcrpscx5xf" path="res://sounds/590531_stat_line_show.wav" id="3_2o8ro"]
+[ext_resource type="AudioStream" uid="uid://fn7jcqyseflb" path="res://sounds/512216_coins_count_2.wav" id="4_qx412"]
+
+[sub_resource type="Resource" id="Resource_8a1t6"]
+script = ExtResource("2_hrnw1")
+stream = ExtResource("3_2o8ro")
+volume_db = -10.0
+pitch_scale = 1.0
+
+[sub_resource type="Resource" id="Resource_2wmc6"]
+script = ExtResource("2_hrnw1")
+stream = ExtResource("4_qx412")
+volume_db = -20.0
+pitch_scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_pda3l"]
 font_size = 30
@@ -45,6 +60,8 @@ offset_bottom = 300.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 script = ExtResource("1_gbugr")
+info_sound = SubResource("Resource_8a1t6")
+coin_count_sound = SubResource("Resource_2wmc6")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 2

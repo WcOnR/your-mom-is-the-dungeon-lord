@@ -1,9 +1,11 @@
 class_name Grid extends RefCounted
 
+
 signal grid_idle
 signal grid_stopped
 
 var gems : Array[Gem] = []
+var shuffle_sound : AudioData = null
 var _size : Vector2i = Vector2i.ZERO
 var _cell_size : Vector2 = Vector2.ZERO
 var _is_spawn_allowed : bool = true
@@ -59,6 +61,7 @@ func reshuffle(map : Dictionary) -> void:
 		await grid_idle
 	for g in map.keys():
 		g.move_to_cell_id(map[g])
+	SoundSystem.play_sound(shuffle_sound)
 	await grid_stopped
 	_is_spawn_allowed = true
 	for g in gems:

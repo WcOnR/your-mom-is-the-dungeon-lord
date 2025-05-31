@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://byapc2k7gle4p"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=11 format=3 uid="uid://byapc2k7gle4p"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_bnuo5"]
 [ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_30dpd"]
@@ -6,7 +6,15 @@
 [ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="4_015d3"]
 [ext_resource type="Resource" uid="uid://bxqllc5y64ovi" path="res://game_objects/enemies/combat_actions/get_armor_action.tres" id="4_l6kfb"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="5_teq6v"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="6_lwvr2"]
 [ext_resource type="Texture2D" uid="uid://bvntiavtihtr8" path="res://game_objects/enemies/skillet_shield/SkilletShield.png" id="6_sj27i"]
+[ext_resource type="AudioStream" uid="uid://crfqqe1w1ot3" path="res://sounds/skillet_shield_hit.wav" id="7_2ce0h"]
+
+[sub_resource type="Resource" id="Resource_bx263"]
+script = ExtResource("6_lwvr2")
+stream = ExtResource("7_2ce0h")
+volume_db = -15.0
+pitch_scale = 1.0
 
 [resource]
 script = ExtResource("5_teq6v")
@@ -17,3 +25,4 @@ reward = 400
 actions = Array[ExtResource("1_bnuo5")]([ExtResource("2_30dpd"), ExtResource("3_md0ny"), ExtResource("4_l6kfb")])
 behavior = ExtResource("4_015d3")
 texture = ExtResource("6_sj27i")
+hit_sound = SubResource("Resource_bx263")

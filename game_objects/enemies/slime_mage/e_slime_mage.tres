@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3 uid="uid://b4kbnjw5i8fjs"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=11 format=3 uid="uid://b4kbnjw5i8fjs"]
 
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_opyrl"]
 [ext_resource type="Resource" uid="uid://c76g1v4h0q8bd" path="res://game_objects/enemies/combat_actions/random_cone.tres" id="2_1xi16"]
@@ -7,6 +7,14 @@
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_w2or8"]
 [ext_resource type="Resource" uid="uid://dhck84l5i3j43" path="res://game_objects/enemies/combat_actions/mix_by_line_action.tres" id="4_1uiju"]
 [ext_resource type="Texture2D" uid="uid://dlgiumwvfsi3a" path="res://game_objects/enemies/slime_mage/SlimeMage.png" id="4_cfkx4"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="6_np5gt"]
+[ext_resource type="AudioStream" uid="uid://dr1sxthye40qv" path="res://sounds/slime_mage_hit.wav" id="7_ejhoe"]
+
+[sub_resource type="Resource" id="Resource_5nyjw"]
+script = ExtResource("6_np5gt")
+stream = ExtResource("7_ejhoe")
+volume_db = -15.0
+pitch_scale = 1.0
 
 [resource]
 script = ExtResource("3_w2or8")
@@ -17,3 +25,4 @@ reward = 400
 actions = Array[ExtResource("1_opyrl")]([ExtResource("2_5356s"), ExtResource("2_1xi16"), ExtResource("4_1uiju")])
 behavior = ExtResource("3_1bcbk")
 texture = ExtResource("4_cfkx4")
+hit_sound = SubResource("Resource_5nyjw")

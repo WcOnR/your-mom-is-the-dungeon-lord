@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameSettings" load_steps=13 format=3 uid="uid://cuqllo6f3jnwn"]
+[gd_resource type="Resource" script_class="GameSettings" load_steps=14 format=3 uid="uid://cuqllo6f3jnwn"]
 
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_fyd36"]
 [ext_resource type="Resource" uid="uid://x2dj2atleasc" path="res://game_objects/items/boosters/health_cristal.tres" id="2_u7w3a"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://bh1s1126y52oa" path="res://game_objects/items/equip/double_axe/double_axe_data.tres" id="8_r64kt"]
 [ext_resource type="Resource" uid="uid://bm5gqaut44qej" path="res://game_objects/items/equip/shield_armor/shield_armor_data.tres" id="9_kvacg"]
 [ext_resource type="Resource" uid="uid://v7ghp6xcdhfs" path="res://game_objects/items/equip/vampire_heart/vampire_heart_data.tres" id="10_ovbd8"]
+[ext_resource type="Resource" uid="uid://chxwtlw8cu6u3" path="res://game_objects/sounds.tres" id="13_gw4ke"]
 [ext_resource type="Script" path="res://game_systems/game_settings.gd" id="15_ek08f"]
 
 [resource]
@@ -29,3 +30,4 @@ equip_count = 3
 max_items_in_shop = 4
 min_equip_count_in_shop = 2
 line_colors = Array[Color]([Color(0.4402, 0.611073, 0.71, 1), Color(0.66, 0.3245, 0.2574, 1), Color(0.3234, 0.66, 0.53097, 1)])
+sounds = ExtResource("13_gw4ke")

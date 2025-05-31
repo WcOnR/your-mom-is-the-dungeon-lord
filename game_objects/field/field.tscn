@@ -1,9 +1,31 @@
-[gd_scene load_steps=9 format=4 uid="uid://cd0bt5xyril8k"]
+[gd_scene load_steps=16 format=4 uid="uid://cd0bt5xyril8k"]
 
 [ext_resource type="Script" path="res://game_objects/field/field.gd" id="1_8qhw5"]
 [ext_resource type="Texture2D" uid="uid://boypsy0ygu0rj" path="res://game_objects/field/cell.png" id="2_netas"]
 [ext_resource type="PackedScene" uid="uid://rmpkcrc0chhm" path="res://game_objects/field/action_icons/cell_icons.tscn" id="2_u6o2p"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="3_2dy0m"]
 [ext_resource type="Texture2D" uid="uid://ymvimx1bygfr" path="res://game_objects/field/cell_h.png" id="3_3ir5o"]
+[ext_resource type="AudioStream" uid="uid://d3facp20f2a0w" path="res://sounds/251659_pop.wav" id="4_njftc"]
+[ext_resource type="AudioStream" uid="uid://cto3rlisbh8fl" path="res://sounds/shuffle_sound.wav" id="5_huqni"]
+[ext_resource type="AudioStream" uid="uid://d3i0qxk5g7yh5" path="res://sounds/drop_ball.wav" id="6_4068v"]
+
+[sub_resource type="Resource" id="Resource_w3mi8"]
+script = ExtResource("3_2dy0m")
+stream = ExtResource("4_njftc")
+volume_db = -40.0
+pitch_scale = 1.2
+
+[sub_resource type="Resource" id="Resource_ba1jm"]
+script = ExtResource("3_2dy0m")
+stream = ExtResource("5_huqni")
+volume_db = -10.0
+pitch_scale = 1.0
+
+[sub_resource type="Resource" id="Resource_1x6xl"]
+script = ExtResource("3_2dy0m")
+stream = ExtResource("6_4068v")
+volume_db = -15.0
+pitch_scale = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oegij"]
 texture = ExtResource("2_netas")
@@ -30,6 +52,9 @@ sources/0 = SubResource("TileSetAtlasSource_t61n8")
 [node name="Field" type="Node2D" groups=["Field"]]
 script = ExtResource("1_8qhw5")
 cell_icons = ExtResource("2_u6o2p")
+collapse_sound = SubResource("Resource_w3mi8")
+shuffle_sound = SubResource("Resource_ba1jm")
+ball_drop_sound = SubResource("Resource_1x6xl")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAAAAAABAAAAAAAFAAEAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAEAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAEAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAEAAAAFAAQAAAABAAAAAAAFAAUAAAABAAAAAAAFAAYAAAABAAEAAAAAAAYAAAAAAAEAAAA=")

@@ -52,6 +52,12 @@ func _set_state(new_state : State) -> void:
 	_state = new_state
 	if _state == State.IDLE:
 		_target_cell = Grid.INVALID_ID
+	if _state == State.MOVE:
+		var tween := create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(self, "position", _field.grid.get_cell_position(_target_cell), 1.0)
+		tween.tween_callback(_on_move_end)
 	state_changed.emit()
 
 
@@ -61,11 +67,14 @@ func _process(delta: float) -> void:
 	if is_state(State.IDLE):
 		_try_to_fall()
 		return
-	if _move_to_with_speed(self, _field.grid.get_cell_position(_target_cell), speed, delta):
-		if is_state(State.FALL):
+	if is_state(State.FALL):
+		if _move_to_with_speed(self, _field.grid.get_cell_position(_target_cell), speed, delta):
 			_try_to_fall()
-		elif is_state(State.MOVE):
-			_set_state(State.STOPPED)
+
+
+func _on_move_end() -> void:
+	if is_state(State.MOVE):
+		_set_state(State.STOPPED)
 
 
 func _move_to_with_speed(node : Node2D, to : Vector2, _speed : float, delta: float) -> bool :

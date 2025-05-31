@@ -1,7 +1,10 @@
 class_name RestartPanel extends Control
 
+var _player : AudioStreamPlayer = null
 
-func end_game() -> void:
+
+func end_game(player : AudioStreamPlayer) -> void:
+	_player = player
 	%Label1.modulate = Color(Color.WHITE, 0.0)
 	%Label2.modulate = Color(Color.WHITE, 0.0)
 	%ResetBtn.modulate = Color(Color.WHITE, 0.0)
@@ -20,4 +23,5 @@ func _on_button_pressed() -> void:
 	%ResetBtn.disabled = true
 	var world := SceneLoaderSystem.get_world()
 	await world.fade_in()
+	SoundSystem.stop_sound(_player)
 	get_tree().reload_current_scene()

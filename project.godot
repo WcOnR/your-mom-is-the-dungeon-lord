@@ -18,9 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameInputManagerSystem="*res://system/game_input_manager.gd"
-AnimManagerSystem="*res://system/anim_object/anim_object_manager.gd"
 SceneLoaderSystem="*res://game_systems/scene_loader.gd"
 SettingsManager="*res://game_systems/settings_holder.gd"
+SoundSystem="*res://system/sound_manager.gd"
 
 [display]
 
@@ -35,6 +35,7 @@ Player=""
 Field=""
 LineHolder=""
 Phone=""
+Camera=""
 
 [input]
 

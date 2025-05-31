@@ -1,5 +1,8 @@
 class_name BattleUIStateController extends Node
 
+@export var reward_sound : AudioData = null
+
+
 enum State {BATTLE, STATISTIC, ITEM, EQUIP, NEXT_ROUND, GAME_OVER}
 
 var _state : State = State.BATTLE
@@ -28,6 +31,7 @@ func _show_statistics() -> void:
 
 
 func _show_items() -> void:
+	SoundSystem.play_sound(reward_sound)
 	var item_loot_panel := _phone.get_item_loot_panel()
 	_phone.set_main_screen(item_loot_panel)
 	item_loot_panel.set_reward_view(_game_mode.get_reward()[0])#TODO rework
