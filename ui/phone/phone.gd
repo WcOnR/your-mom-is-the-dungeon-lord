@@ -135,8 +135,9 @@ func pop_top_panel() -> void:
 
 func _set_visible_panel(panel : Control, vis : bool) -> void:
 	panel.visible = vis
-	if panel is BattleHUD:
-		battle_hub.enable_input(vis)
+	if panel is BattleHUD and state == State.BATTLE:
+		var game_mode := get_tree().get_first_node_in_group("GameMode") as BattleGameMode
+		battle_hub.enable_input(vis and game_mode.turns_left() > 0)
 
 
 func _on_click_action(data : ClickData) -> void:
