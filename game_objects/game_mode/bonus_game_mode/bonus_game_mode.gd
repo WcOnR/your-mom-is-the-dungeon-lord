@@ -14,6 +14,7 @@ func _ready() -> void:
 		pack.count = 1
 		_reward.append(pack)
 	_player = get_tree().get_first_node_in_group("Player") as Player
+	SoundSystem.set_bg_state("bonus")
 
 
 func get_rewards() -> Array[ItemPack]:

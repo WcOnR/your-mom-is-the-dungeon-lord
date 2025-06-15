@@ -8,11 +8,11 @@
 [ext_resource type="Resource" uid="uid://dhck84l5i3j43" path="res://game_objects/enemies/combat_actions/mix_by_line_action.tres" id="4_1uiju"]
 [ext_resource type="Texture2D" uid="uid://dlgiumwvfsi3a" path="res://game_objects/enemies/slime_mage/SlimeMage.png" id="4_cfkx4"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="6_np5gt"]
-[ext_resource type="AudioStream" uid="uid://dr1sxthye40qv" path="res://sounds/slime_mage_hit.wav" id="7_ejhoe"]
+[ext_resource type="AudioStream" uid="uid://dtn6kq3jxlfh6" path="res://sounds/slime_mage_hit.ogg" id="7_5qx8t"]
 
 [sub_resource type="Resource" id="Resource_5nyjw"]
 script = ExtResource("6_np5gt")
-stream = ExtResource("7_ejhoe")
+stream = ExtResource("7_5qx8t")
 volume_db = -15.0
 pitch_scale = 1.0
 

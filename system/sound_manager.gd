@@ -1,6 +1,7 @@
 class_name SoundManager extends Node
 
 var _players : Array[AudioStreamPlayer] = []
+var _interactive_player : AudioStreamPlayer = null
 var _sfx_bus_id : int = -1
 var _music_bus_id : int = -1
 
@@ -27,6 +28,17 @@ func set_music_volume(new_volume : float) -> void:
 
 func get_music_volume() -> float:
 	return AudioServer.get_bus_volume_db(_music_bus_id)
+
+
+func set_interactive_player(player : AudioStreamPlayer) -> void:
+	_interactive_player = player
+
+
+func set_bg_state(state : StringName) -> void:
+	if _interactive_player == null:
+		return
+	var playback := _interactive_player.get_stream_playback() as AudioStreamPlaybackInteractive
+	playback.switch_to_clip_by_name(state)
 
 
 func play_sound(data : AudioData, duration : float = -1.0) -> AudioStreamPlayer:

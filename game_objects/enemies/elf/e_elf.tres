@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://t266fu32e33y" path="res://game_objects/enemies/elf/elf.png" id="4_8utk1"]
 [ext_resource type="Script" path="res://game_systems/ai_behavior.gd" id="5_bwelx"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="6_xwksj"]
-[ext_resource type="AudioStream" uid="uid://d3e3teji13g0y" path="res://sounds/elf_hit.wav" id="7_u5qym"]
+[ext_resource type="AudioStream" uid="uid://b6vpoe7q4m6a1" path="res://sounds/elf_hit.ogg" id="7_4ca27"]
 
 [sub_resource type="Resource" id="Resource_5qeuo"]
 script = ExtResource("5_bwelx")
@@ -17,7 +17,7 @@ args = [3, 1]
 
 [sub_resource type="Resource" id="Resource_xk3uh"]
 script = ExtResource("6_xwksj")
-stream = ExtResource("7_u5qym")
+stream = ExtResource("7_4ca27")
 volume_db = -10.0
 pitch_scale = 1.0
 

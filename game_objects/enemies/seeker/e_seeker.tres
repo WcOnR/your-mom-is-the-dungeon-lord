@@ -7,11 +7,11 @@
 [ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="3_cvgwx"]
 [ext_resource type="Texture2D" uid="uid://b47p3typgx782" path="res://game_objects/enemies/seeker/Seeker.png" id="4_7247r"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="5_mmnk4"]
-[ext_resource type="AudioStream" uid="uid://b47i8v2qnfhh" path="res://sounds/seeker_hit.wav" id="6_ag6mp"]
+[ext_resource type="AudioStream" uid="uid://ddqy5cfw1gtje" path="res://sounds/seeker_hit.ogg" id="6_gw1qf"]
 
 [sub_resource type="Resource" id="Resource_5jgca"]
 script = ExtResource("5_mmnk4")
-stream = ExtResource("6_ag6mp")
+stream = ExtResource("6_gw1qf")
 volume_db = -15.0
 pitch_scale = 1.0
 

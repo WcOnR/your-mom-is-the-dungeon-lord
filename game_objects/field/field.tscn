@@ -5,25 +5,25 @@
 [ext_resource type="PackedScene" uid="uid://rmpkcrc0chhm" path="res://game_objects/field/action_icons/cell_icons.tscn" id="2_u6o2p"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="3_2dy0m"]
 [ext_resource type="Texture2D" uid="uid://ymvimx1bygfr" path="res://game_objects/field/cell_h.png" id="3_3ir5o"]
-[ext_resource type="AudioStream" uid="uid://d3facp20f2a0w" path="res://sounds/251659_pop.wav" id="4_njftc"]
-[ext_resource type="AudioStream" uid="uid://cto3rlisbh8fl" path="res://sounds/shuffle_sound.wav" id="5_huqni"]
-[ext_resource type="AudioStream" uid="uid://d3i0qxk5g7yh5" path="res://sounds/drop_ball.wav" id="6_4068v"]
+[ext_resource type="AudioStream" uid="uid://dv820daytlcsf" path="res://sounds/251659_pop.ogg" id="4_utx3g"]
+[ext_resource type="AudioStream" uid="uid://xvhdurvbi1fx" path="res://sounds/shuffle_sound.ogg" id="5_ahfux"]
+[ext_resource type="AudioStream" uid="uid://yvpldipw063c" path="res://sounds/drop_ball.ogg" id="6_hbg83"]
 
 [sub_resource type="Resource" id="Resource_w3mi8"]
 script = ExtResource("3_2dy0m")
-stream = ExtResource("4_njftc")
-volume_db = -40.0
-pitch_scale = 1.2
+stream = ExtResource("4_utx3g")
+volume_db = -20.0
+pitch_scale = 0.57
 
 [sub_resource type="Resource" id="Resource_ba1jm"]
 script = ExtResource("3_2dy0m")
-stream = ExtResource("5_huqni")
+stream = ExtResource("5_ahfux")
 volume_db = -10.0
 pitch_scale = 1.0
 
 [sub_resource type="Resource" id="Resource_1x6xl"]
 script = ExtResource("3_2dy0m")
-stream = ExtResource("6_4068v")
+stream = ExtResource("6_hbg83")
 volume_db = -15.0
 pitch_scale = 1.0
 

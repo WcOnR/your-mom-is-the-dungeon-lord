@@ -3,18 +3,18 @@
 [ext_resource type="Script" path="res://ui/phone/statistics_panel/statistics_panel.gd" id="1_gbugr"]
 [ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="2_3g1fb"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="2_hrnw1"]
-[ext_resource type="AudioStream" uid="uid://biplcrpscx5xf" path="res://sounds/590531_stat_line_show.wav" id="3_2o8ro"]
-[ext_resource type="AudioStream" uid="uid://fn7jcqyseflb" path="res://sounds/512216_coins_count_2.wav" id="4_qx412"]
+[ext_resource type="AudioStream" uid="uid://dp3ico8sh25dm" path="res://sounds/590531_stat_line_show.ogg" id="3_t72vn"]
+[ext_resource type="AudioStream" uid="uid://fn6f4ivba1gb" path="res://sounds/512216_coins_count_2.ogg" id="4_cah3x"]
 
 [sub_resource type="Resource" id="Resource_8a1t6"]
 script = ExtResource("2_hrnw1")
-stream = ExtResource("3_2o8ro")
+stream = ExtResource("3_t72vn")
 volume_db = -10.0
 pitch_scale = 1.0
 
 [sub_resource type="Resource" id="Resource_2wmc6"]
 script = ExtResource("2_hrnw1")
-stream = ExtResource("4_qx412")
+stream = ExtResource("4_cah3x")
 volume_db = -20.0
 pitch_scale = 1.0
 

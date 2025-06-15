@@ -2,26 +2,26 @@
 
 [ext_resource type="Script" path="res://system/audio_data.gd" id="1_cmjn8"]
 [ext_resource type="Script" path="res://game_systems/common_sounds.gd" id="1_iomwg"]
-[ext_resource type="AudioStream" uid="uid://d1p4nl6o0281t" path="res://sounds/805433_big_btn_click.wav" id="2_ctg0u"]
-[ext_resource type="AudioStream" uid="uid://is4cjnh25x2m" path="res://sounds/kenney_rollover.wav" id="4_10q4t"]
-[ext_resource type="AudioStream" uid="uid://y0slobr86ajx" path="res://sounds/591486_change_selection.wav" id="4_jx8tf"]
+[ext_resource type="AudioStream" uid="uid://5to0hfwurybj" path="res://sounds/805433_big_btn_click.ogg" id="2_cp4yj"]
+[ext_resource type="AudioStream" uid="uid://dn0vjxxf65rkt" path="res://sounds/591486_change_selection.ogg" id="4_0d3xn"]
+[ext_resource type="AudioStream" uid="uid://c3ce815vvp6o" path="res://sounds/kenney_rollover.ogg" id="5_p3xl3"]
 
 [sub_resource type="Resource" id="Resource_fchd1"]
 script = ExtResource("1_cmjn8")
-stream = ExtResource("2_ctg0u")
-volume_db = 0.0
+stream = ExtResource("2_cp4yj")
+volume_db = 10.0
 pitch_scale = 1.0
 
 [sub_resource type="Resource" id="Resource_qt7dy"]
 script = ExtResource("1_cmjn8")
-stream = ExtResource("4_jx8tf")
-volume_db = 0.0
+stream = ExtResource("4_0d3xn")
+volume_db = 10.0
 pitch_scale = 1.0
 
 [sub_resource type="Resource" id="Resource_cnq3d"]
 script = ExtResource("1_cmjn8")
-stream = ExtResource("4_10q4t")
-volume_db = -20.0
+stream = ExtResource("5_p3xl3")
+volume_db = -10.0
 pitch_scale = 0.5
 
 [resource]

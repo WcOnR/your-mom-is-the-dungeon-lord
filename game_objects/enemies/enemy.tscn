@@ -6,12 +6,12 @@
 [ext_resource type="Script" path="res://system/audio_data.gd" id="3_4xukv"]
 [ext_resource type="Texture2D" uid="uid://biho8t3sj7v14" path="res://icon.svg" id="3_e8gr2"]
 [ext_resource type="PackedScene" uid="uid://c41vwc138rmsh" path="res://game_objects/components/health_comp.tscn" id="3_wio6r"]
-[ext_resource type="AudioStream" uid="uid://c7u1dcgk0qh12" path="res://sounds/impact_hit.wav" id="4_qdip4"]
+[ext_resource type="AudioStream" uid="uid://clm417fywof08" path="res://sounds/impact_hit.ogg" id="4_35080"]
 [ext_resource type="PackedScene" uid="uid://butqodtuat2xq" path="res://game_objects/components/attack_comp.tscn" id="6_o83wa"]
 
 [sub_resource type="Resource" id="Resource_4hwsm"]
 script = ExtResource("3_4xukv")
-stream = ExtResource("4_qdip4")
+stream = ExtResource("4_35080")
 volume_db = 0.0
 pitch_scale = 1.0
 

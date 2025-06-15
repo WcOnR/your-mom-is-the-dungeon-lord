@@ -8,11 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://bpkvc86n7xrh6" path="res://game_objects/enemies/goblin/goblin.png" id="4_0fwpd"]
 [ext_resource type="Resource" uid="uid://c1a5qlc3x45xg" path="res://game_objects/enemies/combat_actions/dirt_action.tres" id="4_qsfiv"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="6_1no1c"]
-[ext_resource type="AudioStream" uid="uid://dd1srs7r7msut" path="res://sounds/goblin_hit.wav" id="7_jihlt"]
+[ext_resource type="AudioStream" uid="uid://ctcbaiky6fri5" path="res://sounds/goblin_hit.ogg" id="7_s6o0b"]
 
 [sub_resource type="Resource" id="Resource_0jc1y"]
 script = ExtResource("6_1no1c")
-stream = ExtResource("7_jihlt")
+stream = ExtResource("7_s6o0b")
 volume_db = -15.0
 pitch_scale = 1.0
 

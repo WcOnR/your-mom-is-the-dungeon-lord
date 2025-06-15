@@ -8,6 +8,7 @@ var _phone : Phone = null
 
 func set_phone(phone : Phone) -> void:
 	_phone = phone
+	SoundSystem.set_bg_state("shop")
 	_select_first_available_or_equip()
 	var btn := _phone.get_home_btn()
 	btn.pressed.connect(finish_room, ConnectFlags.CONNECT_ONE_SHOT)
