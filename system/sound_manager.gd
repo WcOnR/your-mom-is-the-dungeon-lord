@@ -12,22 +12,11 @@ const Music_BUS : StringName = "Music"
 func _ready() -> void:
 	_sfx_bus_id = AudioServer.get_bus_index(SFX_BUS)
 	_music_bus_id = AudioServer.get_bus_index(Music_BUS)
-
-
-func set_sound_volume(new_volume : float) -> void:
-	AudioServer.set_bus_volume_db(_sfx_bus_id, new_volume)
-
-
-func get_sound_volume() -> float:
-	return AudioServer.get_bus_volume_db(_sfx_bus_id)
-
-
-func set_music_volume(new_volume : float) -> void:
-	AudioServer.set_bus_volume_db(_music_bus_id, new_volume)
-
-
-func get_music_volume() -> float:
-	return AudioServer.get_bus_volume_db(_music_bus_id)
+	SettingsManager.reg_runtime_setting("music", 50.0)
+	SettingsManager.reg_runtime_setting("music_on", true)
+	SettingsManager.reg_runtime_setting("sfx", 50.0)
+	SettingsManager.reg_runtime_setting("sfx_on", true)
+	SettingsManager.runtime_setting_changed.connect(_on_runtime_setting_changed)
 
 
 func set_interactive_player(player : AudioStreamPlayer) -> void:
@@ -64,3 +53,39 @@ func stop_sound(palyer : AudioStreamPlayer) -> void:
 func _sound_end(palyer : AudioStreamPlayer) -> void:
 	_players.erase(palyer)
 	palyer.queue_free()
+
+
+func _set_sound_volume(new_volume : float) -> void:
+	var db_val := _to_db(new_volume)
+	AudioServer.set_bus_volume_db(_sfx_bus_id, db_val)
+
+
+func _set_sound_mute(mute : bool) -> void:
+	AudioServer.set_bus_mute(_sfx_bus_id, mute)
+
+
+func _set_music_volume(new_volume : float) -> void:
+	var db_val := _to_db(new_volume)
+	AudioServer.set_bus_volume_db(_music_bus_id, db_val)
+
+
+func _set_music_mute(mute : bool) -> void:
+	AudioServer.set_bus_mute(_music_bus_id, mute)
+
+
+func _to_db(val : float) -> float:
+	var offset := val - 50.0
+	var db_val := absf(offset)
+	db_val = db_val * db_val / 100.0
+	return sign(offset) * db_val
+
+
+func _on_runtime_setting_changed(_name : StringName) -> void:
+	if _name == "music":
+		_set_music_volume(SettingsManager.get_runtime_setting(_name))
+	elif _name == "music_on":
+		_set_music_mute(!SettingsManager.get_runtime_setting(_name))
+	elif _name == "sfx":
+		_set_sound_volume(SettingsManager.get_runtime_setting(_name))
+	elif _name == "sfx_on":
+		_set_sound_mute(!SettingsManager.get_runtime_setting(_name))
