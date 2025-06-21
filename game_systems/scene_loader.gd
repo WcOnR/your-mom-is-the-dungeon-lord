@@ -34,6 +34,7 @@ func load_win_scene() -> void:
 		_room = null
 	var scene := _final_scene.instantiate()
 	_world.add_child(scene)
+	await scene.get_tree().create_timer(0.3).timeout
 	await _world.fade_out()
 
 
@@ -53,6 +54,7 @@ func _load_next_room() -> void:
 	var room_preset := _preset.rooms.pop_front() as RoomPreset
 	_room = room_preset.scene.instantiate()
 	_world.add_child(_room)
+	await _room.get_tree().create_timer(0.3).timeout
 	room_preset.on_room_init(_room)
 	await _world.fade_out()
 	

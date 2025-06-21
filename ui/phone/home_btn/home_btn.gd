@@ -11,6 +11,10 @@ var _state : State = State.NORMAL
 var _is_active : bool = true
 
 
+func _ready() -> void:
+	%RingTexture.modulate = normal_color
+
+
 func set_icon(i : int) -> void:
 	%InfoIcon.texture = icons[i]
 

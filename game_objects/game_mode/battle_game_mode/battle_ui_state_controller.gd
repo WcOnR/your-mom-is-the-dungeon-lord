@@ -20,6 +20,7 @@ func set_phone(phone : Phone) -> void:
 	_game_mode.turn_changed.connect(_update_home_btn)
 	_game_mode.reward_granted.connect(_on_reward_granted)
 	_phone.get_home_btn().pressed.connect(_on_home_btn_pressed)
+	_update_home_btn()
 
 
 func _show_statistics() -> void:

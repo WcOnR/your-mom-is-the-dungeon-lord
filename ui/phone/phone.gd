@@ -37,6 +37,7 @@ func _ready() -> void:
 		position = position + Vector2(800, 1200)
 	else:
 		position = position + Vector2(50, 400)
+		await get_tree().create_timer(0.5).timeout
 		start_show_anim()
 	GameInputManagerSystem.on_click_start.connect(_on_click_action)
 
