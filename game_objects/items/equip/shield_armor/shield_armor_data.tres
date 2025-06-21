@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_5pife")
 item_preset_a = ExtResource("1_qf3xo")
-item_description_a = Array[String](["If shields was broken on previous turn, give you a 10 shields on your turn.", "If shields was broken on previous turn, give you a 30 shields on your turn.", "If shields was broken on previous turn, give you a 50 shields on your turn."])
+item_description_a = Array[String](["If your [u]shields[/u] were broken on the previous turn, restore [color=#f8e1b7][u]10[/u][/color] [u]shields[/u] on the next turn.", "If your [u]shields[/u] were broken on the previous turn, restore [color=#f8e1b7][u]30[/u][/color] [u]shields[/u] on the next turn.", "If your [u]shields[/u] were broken on the previous turn, restore [color=#f8e1b7][u]50[/u][/color] [u]shields[/u] on the next turn."])
 item_preset_b = ExtResource("2_jpl7u")
-item_description_b = Array[String](["If shields wasn't broken on previous turn, save 10% of them.", "If shields wasn't broken on previous turn, save 30% of them.", "If shields wasn't broken on previous turn, save 50% of them."])
+item_description_b = Array[String](["If your [u]shields[/u] weren’t broken on the previous turn, save [color=#f8e1b7][u]10%[/u][/color] of your [u]shields[/u].", "If your [u]shields[/u] weren’t broken on the previous turn, save [color=#f8e1b7][u]30%[/u][/color] of your [u]shields[/u].", "If your [u]shields[/u] weren’t broken on the previous turn, save [color=#f8e1b7][u]50%[/u][/color] of your [u]shields[/u]."])
 super_item_preset = ExtResource("4_uaxqc")

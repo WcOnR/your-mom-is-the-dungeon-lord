@@ -29,6 +29,7 @@ func _update_view() -> void:
 	select_btn.disabled = not can_buy
 	%CoinPanel.visible = !_shop_item.is_sold_out
 	%ItemPackViewer.set_gray_out(not can_buy)
+	%CoinPanel.modulate = Color.WHITE if can_buy else Color.DIM_GRAY
 
 
 func _on_select() -> void:

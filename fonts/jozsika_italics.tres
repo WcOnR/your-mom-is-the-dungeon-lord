@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c0eb2s2aqcmcl"]
+
+[ext_resource type="FontFile" uid="uid://b3f8chu3v07uo" path="res://fonts/joszika/jozsika-italic.ttf" id="1_1j0tm"]
+
+[resource]
+base_font = ExtResource("1_1j0tm")
+spacing_glyph = 1
+spacing_top = 2

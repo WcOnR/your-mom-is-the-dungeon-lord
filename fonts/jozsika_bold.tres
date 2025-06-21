@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bu8b2ja0f4a16"]
+
+[ext_resource type="FontFile" uid="uid://desmdkehw2gm3" path="res://fonts/joszika/jozsika-heavy.ttf" id="1_dic0m"]
+
+[resource]
+base_font = ExtResource("1_dic0m")
+spacing_top = 2

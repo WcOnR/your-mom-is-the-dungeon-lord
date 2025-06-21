@@ -1,13 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1ifct37mxsa6"]
+[gd_scene load_steps=9 format=3 uid="uid://c1ifct37mxsa6"]
 
 [ext_resource type="Texture2D" uid="uid://deexv1yl5g64k" path="res://ui/widgets/sound_on.png" id="1_a2gr7"]
 [ext_resource type="Script" path="res://ui/widgets/settins_bar.gd" id="1_e0hkt"]
 [ext_resource type="Texture2D" uid="uid://bxk2xbqkqbmxo" path="res://ui/widgets/sound_off.png" id="3_qd02s"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_migvc"]
-font_size = 30
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="LabelSettings" uid="uid://d04k6vyakigho" path="res://ui/themes/label_settings/info_label_m_bold_settings.tres" id="4_qsup8"]
+[ext_resource type="FontVariation" uid="uid://dnsrwubcv2dna" path="res://fonts/jozsika_normal.tres" id="5_aykac"]
+[ext_resource type="Theme" uid="uid://dhj01xmaiqjpm" path="res://ui/themes/item_btn.tres" id="5_jie8f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fri32"]
 bg_color = Color(0.03, 0.03, 0.03, 1)
@@ -22,41 +20,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kple5"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oolit"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1ikb"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
 
 [node name="SettingsBar" type="MarginContainer"]
 theme_override_constants/margin_left = 30
@@ -74,7 +37,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "MUSIC"
-label_settings = SubResource("LabelSettings_migvc")
+label_settings = ExtResource("4_qsup8")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -94,8 +57,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 25
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_aykac")
+theme_override_font_sizes/font_size = 22
 theme_override_styles/background = SubResource("StyleBoxFlat_fri32")
 theme_override_styles/fill = SubResource("StyleBoxFlat_m2du6")
 step = 1.0
@@ -106,9 +70,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 focus_mode = 0
-theme_override_styles/hover = SubResource("StyleBoxFlat_kple5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_oolit")
-theme_override_styles/normal = SubResource("StyleBoxFlat_r1ikb")
+theme = ExtResource("5_jie8f")
 
 [node name="SwitchIcon" type="TextureRect" parent="VBoxContainer/HBoxContainer/SwitchButton"]
 unique_name_in_owner = true

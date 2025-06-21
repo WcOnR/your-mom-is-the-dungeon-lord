@@ -1,44 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjxekcb7c84yx"]
+[gd_scene load_steps=3 format=3 uid="uid://cjxekcb7c84yx"]
 
 [ext_resource type="PackedScene" uid="uid://c1ifct37mxsa6" path="res://ui/widgets/settins_bar.tscn" id="1_g1cpb"]
+[ext_resource type="LabelSettings" uid="uid://c4rudpomuxrsq" path="res://ui/themes/label_settings/info_label_l_bold_settings.tres" id="1_vy55u"]
 
 [node name="SettingsPanel" type="MarginContainer"]
 offset_right = 748.0
 offset_bottom = 978.0
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="CallToActionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "SETTINGS"
+label_settings = ExtResource("1_vy55u")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Panel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="MusicBar" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer2" instance=ExtResource("1_g1cpb")]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MusicBar" parent="VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/MarginContainer2" instance=ExtResource("1_g1cpb")]
 layout_mode = 2
 setting_label = "MUSIC"
 setting_name = &"music"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="SFXBar" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer" instance=ExtResource("1_g1cpb")]
+[node name="SFXBar" parent="VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/MarginContainer" instance=ExtResource("1_g1cpb")]
 layout_mode = 2
 setting_label = "SFX"
 setting_name = &"sfx"
+
+[node name="Extander" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2

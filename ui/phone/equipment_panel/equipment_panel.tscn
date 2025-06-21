@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://sb6dv6fa1fl"]
+[gd_scene load_steps=6 format=3 uid="uid://sb6dv6fa1fl"]
 
 [ext_resource type="Script" path="res://ui/phone/equipment_panel/equipment_panel.gd" id="1_f47ep"]
 [ext_resource type="PackedScene" uid="uid://c6k2jpfxwbkvq" path="res://ui/phone/equip_panel/equip_panel.tscn" id="1_s15xe"]
+[ext_resource type="LabelSettings" uid="uid://c4rudpomuxrsq" path="res://ui/themes/label_settings/info_label_l_bold_settings.tres" id="2_27vqk"]
 [ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="2_s7f3i"]
 [ext_resource type="PackedScene" uid="uid://bi57mfpvoblhr" path="res://ui/widgets/consum_info_small.tscn" id="2_vipth"]
 
@@ -11,30 +12,47 @@ offset_bottom = 624.0
 size_flags_vertical = 3
 script = ExtResource("1_f47ep")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Panel" type="Panel" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="SlotsContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 4
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/SlotsContainer"]
+[node name="CallToActionLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "EQUIPMENT"
+label_settings = ExtResource("2_27vqk")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SlotsContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/SlotsContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EquipPanel" parent="MarginContainer/SlotsContainer" instance=ExtResource("1_s15xe")]
+[node name="EquipPanel" parent="VBoxContainer/MarginContainer/SlotsContainer" instance=ExtResource("1_s15xe")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/SlotsContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/SlotsContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Extander" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
 [node name="BottomPanel" type="MarginContainer" parent="."]
 layout_mode = 2

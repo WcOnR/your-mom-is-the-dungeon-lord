@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("3_qp68b")
 item_preset_a = ExtResource("1_6p463")
-item_description_a = Array[String](["Your base attack increase by 20%.", "Your base attack increase by 40%.", "Your base attack increase by 75%."])
+item_description_a = Array[String](["Your [u]base attack[/u] increase by [color=#f8e1b7][u]20%[/u][/color].", "Your [u]base attack[/u] increase by [color=#f8e1b7][u]40%[/u][/color].", "Your [u]base attack[/u] increase by [color=#f8e1b7][u]75%[/u][/color]."])
 item_preset_b = ExtResource("2_r4spq")
-item_description_b = Array[String](["Shields breaks 2 times easier.", "Shields breaks 3 times easier.", "Shields breaks 4 times easier."])
+item_description_b = Array[String](["Enemies [u]shields’[/u] breaks [color=#f8e1b7][u]2[/u][/color] times easier.", "Enemies [u]shields’[/u] breaks [color=#f8e1b7][u]3[/u][/color] times easier.", "Enemies [u]shields’[/u] breaks [color=#f8e1b7][u]4[/u][/color] times easier."])
 super_item_preset = ExtResource("4_8pkdm")

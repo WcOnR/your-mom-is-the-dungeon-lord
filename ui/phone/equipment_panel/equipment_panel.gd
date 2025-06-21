@@ -1,6 +1,6 @@
 class_name EquipmentPanel extends Container
 
-@onready var panel : EquipPanel = $MarginContainer/SlotsContainer/EquipPanel
+@onready var panel : EquipPanel = %EquipPanel
 @onready var coin_panel : CoinPanel = %CoinPanel
 
 func _ready() -> void:

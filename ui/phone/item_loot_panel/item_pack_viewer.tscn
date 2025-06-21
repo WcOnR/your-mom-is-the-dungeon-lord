@@ -1,15 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhv5wq4lf1ren"]
+[gd_scene load_steps=5 format=3 uid="uid://c4iajpuajb84c"]
 
-[ext_resource type="Script" path="res://ui/phone/item_loot_panel/item_pack_viewer.gd" id="1_2foje"]
 [ext_resource type="PackedScene" uid="uid://ba6rrbnc23vi1" path="res://ui/widgets/item_viewer.tscn" id="1_83qnh"]
 [ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="2_4ox40"]
-[ext_resource type="PackedScene" uid="uid://n7oxl4i8smas" path="res://ui/phone/equip_panel/equip_viewer.tscn" id="2_ce8ih"]
+[ext_resource type="PackedScene" uid="uid://n7oxl4i8smas" path="res://ui/phone/equip_panel/pack_viewer.tscn" id="2_ce8ih"]
+
+[sub_resource type="GDScript" id="GDScript_8s5be"]
+script/source = "class_name ItemPackViewer extends Control
+
+var _pack : ItemPack = null
+var _hint : Hint = null
+var _is_equip : bool = false
+
+func set_pack(pack : ItemPack) -> void:
+	_pack = pack
+	var pack_type := pack.item_preset.type
+	_is_equip =  pack_type == ItemPreset.Type.EQUIP or pack_type == ItemPreset.Type.SUPER_EQUIP
+	if _is_equip:
+		$EquipViewer.visible = true
+		$EquipViewer.set_equip(pack)
+		_hint = $EquipViewer._hint
+		$ItemViewer.visible = false
+		$CountLabel.visible = false
+	else:
+		$ItemViewer.visible = true
+		$ItemViewer.set_item(pack.item_preset)
+		$CountLabel.text = \"x\" + str(pack.count)
+		$CountLabel.visible = true
+		_hint = pack.item_preset.create_hint(self)
+		$EquipViewer.visible = false
+
+
+func set_gray_out(grat_out : bool) -> void:
+	$CountLabel.visible = not grat_out and not _is_equip
+	$ItemViewer.set_gray_out(grat_out)
+	$EquipViewer.set_gray_out(grat_out)
+"
 
 [node name="ItemPackViewer" type="Control"]
 custom_minimum_size = Vector2(118, 118)
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_2foje")
+script = SubResource("GDScript_8s5be")
 
 [node name="EquipViewer" parent="." instance=ExtResource("2_ce8ih")]
 

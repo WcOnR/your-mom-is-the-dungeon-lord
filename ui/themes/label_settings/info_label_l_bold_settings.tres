@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c4rudpomuxrsq"]
+
+[ext_resource type="FontVariation" uid="uid://bu8b2ja0f4a16" path="res://fonts/jozsika_bold.tres" id="1_luxa7"]
+
+[resource]
+font = ExtResource("1_luxa7")
+font_size = 35
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwjhr3canvxqn"]
+[gd_scene load_steps=5 format=3 uid="uid://bwjhr3canvxqn"]
 
 [ext_resource type="Script" path="res://ui/phone/equip_loot_panel/equip_loot_panel.gd" id="1_gjimy"]
+[ext_resource type="LabelSettings" uid="uid://c4rudpomuxrsq" path="res://ui/themes/label_settings/info_label_l_bold_settings.tres" id="2_7au3m"]
 [ext_resource type="PackedScene" uid="uid://dfy4agorh33pb" path="res://ui/widgets/equip_hint.tscn" id="2_uoflj"]
 [ext_resource type="PackedScene" uid="uid://dhihkx5clxl6c" path="res://ui/phone/equip_btn/equip_button.tscn" id="3_14t2t"]
 
@@ -15,12 +16,20 @@ script = ExtResource("1_gjimy")
 layout_mode = 2
 
 [node name="Extander" type="MarginContainer" parent="VBoxContainer2"]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_vertical = 0
 
+[node name="CallToActionLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "MAKE YOUR CHOICE"
+label_settings = ExtResource("2_7au3m")
+horizontal_alignment = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
 layout_mode = 2
+theme_override_constants/margin_top = 30
 
 [node name="Panel" type="Panel" parent="VBoxContainer2/MarginContainer"]
 layout_mode = 2
@@ -28,23 +37,17 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="CallToActionLabel" type="Label" parent="VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "CHOOSE YOUR REWARD"
-horizontal_alignment = 1
+theme_override_constants/separation = 20
 
 [node name="ItemContainer" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 118)
+custom_minimum_size = Vector2(0, 148)
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1

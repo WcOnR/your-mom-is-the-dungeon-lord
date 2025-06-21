@@ -10,5 +10,5 @@ enum Type {CONSUMABL, BOOSTER, EQUIP, SUPER_EQUIP}
 @export var price : int = 100
 
 
-func create_hint(node : Node) -> Hint:
-	return Hint.new(item_name, item_description, node)
+func is_equip() -> bool:
+	return type == Type.EQUIP or type == Type.SUPER_EQUIP

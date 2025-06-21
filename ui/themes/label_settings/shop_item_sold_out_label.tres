@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://e4afs40blb1r"]
+
+[ext_resource type="FontFile" uid="uid://cfe3iy3a5n5lb" path="res://fonts/marius1/Marius.ttf" id="1_7reyt"]
+
+[resource]
+font = ExtResource("1_7reyt")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)

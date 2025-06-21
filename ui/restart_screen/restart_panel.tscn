@@ -1,59 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnca6y1kigsrx"]
+[gd_scene load_steps=7 format=3 uid="uid://bnca6y1kigsrx"]
 
 [ext_resource type="Script" path="res://ui/restart_screen/restart_panel.gd" id="1_u6tsd"]
+[ext_resource type="FontVariation" uid="uid://bu8b2ja0f4a16" path="res://fonts/jozsika_bold.tres" id="2_hcw6e"]
+[ext_resource type="Theme" uid="uid://dhj01xmaiqjpm" path="res://ui/themes/item_btn.tres" id="3_u725x"]
+[ext_resource type="FontVariation" uid="uid://dnsrwubcv2dna" path="res://fonts/jozsika_normal.tres" id="4_8276t"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yuprc"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 5.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
+[sub_resource type="LabelSettings" id="LabelSettings_i3pa6"]
+font = ExtResource("2_hcw6e")
+font_size = 60
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyoxn"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 5.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hu5bh"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 5.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="Theme" id="Theme_prmme"]
-Button/styles/hover = SubResource("StyleBoxFlat_yuprc")
-Button/styles/normal = SubResource("StyleBoxFlat_hyoxn")
-Button/styles/pressed = SubResource("StyleBoxFlat_hu5bh")
+[sub_resource type="LabelSettings" id="LabelSettings_8nhtd"]
+font = ExtResource("2_hcw6e")
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="RestartScreen" type="MarginContainer"]
 offset_right = 981.0
@@ -69,16 +31,16 @@ theme_override_constants/separation = 100
 [node name="Label1" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
 text = "YOU WON'T SAVE HER!"
+label_settings = SubResource("LabelSettings_i3pa6")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(748, 200)
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
 text = "You won’t even save yourself..."
+label_settings = SubResource("LabelSettings_8nhtd")
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -91,7 +53,13 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
-theme = SubResource("Theme_prmme")
+theme = ExtResource("3_u725x")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_8276t")
 theme_override_font_sizes/font_size = 60
 text = "Again!"
 

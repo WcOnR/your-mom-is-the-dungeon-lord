@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("3_r02t1")
 item_preset_a = ExtResource("1_qiwrq")
-item_description_a = Array[String](["Your every attacks heals you by 1% of your max health.", "Your every attacks heals you by 3% of your max health.", "Your every attacks heals you by 5% of your max health."])
+item_description_a = Array[String](["Each of your attacks heals you for [color=#f8e1b7][u]1%[/u][/color] of your [u]maximum health[/u].", "Each of your attacks heals you for [color=#f8e1b7][u]3%[/u][/color] of your [u]maximum health[/u].", "Each of your attacks heals you for [color=#f8e1b7][u]5%[/u][/color] of your [u]maximum health[/u]."])
 item_preset_b = ExtResource("2_ug4n8")
-item_description_b = Array[String](["Heart tiles applies 50% of base damage on collapse, but it healing become less effective by 50%", "Heart tiles applies 100% of base damage on collapse, but no longer health you.", "Heart tiles applies 150% of base damage on collapse, but no longer health you."])
+item_description_b = Array[String](["[i]Heart[/i] tiles deals [color=#f8e1b7][u]50%[/u][/color] of [u]base attack[/u], but their healing is [color=#f8e1b7][u]50%[/u][/color] less effective.", "[i]Heart[/i] tiles deals [color=#f8e1b7][u]100%[/u][/color] of [u]base attack[/u], but no longer heal you.", "[i]Heart[/i] tiles deals [color=#f8e1b7][u]150%[/u][/color] of [u]base attack[/u], but no longer heal you."])
 super_item_preset = ExtResource("4_d55su")

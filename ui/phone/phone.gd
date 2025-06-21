@@ -49,6 +49,7 @@ func start_show_anim() -> void:
 	tween.tween_property(self, "position", init_pos, 0.5)
 	await get_tree().create_timer(0.75).timeout
 	%ScreenLight.visible = true
+	%PhoneScreen.modulate = Color(Color.WHITE, 0.2)
 	await get_tree().create_timer(0.2).timeout
 	%ScreenUI.visible = true
 

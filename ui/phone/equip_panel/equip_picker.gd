@@ -4,7 +4,7 @@ var _pack : ItemPack = null
 
 
 func set_equip(pack : ItemPack) -> void:
-	%EquipViewer.set_equip(pack)
+	%PackViewer.set_pack(pack)
 	_pack = pack
 
 

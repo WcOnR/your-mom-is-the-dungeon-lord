@@ -142,6 +142,7 @@ layout_mode = 2
 theme = SubResource("Theme_b5hpw")
 
 [node name="PhoneScreen" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 z_index = 100
 position = Vector2(-15, 0)
 texture = ExtResource("2_pi01n")

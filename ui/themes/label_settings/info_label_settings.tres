@@ -1,6 +1,9 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://bpr6t2q1y56ln"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bpr6t2q1y56ln"]
+
+[ext_resource type="FontFile" uid="uid://bril8uefqfjex" path="res://fonts/joszika/jozsika-medium.ttf" id="1_1je7d"]
 
 [resource]
+font = ExtResource("1_1je7d")
 font_size = 20
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)

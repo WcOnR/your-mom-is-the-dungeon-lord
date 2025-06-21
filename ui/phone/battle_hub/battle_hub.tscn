@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfbuiik3genxv"]
+[gd_scene load_steps=12 format=3 uid="uid://dfbuiik3genxv"]
 
 [ext_resource type="Script" path="res://ui/phone/battle_hub/battle_hud.gd" id="1_0h25g"]
 [ext_resource type="PackedScene" uid="uid://1gowrjdv5xvj" path="res://ui/widgets/health_ui.tscn" id="1_xuqrh"]
@@ -10,6 +10,15 @@
 [ext_resource type="Resource" uid="uid://c4o1anlio860k" path="res://game_objects/items/consumabls/consumabl_item_1.tres" id="7_2mlrx"]
 [ext_resource type="Resource" uid="uid://cgf7nuvx856d5" path="res://game_objects/items/consumabls/consumabl_item_2.tres" id="8_0gdwd"]
 [ext_resource type="Resource" uid="uid://4gow4p87dlkh" path="res://game_objects/items/consumabls/consumabl_item_3.tres" id="9_jx6ti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yifag"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
 
 [node name="BattleHUD" type="MarginContainer"]
 offset_right = 748.0
@@ -76,6 +85,7 @@ mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="MarginContainer/BattleView/MarginContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yifag")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/BattleView/MarginContainer"]
 custom_minimum_size = Vector2(320, 85)

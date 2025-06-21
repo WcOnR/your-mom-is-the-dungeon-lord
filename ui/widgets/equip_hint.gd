@@ -1,7 +1,12 @@
+@tool
 class_name EquipHint extends MarginContainer
 
-@onready var description_label : Label = $HintContainer/DescriptionLabel
+@export var name_alligment : HorizontalAlignment = HorizontalAlignment.HORIZONTAL_ALIGNMENT_CENTER:
+	set(new_alligment):
+		name_alligment = new_alligment
+		%NameLabel.horizontal_alignment = new_alligment
 
+@onready var description_label : RichTextLabel = $HintContainer/DescriptionLabel
 
 func clear() -> void:
 	%EmptySlot.visible = false

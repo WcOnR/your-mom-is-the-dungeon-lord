@@ -1,24 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl65gc4e573wo"]
+[gd_scene load_steps=5 format=3 uid="uid://cl65gc4e573wo"]
 
+[ext_resource type="Theme" uid="uid://dhj01xmaiqjpm" path="res://ui/themes/item_btn.tres" id="1_a62of"]
 [ext_resource type="Script" path="res://ui/phone/equip_panel/equip_picker.gd" id="1_hj1nt"]
-[ext_resource type="PackedScene" uid="uid://n7oxl4i8smas" path="res://ui/phone/equip_panel/equip_viewer.tscn" id="2_tewqb"]
+[ext_resource type="PackedScene" uid="uid://n7oxl4i8smas" path="res://ui/phone/equip_panel/pack_viewer.tscn" id="2_tewqb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnsb6"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0, 0, 0)
+border_width_top = 3
+border_width_bottom = 3
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [node name="EquipPicker" type="Button"]
-custom_minimum_size = Vector2(118, 118)
+custom_minimum_size = Vector2(148, 148)
 offset_right = 118.0
 offset_bottom = 118.0
 focus_mode = 0
+theme = ExtResource("1_a62of")
 script = ExtResource("1_hj1nt")
 
-[node name="Selected" type="ColorRect" parent="."]
+[node name="Selected" type="Panel" parent="."]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(118, 118)
-layout_mode = 0
-offset_right = 118.0
-offset_bottom = 118.0
-mouse_filter = 2
-color = Color(0.39, 0.39, 0.39, 0.392157)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tnsb6")
 
-[node name="EquipViewer" parent="." instance=ExtResource("2_tewqb")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="PackViewer" parent="MarginContainer" instance=ExtResource("2_tewqb")]
 unique_name_in_owner = true
+layout_mode = 2

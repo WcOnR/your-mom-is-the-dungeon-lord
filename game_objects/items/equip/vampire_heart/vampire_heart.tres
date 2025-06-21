@@ -18,5 +18,5 @@ type = 3
 texture = ExtResource("6_gq2lq")
 action = SubResource("Resource_m00ti")
 item_name = "Vampire Heart"
-item_description = "Your every attacks heals you by 10% of your max health. And heart tiles applies 200% of base damage on collapse, but no longer health you."
+item_description = "[i]Heart[/i] tiles deals [color=#f8e1b7][u]200%[/u][/color] of [u]base attack[/u] and no longer heal you. Instead, each of your attacks heals you for [color=#f8e1b7][u]10%[/u][/color] of your [u]maximum health[/u]."
 price = 1000

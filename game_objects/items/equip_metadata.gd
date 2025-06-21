@@ -8,7 +8,7 @@ class_name EquipMetadata extends Resource
 @export var super_item_preset : ItemPreset = null
 
 
-const LEVEL_STR : String = "Level %d: %s\n"
+const LEVEL_STR : String = "%sLevel %d:%s %s\n\n"
 
 
 func get_items() -> Array[ItemPreset]:
@@ -25,7 +25,10 @@ func get_full_item_description_b() -> String:
 
 func get_full_item_description(item_description : Array[String]) -> String:
 	var restult : String = ""
+	var settings := SettingsManager.get_settings()
+	
 	for i in item_description.size():
-		restult += LEVEL_STR % [i + 1, item_description[i]]
+		var prefix := "[b][color=%s]" % [settings.equip_level_colors[i].to_html(false)]
+		restult += LEVEL_STR % [prefix, i + 1, "[/color][/b]", item_description[i]]
 	restult = restult.left(restult.length() - 1)
 	return restult

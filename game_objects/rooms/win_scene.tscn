@@ -1,14 +1,58 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwhreyk8calwh"]
+[gd_scene load_steps=12 format=3 uid="uid://bwhreyk8calwh"]
 
 [ext_resource type="Script" path="res://game_objects/rooms/win_scene.gd" id="1_0hwld"]
 [ext_resource type="Texture2D" uid="uid://bvgn75s4aoond" path="res://game_objects/fx/beam.png" id="2_a0xjg"]
 [ext_resource type="Texture2D" uid="uid://b16xeebwv27h4" path="res://game_objects/rooms/Final.png" id="2_sx1md"]
 [ext_resource type="Texture2D" uid="uid://covsg53f6404a" path="res://game_objects/rooms/FinalBg.png" id="3_caynq"]
-[ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="4_hda7c"]
+[ext_resource type="FontFile" uid="uid://cfe3iy3a5n5lb" path="res://fonts/marius1/Marius.ttf" id="5_hyco3"]
 
 [sub_resource type="Gradient" id="Gradient_esas8"]
 offsets = PackedFloat32Array(0, 0.705341, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lyb03"]
+font = ExtResource("5_hyco3")
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1uwm"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.63781, 0.691601, 0.738508, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43auk"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.454902, 0.513726, 0.564706, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hc1mn"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.210088, 0.246608, 0.278147, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="Theme" id="Theme_cj07d"]
+Button/styles/hover = SubResource("StyleBoxFlat_u1uwm")
+Button/styles/normal = SubResource("StyleBoxFlat_43auk")
+Button/styles/pressed = SubResource("StyleBoxFlat_hc1mn")
 
 [node name="WinScene" type="Node2D"]
 script = ExtResource("1_0hwld")
@@ -78,32 +122,38 @@ centered = false
 
 [node name="UIHolder" type="MarginContainer" parent="CanvasLayer"]
 unique_name_in_owner = true
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -215.0
-offset_top = -63.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/margin_right = 120
-theme_override_constants/margin_bottom = 120
+offset_right = 612.0
+offset_bottom = 262.0
+theme_override_constants/margin_left = 1308
+theme_override_constants/margin_top = 818
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UIHolder"]
 layout_mode = 2
 theme_override_constants/separation = 20
-alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/UIHolder/VBoxContainer"]
 layout_mode = 2
 text = "Thank you for playing!"
-label_settings = ExtResource("4_hda7c")
+label_settings = SubResource("LabelSettings_lyb03")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/UIHolder/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UIHolder/VBoxContainer"]
+layout_mode = 2
+
+[node name="ReloadButton" type="Button" parent="CanvasLayer/UIHolder/VBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
-text = "reload"
+focus_mode = 0
+theme = SubResource("Theme_cj07d")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_hyco3")
+theme_override_font_sizes/font_size = 30
+text = "Start Over"
 
-[connection signal="pressed" from="CanvasLayer/UIHolder/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UIHolder/VBoxContainer/CenterContainer/ReloadButton" to="." method="_on_button_pressed"]

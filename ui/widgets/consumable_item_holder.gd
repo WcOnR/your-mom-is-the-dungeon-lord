@@ -6,7 +6,6 @@ class_name ConsumableItemHolder extends Control
 
 var _field : Field = null
 var _pack : ItemPack = null
-var _hint : Hint = null
 var _inventory_comp : InventoryComp = null
 
 signal begin_hold
@@ -15,9 +14,8 @@ signal begin_hold
 func _ready() -> void:
 	_field = get_tree().get_first_node_in_group("Field")
 	viewer.set_item(item_preset)
-	viewer.set_modular_color(Color.DIM_GRAY)
+	viewer.set_gray_out(true)
 	_pack = ItemPack.new(item_preset)
-	_hint = item_preset.create_hint(self)
 	var player := get_tree().get_first_node_in_group("Player") as Player
 	_inventory_comp = player.inventory_comp
 	_inventory_comp.items_changed.connect(_on_item_updated)
@@ -30,9 +28,9 @@ func _on_item_updated() -> void:
 	_pack.count = _inventory_comp.get_pack(item_preset).count
 	label.text = str(_pack.count)
 	if _pack.count > 0:
-		viewer.set_modular_color(Color.WHITE)
+		viewer.set_gray_out(false)
 	else:
-		viewer.set_modular_color(Color.DIM_GRAY)
+		viewer.set_gray_out(true)
 
 
 func _on_button_button_down() -> void:

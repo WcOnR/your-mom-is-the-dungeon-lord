@@ -3,13 +3,18 @@ class_name ItemLootPanel extends Control
 @export var buy_sound : AudioData = null
 
 
-@onready var viewer_scene : PackedScene = preload("res://ui/phone/item_loot_panel/item_pack_viewer.tscn")
-@onready var viewer : ItemPackViewer = %ItemPackViewer
+@onready var viewer : PackViewer = %ItemPackViewer
 @onready var item_hint : EquipHint = %EquipHint
 @onready var buy_btn : Button = %BuyButton
 @onready var equip_btn : Button = %EquipButton
 @onready var bottom_panel : Control = %BottomPanel
 @onready var coin_panel : CoinPanel = %CoinPanel
+@onready var call_to_action_label : Label = %CallToActionLabel
+
+
+const TOP_OFFSET_Y_ITEM := 200.0
+const TOP_OFFSET_Y_EQUIP := 120.0
+
 
 var _phone : Phone = null
 
@@ -26,14 +31,17 @@ func set_reward_view(pack : ItemPack) -> void:
 	viewer.set_pack(pack)
 	if pack.item_preset.type == ItemPreset.Type.EQUIP:
 		item_hint.set_equip(pack, true)
+		%Extander.custom_minimum_size.y = TOP_OFFSET_Y_EQUIP
 	else:
 		item_hint.set_item(pack.item_preset)
+		%Extander.custom_minimum_size.y = TOP_OFFSET_Y_ITEM
 
 
 func show_buy_btn(_show : bool) -> void:
 	buy_btn.visible = _show
 	equip_btn.visible = _show
 	bottom_panel.visible = _show
+	call_to_action_label.text = "CONFIRM PURCHASE" if _show else "NEW ITEM"
 
 
 func _on_buy_btn_pressed() -> void:

@@ -8,5 +8,5 @@ script = ExtResource("1_wu3px")
 type = 0
 texture = ExtResource("2_5pvab")
 item_name = "Hero Coin"
-item_description = "Currency that can be used in shop."
+item_description = "Currency used to buy [u]equipment[/u] and [u]consumables[/u]."
 price = -1

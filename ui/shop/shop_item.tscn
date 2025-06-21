@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://viqc2id4a1nb"]
+[gd_scene load_steps=8 format=3 uid="uid://viqc2id4a1nb"]
 
-[ext_resource type="PackedScene" uid="uid://dhv5wq4lf1ren" path="res://ui/phone/item_loot_panel/item_pack_viewer.tscn" id="1_d7npy"]
 [ext_resource type="Script" path="res://ui/shop/shop_item.gd" id="1_di36y"]
 [ext_resource type="Texture2D" uid="uid://dvtv7dqmlfxff" path="res://game_objects/rooms/shop_room/AlphaPatch.png" id="2_8x2fi"]
+[ext_resource type="PackedScene" uid="uid://n7oxl4i8smas" path="res://ui/phone/equip_panel/pack_viewer.tscn" id="3_fipyx"]
 [ext_resource type="LabelSettings" uid="uid://crgqaykk56kor" path="res://ui/themes/label_settings/shop_item_label.tres" id="4_mi8nc"]
 [ext_resource type="Texture2D" uid="uid://ghdoymobjlab" path="res://ui/widgets/hero_coin.png" id="4_pek12"]
+[ext_resource type="FontFile" uid="uid://cfe3iy3a5n5lb" path="res://fonts/marius1/Marius.ttf" id="6_btmmf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jbvu4"]
+font = ExtResource("6_btmmf")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [node name="ShopItem" type="MarginContainer"]
 script = ExtResource("1_di36y")
@@ -18,11 +25,9 @@ z_index = -1
 layout_mode = 2
 texture = ExtResource("2_8x2fi")
 
-[node name="ItemPackViewer" parent="VBoxContainer/TextureRect" instance=ExtResource("1_d7npy")]
+[node name="ItemPackViewer" parent="VBoxContainer/TextureRect" instance=ExtResource("3_fipyx")]
 unique_name_in_owner = true
-layout_mode = 2
 offset_top = 4.0
-offset_right = 118.0
 offset_bottom = 122.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
@@ -53,13 +58,13 @@ visible = false
 layout_mode = 2
 
 [node name="Offset" type="MarginContainer" parent="SoldOutPanel"]
-custom_minimum_size = Vector2(0, 128)
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 
 [node name="SoldOutLabel" type="Label" parent="SoldOutPanel"]
 layout_mode = 2
 text = "SOLD OUT"
-label_settings = ExtResource("4_mi8nc")
+label_settings = SubResource("LabelSettings_jbvu4")
 horizontal_alignment = 1
 
 [node name="SelectButton" type="Button" parent="."]

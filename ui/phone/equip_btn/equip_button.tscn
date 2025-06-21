@@ -9,7 +9,6 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.225, 0.225, 0.225, 0.6)
 corner_radius_top_left = 90
-corner_detail = 5
 expand_margin_left = 12.0
 expand_margin_top = 12.0
 
@@ -20,7 +19,6 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 corner_radius_top_left = 90
-corner_detail = 5
 expand_margin_left = 12.0
 expand_margin_top = 12.0
 
@@ -31,7 +29,6 @@ content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0, 0, 0, 0.6)
 corner_radius_top_left = 90
-corner_detail = 5
 expand_margin_left = 12.0
 expand_margin_top = 12.0
 

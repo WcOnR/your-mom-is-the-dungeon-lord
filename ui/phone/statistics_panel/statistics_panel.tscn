@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://s8pd43t32c5v"]
+[gd_scene load_steps=13 format=3 uid="uid://s8pd43t32c5v"]
 
 [ext_resource type="Script" path="res://ui/phone/statistics_panel/statistics_panel.gd" id="1_gbugr"]
 [ext_resource type="PackedScene" uid="uid://cf102rf2d2ahv" path="res://ui/widgets/coin_panel.tscn" id="2_3g1fb"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="2_hrnw1"]
 [ext_resource type="AudioStream" uid="uid://dp3ico8sh25dm" path="res://sounds/590531_stat_line_show.ogg" id="3_t72vn"]
 [ext_resource type="AudioStream" uid="uid://fn6f4ivba1gb" path="res://sounds/512216_coins_count_2.ogg" id="4_cah3x"]
+[ext_resource type="LabelSettings" uid="uid://d04k6vyakigho" path="res://ui/themes/label_settings/info_label_m_bold_settings.tres" id="5_rfwky"]
+[ext_resource type="LabelSettings" uid="uid://c4rudpomuxrsq" path="res://ui/themes/label_settings/info_label_l_bold_settings.tres" id="6_crhve"]
 
 [sub_resource type="Resource" id="Resource_8a1t6"]
 script = ExtResource("2_hrnw1")
@@ -17,21 +19,6 @@ script = ExtResource("2_hrnw1")
 stream = ExtResource("4_cah3x")
 volume_db = -10.0
 pitch_scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_pda3l"]
-font_size = 30
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_hfyo2"]
-font_size = 30
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_c5daj"]
-font_size = 50
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33f7t"]
 content_margin_left = 4.0
@@ -104,7 +91,7 @@ layout_mode = 2
 [node name="Total" type="Label" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2/MarginContainer/TotalHolder/HBoxContainer"]
 layout_mode = 2
 text = "Total"
-label_settings = SubResource("LabelSettings_pda3l")
+label_settings = ExtResource("5_rfwky")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer2/MarginContainer/TotalHolder/HBoxContainer"]
 layout_mode = 2
@@ -115,7 +102,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "500 H"
-label_settings = SubResource("LabelSettings_hfyo2")
+label_settings = ExtResource("5_rfwky")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer"]
 layout_mode = 2
@@ -123,7 +110,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "BATTLE STATISTIC"
-label_settings = SubResource("LabelSettings_c5daj")
+label_settings = ExtResource("6_crhve")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer3/MarginContainer/VBoxContainer"]

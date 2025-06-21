@@ -16,5 +16,5 @@ type = 3
 texture = ExtResource("4_s2o4r")
 action = SubResource("Resource_p54ud")
 item_name = "Witch Earrings"
-item_description = "All your enemies are disoriented and will skip their first turn."
+item_description = "All your enemies become disoriented and will skip their first turn."
 price = 1000

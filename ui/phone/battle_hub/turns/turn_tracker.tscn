@@ -81,6 +81,7 @@ patch_margin_bottom = 5
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 11
 
 [node name="BatteryInfo" type="Label" parent="MarginContainer2"]

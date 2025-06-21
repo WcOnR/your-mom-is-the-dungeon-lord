@@ -16,5 +16,5 @@ type = 3
 texture = ExtResource("4_dn5je")
 action = SubResource("Resource_fad18")
 item_name = "Shield Armor"
-item_description = "If shields was broken on previous turn, give you a 100 shields on your turn. But if shields wasn't broken save 100% of them."
+item_description = "If your [u]shields[/u] were broken on the previous turn, restore [color=#f8e1b7][u]100[/u][/color] [u]shields[/u] on the next turn; otherwise, save [color=#f8e1b7][u]100%[/u][/color] of your [u]shields[/u]."
 price = 1000
