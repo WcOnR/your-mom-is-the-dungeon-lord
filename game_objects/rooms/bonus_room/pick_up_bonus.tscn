@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://game_objects/rooms/bonus_room/pick_up_bonus.gd" id="1_tn2ng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uiqs"]
-size = Vector2(300, 600)
+size = Vector2(174, 235)
 
 [node name="PickUpBonus" type="Area2D"]
 position = Vector2(937, 725)
 script = ExtResource("1_tn2ng")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -113.5)
 shape = SubResource("RectangleShape2D_6uiqs")

@@ -65,6 +65,8 @@ func get_wasnt_move_enemies() -> int:
 func _on_game_mode_state_changed() -> void:
 	if _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
 		_plan_next_enemy_attack()
+		var enemies := lines[selected_line].enemies
+		_player.set_enemy(enemies[0])
 
 
 func _on_first_enemy_move(enemy : Enemy) -> void:
@@ -123,8 +125,9 @@ func _on_enemy_dead() -> void:
 		if selected_line == -1:
 			all_enemy_all_dead.emit()
 	else:
-		enemies[0].plan_next_attack(lines[selected_line])
-		_player.set_enemy(enemies[0])
+		if _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
+			enemies[0].plan_next_attack(lines[selected_line])
+			_player.set_enemy(enemies[0])
 
 
 func _update_active_lines() -> void:

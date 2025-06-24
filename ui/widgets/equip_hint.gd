@@ -13,6 +13,9 @@ class_name EquipHint extends MarginContainer
 		info_btn_show = new_val
 		%InfoButton.visible = new_val
 		%Extander.visible = new_val
+		if not info_btn_show:
+			%DescriptionLabel.visible = true
+			%StoryLabel.visible = false
 
 
 @onready var description_label : RichTextLabel = %DescriptionLabel

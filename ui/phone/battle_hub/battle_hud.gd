@@ -26,6 +26,9 @@ func _ready() -> void:
 	health_ui.set_health_comp(_health_comp)
 	_field = get_tree().get_first_node_in_group("Field")
 	equip_btn.pressed.connect(_on_equip_btn_pressed)
+	if _player.inventory_comp.get_slots()[0] == null:
+		equip_btn.visible = false
+	
 
 
 func enable_input(_enable_input : bool) -> void:

@@ -32,9 +32,11 @@ func set_reward_view(pack : ItemPack) -> void:
 	if pack.item_preset.type == ItemPreset.Type.EQUIP:
 		item_hint.set_equip(pack, true)
 		%Extander.custom_minimum_size.y = TOP_OFFSET_Y_EQUIP
+		item_hint.info_btn_show = false
 	else:
 		item_hint.set_item(pack.item_preset)
 		%Extander.custom_minimum_size.y = TOP_OFFSET_Y_ITEM
+		item_hint.info_btn_show = true
 
 
 func show_buy_btn(_show : bool) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c60poi4tadglk"]
+[gd_scene load_steps=14 format=3 uid="uid://c60poi4tadglk"]
 
 [ext_resource type="PackedScene" uid="uid://cf0wckvixm5en" path="res://game_objects/rooms/bonus_room/pick_up_bonus.tscn" id="1_1nl3s"]
 [ext_resource type="Texture2D" uid="uid://t43nms5rskdx" path="res://game_objects/items/boosters/HealthCristal.png" id="1_b8w85"]
@@ -12,6 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://h8i61u7scjja" path="res://ui/phone/phone.tscn" id="7_v7qx5"]
 
 [sub_resource type="Resource" id="Resource_u0o5i"]
+script = ExtResource("5_ckdw2")
+stream = ExtResource("6_gjaqu")
+volume_db = -20.0
+pitch_scale = 0.708
+
+[sub_resource type="Resource" id="Resource_2y26t"]
+script = ExtResource("5_ckdw2")
+stream = ExtResource("6_gjaqu")
+volume_db = -17.0
+pitch_scale = 0.875
+
+[sub_resource type="Resource" id="Resource_hwd5w"]
 script = ExtResource("5_ckdw2")
 stream = ExtResource("6_gjaqu")
 volume_db = -15.0
@@ -35,10 +47,9 @@ texture = ExtResource("3_ah2sy")
 centered = false
 
 [node name="PickUpBonus" parent="." instance=ExtResource("1_1nl3s")]
-visible = false
 game_mode = NodePath("../GameMode")
 bonus = NodePath("../BonusBg/HealthCristal")
-pick_up_sound = SubResource("Resource_u0o5i")
+pick_up_sounds = Array[ExtResource("5_ckdw2")]([SubResource("Resource_u0o5i"), SubResource("Resource_2y26t"), SubResource("Resource_hwd5w")])
 
 [node name="GameMode" type="Node" parent="." groups=["GameMode"]]
 script = ExtResource("4_2y7wp")
