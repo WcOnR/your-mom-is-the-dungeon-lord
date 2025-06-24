@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c60poi4tadglk"]
+[gd_scene load_steps=16 format=3 uid="uid://c60poi4tadglk"]
 
 [ext_resource type="PackedScene" uid="uid://cf0wckvixm5en" path="res://game_objects/rooms/bonus_room/pick_up_bonus.tscn" id="1_1nl3s"]
 [ext_resource type="Texture2D" uid="uid://t43nms5rskdx" path="res://game_objects/items/boosters/HealthCristal.png" id="1_b8w85"]
@@ -7,21 +7,23 @@
 [ext_resource type="Script" path="res://system/audio_data.gd" id="5_ckdw2"]
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="5_xsc06"]
 [ext_resource type="Resource" uid="uid://x2dj2atleasc" path="res://game_objects/items/boosters/health_cristal.tres" id="6_776vp"]
-[ext_resource type="AudioStream" uid="uid://bo2he4gf1pqhi" path="res://sounds/cristal_pickup.ogg" id="6_gjaqu"]
+[ext_resource type="AudioStream" uid="uid://bo2he4gf1pqhi" path="res://sounds/cristal_pickup_c.ogg" id="6_gjaqu"]
+[ext_resource type="AudioStream" uid="uid://cfu7cfi4bf3vr" path="res://sounds/cristal_pickup_f.ogg" id="6_oaq42"]
+[ext_resource type="AudioStream" uid="uid://datlehr8im43v" path="res://sounds/cristal_pickup_a.ogg" id="7_mmbhu"]
 [ext_resource type="Texture2D" uid="uid://byss5quno1jve" path="res://game_objects/rooms/bonus_room/bonus_bg.png" id="7_p7r8t"]
 [ext_resource type="PackedScene" uid="uid://h8i61u7scjja" path="res://ui/phone/phone.tscn" id="7_v7qx5"]
 
 [sub_resource type="Resource" id="Resource_u0o5i"]
 script = ExtResource("5_ckdw2")
-stream = ExtResource("6_gjaqu")
+stream = ExtResource("6_oaq42")
 volume_db = -20.0
-pitch_scale = 0.708
+pitch_scale = 1.0
 
 [sub_resource type="Resource" id="Resource_2y26t"]
 script = ExtResource("5_ckdw2")
-stream = ExtResource("6_gjaqu")
+stream = ExtResource("7_mmbhu")
 volume_db = -17.0
-pitch_scale = 0.875
+pitch_scale = 1.0
 
 [sub_resource type="Resource" id="Resource_hwd5w"]
 script = ExtResource("5_ckdw2")
