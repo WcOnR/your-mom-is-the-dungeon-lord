@@ -17,4 +17,7 @@ texture = ExtResource("4_y6im1")
 action = SubResource("Resource_kq5hk")
 item_name = "Shield of Rings"
 item_description = "This text shouldn't be visible"
+story_description = "Though light and strong, this shield offers little against thrusts or piercing strikes. Once, shields like this were highly prized, for at times they could even withstand the charge of a Shieldbreaker.
+
+\"Even flaws may bear advantage.\""
 price = 3500

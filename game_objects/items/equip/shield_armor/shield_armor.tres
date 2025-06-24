@@ -17,4 +17,12 @@ texture = ExtResource("4_dn5je")
 action = SubResource("Resource_fad18")
 item_name = "Shield Armor"
 item_description = "If your [u]shields[/u] were broken on the previous turn, restore [color=#f8e1b7][u]100[/u][/color] [u]shields[/u] on the next turn; otherwise, save [color=#f8e1b7][u]100%[/u][/color] of your [u]shields[/u]."
+story_description = "Shield on heart, and shield on shoulder,
+Without this guard, my end grows colder.
+Once I adored - now I attack,
+Seems there's no way to turn us back. 
+I built this shell from broken trust,
+From every blow, from every gust.
+I tried to run, but war ran too -
+So now I wear what I lived through."
 price = 1000

@@ -17,4 +17,7 @@ texture = ExtResource("4_vvwcs")
 action = SubResource("Resource_810tt")
 item_name = "Ring of Shields"
 item_description = "This text shouldn't be visible"
+story_description = "This ring was forged by order of the King of Slumberkeep to protect his daughter, the Holy Mother, from all threats - never suspecting that the greatest threat would be her, once the crown touched her brow.
+
+\"And the Eternal shall become naught, and evil in the end shall turn to good.\""
 price = 3500

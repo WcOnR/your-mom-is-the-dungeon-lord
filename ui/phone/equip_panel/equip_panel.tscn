@@ -19,73 +19,79 @@ offset_right = 700.0
 offset_bottom = 414.0
 theme_override_constants/separation = 40
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+[node name="SlotContainer" type="HBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/SlotContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/HBoxContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/SlotContainer/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_0j05u")
 
-[node name="Slot1" parent="HBoxContainer/HBoxContainer/MarginContainer/PanelContainer" instance=ExtResource("2_nj6ve")]
+[node name="Slot1" parent="HBoxContainer/SlotContainer/MarginContainer/PanelContainer" instance=ExtResource("2_nj6ve")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="EquipHint1" parent="HBoxContainer/HBoxContainer" instance=ExtResource("3_oqxpi")]
+[node name="EquipHint1" parent="HBoxContainer/SlotContainer" instance=ExtResource("3_oqxpi")]
 unique_name_in_owner = true
 layout_mode = 2
 name_alligment = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+[node name="SlotContainer2" type="HBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/SlotContainer2"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/HBoxContainer2/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/SlotContainer2/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_0j05u")
 
-[node name="Slot2" parent="HBoxContainer/HBoxContainer2/MarginContainer/PanelContainer" instance=ExtResource("2_nj6ve")]
+[node name="Slot2" parent="HBoxContainer/SlotContainer2/MarginContainer/PanelContainer" instance=ExtResource("2_nj6ve")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="EquipHint2" parent="HBoxContainer/HBoxContainer2" instance=ExtResource("3_oqxpi")]
+[node name="EquipHint2" parent="HBoxContainer/SlotContainer2" instance=ExtResource("3_oqxpi")]
 unique_name_in_owner = true
 layout_mode = 2
 name_alligment = 0
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer"]
+[node name="SlotContainer3" type="HBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/HBoxContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/SlotContainer3"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/HBoxContainer3/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/SlotContainer3/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_0j05u")
 
-[node name="Slot3" parent="HBoxContainer/HBoxContainer3/MarginContainer/PanelContainer" instance=ExtResource("2_nj6ve")]
+[node name="Slot3" parent="HBoxContainer/SlotContainer3/MarginContainer/PanelContainer" instance=ExtResource("2_nj6ve")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="EquipHint3" parent="HBoxContainer/HBoxContainer3" instance=ExtResource("3_oqxpi")]
+[node name="EquipHint3" parent="HBoxContainer/SlotContainer3" instance=ExtResource("3_oqxpi")]
 unique_name_in_owner = true
 layout_mode = 2
 name_alligment = 0

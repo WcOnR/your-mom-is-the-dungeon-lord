@@ -17,4 +17,7 @@ texture = ExtResource("4_jl4g7")
 action = SubResource("Resource_vdksi")
 item_name = "Shieldbreaker"
 item_description = "This text shouldn't be visible"
+story_description = "Feared by defenders across whole Slumberkeep, this axe has shattered more than a few shields - and the arms behind them. Its blunt backside is made to take a hammer's blow, driving the blade deeper when brute force alone is not enough.
+
+\"Nothing drives a path forward like persistence... and consistency.\""
 price = 3500

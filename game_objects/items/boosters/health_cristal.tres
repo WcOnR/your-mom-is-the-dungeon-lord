@@ -17,4 +17,7 @@ texture = ExtResource("4_mxidx")
 action = SubResource("Resource_47u7n")
 item_name = "Cristal of Health"
 item_description = "Boosts your [u]maximum health[/u] by [color=#f8e1b7][u]20%[/u][/color]."
+story_description = "Discovered in the shadowy depths of the Cave of Doubts, this crystal emits a steady crimson light, guiding wanderers through darkness and whispers of fortune to those who dare the journey. 
+
+After all \"Glory yields only to the brave.\""
 price = 5000

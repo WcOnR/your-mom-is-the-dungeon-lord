@@ -19,4 +19,9 @@ texture = ExtResource("6_c6h3j")
 action = SubResource("Resource_bubb6")
 item_name = "Sharp Heart"
 item_description = "This text shouldn't be visible"
+story_description = "Who would do such a thing to a heart?
+From cold, blue flesh, jagged bone spikes erupt - as if the body rejected feeling and embraced pain instead.
+What madness drove someone to perform such a vile experiment?
+
+\"Some beings will endure anything... if it grants them strength.\""
 price = 3500

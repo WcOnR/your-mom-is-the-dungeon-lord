@@ -7,6 +7,7 @@ enum Type {CONSUMABL, BOOSTER, EQUIP, SUPER_EQUIP}
 @export var action : Action = null
 @export var item_name : String = ""
 @export var item_description : String = ""
+@export_multiline var story_description : String = ""
 @export var price : int = 100
 
 

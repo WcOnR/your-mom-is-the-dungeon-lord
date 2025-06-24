@@ -16,5 +16,13 @@ type = 3
 texture = ExtResource("4_x66bt")
 action = SubResource("Resource_jt435")
 item_name = "Double Axe"
-item_description = "Your [u]base attack[/u] increase by [color=#f8e1b7][u]125%[/u][/color], and enemies’ [u]shields[/u] break as if they don’t exist."
+item_description = "Your [u]base attack[/u] increase by [color=#f8e1b7][u]125%[/u][/color], and enemies' [u]shields[/u] break as if they don't exist."
+story_description = "They were never meant to be together,
+Their bond - no choice, just chain and tether.
+One honed the edge, though dull itself,
+The other sharp, but cared for nothing else.
+Each of them, a soul apart,
+Each irreplaceable in heart.
+So how, then, did it come to be...
+That only I remained - just me?"
 price = 1000

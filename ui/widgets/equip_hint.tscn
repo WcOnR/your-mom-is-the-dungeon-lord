@@ -1,30 +1,107 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfy4agorh33pb"]
+[gd_scene load_steps=14 format=3 uid="uid://dfy4agorh33pb"]
 
 [ext_resource type="LabelSettings" uid="uid://bpr6t2q1y56ln" path="res://ui/themes/label_settings/info_label_settings.tres" id="1_52gxq"]
 [ext_resource type="Script" path="res://ui/widgets/equip_hint.gd" id="1_hctvu"]
 [ext_resource type="LabelSettings" uid="uid://7ghd6d3mcrnc" path="res://ui/themes/label_settings/info_label_bold_settings.tres" id="2_wmkxq"]
 [ext_resource type="FontVariation" uid="uid://dnsrwubcv2dna" path="res://fonts/jozsika_normal.tres" id="3_bgoem"]
+[ext_resource type="Theme" uid="uid://dhj01xmaiqjpm" path="res://ui/themes/item_btn.tres" id="3_tdk7v"]
 [ext_resource type="FontVariation" uid="uid://c0eb2s2aqcmcl" path="res://fonts/jozsika_italics.tres" id="4_adoba"]
+[ext_resource type="LabelSettings" uid="uid://d04k6vyakigho" path="res://ui/themes/label_settings/info_label_m_bold_settings.tres" id="4_sk7qx"]
 [ext_resource type="FontVariation" uid="uid://bu8b2ja0f4a16" path="res://fonts/jozsika_bold.tres" id="5_ceifq"]
+[ext_resource type="FontFile" uid="uid://b3f8chu3v07uo" path="res://fonts/joszika/jozsika-italic.ttf" id="8_wbord"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p3fp"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.230889, 0.513709, 0.803593, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_paha3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0686214, 0.228559, 0.387195, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvlm5"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.1449, 0.38745, 0.63, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqegc"]
+font = ExtResource("8_wbord")
+font_size = 20
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="EquipHint" type="MarginContainer"]
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("1_hctvu")
 
 [node name="HintContainer" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="NameLabel" type="Label" parent="HintContainer"]
+[node name="NameContainer" type="HBoxContainer" parent="HintContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Extander" type="MarginContainer" parent="HintContainer/NameContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="HintContainer/NameContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Name"
 label_settings = ExtResource("2_wmkxq")
 horizontal_alignment = 1
 
+[node name="InfoButton" type="Button" parent="HintContainer/NameContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_tdk7v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1p3fp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_paha3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvlm5")
+
+[node name="Label" type="Label" parent="HintContainer/NameContainer/InfoButton"]
+layout_mode = 1
+offset_top = -3.0
+offset_right = 32.0
+offset_bottom = 35.0
+text = "i"
+label_settings = ExtResource("4_sk7qx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="DescriptionLabel" type="RichTextLabel" parent="HintContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 5
@@ -39,8 +116,18 @@ text = "[b]Your base[/b] attack [i]increase[/i] by 150%. And shields breaks like
 fit_content = true
 autowrap_mode = 2
 
+[node name="StoryLabel" type="Label" parent="HintContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "For \"Glory yields only to the brave.\""
+label_settings = SubResource("LabelSettings_lqegc")
+autowrap_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_right = 30
 
 [node name="EmptySlot" type="Label" parent="MarginContainer"]

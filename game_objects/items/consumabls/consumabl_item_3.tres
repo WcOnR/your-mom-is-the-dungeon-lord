@@ -15,6 +15,9 @@ script = ExtResource("1_jeh05")
 type = 0
 texture = ExtResource("4_v4vnu")
 action = SubResource("Resource_3obb2")
-item_name = "The Orb of Field Wipe"
+item_name = "The Orb of a Voids Shadow"
 item_description = "A single use orb that clears the [u]entire field[/u]."
+story_description = "For centuries, the mages and scholars of Slumberkeep sought to recreate the most devastating natural force they had glimpsed far beyond the heavens. In the end, they sealed a mere shadow of it within this orb... and lost themselves in the process.
+
+\"The world is so fragile - dare you be the one to break it?\""
 price = 1000

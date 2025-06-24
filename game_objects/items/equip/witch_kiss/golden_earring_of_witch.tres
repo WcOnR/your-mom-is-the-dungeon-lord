@@ -17,4 +17,7 @@ texture = ExtResource("4_jt1it")
 action = SubResource("Resource_kbuwc")
 item_name = "Golden Earring of Witch"
 item_description = "This text shouldn't be visible"
+story_description = "The Southern Witch's dance paralyzes all who witness it - which is just as well… dinner waits for no one.
+
+\"Gold feeds neither flesh nor soul.\""
 price = 3500

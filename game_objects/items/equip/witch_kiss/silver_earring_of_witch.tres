@@ -17,4 +17,7 @@ texture = ExtResource("4_rtiy6")
 action = SubResource("Resource_2roxf")
 item_name = "Silver Earring of Witch"
 item_description = "This text shouldn't be visible"
+story_description = "The Northern Witch has no favorites; whatever finds its way into her web is taken apart... piece by piece.
+
+\"Cold logic can justify horrors the heart would never dare.\""
 price = 3500

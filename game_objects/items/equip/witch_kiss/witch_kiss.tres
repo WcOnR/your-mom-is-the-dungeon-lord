@@ -15,6 +15,14 @@ script = ExtResource("1_q656j")
 type = 3
 texture = ExtResource("4_s2o4r")
 action = SubResource("Resource_p54ud")
-item_name = "Witch Earrings"
+item_name = "Witch's Kiss"
 item_description = "All your enemies become disoriented and will skip their first turn."
+story_description = "The farewell kiss of the discord witch -
+I laughed, but now the curse will stitch.
+My fingers rot, my mind unmoors -
+A fool who swore the heart endures.
+I swore it real - a sacred flame,
+But she just smiled and played the game.
+She splits and spins, she plots and plays -
+And leaves a home in disarray."
 price = 1000

@@ -17,4 +17,7 @@ texture = ExtResource("4_fa6qh")
 action = SubResource("Resource_6fd34")
 item_name = "Vampire Fang"
 item_description = "This text shouldn't be visible"
+story_description = "For some reason, this fang still feels alive - as if, by tomorrow, it will drink blood once more and rebuild the vampire around it.
+
+\"Save others... and perhaps, in doing so, you'll save yourself.\""
 price = 3500

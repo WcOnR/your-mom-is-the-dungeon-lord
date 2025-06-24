@@ -17,4 +17,7 @@ texture = ExtResource("4_p1nlm")
 action = SubResource("Resource_qjvjf")
 item_name = "The Orb of Slash"
 item_description = "A single use orb that collapses all tiles in one [u]vertical[/u] or [u]horizontal[/u] line."
+story_description = "The crackling soul of a sword is imprisoned within this orb. It yearns to taste the fury of battle once more, to break free, to cut down all in its path... and then vanish into nothing.
+
+\"Even on my deathbed, I shall not cease to fight.\""
 price = 400

@@ -17,4 +17,7 @@ texture = ExtResource("4_h3s3d")
 action = SubResource("Resource_v6efb")
 item_name = "The Orb of Chain Lightning"
 item_description = "A single use orb that collapses all tiles of the [u]same type[/u]."
+story_description = "Everywhere at once, a chain lightning lashes within the orb - raging, roaring, never ceasing. It strikes with furious precision, never missing its mark.
+
+\"Act swiftly and without mercy, but never lose the path.\""
 price = 750

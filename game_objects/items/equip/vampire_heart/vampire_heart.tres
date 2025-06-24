@@ -19,4 +19,12 @@ texture = ExtResource("6_gq2lq")
 action = SubResource("Resource_m00ti")
 item_name = "Vampire Heart"
 item_description = "[i]Heart[/i] tiles deals [color=#f8e1b7][u]200%[/u][/color] of [u]base attack[/u] and no longer heal you. Instead, each of your attacks heals you for [color=#f8e1b7][u]10%[/u][/color] of your [u]maximum health[/u]."
+story_description = "A quiet knock - yet still it lives,
+Painted blue, it barely gives.
+What horror did this heart endure?
+Bone-thorns pierced it, sharp and pure.
+It was kicked, then stomped, then thrown,
+Drained of life - then sold alone.
+In darkness cold it bled in pain,
+But deeper still - betrayal's stain."
 price = 1000
