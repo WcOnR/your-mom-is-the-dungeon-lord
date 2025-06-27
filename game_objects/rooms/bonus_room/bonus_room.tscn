@@ -39,7 +39,7 @@ texture = ExtResource("7_p7r8t")
 centered = false
 
 [node name="HealthCristal" type="Sprite2D" parent="BonusBg"]
-position = Vector2(931, 636)
+position = Vector2(930, 636)
 scale = Vector2(0.993535, 0.996173)
 texture = ExtResource("1_b8w85")
 

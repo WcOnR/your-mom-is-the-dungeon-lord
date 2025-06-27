@@ -21,7 +21,7 @@ texture = ExtResource("2_2d1ae")
 centered = false
 
 [node name="LineHolder" parent="." instance=ExtResource("8_8i71o")]
-position = Vector2(308, 902)
+position = Vector2(570, 902)
 
 [node name="GameMode" parent="." instance=ExtResource("8_c5vxj")]
 battle_fade = NodePath("../CanvasLayer/BattleFade")

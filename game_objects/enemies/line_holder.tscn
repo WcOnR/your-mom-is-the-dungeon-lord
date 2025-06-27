@@ -7,9 +7,10 @@
 script = ExtResource("1_e3fqe")
 
 [node name="Line" parent="." instance=ExtResource("1_5g3ba")]
+position = Vector2(-310, 10)
 
 [node name="Line2" parent="." instance=ExtResource("1_5g3ba")]
-position = Vector2(276, 0)
+position = Vector2(0, -10)
 
 [node name="Line3" parent="." instance=ExtResource("1_5g3ba")]
-position = Vector2(552, 0)
+position = Vector2(310, 10)

@@ -16,6 +16,9 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
+[node name="HBoxContainer" parent="HealthComp/MarginContainer" index="0"]
+theme_override_constants/separation = -15
+
 [node name="Container2" type="VBoxContainer" parent="."]
 layout_mode = 2
 alignment = 2
@@ -26,3 +29,5 @@ layout_mode = 2
 [node name="ActionUi" parent="Container2/MarginContainer2" instance=ExtResource("3_gf4pf")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[editable path="HealthComp"]

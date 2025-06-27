@@ -28,7 +28,7 @@ func get_statistics(battle : BattlePreset, events : Dictionary) -> Array:
 		for key in bonus_price.keys():
 			if key in events and events[key] > 0:
 				var info := StatisticsInfo.new()
-				info.name = "\"%s\"" % bonus_price[key][0]
+				info.name = "%s" % bonus_price[key][0]
 				info.count = events[key]
 				info.score = bonus_price[key][1] * info.count
 				sum += info.score
@@ -39,7 +39,7 @@ func get_statistics(battle : BattlePreset, events : Dictionary) -> Array:
 		for key in bonus_mult.keys():
 			if key in events:
 				var info := StatisticsInfo.new()
-				info.name = "\"%s\"" % bonus_mult[key][0]
+				info.name = "%s" % bonus_mult[key][0]
 				info.is_multiplayer = true
 				info.count = bonus_mult[key][1]
 				sum = sum * info.count
@@ -69,16 +69,25 @@ func get_shop_items(inventory : InventoryComp) -> Array[ItemPack]:
 	var equip_count := randi_range(settings.min_equip_count_in_shop, settings.equip_count)
 	var result : Array[ItemPack] = []
 	var items : Array[ItemPreset] = []
+	var fav_items : Array[ItemPack] = []
+	for slot in inventory.get_slots():
+		if slot != null:
+			fav_items.append(slot)
 	for i in equip_count:
-		var equip := _get_equip(inventory, [])
+		var ignore : Array[ItemPreset] = []
+		for item in fav_items:
+			var count := items.count(item.item_preset)
+			if count + item.count == settings.max_equip_level:
+				ignore.append(item.item_preset)
+		var equip := _get_equip(inventory, ignore)
 		if equip:
 			items.append(equip)
-	var consum := _get_consumabl(settings.max_items_in_shop - items.size(), true)
-	result.append_array(consum)
 	for i in items:
 		var pack := ItemPack.new(i)
 		pack.count = 1
 		result.append(pack)
+	var consum := _get_consumabl(settings.max_items_in_shop - items.size(), true)
+	result.append_array(consum)
 	result.shuffle()
 	return result
 
