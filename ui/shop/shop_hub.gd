@@ -28,6 +28,14 @@ func _ready() -> void:
 
 func _on_selection_changed(i : int) -> void:
 	_update_item(i)
+	var has_selected := false
+	for item in _game_mode.get_shop_items():
+		if item.is_selected:
+			has_selected = true
+	if not has_selected:
+		var _hand := get_node(hand) as Node2D
+		var tween := create_tween()
+		tween.tween_property(_hand, "rotation", 0, 0.1)
 
 
 func _update_view() -> void:

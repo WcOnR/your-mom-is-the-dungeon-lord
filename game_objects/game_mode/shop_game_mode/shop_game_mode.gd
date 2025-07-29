@@ -37,10 +37,22 @@ func finish_room() -> void:
 
 
 func _select_first_available_or_equip() -> void:
-	for item in _shop_items:
-		if item.can_buy(_player.inventory_comp):
-			item.select(true)
-			return
+	if not _selected_item:
+		for item in _shop_items:
+			if item.can_buy(_player.inventory_comp):
+				item.select(true)
+				return
+	else:
+		var s := _shop_items.find(_selected_item)
+		for i in _shop_items.size():
+			var next_id := s + i + 1
+			var prev_id := s - i - 1
+			if next_id < _shop_items.size() and _shop_items[next_id].can_buy(_player.inventory_comp):
+				_shop_items[next_id].select(true)
+				return
+			elif next_id >= 0 and _shop_items[prev_id].can_buy(_player.inventory_comp):
+				_shop_items[prev_id].select(true)
+				return
 	if _selected_item and _selected_item.is_selected:
 		_selected_item.select(false)
 	var equip_panel := _phone.get_equipment_panel()
