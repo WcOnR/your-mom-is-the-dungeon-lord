@@ -1,4 +1,4 @@
-class_name BottomSpikes extends RefCounted
+class_name BottomSpikes extends FieldSelector
 
 
 func get_target_ids(field : Field) -> Array[Vector2i]:

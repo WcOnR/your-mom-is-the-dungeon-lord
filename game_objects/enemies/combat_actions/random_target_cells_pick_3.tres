@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://btx2nomwm7nrn"]
+[gd_resource type="Resource" script_class="Action" load_steps=5 format=3 uid="uid://btx2nomwm7nrn"]
 
-[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/random_cells_pick_3.gd" id="1_8exvc"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_selector/random_cells_pick_3.gd" id="1_dva36"]
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/target_position_action.gd" id="2_4dtit"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="3_2apdx"]
+
+[sub_resource type="Resource" id="Resource_xrr2p"]
+script = ExtResource("1_dva36")
 
 [resource]
 script = ExtResource("3_2apdx")
 behavior = ExtResource("2_4dtit")
-args = [ExtResource("1_8exvc")]
+args = [SubResource("Resource_xrr2p")]

@@ -1,4 +1,4 @@
-class_name MaxAttackCluster extends RefCounted
+class_name MaxAttackCluster extends FieldSelector
 
 const GEM_TYPE : GemType = preload("res://game_objects/gems/attack_type.tres")
 

@@ -1,4 +1,4 @@
-class_name MultVerticalSlash extends RefCounted
+class_name MultVerticalSlash extends FieldSelector
 
 func get_target_ids(field : Field) -> Array[Vector2i]:
 	var cell_ids : Array[Vector2i] = []

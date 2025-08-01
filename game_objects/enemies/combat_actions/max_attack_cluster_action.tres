@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://dxrwpj0m8ik8m"]
+[gd_resource type="Resource" script_class="Action" load_steps=5 format=3 uid="uid://dxrwpj0m8ik8m"]
 
-[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/max_attack_cluster.gd" id="1_8hsum"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_selector/max_attack_cluster.gd" id="1_yr36e"]
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/target_position_action.gd" id="2_ipm8a"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="3_kb705"]
+
+[sub_resource type="Resource" id="Resource_pnkge"]
+script = ExtResource("1_yr36e")
 
 [resource]
 script = ExtResource("3_kb705")
 behavior = ExtResource("2_ipm8a")
-args = [ExtResource("1_8hsum")]
+args = [SubResource("Resource_pnkge")]

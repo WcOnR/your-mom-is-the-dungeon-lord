@@ -1,10 +1,10 @@
-class_name HorizontalSlash extends RefCounted
+class_name VerticalSlash extends FieldSelector
 
 
 func get_target_ids(field : Field) -> Array[Vector2i]:
 	var cell_ids : Array[Vector2i] = []
 	var size := field.grid.get_size()
-	var y := randi_range(0, size.y - 1)
-	for x in size.x:
+	var x := randi_range(0, size.x - 1)
+	for y in size.y:
 		cell_ids.append(Vector2i(x, y))
 	return cell_ids

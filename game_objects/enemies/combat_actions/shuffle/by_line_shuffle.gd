@@ -1,4 +1,4 @@
-class_name ByLineShuffle extends RefCounted
+class_name ByLineShuffle extends Shuffle
 
 
 func get_move_ids(field : Field) -> Dictionary:

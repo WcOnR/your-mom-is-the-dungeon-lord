@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://3vtr3fgwaaja"]
+[gd_resource type="Resource" script_class="Action" load_steps=5 format=3 uid="uid://3vtr3fgwaaja"]
 
-[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/mult_vertical_slash.gd" id="1_nghlm"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_selector/mult_vertical_slash.gd" id="1_tvats"]
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_position_action.gd" id="2_fmuj1"]
 [ext_resource type="Script" path="res://game_systems/action.gd" id="3_d3ml4"]
+
+[sub_resource type="Resource" id="Resource_2gd6b"]
+script = ExtResource("1_tvats")
 
 [resource]
 script = ExtResource("3_d3ml4")
 behavior = ExtResource("2_fmuj1")
-args = [ExtResource("1_nghlm")]
+args = [SubResource("Resource_2gd6b")]

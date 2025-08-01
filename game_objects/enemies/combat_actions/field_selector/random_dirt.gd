@@ -1,4 +1,4 @@
-class_name RandomDirt extends RefCounted
+class_name RandomDirt extends FieldSelector
 
 const COUNT := 2
 

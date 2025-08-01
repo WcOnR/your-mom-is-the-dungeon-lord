@@ -1,4 +1,4 @@
-class_name RandomCellsPick3 extends RefCounted
+class_name RandomCellsPick3 extends FieldSelector
 
 const COUNT := 3
 

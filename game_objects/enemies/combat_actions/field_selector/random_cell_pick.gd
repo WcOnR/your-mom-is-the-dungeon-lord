@@ -1,4 +1,4 @@
-class_name RandomCellPick extends RefCounted
+class_name RandomCellPick extends FieldSelector
 
 
 func get_target_ids(field : Field) -> Array[Vector2i]:

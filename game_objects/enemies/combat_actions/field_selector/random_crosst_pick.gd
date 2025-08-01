@@ -1,4 +1,4 @@
-class_name RandomCrosstPick extends RefCounted
+class_name RandomCrosstPick extends FieldSelector
 
 
 func get_target_ids(field : Field) -> Array[Vector2i]:

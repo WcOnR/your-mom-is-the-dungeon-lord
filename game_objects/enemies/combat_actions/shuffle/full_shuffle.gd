@@ -1,4 +1,4 @@
-class_name FullShuffle extends RefCounted
+class_name FullShuffle extends Shuffle
 
 
 func get_move_ids(field : Field) -> Dictionary:

@@ -1,4 +1,4 @@
-class_name SnakeBite extends RefCounted
+class_name SnakeBite extends FieldSelector
 
 
 func get_target_ids(field : Field) -> Array[Vector2i]:
