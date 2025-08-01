@@ -19,10 +19,6 @@ var _invalid := false
 var _id_anim_offset := 0.0
 var _last_health := 0.0
 
-const ON_PLAN : StringName = "on_plan"
-const ON_PRE_ACTION : StringName = "on_pre_action"
-const ON_ACTION : StringName = "on_action"
-const ON_DEATH : StringName = "on_death"
 const ATTACK_ANIM_OFFSET : float = -150.0
 const ICON : Texture2D = preload("res://ui/action_icons/disoriented.png")
 

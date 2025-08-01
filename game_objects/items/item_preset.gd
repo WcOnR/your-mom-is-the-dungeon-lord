@@ -4,7 +4,7 @@ enum Type {CONSUMABL, BOOSTER, EQUIP, SUPER_EQUIP}
 
 @export var type : Type = Type.EQUIP
 @export var texture : Texture2D = null
-@export var action : Action = null
+@export var action : ItemAction = null
 @export var item_name : String = ""
 @export var item_description : String = ""
 @export_multiline var story_description : String = ""

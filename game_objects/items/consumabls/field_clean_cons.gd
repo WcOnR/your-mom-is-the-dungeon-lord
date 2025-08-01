@@ -1,18 +1,14 @@
-class_name FieldCleanCons extends RefCounted
+class_name FieldCleanCons extends ItemAction
 
 const CLEAR_INDEX : int = 1
 
 
-func on_move(args : Array[Variant]) -> bool:
-	var field := args[0] as Field
+func on_move(field : Field, _id : Vector2i, _offset : Vector2) -> void:
 	field.highlight_cells(_get_all_cells(field), CLEAR_INDEX)
-	return false
 
 
-func on_drop(args : Array[Variant]) -> bool:
-	var field := args[0] as Field
+func on_drop(field : Field, _id : Vector2i, _offset : Vector2) -> void:
 	field.clean_field()
-	return false
 
 
 func _get_all_cells(field : Field) -> Array[Vector2i]:

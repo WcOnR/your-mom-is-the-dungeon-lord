@@ -1,20 +1,17 @@
-[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://cyasi1a41eqp4"]
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=5 format=3 uid="uid://cyasi1a41eqp4"]
 
 [ext_resource type="Script" path="res://game_objects/items/equip/shield_armor/shield_of_rings_action.gd" id="1_kuk5p"]
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_rubp5"]
-[ext_resource type="Script" path="res://game_systems/action.gd" id="2_mspua"]
 [ext_resource type="Texture2D" uid="uid://d3m6kutva6mmt" path="res://game_objects/items/equip/shield_armor/ShieldOfRings.png" id="4_y6im1"]
 
-[sub_resource type="Resource" id="Resource_kq5hk"]
-script = ExtResource("2_mspua")
-behavior = ExtResource("1_kuk5p")
-args = []
+[sub_resource type="Resource" id="Resource_wvatj"]
+script = ExtResource("1_kuk5p")
 
 [resource]
 script = ExtResource("1_rubp5")
 type = 2
 texture = ExtResource("4_y6im1")
-action = SubResource("Resource_kq5hk")
+action = SubResource("Resource_wvatj")
 item_name = "Shield of Rings"
 item_description = "This text shouldn't be visible"
 story_description = "Though light and strong, this shield offers little against thrusts or piercing strikes. Once, shields like this were highly prized, for at times they could even withstand the charge of a Shieldbreaker.

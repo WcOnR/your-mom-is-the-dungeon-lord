@@ -1,20 +1,17 @@
-[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://c4o1anlio860k"]
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=5 format=3 uid="uid://c4o1anlio860k"]
 
 [ext_resource type="Script" path="res://game_objects/items/consumabls/line_cons.gd" id="1_iikhn"]
-[ext_resource type="Script" path="res://game_systems/action.gd" id="2_1m04v"]
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="3_rmn4n"]
 [ext_resource type="Texture2D" uid="uid://cda2mlv5fwm6v" path="res://game_objects/items/consumabls/SlashBall.png" id="4_p1nlm"]
 
-[sub_resource type="Resource" id="Resource_qjvjf"]
-script = ExtResource("2_1m04v")
-behavior = ExtResource("1_iikhn")
-args = []
+[sub_resource type="Resource" id="Resource_s4sgr"]
+script = ExtResource("1_iikhn")
 
 [resource]
 script = ExtResource("3_rmn4n")
 type = 0
 texture = ExtResource("4_p1nlm")
-action = SubResource("Resource_qjvjf")
+action = SubResource("Resource_s4sgr")
 item_name = "The Orb of Slash"
 item_description = "A single use orb that collapses all tiles in one [u]vertical[/u] or [u]horizontal[/u] line."
 story_description = "The crackling soul of a sword is imprisoned within this orb. It yearns to taste the fury of battle once more, to break free, to cut down all in its path... and then vanish into nothing.

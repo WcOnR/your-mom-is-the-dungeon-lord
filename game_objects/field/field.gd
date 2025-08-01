@@ -18,9 +18,6 @@ var _spawners : Array[GemSpawner] = []
 var _game_mode : BattleGameMode = null
 var _cell_icons : Array[CellIcons] = []
 
-const ON_DROP : StringName = "on_drop"
-const ON_MOVE : StringName = "on_move"
-
 signal gem_collapsed
 signal action_clicked
 
@@ -199,9 +196,9 @@ func _collapse_gems(to_remove : Array[Gem], initiator : Node) -> void:
 			types[gem_type] = 1
 		_delete_gem(gem)
 	for gem_type in types.keys():
-		if gem_type.actions:
+		if gem_type.action:
 			var val := _mult_func(types[gem_type])
-			gem_type.actions.run_event(ActionList.ON_ACTION, [val, initiator])
+			gem_type.action.on_action(val, initiator)
 	gem_collapsed.emit()
 	SoundSystem.play_sound(collapse_sound)
 
@@ -263,7 +260,7 @@ func _on_consumable_pos_updated(_position: Vector2, _data : Variant) -> void:
 	if is_valid_cell_id(cell_id) and grid.is_idle():
 		var item_preset := _data as ItemPreset
 		var offset := (diff - grid.get_cell_position(cell_id)) / grid.get_cell_size()
-		item_preset.action.run(ON_MOVE, [self, cell_id, offset])
+		item_preset.action.on_move(self, cell_id, offset)
 	else:
 		tile_map_h.clear()
 
@@ -276,5 +273,5 @@ func _on_consumable_drop(_position: Vector2, _data : Variant) -> void:
 	if is_valid_cell_id(cell_id):
 		var offset := (diff - grid.get_cell_position(cell_id)) / grid.get_cell_size()
 		SoundSystem.play_sound(ball_drop_sound)
-		item_preset.action.run(ON_DROP, [self, cell_id, offset])
+		item_preset.action.on_drop(self, cell_id, offset)
 		_player.inventory_comp.consume_item(item_preset)

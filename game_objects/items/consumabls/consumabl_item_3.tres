@@ -1,20 +1,17 @@
-[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://4gow4p87dlkh"]
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=5 format=3 uid="uid://4gow4p87dlkh"]
 
 [ext_resource type="Script" path="res://game_objects/items/consumabls/field_clean_cons.gd" id="1_8cdpm"]
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_jeh05"]
-[ext_resource type="Script" path="res://game_systems/action.gd" id="2_lae6x"]
 [ext_resource type="Texture2D" uid="uid://plu3ux2ulm" path="res://game_objects/items/consumabls/BlackHoleBall.png" id="4_v4vnu"]
 
-[sub_resource type="Resource" id="Resource_3obb2"]
-script = ExtResource("2_lae6x")
-behavior = ExtResource("1_8cdpm")
-args = []
+[sub_resource type="Resource" id="Resource_sniq7"]
+script = ExtResource("1_8cdpm")
 
 [resource]
 script = ExtResource("1_jeh05")
 type = 0
 texture = ExtResource("4_v4vnu")
-action = SubResource("Resource_3obb2")
+action = SubResource("Resource_sniq7")
 item_name = "The Orb of a Voids Shadow"
 item_description = "A single use orb that clears the [u]entire field[/u]."
 story_description = "For centuries, the mages and scholars of Slumberkeep sought to recreate the most devastating natural force they had glimpsed far beyond the heavens. In the end, they sealed a mere shadow of it within this orb... and lost themselves in the process.

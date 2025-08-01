@@ -1,19 +1,13 @@
-class_name GemTypeCons extends RefCounted
+class_name GemTypeCons extends ItemAction
 
 
-func on_move(args : Array[Variant]) -> bool:
-	var field := args[0] as Field
-	var id := args[1] as Vector2i
+func on_move(field : Field, id : Vector2i, _offset : Vector2) -> void:
 	field.highlight_cells(_get_gem_by_type(field, id))
-	return false
 
 
-func on_drop(args : Array[Variant]) -> bool:
-	var field := args[0] as Field
-	var id := args[1] as Vector2i
+func on_drop(field : Field, id : Vector2i, _offset : Vector2) -> void:
 	var player = field.get_tree().get_first_node_in_group("Player") as Player
 	field.collapse_ids(_get_gem_by_type(field, id), player)
-	return false
 
 
 func _get_gem_by_type(field : Field, id : Vector2i) -> Array[Vector2i]:

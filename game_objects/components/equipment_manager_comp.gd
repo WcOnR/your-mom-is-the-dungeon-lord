@@ -4,12 +4,6 @@ var _game_mode : BattleGameMode = null
 var _inventory_com : InventoryComp = null
 var _attack_com : AttackComp = null
 
-const ON_ATTACK_APPLIED : StringName = "on_attack_applied"
-const ON_BATTLE_START : StringName = "on_battle_start"
-const ON_PLAYER_TURN_START : StringName = "on_player_turn_start"
-const ON_ENEMIES_TURN_START : StringName = "on_enemies_turn_start"
-const ON_ENEMIES_TURN_END : StringName = "on_enemies_turn_end"
-
 
 func _ready() -> void:
 	_inventory_com = get_parent().get_node("InventoryComp") as InventoryComp
@@ -47,28 +41,28 @@ func _disconnect_game_mode(game_mode : BattleGameMode) -> void:
 	game_mode.enemies_turn_finished.disconnect(_on_enemies_turn_end)
 
 
-func _run_actions(action : StringName) -> void:
+func _run_actions(foo : Callable) -> void:
 	var slots := _inventory_com.get_slots()
 	for slot in slots:
 		if slot != null and slot.item_preset.action != null:
-			slot.item_preset.action.run(action, [get_parent(), slot.count])
+			foo.call(slot.item_preset.action, slot.count)
 
 
 func _on_attack_applied(_applied_damage : int) -> void:
-	_run_actions(ON_ATTACK_APPLIED)
+	_run_actions(func(i, c): i.on_attack_applied(get_parent(), c))
 
 
 func _on_battle_start() -> void:
-	_run_actions(ON_BATTLE_START)
+	_run_actions(func(i, c): i.on_battle_start(get_parent(), c))
 
 
 func _on_player_turn_start() -> void:
-	_run_actions(ON_PLAYER_TURN_START)
+	_run_actions(func(i, c): i.on_player_turn_start(get_parent(), c))
 
 
 func _on_enemies_turn_start() -> void:
-	_run_actions(ON_ENEMIES_TURN_START)
+	_run_actions(func(i, c): i.on_enemies_turn_start(get_parent(), c))
 
 
 func _on_enemies_turn_end() -> void:
-	_run_actions(ON_ENEMIES_TURN_END)
+	_run_actions(func(i, c): i.on_enemies_turn_end(get_parent(), c))

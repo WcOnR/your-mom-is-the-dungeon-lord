@@ -1,20 +1,17 @@
-[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://x2dj2atleasc"]
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=5 format=3 uid="uid://x2dj2atleasc"]
 
 [ext_resource type="Script" path="res://game_objects/items/boosters/health_cristal.gd" id="1_8tsdv"]
-[ext_resource type="Script" path="res://game_systems/action.gd" id="2_yyv28"]
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="3_kj3hm"]
 [ext_resource type="Texture2D" uid="uid://t43nms5rskdx" path="res://game_objects/items/boosters/HealthCristal.png" id="4_mxidx"]
 
-[sub_resource type="Resource" id="Resource_47u7n"]
-script = ExtResource("2_yyv28")
-behavior = ExtResource("1_8tsdv")
-args = []
+[sub_resource type="Resource" id="Resource_g5nbq"]
+script = ExtResource("1_8tsdv")
 
 [resource]
 script = ExtResource("3_kj3hm")
 type = 1
 texture = ExtResource("4_mxidx")
-action = SubResource("Resource_47u7n")
+action = SubResource("Resource_g5nbq")
 item_name = "Cristal of Health"
 item_description = "Boosts your [u]maximum health[/u] by [color=#f8e1b7][u]20%[/u][/color]."
 story_description = "Discovered in the shadowy depths of the Cave of Doubts, this crystal emits a steady crimson light, guiding wanderers through darkness and whispers of fortune to those who dare the journey. 

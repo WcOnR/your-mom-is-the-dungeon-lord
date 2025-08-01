@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GemType" load_steps=5 format=3 uid="uid://doxkftf7frx82"]
+
+[ext_resource type="Script" path="res://game_objects/gems/gem_shield.gd" id="2_wsgxf"]
+[ext_resource type="Script" path="res://game_objects/gems/gem_type.gd" id="4_fx30b"]
+[ext_resource type="Texture2D" uid="uid://dyrs7k7aq7lw6" path="res://game_objects/gems/Shield.png" id="5_l5csb"]
+
+[sub_resource type="Resource" id="Resource_vet6o"]
+script = ExtResource("2_wsgxf")
+base_bonus = 10
+
+[resource]
+script = ExtResource("4_fx30b")
+texture = ExtResource("5_l5csb")
+action = SubResource("Resource_vet6o")

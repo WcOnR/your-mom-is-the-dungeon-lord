@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GemType" load_steps=5 format=3 uid="uid://chv7y673r7kcq"]
+
+[ext_resource type="Script" path="res://game_objects/gems/gem_skull.gd" id="2_5na5y"]
+[ext_resource type="Script" path="res://game_objects/gems/gem_type.gd" id="4_fbw8w"]
+[ext_resource type="Texture2D" uid="uid://by8e35fgqpyy3" path="res://game_objects/gems/Skull.png" id="5_8iib3"]
+
+[sub_resource type="Resource" id="Resource_4dmqo"]
+script = ExtResource("2_5na5y")
+base_attack = 10
+
+[resource]
+script = ExtResource("4_fbw8w")
+texture = ExtResource("5_8iib3")
+action = SubResource("Resource_4dmqo")

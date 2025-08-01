@@ -1,20 +1,17 @@
-[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://cuoo4hscsjlms"]
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=5 format=3 uid="uid://cuoo4hscsjlms"]
 
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_7aple"]
 [ext_resource type="Script" path="res://game_objects/items/equip/vampire_heart/vampire_fang_action.gd" id="1_qtnkw"]
-[ext_resource type="Script" path="res://game_systems/action.gd" id="2_cuvqb"]
 [ext_resource type="Texture2D" uid="uid://bdu2hkq826sov" path="res://game_objects/items/equip/vampire_heart/VampireFang.png" id="4_fa6qh"]
 
-[sub_resource type="Resource" id="Resource_6fd34"]
-script = ExtResource("2_cuvqb")
-behavior = ExtResource("1_qtnkw")
-args = []
+[sub_resource type="Resource" id="Resource_uk0xd"]
+script = ExtResource("1_qtnkw")
 
 [resource]
 script = ExtResource("1_7aple")
 type = 2
 texture = ExtResource("4_fa6qh")
-action = SubResource("Resource_6fd34")
+action = SubResource("Resource_uk0xd")
 item_name = "Vampire Fang"
 item_description = "This text shouldn't be visible"
 story_description = "For some reason, this fang still feels alive - as if, by tomorrow, it will drink blood once more and rebuild the vampire around it.

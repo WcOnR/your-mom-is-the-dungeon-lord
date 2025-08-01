@@ -6,8 +6,6 @@ var _boosters : Array[ItemPack] = []
 
 signal items_changed
 
-const ON_PICK_UP : StringName = "on_pick_up"
-
 
 func _ready() -> void:
 	for slot in _slots:
@@ -28,7 +26,7 @@ func add_pack(pack : ItemPack) -> void:
 			_add_count(_consumabls, pack)
 		ItemPreset.Type.BOOSTER:
 			for i in pack.count:
-				pack.item_preset.action.run(ON_PICK_UP, [get_parent()])
+				pack.item_preset.action.on_pick_up(get_parent())
 			_add_count(_boosters, pack)
 		ItemPreset.Type.EQUIP:
 			_add_to_slot(pack)

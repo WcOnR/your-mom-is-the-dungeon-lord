@@ -1,20 +1,17 @@
-[gd_resource type="Resource" script_class="ItemPreset" load_steps=6 format=3 uid="uid://ccoi1btaddgq3"]
+[gd_resource type="Resource" script_class="ItemPreset" load_steps=5 format=3 uid="uid://ccoi1btaddgq3"]
 
 [ext_resource type="Script" path="res://game_objects/items/item_preset.gd" id="1_4gwu3"]
 [ext_resource type="Script" path="res://game_objects/items/equip/double_axe/double_axe_action.gd" id="1_ilbra"]
-[ext_resource type="Script" path="res://game_systems/action.gd" id="2_ci1c4"]
 [ext_resource type="Texture2D" uid="uid://djk3njtjgkg1s" path="res://game_objects/items/equip/double_axe/DoubleAxe.png" id="4_x66bt"]
 
-[sub_resource type="Resource" id="Resource_jt435"]
-script = ExtResource("2_ci1c4")
-behavior = ExtResource("1_ilbra")
-args = []
+[sub_resource type="Resource" id="Resource_077eh"]
+script = ExtResource("1_ilbra")
 
 [resource]
 script = ExtResource("1_4gwu3")
 type = 3
 texture = ExtResource("4_x66bt")
-action = SubResource("Resource_jt435")
+action = SubResource("Resource_077eh")
 item_name = "Double Axe"
 item_description = "Your [u]base attack[/u] increase by [color=#f8e1b7][u]125%[/u][/color], and enemies' [u]shields[/u] break as if they don't exist."
 story_description = "They were never meant to be together,
