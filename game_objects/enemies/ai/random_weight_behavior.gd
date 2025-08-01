@@ -2,7 +2,7 @@ class_name RandomWeightBehavior extends Behavior
 
 @export var weight : Array[int] = []
 
-func get_next_action(enemy : Enemy) -> Action:
+func get_next_action(enemy : Enemy) -> BattleAction:
 	var actions := enemy.enemy_data.actions
 	var sum_weight := 0
 	for w in weight: 

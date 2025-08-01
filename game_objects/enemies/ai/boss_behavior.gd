@@ -5,7 +5,7 @@ const IS_VALID : StringName = "is_valid"
 @export var conditions : Array[Condition] = []
 
 
-func get_next_action(enemy : Enemy) -> Action:
+func get_next_action(enemy : Enemy) -> BattleAction:
 	var valid_actions : Array[Action] = []
 	for i in conditions.size():
 		if conditions[i].is_valid(enemy):

@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=15 format=3 uid="uid://bnxs6ld36fj0o"]
 
-[ext_resource type="Script" path="res://game_systems/action.gd" id="1_cmfjy"]
-[ext_resource type="Resource" uid="uid://bfs165u6jlycb" path="res://game_objects/enemies/combat_actions/horizontal_slash_action.tres" id="2_jels6"]
-[ext_resource type="Resource" uid="uid://b0a83a6rldqbv" path="res://game_objects/enemies/combat_actions/mult_horizontal_slash_action.tres" id="2_qjaer"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/battle_action.gd" id="1_lhtwf"]
+[ext_resource type="Resource" uid="uid://cm6goyqk4iw5x" path="res://game_objects/enemies/combat_actions/boss_shuffle_action.tres" id="2_fckun"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="2_tqlp2"]
-[ext_resource type="Resource" uid="uid://cbqcl6681kyhg" path="res://game_objects/enemies/combat_actions/boss_shuffle_action.tres" id="2_xp6xv"]
-[ext_resource type="Resource" uid="uid://doq2dple4wsey" path="res://game_objects/enemies/combat_actions/vertical_slash_action.tres" id="3_fx6yi"]
+[ext_resource type="Resource" uid="uid://baumrnftnj82s" path="res://game_objects/enemies/combat_actions/boss_spawn_action.tres" id="3_1blkl"]
+[ext_resource type="Resource" uid="uid://btawkxv51w2b2" path="res://game_objects/enemies/combat_actions/horizontal_slash_action.tres" id="4_6inc8"]
 [ext_resource type="Texture2D" uid="uid://f2oqpqam7sh8" path="res://game_objects/enemies/boss/boss.png" id="4_mjvki"]
-[ext_resource type="Resource" uid="uid://3vtr3fgwaaja" path="res://game_objects/enemies/combat_actions/mult_vertical_slash_action.tres" id="5_ilovh"]
-[ext_resource type="Resource" uid="uid://c7yil7waf2h0l" path="res://game_objects/enemies/combat_actions/two_corner_attack_action.tres" id="6_mar2e"]
-[ext_resource type="Resource" uid="uid://ce0k3k4a4ipcn" path="res://game_objects/enemies/combat_actions/boss_spawn_action.tres" id="7_1ld82"]
+[ext_resource type="Resource" uid="uid://b7etlijwtnund" path="res://game_objects/enemies/combat_actions/vertical_slash_action.tres" id="5_stxob"]
+[ext_resource type="Resource" uid="uid://byvqvieljyry5" path="res://game_objects/enemies/combat_actions/mult_horizontal_slash_action.tres" id="6_1ekdh"]
 [ext_resource type="Resource" uid="uid://dronap1absanm" path="res://game_objects/enemies/boss/boss_behavior.tres" id="7_iv2q1"]
+[ext_resource type="Resource" uid="uid://mxdjg38lxbhi" path="res://game_objects/enemies/combat_actions/mult_vertical_slash_action.tres" id="7_mktfw"]
+[ext_resource type="Resource" uid="uid://d68es1tba8ji" path="res://game_objects/enemies/combat_actions/two_corner_attack_action.tres" id="8_3fkjj"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="10_puevd"]
 [ext_resource type="AudioStream" uid="uid://ddd7elebe0bdy" path="res://sounds/boss_hit.ogg" id="11_clbxj"]
 
@@ -26,7 +26,7 @@ name = "Mother"
 max_health = 2000
 damage = 10
 reward = 100
-actions = Array[ExtResource("1_cmfjy")]([ExtResource("2_xp6xv"), ExtResource("2_jels6"), ExtResource("3_fx6yi"), ExtResource("2_qjaer"), ExtResource("5_ilovh"), ExtResource("6_mar2e"), ExtResource("7_1ld82")])
+actions = Array[ExtResource("1_lhtwf")]([ExtResource("2_fckun"), ExtResource("3_1blkl"), ExtResource("4_6inc8"), ExtResource("5_stxob"), ExtResource("6_1ekdh"), ExtResource("7_mktfw"), ExtResource("8_3fkjj")])
 behavior = ExtResource("7_iv2q1")
 texture = ExtResource("4_mjvki")
 hit_sound = SubResource("Resource_pih32")

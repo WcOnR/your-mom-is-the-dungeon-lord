@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=11 format=3 uid="uid://5qtmryjtf2th"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=12 format=3 uid="uid://5qtmryjtf2th"]
 
-[ext_resource type="Script" path="res://game_systems/action.gd" id="1_b0kes"]
-[ext_resource type="Resource" uid="uid://dxrwpj0m8ik8m" path="res://game_objects/enemies/combat_actions/max_attack_cluster_action.tres" id="2_t5tu2"]
-[ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="3_c7dhm"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/battle_action.gd" id="1_4ql8p"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/simple_actions/attack_action.gd" id="2_lywo0"]
+[ext_resource type="Resource" uid="uid://bsr3004vw8qnu" path="res://game_objects/enemies/combat_actions/max_attack_cluster_action.tres" id="2_t5tu2"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_vfbhx"]
 [ext_resource type="Texture2D" uid="uid://t266fu32e33y" path="res://game_objects/enemies/elf/elf.png" id="4_8utk1"]
 [ext_resource type="Script" path="res://game_objects/enemies/ai/random_weight_behavior.gd" id="4_qekmd"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="6_xwksj"]
 [ext_resource type="AudioStream" uid="uid://b6vpoe7q4m6a1" path="res://sounds/elf_hit.ogg" id="7_4ca27"]
+
+[sub_resource type="Resource" id="Resource_8bp35"]
+script = ExtResource("2_lywo0")
 
 [sub_resource type="Resource" id="Resource_ymh15"]
 script = ExtResource("4_qekmd")
@@ -25,7 +28,7 @@ name = "Elf"
 max_health = 50
 damage = 30
 reward = 150
-actions = Array[ExtResource("1_b0kes")]([ExtResource("2_t5tu2"), ExtResource("3_c7dhm")])
+actions = Array[ExtResource("1_4ql8p")]([SubResource("Resource_8bp35"), ExtResource("2_t5tu2")])
 behavior = SubResource("Resource_ymh15")
 texture = ExtResource("4_8utk1")
 hit_sound = SubResource("Resource_xk3uh")

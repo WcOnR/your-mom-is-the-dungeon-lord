@@ -4,7 +4,7 @@ const LAST_QUEUE_IDX : StringName = "last_queue_idx"
 @export var start_from_random_id := false
 
 
-func get_next_action(enemy : Enemy) -> Action:
+func get_next_action(enemy : Enemy) -> BattleAction:
 	var i := 0
 	if start_from_random_id:
 		i = randi_range(0, enemy.enemy_data.actions.size() - 1)

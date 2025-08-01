@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Action" load_steps=5 format=3 uid="uid://bfs165u6jlycb"]
+[gd_resource type="Resource" script_class="FieldPositionAction" load_steps=4 format=3 uid="uid://btawkxv51w2b2"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_selector/horizontal_slash.gd" id="1_wmjeh"]
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_position_action.gd" id="2_c3dwk"]
-[ext_resource type="Script" path="res://game_systems/action.gd" id="3_axgjq"]
 
-[sub_resource type="Resource" id="Resource_r7ykj"]
+[sub_resource type="Resource" id="Resource_4aau5"]
 script = ExtResource("1_wmjeh")
 
 [resource]
-script = ExtResource("3_axgjq")
-behavior = ExtResource("2_c3dwk")
-args = [SubResource("Resource_r7ykj")]
+script = ExtResource("2_c3dwk")
+selector = SubResource("Resource_4aau5")

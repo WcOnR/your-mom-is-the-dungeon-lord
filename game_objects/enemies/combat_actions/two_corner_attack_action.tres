@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Action" load_steps=5 format=3 uid="uid://c7yil7waf2h0l"]
+[gd_resource type="Resource" script_class="FieldPositionAction" load_steps=4 format=3 uid="uid://d68es1tba8ji"]
 
-[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_selector/two_corner_attack.gd" id="1_oe8ng"]
-[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_position_action.gd" id="2_68onj"]
-[ext_resource type="Script" path="res://game_systems/action.gd" id="3_s4j7i"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_position_action.gd" id="1_mvhnc"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_selector/two_corner_attack.gd" id="2_k8cuq"]
 
-[sub_resource type="Resource" id="Resource_7lp5p"]
-script = ExtResource("1_oe8ng")
+[sub_resource type="Resource" id="Resource_rrwwc"]
+script = ExtResource("2_k8cuq")
 
 [resource]
-script = ExtResource("3_s4j7i")
-behavior = ExtResource("2_68onj")
-args = [SubResource("Resource_7lp5p")]
+script = ExtResource("1_mvhnc")
+selector = SubResource("Resource_rrwwc")

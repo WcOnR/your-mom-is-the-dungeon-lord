@@ -11,7 +11,7 @@ signal start_action
 
 
 var enemy_data : EnemyData = null
-var next_action : Action = null
+var next_action : BattleAction = null
 var breath_anim : Tween = null
 var memory : Dictionary = {}
 var _paralyze := false
@@ -61,14 +61,14 @@ func plan_next_attack(line : BattleLine) -> void:
 		line.set_action(0, ICON, true)
 	else:
 		next_action = enemy_data.behavior.get_next_action(self)
-		next_action.run(ON_PLAN, [self, line])
+		next_action.on_plan(self, line)
 
 
 func attack(player : Player):
 	if _paralyze or not next_action:
 		_paralyze = false
 		return
-	await next_action.run(ON_PRE_ACTION, [self, player])
+	await next_action.on_pre_action(self, player)
 	start_action.emit()
 	var tween := create_tween()
 	tween.tween_method(_attack_anim, 0.0, 1.0, 0.4)
@@ -76,7 +76,7 @@ func attack(player : Player):
 	await tween.finished
 	var camera := get_tree().get_first_node_in_group("Camera") as GameCamera
 	camera.screen_shake(5.0, 0.1)
-	await next_action.run(ON_ACTION, [self, player])
+	await next_action.on_action(self, player)
 
 
 func on_destroy() -> void:
@@ -95,7 +95,7 @@ func is_invalid() -> bool:
 func _clear_actions() -> void:
 	if next_action == null:
 		return
-	next_action.run(ON_DEATH, [self])
+	next_action.on_death(self)
 
 
 func _health_changed() -> void:

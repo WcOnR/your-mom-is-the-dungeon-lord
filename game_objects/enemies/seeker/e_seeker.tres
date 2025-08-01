@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=10 format=3 uid="uid://dx31823ylxmtu"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=11 format=3 uid="uid://dx31823ylxmtu"]
 
-[ext_resource type="Script" path="res://game_systems/action.gd" id="1_vtgig"]
-[ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_epit8"]
-[ext_resource type="Resource" uid="uid://cl3d2xef04yle" path="res://game_objects/enemies/combat_actions/random_cell_pick.tres" id="2_ohyhq"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/battle_action.gd" id="1_83sj6"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/simple_actions/attack_action.gd" id="2_edqqk"]
+[ext_resource type="Resource" uid="uid://cxiup4nv5pj1c" path="res://game_objects/enemies/combat_actions/random_cell_pick.tres" id="2_ohyhq"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_b20iu"]
 [ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="4_8g24o"]
 [ext_resource type="Texture2D" uid="uid://b47p3typgx782" path="res://game_objects/enemies/seeker/seeker.png" id="4_7247r"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="5_mmnk4"]
 [ext_resource type="AudioStream" uid="uid://ddqy5cfw1gtje" path="res://sounds/seeker_hit.ogg" id="6_gw1qf"]
+
+[sub_resource type="Resource" id="Resource_gke8e"]
+script = ExtResource("2_edqqk")
 
 [sub_resource type="Resource" id="Resource_5jgca"]
 script = ExtResource("5_mmnk4")
@@ -21,7 +24,7 @@ name = "Seeker"
 max_health = 25
 damage = 10
 reward = 100
-actions = Array[ExtResource("1_vtgig")]([ExtResource("2_ohyhq"), ExtResource("2_epit8")])
+actions = Array[ExtResource("1_83sj6")]([SubResource("Resource_gke8e"), ExtResource("2_ohyhq")])
 behavior = ExtResource("4_8g24o")
 texture = ExtResource("4_7247r")
 hit_sound = SubResource("Resource_5jgca")

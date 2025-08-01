@@ -1,14 +1,17 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=11 format=3 uid="uid://r5xxbsm8oy84"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=12 format=3 uid="uid://r5xxbsm8oy84"]
 
-[ext_resource type="Script" path="res://game_systems/action.gd" id="1_d1hb1"]
-[ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_xg5e2"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/battle_action.gd" id="1_jx6qd"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/simple_actions/attack_action.gd" id="2_76vyr"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_cm32p"]
-[ext_resource type="Resource" uid="uid://bfs165u6jlycb" path="res://game_objects/enemies/combat_actions/horizontal_slash_action.tres" id="3_u5c0i"]
-[ext_resource type="Resource" uid="uid://c1a5qlc3x45xg" path="res://game_objects/enemies/combat_actions/dirt_action.tres" id="4_qsfiv"]
+[ext_resource type="Resource" uid="uid://btawkxv51w2b2" path="res://game_objects/enemies/combat_actions/horizontal_slash_action.tres" id="3_u5c0i"]
+[ext_resource type="Resource" uid="uid://h7n0cuntpnyt" path="res://game_objects/enemies/combat_actions/dirt_action.tres" id="4_qsfiv"]
 [ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="5_wjk4l"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="6_1no1c"]
 [ext_resource type="AudioStream" uid="uid://ctcbaiky6fri5" path="res://sounds/goblin_hit.ogg" id="7_s6o0b"]
 [ext_resource type="Texture2D" uid="uid://b0a51hw3ykyyf" path="res://game_objects/enemies/goblin/goblin.png" id="9_ot17k"]
+
+[sub_resource type="Resource" id="Resource_23f2f"]
+script = ExtResource("2_76vyr")
 
 [sub_resource type="Resource" id="Resource_0jc1y"]
 script = ExtResource("6_1no1c")
@@ -22,7 +25,7 @@ name = "Goblin"
 max_health = 45
 damage = 25
 reward = 250
-actions = Array[ExtResource("1_d1hb1")]([ExtResource("2_xg5e2"), ExtResource("3_u5c0i"), ExtResource("4_qsfiv")])
+actions = Array[ExtResource("1_jx6qd")]([SubResource("Resource_23f2f"), ExtResource("4_qsfiv"), ExtResource("3_u5c0i")])
 behavior = ExtResource("5_wjk4l")
 texture = ExtResource("9_ot17k")
 hit_sound = SubResource("Resource_0jc1y")

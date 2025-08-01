@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Action" load_steps=5 format=3 uid="uid://o10377evkcr4"]
+[gd_resource type="Resource" script_class="MixFieldAction" load_steps=4 format=3 uid="uid://t7jm4kwe5ua8"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/mix_field_action.gd" id="1_76ly8"]
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/shuffle/full_shuffle.gd" id="1_rmgs4"]
-[ext_resource type="Script" path="res://game_systems/action.gd" id="2_w0had"]
 
-[sub_resource type="Resource" id="Resource_rrwrd"]
+[sub_resource type="Resource" id="Resource_0f4s3"]
 script = ExtResource("1_rmgs4")
 
 [resource]
-script = ExtResource("2_w0had")
-behavior = ExtResource("1_76ly8")
-args = [SubResource("Resource_rrwrd")]
+script = ExtResource("1_76ly8")
+shuffle = SubResource("Resource_0f4s3")

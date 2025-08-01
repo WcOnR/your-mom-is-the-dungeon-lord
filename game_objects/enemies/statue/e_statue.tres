@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=10 format=3 uid="uid://bjiryiqv0mvnm"]
 
-[ext_resource type="Script" path="res://game_systems/action.gd" id="1_bi2n5"]
-[ext_resource type="Resource" uid="uid://o10377evkcr4" path="res://game_objects/enemies/combat_actions/mix_field_action.tres" id="2_rqbrp"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/battle_action.gd" id="1_aiw2t"]
+[ext_resource type="Resource" uid="uid://t7jm4kwe5ua8" path="res://game_objects/enemies/combat_actions/mix_field_action.tres" id="2_rqbrp"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_5f3po"]
-[ext_resource type="Resource" uid="uid://be21m8tftvi4y" path="res://game_objects/enemies/combat_actions/bottom_spikes_action.tres" id="3_b7b7f"]
+[ext_resource type="Resource" uid="uid://djfsu8ukf0x3e" path="res://game_objects/enemies/combat_actions/bottom_spikes_action.tres" id="3_b7b7f"]
 [ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="4_hkxxy"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="5_2plmn"]
 [ext_resource type="AudioStream" uid="uid://bjqpmglimv1wp" path="res://sounds/statue_hit.ogg" id="6_kfo0i"]
@@ -21,7 +21,7 @@ name = "Statue"
 max_health = 100
 damage = 10
 reward = 200
-actions = Array[ExtResource("1_bi2n5")]([ExtResource("2_rqbrp"), ExtResource("3_b7b7f")])
+actions = Array[ExtResource("1_aiw2t")]([ExtResource("2_rqbrp"), ExtResource("3_b7b7f")])
 behavior = ExtResource("4_hkxxy")
 texture = ExtResource("8_aa2bp")
 hit_sound = SubResource("Resource_4vkvt")

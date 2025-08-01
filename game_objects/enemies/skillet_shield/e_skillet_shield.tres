@@ -1,14 +1,20 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=11 format=3 uid="uid://byapc2k7gle4p"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=13 format=3 uid="uid://byapc2k7gle4p"]
 
-[ext_resource type="Script" path="res://game_systems/action.gd" id="1_bnuo5"]
-[ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_30dpd"]
-[ext_resource type="Resource" uid="uid://17n2jgjomeky" path="res://game_objects/enemies/combat_actions/random_crosst_pick.tres" id="3_md0ny"]
-[ext_resource type="Resource" uid="uid://bxqllc5y64ovi" path="res://game_objects/enemies/combat_actions/get_armor_action.tres" id="4_l6kfb"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/battle_action.gd" id="1_lsulj"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/simple_actions/attack_action.gd" id="2_u5bmo"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/simple_actions/get_armor_action.gd" id="3_4xvju"]
+[ext_resource type="Resource" uid="uid://du58ebjad0eb3" path="res://game_objects/enemies/combat_actions/random_crosst_pick.tres" id="3_md0ny"]
 [ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="5_clduy"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="5_teq6v"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="6_lwvr2"]
 [ext_resource type="Texture2D" uid="uid://bvntiavtihtr8" path="res://game_objects/enemies/skillet_shield/skillet_shield.png" id="6_sj27i"]
 [ext_resource type="AudioStream" uid="uid://0r33ovthkaou" path="res://sounds/skillet_shield_hit.ogg" id="7_8yrvi"]
+
+[sub_resource type="Resource" id="Resource_ylnkl"]
+script = ExtResource("2_u5bmo")
+
+[sub_resource type="Resource" id="Resource_ijf72"]
+script = ExtResource("3_4xvju")
 
 [sub_resource type="Resource" id="Resource_bx263"]
 script = ExtResource("6_lwvr2")
@@ -22,7 +28,7 @@ name = "Skillet"
 max_health = 55
 damage = 30
 reward = 400
-actions = Array[ExtResource("1_bnuo5")]([ExtResource("2_30dpd"), ExtResource("3_md0ny"), ExtResource("4_l6kfb")])
+actions = Array[ExtResource("1_lsulj")]([SubResource("Resource_ylnkl"), SubResource("Resource_ijf72"), ExtResource("3_md0ny")])
 behavior = ExtResource("5_clduy")
 texture = ExtResource("6_sj27i")
 hit_sound = SubResource("Resource_bx263")
