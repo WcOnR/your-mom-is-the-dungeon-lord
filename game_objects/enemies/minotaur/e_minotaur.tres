@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=10 format=3 uid="uid://q8g38rfvxf8m"]
+
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_udhjt"]
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="2_ws633"]
+[ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_yq0d6"]
+[ext_resource type="Resource" uid="uid://doq2dple4wsey" path="res://game_objects/enemies/combat_actions/vertical_slash_action.tres" id="3_hhj0j"]
+[ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="3_nwfwh"]
+[ext_resource type="Texture2D" uid="uid://cvxalcgnefs33" path="res://game_objects/enemies/minotaur/minotaur.png" id="5_6spjh"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="5_donit"]
+[ext_resource type="AudioStream" uid="uid://bhehc5yewca0h" path="res://sounds/minotaur_hit.ogg" id="6_mgw7k"]
+
+[sub_resource type="Resource" id="Resource_ljbvp"]
+script = ExtResource("5_donit")
+stream = ExtResource("6_mgw7k")
+volume_db = 0.0
+pitch_scale = 1.0
+
+[resource]
+script = ExtResource("2_ws633")
+name = "Minotaur"
+max_health = 300
+damage = 50
+reward = 500
+actions = Array[ExtResource("1_udhjt")]([ExtResource("2_yq0d6"), ExtResource("3_hhj0j")])
+behavior = ExtResource("3_nwfwh")
+texture = ExtResource("5_6spjh")
+hit_sound = SubResource("Resource_ljbvp")

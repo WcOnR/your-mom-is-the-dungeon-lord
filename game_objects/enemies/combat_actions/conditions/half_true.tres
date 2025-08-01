@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RandomChance" load_steps=2 format=3 uid="uid://dlebn1gr8x112"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/conditions/random_chance.gd" id="1_7ujux"]
+
+[resource]
+script = ExtResource("1_7ujux")
+chance = 0.5

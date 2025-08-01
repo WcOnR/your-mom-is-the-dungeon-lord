@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=9 format=3 uid="uid://bkxt5r0phxxio"]
+
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_l4k2q"]
+[ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_i64cy"]
+[ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="3_07r3x"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="4_6hogr"]
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="4_md4w7"]
+[ext_resource type="AudioStream" uid="uid://ej3mw7vfbu" path="res://sounds/tentacle_hit.ogg" id="5_85t8s"]
+[ext_resource type="Texture2D" uid="uid://djgjuvst5kr7r" path="res://game_objects/enemies/tentacle/tentacle_right.png" id="5_wrq6j"]
+
+[sub_resource type="Resource" id="Resource_fmpaa"]
+script = ExtResource("4_6hogr")
+stream = ExtResource("5_85t8s")
+volume_db = 0.0
+pitch_scale = 1.0
+
+[resource]
+script = ExtResource("4_md4w7")
+name = "Tentacle"
+max_health = 100
+damage = 30
+reward = 0
+actions = Array[ExtResource("1_l4k2q")]([ExtResource("2_i64cy")])
+behavior = ExtResource("3_07r3x")
+texture = ExtResource("5_wrq6j")
+hit_sound = SubResource("Resource_fmpaa")

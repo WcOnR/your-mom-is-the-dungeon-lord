@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://c7yil7waf2h0l"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/two_corner_attack.gd" id="1_ayixa"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_position_action.gd" id="2_68onj"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="3_s4j7i"]
+
+[resource]
+script = ExtResource("3_s4j7i")
+behavior = ExtResource("2_68onj")
+args = [ExtResource("1_ayixa")]

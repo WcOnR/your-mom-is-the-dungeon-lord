@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BossBehavior" load_steps=8 format=3 uid="uid://dronap1absanm"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/conditions/Condition.gd" id="1_oylf3"]
+[ext_resource type="Resource" uid="uid://bgu0sbja777qx" path="res://game_objects/enemies/combat_actions/conditions/always_true.tres" id="2_m563q"]
+[ext_resource type="Resource" uid="uid://gmcfkt5njkiq" path="res://game_objects/enemies/combat_actions/conditions/boss_hp_gr_eq_75.tres" id="2_rm74b"]
+[ext_resource type="Resource" uid="uid://bfhet3187ykt3" path="res://game_objects/enemies/combat_actions/conditions/boss_hp_le_75.tres" id="3_7ovn5"]
+[ext_resource type="Resource" uid="uid://dlebn1gr8x112" path="res://game_objects/enemies/combat_actions/conditions/half_true.tres" id="4_ym268"]
+[ext_resource type="Script" path="res://game_objects/enemies/ai/boss_behavior.gd" id="5_yqxd7"]
+[ext_resource type="Resource" uid="uid://ru8m4b8coc7i" path="res://game_objects/enemies/combat_actions/conditions/has_not_all_allies.tres" id="6_ni5ny"]
+
+[resource]
+script = ExtResource("5_yqxd7")
+conditions = Array[ExtResource("1_oylf3")]([ExtResource("2_m563q"), ExtResource("2_rm74b"), ExtResource("2_rm74b"), ExtResource("3_7ovn5"), ExtResource("3_7ovn5"), ExtResource("4_ym268"), ExtResource("6_ni5ny")])

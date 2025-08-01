@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://fa306uhydj8a"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/venom_attack_action.gd" id="1_lcpyd"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="2_1kcag"]
+
+[resource]
+script = ExtResource("2_1kcag")
+behavior = ExtResource("1_lcpyd")
+args = []

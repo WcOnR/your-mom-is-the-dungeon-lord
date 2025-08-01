@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="AIBehavior" load_steps=3 format=3 uid="uid://cgahobf03wmgl"]
-
-[ext_resource type="Script" path="res://behaviors/queue_order_action.gd" id="1_02jgx"]
-[ext_resource type="Script" path="res://game_systems/ai_behavior.gd" id="2_qeb0b"]
-
-[resource]
-script = ExtResource("2_qeb0b")
-behavior = ExtResource("1_02jgx")
-args = []

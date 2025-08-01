@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=9 format=3 uid="uid://b6dypfks1hutr"]
+
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_i4tbk"]
+[ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="2_723tr"]
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="2_bdvht"]
+[ext_resource type="Resource" uid="uid://32o0oocoddek" path="res://game_objects/enemies/combat_actions/boom_action.tres" id="2_lxkwh"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="4_g1kbn"]
+[ext_resource type="Texture2D" uid="uid://33yo35guhyvx" path="res://game_objects/enemies/boom_goblin/boom_goblin.png" id="4_xwm65"]
+[ext_resource type="AudioStream" uid="uid://e8kcrds40cjw" path="res://sounds/boom_goblin_hit.ogg" id="5_7efll"]
+
+[sub_resource type="Resource" id="Resource_2dg5n"]
+script = ExtResource("4_g1kbn")
+stream = ExtResource("5_7efll")
+volume_db = 0.0
+pitch_scale = 1.0
+
+[resource]
+script = ExtResource("2_bdvht")
+name = "Boom Goblin"
+max_health = 40
+damage = 100
+reward = 100
+actions = Array[ExtResource("1_i4tbk")]([ExtResource("2_lxkwh")])
+behavior = ExtResource("2_723tr")
+texture = ExtResource("4_xwm65")
+hit_sound = SubResource("Resource_2dg5n")

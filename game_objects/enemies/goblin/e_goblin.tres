@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://game_systems/action.gd" id="1_d1hb1"]
 [ext_resource type="Resource" uid="uid://b7ppmjtpgmbll" path="res://game_objects/enemies/combat_actions/attack_action.tres" id="2_xg5e2"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_cm32p"]
-[ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="3_fhbvu"]
 [ext_resource type="Resource" uid="uid://bfs165u6jlycb" path="res://game_objects/enemies/combat_actions/horizontal_slash_action.tres" id="3_u5c0i"]
-[ext_resource type="Texture2D" uid="uid://bpkvc86n7xrh6" path="res://game_objects/enemies/goblin/goblin.png" id="4_0fwpd"]
 [ext_resource type="Resource" uid="uid://c1a5qlc3x45xg" path="res://game_objects/enemies/combat_actions/dirt_action.tres" id="4_qsfiv"]
+[ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="5_wjk4l"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="6_1no1c"]
 [ext_resource type="AudioStream" uid="uid://ctcbaiky6fri5" path="res://sounds/goblin_hit.ogg" id="7_s6o0b"]
+[ext_resource type="Texture2D" uid="uid://b0a51hw3ykyyf" path="res://game_objects/enemies/goblin/goblin.png" id="9_ot17k"]
 
 [sub_resource type="Resource" id="Resource_0jc1y"]
 script = ExtResource("6_1no1c")
@@ -23,6 +23,6 @@ max_health = 45
 damage = 25
 reward = 250
 actions = Array[ExtResource("1_d1hb1")]([ExtResource("2_xg5e2"), ExtResource("3_u5c0i"), ExtResource("4_qsfiv")])
-behavior = ExtResource("3_fhbvu")
-texture = ExtResource("4_0fwpd")
+behavior = ExtResource("5_wjk4l")
+texture = ExtResource("9_ot17k")
 hit_sound = SubResource("Resource_0jc1y")

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="RandomAction" load_steps=2 format=3 uid="uid://c35t5esc55f7c"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/ai/random_behavior.gd" id="1_mxl50"]
+
+[resource]
+script = ExtResource("1_mxl50")

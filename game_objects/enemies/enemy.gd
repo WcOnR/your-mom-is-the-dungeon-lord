@@ -65,7 +65,7 @@ func plan_next_attack(line : BattleLine) -> void:
 
 
 func attack(player : Player):
-	if _paralyze:
+	if _paralyze or not next_action:
 		_paralyze = false
 		return
 	await next_action.run(ON_PRE_ACTION, [self, player])

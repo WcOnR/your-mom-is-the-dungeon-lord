@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="HasNotAllAllies" load_steps=2 format=3 uid="uid://ru8m4b8coc7i"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/conditions/has_not_all_allies.gd" id="1_efor8"]
+
+[resource]
+script = ExtResource("1_efor8")

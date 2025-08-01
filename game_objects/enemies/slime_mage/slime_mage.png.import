@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvntiavtihtr8"
-path="res://.godot/imported/SkilletShield.png-9dba5254d2511a87205c0c41b40237bc.ctex"
+uid="uid://dlgiumwvfsi3a"
+path="res://.godot/imported/slime_mage.png-7f44e00472ee1cf5c25ecedf27af9432.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_objects/enemies/skillet_shield/SkilletShield.png"
-dest_files=["res://.godot/imported/SkilletShield.png-9dba5254d2511a87205c0c41b40237bc.ctex"]
+source_file="res://game_objects/enemies/slime_mage/slime_mage.png"
+dest_files=["res://.godot/imported/slime_mage.png-7f44e00472ee1cf5c25ecedf27af9432.ctex"]
 
 [params]
 

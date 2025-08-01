@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="AIBehavior" load_steps=3 format=3 uid="uid://bseex4wnstito"]
-
-[ext_resource type="Script" path="res://game_systems/ai_behavior.gd" id="1_dt3f6"]
-[ext_resource type="Script" path="res://behaviors/random_action.gd" id="1_f4h11"]
-
-[resource]
-script = ExtResource("1_dt3f6")
-behavior = ExtResource("1_f4h11")
-args = []

@@ -21,6 +21,8 @@ func attack(value : int) -> void:
 			shield_cost = 0.0
 		if damage >= shield_cost:
 			damage = damage - floori(shield_cost) + _target.shield
+		elif shield_penetration_bonus < 1.0:
+			damage = 0
 		else:
 			damage = damage * ceili(shield_penetration_bonus)
 		var applied_damage := _target.apply_damage(damage, true)

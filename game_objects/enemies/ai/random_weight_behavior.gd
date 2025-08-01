@@ -1,11 +1,12 @@
-class_name RandomWeigthAction extends RefCounted
+class_name RandomWeightBehavior extends Behavior
 
-func get_next_action(enemy : Enemy, _args : Array[Variant]) -> Action:
-	var weight := _args
+@export var weight : Array[int] = []
+
+func get_next_action(enemy : Enemy) -> Action:
 	var actions := enemy.enemy_data.actions
 	var sum_weight := 0
 	for w in weight: 
-		sum_weight += w as int
+		sum_weight += w
 	var target := randi_range(0, sum_weight - 1)
 	var i := 0
 	var sum_it := 0

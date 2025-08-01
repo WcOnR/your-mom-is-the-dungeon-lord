@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Action" load_steps=3 format=3 uid="uid://ce0k3k4a4ipcn"]
+
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/boss_spawn_action.gd" id="1_khhu1"]
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_u3kyt"]
+
+[resource]
+script = ExtResource("1_u3kyt")
+behavior = ExtResource("1_khhu1")
+args = []

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://uc58sevrb0o7"]
+
+[ext_resource type="Texture2D" uid="uid://bpg7egfq8tieo" path="res://game_objects/rooms/boss_room/boss_bg.png" id="1_bnqfx"]
+[ext_resource type="PackedScene" uid="uid://b6s25t3xxttat" path="res://game_objects/enemies/line_holder.tscn" id="2_kb074"]
+[ext_resource type="PackedScene" uid="uid://ycrf4vt7dlqs" path="res://game_objects/game_mode/battle_game_mode/battle_game_mode.tscn" id="3_7a7kg"]
+[ext_resource type="PackedScene" uid="uid://h8i61u7scjja" path="res://ui/phone/phone.tscn" id="4_hd82y"]
+
+[node name="BossRoom" type="Node2D"]
+
+[node name="BossBg" type="Sprite2D" parent="."]
+position = Vector2(-10, -10)
+texture = ExtResource("1_bnqfx")
+centered = false
+
+[node name="LineHolder" parent="." instance=ExtResource("2_kb074")]
+position = Vector2(570, 902)
+
+[node name="GameMode" parent="." instance=ExtResource("3_7a7kg")]
+battle_fade = NodePath("../CanvasLayer/BattleFade")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BattleFade" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 0)
+z_index = -6
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Phone" parent="CanvasLayer" instance=ExtResource("4_hd82y")]
+position = Vector2(1515, 500)

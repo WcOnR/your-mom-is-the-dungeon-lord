@@ -4,15 +4,15 @@
 [ext_resource type="Resource" uid="uid://o10377evkcr4" path="res://game_objects/enemies/combat_actions/mix_field_action.tres" id="2_rqbrp"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_5f3po"]
 [ext_resource type="Resource" uid="uid://be21m8tftvi4y" path="res://game_objects/enemies/combat_actions/bottom_spikes_action.tres" id="3_b7b7f"]
-[ext_resource type="Resource" uid="uid://bseex4wnstito" path="res://game_objects/enemies/ai/pick_random_action.tres" id="3_hb45h"]
-[ext_resource type="Texture2D" uid="uid://cos5i0goi4s1l" path="res://game_objects/enemies/statue/statue.png" id="4_vsfml"]
+[ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="4_hkxxy"]
 [ext_resource type="Script" path="res://system/audio_data.gd" id="5_2plmn"]
 [ext_resource type="AudioStream" uid="uid://bjqpmglimv1wp" path="res://sounds/statue_hit.ogg" id="6_kfo0i"]
+[ext_resource type="Texture2D" uid="uid://m8icdb2tay4n" path="res://game_objects/enemies/statue/statue.png" id="8_aa2bp"]
 
 [sub_resource type="Resource" id="Resource_4vkvt"]
 script = ExtResource("5_2plmn")
 stream = ExtResource("6_kfo0i")
-volume_db = -20.0
+volume_db = -10.0
 pitch_scale = 1.0
 
 [resource]
@@ -22,6 +22,6 @@ max_health = 100
 damage = 10
 reward = 200
 actions = Array[ExtResource("1_bi2n5")]([ExtResource("2_rqbrp"), ExtResource("3_b7b7f")])
-behavior = ExtResource("3_hb45h")
-texture = ExtResource("4_vsfml")
+behavior = ExtResource("4_hkxxy")
+texture = ExtResource("8_aa2bp")
 hit_sound = SubResource("Resource_4vkvt")

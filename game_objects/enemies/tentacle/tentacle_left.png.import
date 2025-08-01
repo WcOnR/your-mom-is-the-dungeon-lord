@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlgiumwvfsi3a"
-path="res://.godot/imported/SlimeMage.png-5627b16550e907895cd2c49b15c660cf.ctex"
+uid="uid://n147o31hrgxp"
+path="res://.godot/imported/tentacle_left.png-5cb5471ce73bf6815a2cf2a0f0b9a863.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_objects/enemies/slime_mage/SlimeMage.png"
-dest_files=["res://.godot/imported/SlimeMage.png-5627b16550e907895cd2c49b15c660cf.ctex"]
+source_file="res://game_objects/enemies/tentacle/tentacle_left.png"
+dest_files=["res://.godot/imported/tentacle_left.png-5cb5471ce73bf6815a2cf2a0f0b9a863.ctex"]
 
 [params]
 

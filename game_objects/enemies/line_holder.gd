@@ -36,6 +36,13 @@ func spawn_enemies(battle : BattlePreset) -> void:
 	_update_active_lines()
 
 
+func spawn_enemy_on_line(data : EnemyData, i : int) -> void:
+	if not lines[i].enemies.is_empty():
+		return
+	lines[i].set_enemies([data])
+	_update_active_lines()
+
+
 func apply_damage(damage : int) -> void:
 	var enemies := lines[selected_line].enemies
 	if not enemies.is_empty():
@@ -56,6 +63,14 @@ func get_active_lines_count() -> int:
 		if not l.enemies.is_empty():
 			i += 1
 	return i
+
+
+func get_front_enemy_health_comp() -> Array[HealthComp]:
+	var result : Array[HealthComp] = []
+	for l in lines:
+		if not l.enemies.is_empty():
+			result.append(l.enemies[0].health_comp)
+	return result
 
 
 func get_wasnt_move_enemies() -> int:

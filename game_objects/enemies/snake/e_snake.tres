@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=10 format=3 uid="uid://bi5rpiwd7u6hg"]
+
+[ext_resource type="Script" path="res://game_systems/action.gd" id="1_r8qfa"]
+[ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="2_8oyh7"]
+[ext_resource type="Resource" uid="uid://c3xcg1t48rkj0" path="res://game_objects/enemies/combat_actions/snake_bite_action.tres" id="2_dav44"]
+[ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="2_ij3kg"]
+[ext_resource type="Resource" uid="uid://fa306uhydj8a" path="res://game_objects/enemies/combat_actions/venom_attack_action.tres" id="3_mn3gp"]
+[ext_resource type="Texture2D" uid="uid://dsxg3w266gnrm" path="res://game_objects/enemies/snake/snake.png" id="4_tnraw"]
+[ext_resource type="Script" path="res://system/audio_data.gd" id="5_jqpdm"]
+[ext_resource type="AudioStream" uid="uid://cx7lgrun3gjo5" path="res://sounds/snake_hit.ogg" id="6_yybxa"]
+
+[sub_resource type="Resource" id="Resource_e0t2a"]
+script = ExtResource("5_jqpdm")
+stream = ExtResource("6_yybxa")
+volume_db = 0.0
+pitch_scale = 1.0
+
+[resource]
+script = ExtResource("2_ij3kg")
+name = "Snake"
+max_health = 50
+damage = 75
+reward = 150
+actions = Array[ExtResource("1_r8qfa")]([ExtResource("2_dav44"), ExtResource("3_mn3gp")])
+behavior = ExtResource("2_8oyh7")
+texture = ExtResource("4_tnraw")
+hit_sound = SubResource("Resource_e0t2a")

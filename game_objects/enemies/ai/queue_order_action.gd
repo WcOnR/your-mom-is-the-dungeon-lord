@@ -1,10 +1,12 @@
-class_name QueueOrderAction extends RefCounted
+class_name QueueOrderAction extends Behavior
 
 const LAST_QUEUE_IDX : StringName = "last_queue_idx"
+@export var start_from_random_id := false
 
-func get_next_action(enemy : Enemy, _args : Array[Variant]) -> Action:
+
+func get_next_action(enemy : Enemy) -> Action:
 	var i := 0
-	if not _args.is_empty() and _args[0] as bool:
+	if start_from_random_id:
 		i = randi_range(0, enemy.enemy_data.actions.size() - 1)
 	if LAST_QUEUE_IDX in enemy.memory:
 		i = 1 + enemy.memory[LAST_QUEUE_IDX] as int
