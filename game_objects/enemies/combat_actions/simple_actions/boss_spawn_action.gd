@@ -5,7 +5,7 @@ const LEFT_TENTACLE : EnemyData = preload("res://game_objects/enemies/tentacle/e
 const RIGHT_TENTACLE : EnemyData = preload("res://game_objects/enemies/tentacle/e_tentacle_right.tres")
 
 
-func on_plan(enemy : Enemy, line : BattleLine) -> void:
+func on_plan(_enemy : Enemy, line : BattleLine) -> void:
 	line.set_action(0, ICON, true)
 
 

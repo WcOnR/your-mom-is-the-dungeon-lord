@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="BattlePreset" load_steps=6 format=3 uid="uid://c1c35l7s1p3o"]
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=7 format=3 uid="uid://c1c35l7s1p3o"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_ro7xr"]
 [ext_resource type="Resource" uid="uid://5qtmryjtf2th" path="res://game_objects/enemies/elf/e_elf.tres" id="2_onlxp"]
-[ext_resource type="Resource" uid="uid://bjiryiqv0mvnm" path="res://game_objects/enemies/statue/e_statue.tres" id="3_p7ntt"]
+[ext_resource type="Resource" uid="uid://b6dypfks1hutr" path="res://game_objects/enemies/boom_goblin/e_boom_goblin.tres" id="3_7mdwk"]
 [ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="3_vo5tn"]
 [ext_resource type="Resource" uid="uid://byapc2k7gle4p" path="res://game_objects/enemies/skillet_shield/e_skillet_shield.tres" id="4_an6wi"]
+[ext_resource type="Resource" uid="uid://r5xxbsm8oy84" path="res://game_objects/enemies/goblin/e_goblin.tres" id="5_6tmwi"]
 
 [resource]
 script = ExtResource("3_vo5tn")
-line1 = Array[ExtResource("1_ro7xr")]([ExtResource("2_onlxp"), ExtResource("3_p7ntt")])
+line1 = Array[ExtResource("1_ro7xr")]([ExtResource("2_onlxp"), ExtResource("3_7mdwk")])
 line2 = Array[ExtResource("1_ro7xr")]([ExtResource("4_an6wi")])
-line3 = Array[ExtResource("1_ro7xr")]([ExtResource("3_p7ntt"), ExtResource("2_onlxp")])
+line3 = Array[ExtResource("1_ro7xr")]([ExtResource("5_6tmwi"), ExtResource("2_onlxp")])

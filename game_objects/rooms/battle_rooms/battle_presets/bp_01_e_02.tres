@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_cgole"]
 [ext_resource type="Resource" uid="uid://dx31823ylxmtu" path="res://game_objects/enemies/seeker/e_seeker.tres" id="2_0uiqh"]
-[ext_resource type="Resource" uid="uid://bjiryiqv0mvnm" path="res://game_objects/enemies/statue/e_statue.tres" id="3_36wtx"]
+[ext_resource type="Resource" uid="uid://bi5rpiwd7u6hg" path="res://game_objects/enemies/snake/e_snake.tres" id="3_6w8n1"]
 [ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="5_s28bd"]
 
 [resource]
 script = ExtResource("5_s28bd")
 line1 = Array[ExtResource("1_cgole")]([])
-line2 = Array[ExtResource("1_cgole")]([ExtResource("2_0uiqh"), ExtResource("3_36wtx"), ExtResource("2_0uiqh")])
+line2 = Array[ExtResource("1_cgole")]([ExtResource("2_0uiqh"), ExtResource("3_6w8n1"), ExtResource("2_0uiqh")])
 line3 = Array[ExtResource("1_cgole")]([])

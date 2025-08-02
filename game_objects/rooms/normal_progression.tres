@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ProgressionPreset" load_steps=15 format=3 uid="uid://b4df8mtemc2vj"]
+[gd_resource type="Resource" script_class="ProgressionPreset" load_steps=16 format=3 uid="uid://b4df8mtemc2vj"]
 
 [ext_resource type="Script" path="res://game_objects/rooms/room_preset.gd" id="1_2lt7t"]
 [ext_resource type="Resource" uid="uid://b02t306uvs0ud" path="res://game_objects/rooms/shop_room/shop_room_preset.tres" id="2_03wbd"]
@@ -14,7 +14,8 @@
 [ext_resource type="Resource" uid="uid://d37244ctsbrbu" path="res://game_objects/rooms/battle_rooms/bd_05.tres" id="11_4fxrk"]
 [ext_resource type="Resource" uid="uid://biidgrrbhe6lv" path="res://game_objects/rooms/battle_rooms/bd_04_e.tres" id="11_ty0lp"]
 [ext_resource type="Resource" uid="uid://cyahxvlt0n1ga" path="res://game_objects/rooms/battle_rooms/bd_05_e.tres" id="12_vp1hr"]
+[ext_resource type="Resource" uid="uid://cd5wc30n2plp5" path="res://game_objects/rooms/boss_room/boss_room_preset.tres" id="14_0autu"]
 
 [resource]
 script = ExtResource("2_x7iit")
-rooms = Array[ExtResource("1_2lt7t")]([ExtResource("2_il1in"), ExtResource("2_il1in"), ExtResource("3_b3nxl"), ExtResource("4_wn3lu"), ExtResource("5_ecpxw"), ExtResource("5_ecpxw"), ExtResource("2_03wbd"), ExtResource("7_j6til"), ExtResource("8_1l0tm"), ExtResource("8_1l0tm"), ExtResource("3_b3nxl"), ExtResource("2_03wbd"), ExtResource("9_a83l3"), ExtResource("10_uvbwm"), ExtResource("10_uvbwm"), ExtResource("3_b3nxl"), ExtResource("11_ty0lp"), ExtResource("11_4fxrk"), ExtResource("11_4fxrk"), ExtResource("2_03wbd"), ExtResource("12_vp1hr")])
+rooms = Array[ExtResource("1_2lt7t")]([ExtResource("2_il1in"), ExtResource("2_il1in"), ExtResource("3_b3nxl"), ExtResource("4_wn3lu"), ExtResource("5_ecpxw"), ExtResource("5_ecpxw"), ExtResource("2_03wbd"), ExtResource("7_j6til"), ExtResource("8_1l0tm"), ExtResource("8_1l0tm"), ExtResource("3_b3nxl"), ExtResource("2_03wbd"), ExtResource("9_a83l3"), ExtResource("10_uvbwm"), ExtResource("10_uvbwm"), ExtResource("3_b3nxl"), ExtResource("11_ty0lp"), ExtResource("11_4fxrk"), ExtResource("11_4fxrk"), ExtResource("12_vp1hr"), ExtResource("2_03wbd"), ExtResource("14_0autu")])

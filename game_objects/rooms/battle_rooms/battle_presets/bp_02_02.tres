@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="BattlePreset" load_steps=5 format=3 uid="uid://cc07nt4s2hyk8"]
+[gd_resource type="Resource" script_class="BattlePreset" load_steps=6 format=3 uid="uid://cc07nt4s2hyk8"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_mhp67"]
 [ext_resource type="Resource" uid="uid://dx31823ylxmtu" path="res://game_objects/enemies/seeker/e_seeker.tres" id="2_q2nx8"]
 [ext_resource type="Resource" uid="uid://5qtmryjtf2th" path="res://game_objects/enemies/elf/e_elf.tres" id="3_lbt05"]
+[ext_resource type="Resource" uid="uid://bi5rpiwd7u6hg" path="res://game_objects/enemies/snake/e_snake.tres" id="4_3elwk"]
 [ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="4_cr5jf"]
 
 [resource]
 script = ExtResource("4_cr5jf")
 line1 = Array[ExtResource("1_mhp67")]([ExtResource("2_q2nx8")])
-line2 = Array[ExtResource("1_mhp67")]([ExtResource("3_lbt05")])
+line2 = Array[ExtResource("1_mhp67")]([ExtResource("3_lbt05"), ExtResource("4_3elwk")])
 line3 = Array[ExtResource("1_mhp67")]([ExtResource("2_q2nx8")])

@@ -1,6 +1,11 @@
-[gd_resource type="Resource" script_class="FieldPositionAction" load_steps=2 format=3 uid="uid://byvqvieljyry5"]
+[gd_resource type="Resource" script_class="FieldPositionAction" load_steps=4 format=3 uid="uid://byvqvieljyry5"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_position_action.gd" id="1_vdm6t"]
+[ext_resource type="Script" path="res://game_objects/enemies/combat_actions/field_selector/mult_horizontal_slash.gd" id="2_68uou"]
+
+[sub_resource type="Resource" id="Resource_alcsk"]
+script = ExtResource("2_68uou")
 
 [resource]
 script = ExtResource("1_vdm6t")
+selector = SubResource("Resource_alcsk")

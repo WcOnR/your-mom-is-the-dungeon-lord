@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="BattlePreset" load_steps=6 format=3 uid="uid://binm8f55vkn4s"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="1_nf7nj"]
-[ext_resource type="Resource" uid="uid://dx31823ylxmtu" path="res://game_objects/enemies/seeker/e_seeker.tres" id="2_fjlfo"]
+[ext_resource type="Resource" uid="uid://bi5rpiwd7u6hg" path="res://game_objects/enemies/snake/e_snake.tres" id="2_corhj"]
 [ext_resource type="Script" path="res://game_objects/enemies/battle_preset.gd" id="3_ck1bq"]
 [ext_resource type="Resource" uid="uid://b4kbnjw5i8fjs" path="res://game_objects/enemies/slime_mage/e_slime_mage.tres" id="3_r6eb0"]
 [ext_resource type="Resource" uid="uid://r5xxbsm8oy84" path="res://game_objects/enemies/goblin/e_goblin.tres" id="4_02ncx"]
 
 [resource]
 script = ExtResource("3_ck1bq")
-line1 = Array[ExtResource("1_nf7nj")]([ExtResource("2_fjlfo")])
+line1 = Array[ExtResource("1_nf7nj")]([ExtResource("2_corhj")])
 line2 = Array[ExtResource("1_nf7nj")]([ExtResource("3_r6eb0")])
 line3 = Array[ExtResource("1_nf7nj")]([ExtResource("4_02ncx")])
