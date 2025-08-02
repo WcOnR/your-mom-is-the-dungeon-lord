@@ -88,7 +88,7 @@ func start_battle(preset : BattlePreset, is_elite : bool) -> void:
 	for line in _line_holder.lines:
 		for enemy in line.enemies:
 			enemy.health_comp.damage_cap.connect(_add_overhit.bind(ATTACKCAP))
-	_line_holder.all_enemy_all_dead.connect(_battle_end.bind(true))
+	_connect_battle_end()
 	_health_comp.death.connect(_battle_end.bind(false))
 	_field.action_clicked.connect(_next_turn)
 	_events[FLAWLESS_VICTORY] = _health_comp.health
@@ -160,6 +160,14 @@ func add_self_killed_enemy() -> void:
 	_events[IN_SELF_HIT] = _events[IN_SELF_HIT] + 1
 
 
+func _connect_battle_end() -> void:
+	_line_holder.all_enemy_all_dead.connect(_battle_end.bind(true))
+	
+
+func _disconnect_battle_end() -> void:
+	_line_holder.all_enemy_all_dead.disconnect(_battle_end)
+
+
 func _add_overhit(overhit : StringName) -> void:
 	if not overhit in _events:
 		_events[overhit] = 0
@@ -184,7 +192,7 @@ func _battle_end(is_win : bool) -> void:
 
 func _end_game(is_win : bool) -> void:
 	_set_state(State.WIN if is_win else State.LOST)
-	_line_holder.all_enemy_all_dead.disconnect(_battle_end)
+	_disconnect_battle_end()
 	_health_comp.death.disconnect(_battle_end)
 	if is_win:
 		SoundSystem.set_bg_state("final")

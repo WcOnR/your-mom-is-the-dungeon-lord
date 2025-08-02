@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://uc58sevrb0o7"]
+[gd_scene load_steps=6 format=3 uid="uid://uc58sevrb0o7"]
 
 [ext_resource type="Texture2D" uid="uid://bpg7egfq8tieo" path="res://game_objects/rooms/boss_room/boss_bg.png" id="1_bnqfx"]
 [ext_resource type="PackedScene" uid="uid://b6s25t3xxttat" path="res://game_objects/enemies/line_holder.tscn" id="2_kb074"]
 [ext_resource type="PackedScene" uid="uid://ycrf4vt7dlqs" path="res://game_objects/game_mode/battle_game_mode/battle_game_mode.tscn" id="3_7a7kg"]
 [ext_resource type="PackedScene" uid="uid://h8i61u7scjja" path="res://ui/phone/phone.tscn" id="4_hd82y"]
+[ext_resource type="Script" path="res://game_objects/game_mode/battle_game_mode/boss_battle_game_mode.gd" id="4_qks86"]
 
 [node name="BossRoom" type="Node2D"]
 
@@ -16,6 +17,7 @@ centered = false
 position = Vector2(570, 902)
 
 [node name="GameMode" parent="." instance=ExtResource("3_7a7kg")]
+script = ExtResource("4_qks86")
 battle_fade = NodePath("../CanvasLayer/BattleFade")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -27,7 +27,7 @@ func spawn_enemies(battle : BattlePreset) -> void:
 	var i := 0
 	while i < lines.size():
 		lines[i].set_enemies(enemy_data[i])
-		lines[i].enemy_dead.connect(_on_enemy_dead)
+		lines[i].enemy_dead.connect(_on_enemy_dead.bind(i))
 		for enemy in lines[i].enemies:
 			_wasnt_move[enemy] = null
 			enemy.start_action.connect(_on_first_enemy_move.bind(enemy))
@@ -132,17 +132,19 @@ func _on_click_action(_data : ClickData) -> void:
 	_selct_line(new_select)
 
 
-func _on_enemy_dead() -> void:
+func _on_enemy_dead(id : int) -> void:
 	_update_active_lines()
-	var enemies := lines[selected_line].enemies
+	var enemies := lines[id].enemies
 	if enemies.is_empty():
-		_select_next_line()
+		if id == selected_line:
+			_select_next_line()
 		if selected_line == -1:
 			all_enemy_all_dead.emit()
 	else:
 		if _game_mode.is_state(BattleGameMode.State.PLAYER_MOVE):
-			enemies[0].plan_next_attack(lines[selected_line])
-			_player.set_enemy(enemies[0])
+			enemies[0].plan_next_attack(lines[id])
+			if id == selected_line:
+				_player.set_enemy(enemies[0])
 
 
 func _update_active_lines() -> void:
@@ -156,6 +158,7 @@ func enemy_attack() -> void:
 	for l in lines:
 		if not l.enemies.is_empty():
 			await get_tree().create_timer(0.2).timeout
+		if not l.enemies.is_empty():
 			await l.enemies[0].attack(_player)
 			if l.enemies[0].health_comp.is_dead():
 				_game_mode.add_self_killed_enemy()

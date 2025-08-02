@@ -26,6 +26,7 @@ name = "Mother"
 max_health = 2000
 damage = 10
 reward = 100
+is_boss = true
 actions = Array[ExtResource("1_lhtwf")]([ExtResource("2_fckun"), ExtResource("3_1blkl"), ExtResource("4_6inc8"), ExtResource("5_stxob"), ExtResource("6_1ekdh"), ExtResource("7_mktfw"), ExtResource("8_3fkjj")])
 behavior = ExtResource("7_iv2q1")
 texture = ExtResource("4_mjvki")
