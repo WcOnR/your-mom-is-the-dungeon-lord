@@ -23,6 +23,7 @@ name = "Tentacle"
 max_health = 100
 damage = 30
 reward = 0
+is_boss = false
 actions = Array[ExtResource("1_byn5k")]([SubResource("Resource_mrqtw")])
 behavior = ExtResource("3_07r3x")
 texture = ExtResource("5_wrq6j")

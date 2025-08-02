@@ -21,6 +21,7 @@ name = "Statue"
 max_health = 100
 damage = 10
 reward = 200
+is_boss = false
 actions = Array[ExtResource("1_aiw2t")]([ExtResource("2_rqbrp"), ExtResource("3_b7b7f")])
 behavior = ExtResource("4_hkxxy")
 texture = ExtResource("8_aa2bp")

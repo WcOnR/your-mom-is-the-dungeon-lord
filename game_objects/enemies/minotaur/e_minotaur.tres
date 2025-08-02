@@ -24,6 +24,7 @@ name = "Minotaur"
 max_health = 300
 damage = 75
 reward = 500
+is_boss = false
 actions = Array[ExtResource("1_6c431")]([SubResource("Resource_5bwje"), ExtResource("3_0aott")])
 behavior = ExtResource("3_nwfwh")
 texture = ExtResource("5_6spjh")

@@ -28,6 +28,7 @@ name = "Skillet"
 max_health = 55
 damage = 30
 reward = 400
+is_boss = false
 actions = Array[ExtResource("1_lsulj")]([SubResource("Resource_ylnkl"), SubResource("Resource_ijf72"), ExtResource("3_md0ny")])
 behavior = ExtResource("5_clduy")
 texture = ExtResource("6_sj27i")

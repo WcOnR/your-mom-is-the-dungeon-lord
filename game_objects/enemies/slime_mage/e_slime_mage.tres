@@ -22,6 +22,7 @@ name = "Slime Mage"
 max_health = 250
 damage = 10
 reward = 400
+is_boss = false
 actions = Array[ExtResource("1_aek4b")]([ExtResource("4_1uiju"), ExtResource("2_1xi16"), ExtResource("2_5356s")])
 behavior = ExtResource("5_2607j")
 texture = ExtResource("4_cfkx4")

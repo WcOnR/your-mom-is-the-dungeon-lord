@@ -28,6 +28,7 @@ name = "Elf"
 max_health = 50
 damage = 30
 reward = 150
+is_boss = false
 actions = Array[ExtResource("1_4ql8p")]([SubResource("Resource_8bp35"), ExtResource("2_t5tu2")])
 behavior = SubResource("Resource_ymh15")
 texture = ExtResource("4_8utk1")

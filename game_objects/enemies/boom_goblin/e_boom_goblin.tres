@@ -23,6 +23,7 @@ name = "Boom Goblin"
 max_health = 40
 damage = 100
 reward = 100
+is_boss = false
 actions = Array[ExtResource("1_ojmqo")]([SubResource("Resource_5skru")])
 behavior = ExtResource("2_723tr")
 texture = ExtResource("4_xwm65")

@@ -25,6 +25,7 @@ name = "Goblin"
 max_health = 45
 damage = 25
 reward = 250
+is_boss = false
 actions = Array[ExtResource("1_jx6qd")]([SubResource("Resource_23f2f"), ExtResource("4_qsfiv"), ExtResource("3_u5c0i")])
 behavior = ExtResource("5_wjk4l")
 texture = ExtResource("9_ot17k")

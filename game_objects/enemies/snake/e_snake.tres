@@ -24,6 +24,7 @@ name = "Snake"
 max_health = 50
 damage = 75
 reward = 150
+is_boss = false
 actions = Array[ExtResource("1_oeti3")]([SubResource("Resource_xybmx"), ExtResource("3_6nxwp")])
 behavior = ExtResource("2_8oyh7")
 texture = ExtResource("4_tnraw")
