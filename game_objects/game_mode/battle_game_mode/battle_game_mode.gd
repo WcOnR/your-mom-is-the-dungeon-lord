@@ -53,8 +53,9 @@ func _ready() -> void:
 
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_W):
-		_line_holder.debug_kill_all()
+	if OS.has_feature("editor"):
+		if Input.is_key_pressed(KEY_W):
+			_line_holder.debug_kill_all()
 
 
 func set_phone(phone : Phone) -> void:
