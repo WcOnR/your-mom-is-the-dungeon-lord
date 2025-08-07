@@ -4,7 +4,6 @@ class_name World extends Node2D
 @export var preset : ProgressionPreset = null
 @export var game_autoload : PackedScene = null
 @export var final_scene : PackedScene = null
-@export var main_theme : AudioData = null
 
 
 func _ready() -> void:

@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=15 format=3 uid="uid://bnxs6ld36fj0o"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=14 format=3 uid="uid://bnxs6ld36fj0o"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/battle_action.gd" id="1_lhtwf"]
 [ext_resource type="Resource" uid="uid://cm6goyqk4iw5x" path="res://game_objects/enemies/combat_actions/boss_shuffle_action.tres" id="2_fckun"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="2_tqlp2"]
-[ext_resource type="Resource" uid="uid://baumrnftnj82s" path="res://game_objects/enemies/combat_actions/boss_spawn_action.tres" id="3_1blkl"]
 [ext_resource type="Resource" uid="uid://btawkxv51w2b2" path="res://game_objects/enemies/combat_actions/horizontal_slash_action.tres" id="4_6inc8"]
 [ext_resource type="Texture2D" uid="uid://f2oqpqam7sh8" path="res://game_objects/enemies/boss/boss.png" id="4_mjvki"]
 [ext_resource type="Resource" uid="uid://b7etlijwtnund" path="res://game_objects/enemies/combat_actions/vertical_slash_action.tres" id="5_stxob"]
@@ -27,7 +26,7 @@ max_health = 2000
 damage = 10
 reward = 100
 is_boss = true
-actions = Array[ExtResource("1_lhtwf")]([ExtResource("2_fckun"), ExtResource("3_1blkl"), ExtResource("4_6inc8"), ExtResource("5_stxob"), ExtResource("6_1ekdh"), ExtResource("7_mktfw"), ExtResource("8_3fkjj")])
+actions = Array[ExtResource("1_lhtwf")]([ExtResource("2_fckun"), ExtResource("4_6inc8"), ExtResource("5_stxob"), ExtResource("6_1ekdh"), ExtResource("7_mktfw"), ExtResource("8_3fkjj")])
 behavior = ExtResource("7_iv2q1")
 texture = ExtResource("4_mjvki")
 hit_sound = SubResource("Resource_pih32")

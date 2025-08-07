@@ -1,25 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8hqsq106wcho"]
+[gd_scene load_steps=13 format=3 uid="uid://c8hqsq106wcho"]
 
 [ext_resource type="Script" path="res://game_objects/rooms/world.gd" id="1_ngkjm"]
 [ext_resource type="Resource" uid="uid://b4df8mtemc2vj" path="res://game_objects/rooms/normal_progression.tres" id="2_uyyti"]
 [ext_resource type="PackedScene" uid="uid://dgplpiie3wm0u" path="res://game_systems/game_autoload.tscn" id="3_5d151"]
 [ext_resource type="PackedScene" uid="uid://bwhreyk8calwh" path="res://game_objects/rooms/win_scene.tscn" id="4_xrbgg"]
 [ext_resource type="Script" path="res://game_objects/camera.gd" id="5_b6c1w"]
-[ext_resource type="Script" path="res://system/audio_data.gd" id="5_yksuj"]
 [ext_resource type="AudioStream" uid="uid://qs6c5kxdg16l" path="res://sounds/backgrounds/main_theam.ogg" id="6_76wws"]
 [ext_resource type="AudioStream" uid="uid://nsw3l40qpi6m" path="res://sounds/backgrounds/530161__flamiffer__dungeon-air.ogg" id="8_7tsry"]
 [ext_resource type="AudioStream" uid="uid://c6gw6chchuev8" path="res://sounds/backgrounds/shop_theme.ogg" id="9_0g5om"]
 [ext_resource type="AudioStream" uid="uid://cgje3vttul61i" path="res://sounds/backgrounds/cristal_cave_ambient.ogg" id="9_02r0m"]
 [ext_resource type="AudioStream" uid="uid://bidi2gsowhx60" path="res://sounds/backgrounds/final_theam.ogg" id="10_l7foh"]
-
-[sub_resource type="Resource" id="Resource_eg6fp"]
-script = ExtResource("5_yksuj")
-stream = ExtResource("6_76wws")
-volume_db = -6.0
-pitch_scale = 1.0
+[ext_resource type="AudioStream" uid="uid://clehkdjew333" path="res://sounds/backgrounds/boss_theam.ogg" id="11_d20sk"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_tj11b"]
-clip_count = 5
+clip_count = 6
 clip_0/name = &"main"
 clip_0/stream = ExtResource("6_76wws")
 clip_0/auto_advance = 0
@@ -31,11 +25,13 @@ clip_2/stream = ExtResource("9_0g5om")
 clip_2/auto_advance = 0
 clip_3/name = &"final"
 clip_3/stream = ExtResource("10_l7foh")
-clip_3/auto_advance = 1
-clip_3/next_clip = 3
+clip_3/auto_advance = 0
 clip_4/name = &"death"
 clip_4/stream = ExtResource("8_7tsry")
 clip_4/auto_advance = 0
+clip_5/name = &"boss"
+clip_5/stream = ExtResource("11_d20sk")
+clip_5/auto_advance = 0
 _transitions = {
 Vector2i(0, 0): {
 "fade_beats": 1,
@@ -84,6 +80,18 @@ Vector2i(2, 0): {
 "fade_mode": 3,
 "from_time": 1,
 "to_time": 0
+},
+Vector2i(2, 2): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 1
+},
+Vector2i(5, 3): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 1
 }
 }
 
@@ -92,7 +100,6 @@ script = ExtResource("1_ngkjm")
 preset = ExtResource("2_uyyti")
 game_autoload = ExtResource("3_5d151")
 final_scene = ExtResource("4_xrbgg")
-main_theme = SubResource("Resource_eg6fp")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

@@ -86,8 +86,11 @@ func start_battle(preset : BattlePreset, is_elite : bool) -> void:
 	_health_comp.shield_cap.connect(_add_overhit.bind(SHIELDCAP))
 	_health_comp.damage_cap.connect(_add_overhit.bind(SKULLCAP))
 	_line_holder.spawn_enemies(preset)
+	var has_boss := false
 	for line in _line_holder.lines:
 		for enemy in line.enemies:
+			if enemy.enemy_data.is_boss:
+				has_boss = true
 			enemy.health_comp.damage_cap.connect(_add_overhit.bind(ATTACKCAP))
 	_connect_battle_end()
 	_health_comp.death.connect(_battle_end.bind(false))
@@ -95,7 +98,7 @@ func start_battle(preset : BattlePreset, is_elite : bool) -> void:
 	_events[FLAWLESS_VICTORY] = _health_comp.health
 	_events[IN_ONE_TURN] = null
 	_events[IN_SELF_HIT] = 0
-	SoundSystem.set_bg_state("main")
+	SoundSystem.set_bg_state("boss" if has_boss else "main")
 	battle_started.emit()
 	_start_round()
 

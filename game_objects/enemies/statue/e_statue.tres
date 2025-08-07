@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=10 format=3 uid="uid://bjiryiqv0mvnm"]
 
 [ext_resource type="Script" path="res://game_objects/enemies/combat_actions/battle_action.gd" id="1_aiw2t"]
-[ext_resource type="Resource" uid="uid://t7jm4kwe5ua8" path="res://game_objects/enemies/combat_actions/mix_field_action.tres" id="2_rqbrp"]
+[ext_resource type="Resource" uid="uid://bnesaodld8nec" path="res://game_objects/enemies/combat_actions/statue_shuffle_action.tres" id="2_tgfnm"]
 [ext_resource type="Script" path="res://game_objects/enemies/enemy_data.gd" id="3_5f3po"]
 [ext_resource type="Resource" uid="uid://djfsu8ukf0x3e" path="res://game_objects/enemies/combat_actions/bottom_spikes_action.tres" id="3_b7b7f"]
 [ext_resource type="Resource" uid="uid://c35t5esc55f7c" path="res://game_objects/enemies/ai/random_behavior.tres" id="4_hkxxy"]
@@ -22,7 +22,7 @@ max_health = 100
 damage = 10
 reward = 200
 is_boss = false
-actions = Array[ExtResource("1_aiw2t")]([ExtResource("2_rqbrp"), ExtResource("3_b7b7f")])
+actions = Array[ExtResource("1_aiw2t")]([ExtResource("2_tgfnm"), ExtResource("3_b7b7f")])
 behavior = ExtResource("4_hkxxy")
 texture = ExtResource("8_aa2bp")
 hit_sound = SubResource("Resource_4vkvt")
