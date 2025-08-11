@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://qwdqnmmn2fup" path="res://ui/widgets/whiteout.png" id="3_ednma"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mjw3"]
-size = Vector2(256, 400)
+size = Vector2(256, 550)
 
 [node name="BattleLine" type="Area2D"]
 script = ExtResource("1_lr1ic")
@@ -21,7 +21,7 @@ expand_mode = 1
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -200)
+position = Vector2(0, -275)
 shape = SubResource("RectangleShape2D_5mjw3")
 
 [node name="Target" type="Polygon2D" parent="."]
